@@ -1,4 +1,4 @@
-from src.read_txt import read_txt
+from utils.read_txt import read_txt
 
 def clean_data(data_case:str):
     input_list = read_txt(data_case) # retrieving data in function
