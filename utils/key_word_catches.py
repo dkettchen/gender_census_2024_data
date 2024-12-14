@@ -13,6 +13,9 @@ words_catching = {
         "tomboy",
         'noroboyic',
         "hrt femboy", # this is transfemme specific
+        'flamboy',
+        "boycott",
+        "aboyic",
     ],
     "boi": [
         "tomboi",
@@ -49,14 +52,27 @@ words_catching = {
         "salamander",
         "doberman",
         "performance",
-        "woman",
+        "human",
+        'femandro', 
+        "hooman",
+        "manda",
+        "romani",
+        "charmander",
+        "command",
+        "dormant",
+        "mantis",
+        "man-naar-vrouw",
+        "(wo)man",
+        'seiðmann', 
+        "mangle",
     ],
     "male": [
         'nemale', 
         "shemale",
         "male-to-x",
         'malefuta', 
-        "female"
+        "female",
+        "fe(male)",
     ],
     "sir": [
         'siren',
@@ -71,6 +87,7 @@ words_catching = {
         "lady",
         "ladies",
         "salad",
+        'paladin',
     ],
     "lord": [],
     "dad": [
@@ -79,6 +96,12 @@ words_catching = {
     "mr": [
         "mrs",
         "comrade",
+        "mr. potato head",
+        'mraow', # fucking cats
+        'mreow', 
+        'mrow', 
+        'mrrp', 
+        "mr grinch",
     ],
     "mister": [],
     "son": [
@@ -90,12 +113,15 @@ words_catching = {
         "reason",
         "seasoning",
         "sona",
+        "person",
     ],
     "bro": [
         "broad",
         "brought",
         "broke", # incl broken
         "abro",
+        "brown",
+        "fibromyalgia",
     ],
     "bloke": [],
     "bxy": [],

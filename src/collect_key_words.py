@@ -29,7 +29,9 @@ def collect_key_words_from_q2(input_list):
         ("trans", "guy"),
         ("trans", "girl"),
         "transv","cross","drag","trav",
+        "sissy",
         "tran", ("tr","nny"), # tryna catch slurs too
+        "queen", # leaving this separate due to gay connotation
 
         "girl","woman","lady","gal","female","chic","maiden",
         ("ma","am"),"mom","mum","miss","ms","daughter","sister","gxrl","wxman","womxn",
@@ -88,6 +90,7 @@ def collect_key_words_from_q2(input_list):
         "black",("n","gga"), # I saw the n word in there somewhere
         "sian", # to catch gaysian etc too
         "muslim", # I've seen a muslim mention!
+        "jew", # there was a jew mention too
         "brown", 
         'romani', 
         
