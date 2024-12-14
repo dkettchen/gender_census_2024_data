@@ -1,3 +1,7 @@
+#TODO: 
+# add keys for race mentions ✅
+# add keys for pronouns other than they/them ✅
+
 def collect_key_words_from_q2(input_list):
     """
     takes a list of custom gender label strings (question 2)
@@ -23,14 +27,16 @@ def collect_key_words_from_q2(input_list):
         ("trans", "girl"),
         "transv","cross","drag","trav",
         "tran", ("tr","nny"), # tryna catch slurs too
+
         "girl","woman","lady","gal","female","chic","maiden",
         ("ma","am"),"mom","mum","miss","ms","daughter","sister","gxrl","wxman","womxn",
+
         "guy","dude","boy","boi","bot","man","male","sir","lad","lord",
         "dad","mr","mister","son","bro","bloke","bxy","bruv",
+
         "afab","dfab",
         "amab","dmab",
-        "ftm",
-        "mtf",
+        "ftm","mtf",
         "question",
         'nonbinary','enby',
         'queer',
@@ -46,7 +52,9 @@ def collect_key_words_from_q2(input_list):
         'demiboy',
         'demigirl',
         ("fag","dyke"),
-        "dyke","lesb","lez","les","sapph",
+        "dyke",
+        "lesb","lez","les",
+        "sapph",
         "fag","gay","achillean","homo"
         "xeno",
         "flux",
@@ -72,7 +80,12 @@ def collect_key_words_from_q2(input_list):
         "demi",
         "sex",
         "trap",
-        "gender" # this gets us a solid 2k extra catches atm 
+        "gender", # this gets us a solid 2k extra catches atm 
+
+        "black",("n","gga"), # I saw the n word in there somewhere
+        "sian", # to catch gaysian etc too
+        "she","her",
+        "he","him",
     ]
 
     # make dict
@@ -202,6 +215,14 @@ def collect_key_words_from_q2(input_list):
                 umbrella_word = "two-spirit"
             elif key_word in ["butch", "masc","tomboy",]:
                 umbrella_word = "butch/masc/tomboy"
+            elif key_word in ["black", ("n","gga")]:
+                umbrella_word = "black"
+            elif key_word == "sian":
+                umbrella_word = "asian"
+            elif key_word in ["she","her"]:
+                umbrella_word = "she/her"
+            elif key_word in ["he","him"]:
+                umbrella_word = "he/him"
             else: umbrella_word = key_word # if it doesn't need to be different
 
             # find words 
