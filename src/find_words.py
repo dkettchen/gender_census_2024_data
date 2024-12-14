@@ -82,6 +82,8 @@ def find_known_birthsexes(new_dict, reference_dict, input_str):
 
     input_dict = deepcopy(new_dict)
 
+    # should also find any mention of pussy, seahorse, womb, uterus bc the afabs be labelling that shit
+
     for known_birthsex in [ # finding birthsexes we know about
             ("afab", "transmasc", "cis woman"),
             ("amab", "transfemme", "cis man")
@@ -96,6 +98,26 @@ def find_known_birthsexes(new_dict, reference_dict, input_str):
                 input_dict[birthsex].append(input_str)
 
     return input_dict
+
+# find overlap between male & female groups (where both are mentioned)
+    # clean up male & female categories to exclude double mentions 
+    # -> remove any woMAN catches from "both" category (via cleaned "woman" category)
+# combine with "both" category
+
+# combine "gay woman" & "lesbian" categories
+
+# make a category for lesbianism for men tm
+
+# make men & women versions for various "/" separated items 
+# (bc we can't plug em into the adj one as is)
+
+# make a male-aligned/female-aligned category (ie including demiboy/girl, relevant pronouns, etc)
+
+# make a category of all explicitly queer language used 
+# (ie not neo-gender shit but sexuality related, 
+# ie gay, lesbian, various slurs, twink, bear, etc)
+
+# make remainder categories of all unaligned versions of other labels (adjectives etc)
 
 def cross_reference_narrow_down(input_dict, input_list):
 
