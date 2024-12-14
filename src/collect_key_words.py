@@ -2,6 +2,9 @@
 # add keys for race mentions ✅
 # add keys for pronouns other than they/them ✅
 
+from utils.key_word_catches import words_catching
+from re import split
+
 def collect_key_words_from_q2(input_list):
     """
     takes a list of custom gender label strings (question 2)
@@ -84,6 +87,10 @@ def collect_key_words_from_q2(input_list):
 
         "black",("n","gga"), # I saw the n word in there somewhere
         "sian", # to catch gaysian etc too
+        "muslim", # I've seen a muslim mention!
+        "brown", 
+        'romani', 
+        
         "she","her",
         "he","him",
     ]
@@ -225,6 +232,14 @@ def collect_key_words_from_q2(input_list):
                 umbrella_word = "he/him"
             else: umbrella_word = key_word # if it doesn't need to be different
 
+            # words we don't mean that might catch on our key words!
+            if key_word in words_catching:
+                words_that_catch = words_catching[key_word]
+            elif umbrella_word in words_catching: # for tuples
+                words_that_catch = words_catching[umbrella_word]
+            else:
+                words_that_catch = []
+
             # find words 
             # save em under key
 
@@ -232,11 +247,37 @@ def collect_key_words_from_q2(input_list):
             if type(key_word) == str and key_word in lower_item:
                 if umbrella_word not in category_dict.keys():
                     category_dict[umbrella_word] = []
+                
+                # we have detected key word in the item
+                contains_key_word = True
+                # but was it a wrong catch?
+                for incorrect_word in words_that_catch:
+                    # if the incorrect word is in the item
+                    if incorrect_word in lower_item:
+                        # we split at the incorrect word (eliminating it)
+                        split_string = split(incorrect_word, lower_item)
+                        # we don't know if it *also* contains our actual key word
+                        contains_key_word = False
+                        # we check every piece of the split string
+                        for piece in split_string:
+                            # if it still contains the word
+                            if key_word in piece:
+                                contains_key_word = True
+                                break # we have located the correct word in this piece 
+                                      # so it does contain it
+                        break # we have located an incorrect word, 
+                              # so don't need to check the others
+
+                # if it does not contain the word outside of a wrongly caught word
+                if not contains_key_word:
+                    continue
+                # otherwise it appends the item
                 category_dict[umbrella_word].append(item)
                 was_not_collected = False # has been collected
 
             # multiple keywords to combine
             elif type(key_word) == tuple:
+                #TODO: implement the wrongly caught words code for tuples too
 
                 if len(key_word) == 2 \
                 and (key_word[0] in lower_item \
