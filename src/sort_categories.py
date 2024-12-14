@@ -23,6 +23,22 @@ def is_male_aligned(input_str:str):
     # making case insensitive
     lower_str = input_str.lower()
 
+    # things that qualify it if present
+    for item in [
+        "when someone else calls me a girl/woman",
+        "genderless boy",
+        "genderless man",
+        "man was not quite there",
+        "a little guy",
+        "neutral guy",
+        "some kinda dude thing",
+        "sort of a boy, almost but not quite",
+        "trans male presenting",
+        "ungendered but in a boy way",
+    ]:
+        if item in lower_str:
+            return True
+
     # things we're excluding
     for item in [
         "girl",
@@ -156,7 +172,7 @@ def is_male_aligned(input_str:str):
     # if none of these things are in the string => it qualifies
     return True
 
-#TODO:
+# ✅
 def is_non_male_aligned(input_str:str):
     """
     takes a string
@@ -178,14 +194,110 @@ def is_non_male_aligned(input_str:str):
 
     # => we only need to look at leftovers!
 
-    # things we're excluding
-    for item in []:
+    result_bool = False
 
+    # things that qualify it if included (to get rid of most other stuff)
+    for item in [
+        "not",
+        "never",
+        "non",
+        "but",
+        "except",
+        "don't",
+        "other",
+        "than",
+    ]:
         if item in lower_str:
-            return False
+            result_bool = True
 
-    # if none of these things are in the string => it qualifies
-    return True
+    if result_bool == True: # if it qualified to begin with
+        # things we're excluding (to narrow it down)
+        for item in [
+            "%","percent",
+            "1/4",
+            "girl",
+            "woman",
+            "butch",
+            "female",
+            "sister",
+
+            "boy but",
+            "boy, but",
+            "boy , but",
+            "boy, not",
+            "boy not",
+            "boy (",
+            "dude but",
+            "dude, but",
+            "dude, not",
+            "guy but",
+            "guy, but",
+            "guy (",
+            "guy, not",
+            "man but",
+            "man, but",
+            "man/not",
+            "man (",
+            "male but",
+            "male, but",
+
+            "don't know",
+            "don't even know",
+            "don't fuckin know",
+            "dress like",
+            "normative cis man",
+            "not a trans man",
+            "nonboyna",
+            "old man calls his truck",
+            "not actually ftm",
+            "idk if guy",
+            "she/he",
+            "trans guy/dude",
+            "not really a",
+            "not quite a",
+        ]:
+            if item in lower_str:
+                result_bool = False
+
+    return result_bool
+
+    # # things we're excluding
+    # for item in [
+    #     "%", "percent", 
+    #     "1/2","half",
+    #     "half",
+    #     "lesbian",
+    #     "dyke",
+    #     "woman",
+    #     "girl",
+    #     "female",
+    #     "gender neutral",
+    #     "boy but",
+    #     "boy, but",
+    #     "boy , but",
+    #     "dude but",
+    #     "dude, but",
+    #     "guy but",
+    #     "guy, but",
+    #     "dude, not",
+    #     "boy, not",
+    #     "gay man who",
+    #     "man but",
+    #     "man, but",
+    #     "identified as male",
+    #     "b.o.b",
+    #     "basically a man",
+    #     "butch",
+    #     "boi",
+    #     "ish",
+    #     "kisser"
+
+    # ]:
+    #     if item in lower_str:
+    #         return False
+
+    # # if none of these things are in the string => it qualifies
+    # return True
 
 #TODO: this one after non-male aligned (so we can use it to exclude stuff)
 def is_conflicted_male_aligned(input_str:str):
