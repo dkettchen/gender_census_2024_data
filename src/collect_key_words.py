@@ -89,10 +89,14 @@ def collect_key_words_from_q2(input_list):
 
         "black",("n","gga"), # I saw the n word in there somewhere
         "sian", # to catch gaysian etc too
+        "brown", 
+        "of color", "of colour", "woc", "moc", "poc",
+        "white", # I've seen too many white mentions by now to not include it I guess
+
         "muslim", # I've seen a muslim mention!
         "jew", # there was a jew mention too
-        "brown", 
-        'romani', 
+        'romani',
+        "eastern european", # why 
         
         "she","her",
         "he","him",
@@ -233,6 +237,13 @@ def collect_key_words_from_q2(input_list):
                 umbrella_word = "she/her"
             elif key_word in ["he","him"]:
                 umbrella_word = "he/him"
+            elif key_word in [
+                "of color", "of colour", "woc", "moc", "poc",
+                "black",("n","gga"),
+                "sian",
+                "brown",
+            ]:
+                umbrella_word = "POC_mention"
             else: umbrella_word = key_word # if it doesn't need to be different
 
             # words we don't mean that might catch on our key words!
