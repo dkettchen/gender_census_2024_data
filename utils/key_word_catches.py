@@ -126,4 +126,59 @@ words_catching = {
     "bloke": [],
     "bxy": [],
     "bruv": [],
+
+    "girl": [],
+    "woman": [],
+    "lady": [
+        "ladybug"
+    ],
+    "gal": [
+        "galax",
+        "galac",
+        'regal',
+    ],
+    "female": [],
+    "chic": [],
+    "maiden": [],
+    # ("ma","am"): [],
+    "mom": [
+        "moment",
+    ],
+    "mum": [],
+    "miss": [
+        'missingno',
+        'submissive',
+    ],
+    "ms": [
+        "screams",
+        "possums",
+        "backrooms",
+        "cums", # "cumslut could be genderneutral" - a phrase uttered out loud by me today -.-
+        "norms",
+        "terms",
+        "blossoms",
+        "whims",
+        "maamsir",
+        "msm",
+        "thems",
+        "worms",
+        "himsbian",
+        "mamser",
+        "mspec",
+        "mushrooms",
+    ],
+    "daughter": [],
+    "sister": [],
+    "gxrl": [],
+    "wxman": [],
+    "womxn": [],
+    "woman/girl/female": [ # caught by ("ma","am") tuple
+        "salamander",
+        "swamp man",
+        "performance",
+        "+man",
+        "moss man",
+        "a man",
+        "paraman",
+    ]
 }

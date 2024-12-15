@@ -7,7 +7,7 @@ from copy import deepcopy
 # make funcs for other categories
     # start w ones that we need for cross referencing (ie women, various adjectives)
 
-# ✅
+# male aligned categories ✅
 def is_male_aligned(input_str:str):
     """
     takes a string
@@ -35,8 +35,25 @@ def is_male_aligned(input_str:str):
         "sort of a boy, almost but not quite",
         "trans male presenting",
         "ungendered but in a boy way",
+        'born a woman with the brain of a man', 
+        'boy in a girly way',
+        'boy stuck in a "girl\\\'s" body',
+        'female to male', 
+        "ftm",
+        'girl who grew up', 
+        "gay man in a woman's body",
+        'gender neutral demiboy', 
+        'genderless boi', 
+        'guy who just likes girls sm',
+        'wish i was born and raised male', 
+        'man in a female body',
+        'man of lesbian origin', 
+        'mostly male but not completely', 
+        'trans man but not always completely binary', 
+        'trans man of butch experience', 
+        'male software female hardware', 
     ]:
-        if item in lower_str:
+        if item in lower_str and "to female" not in lower_str:
             return True
 
     # things we're excluding
@@ -172,7 +189,6 @@ def is_male_aligned(input_str:str):
     # if none of these things are in the string => it qualifies
     return True
 
-# ✅
 def is_non_male_aligned(input_str:str):
     """
     takes a string
@@ -193,6 +209,16 @@ def is_non_male_aligned(input_str:str):
         return False
 
     # => we only need to look at leftovers!
+
+    # things to include
+    for item in [
+        'but not fully a girl.', 
+        "don't know what to call me other than not a man",
+        'almost a woman, definitely not a man', 
+        "boyn't",
+    ]:
+        if item in lower_str:
+            return True
 
     result_bool = False
 
@@ -299,7 +325,6 @@ def is_non_male_aligned(input_str:str):
     # # if none of these things are in the string => it qualifies
     # return True
 
-#TODO: this one after non-male aligned (so we can use it to exclude stuff)
 def is_conflicted_male_aligned(input_str:str):
     """
     takes a string
@@ -326,19 +351,404 @@ def is_conflicted_male_aligned(input_str:str):
 
     # => we only need to look at leftovers!
 
-    # things we're excluding
-    for item in []:
+    result_bool = True
 
+    # things to exclude
+    for item in [
+        "girl",
+        "grl",
+        "gurl",
+        "gxrl",
+        "gal",
+        "woman",
+        "women",
+        "female",
+        "chick",
+        "sister",
+        "mom",
+        "lady",
+        "gender neutral",
+        "gender-neutral",
+        "non-gender-specific",
+        "non-gendered",
+        "genderless slang",
+        "butch lesbian",
+        "lesbian and a gay man",
+        "child identified",
+        "b.o.b",
+        "boyish",
+        "kisser",
+        "don't know",
+        "dress like",
+        "potheads",
+        "but normative cis man",
+        "tomboy",
+        "male-bodied",
+        "ungendered",
+        "boy parts",
+        "seem like",
+        "my feeling is different",
+        "don't even know",
+        "don't fuckin know",
+        "presenting as a man",
+        "draw, man",
+        "a boy because i was  born afab", #idk what this one's on abt I think they might've missed a word or smth
+        "not a trans man",
+        "just work here",
+        "just sorta funky",
+        "milf",
+        "just me man",
+        "a boy day",
+        "lesbian in a man's body",
+        'male impersonater', 
+        'male presenting', 
+        "maiden",
+        "mannish",
+        "mrs",
+        "miss",
+        "robot",
+        "she",
+        "daughter",
+        "tom boy",
+        "wouldn't you like to know",
+        'amab trans boy', 
+        'fuck if i know man', 
+        'girboylent', 
+        'genderless statue carved into the shape of a man', 
+        'ice bot', 
+        "idk man",
+        'if a transmasc guy was also transfem',
+        'just a guy (neutral)', 
+        "(guy being neutral)",
+        "clusters",
+        "principal boy",
+        "dragoness",
+        'male is my government gender', 
+        'male on paper',
+        "socialised",
+        "idk if guy",
+        "nonboynary", # dunno what this one means and refuse to engage with it
+        'nonboynairy',
+        "one of the guys",
+        'not really a dude, just impersonating it', 
+        "transfem",
+        'wanna-be-hrt-femboy', 
+        'whatever man',
+        'middle age started male hormones', 
+    ]:
+        if item in lower_str:
+            result_bool = False
+    
+    # things to re-include
+    for item in [
+        "ship is a woman",
+        'man (in a gender neutral way)', # I will concede dude & guy gender neutral but man is largely Not That sorry
+        'man (in a non-gendered context)', 
+    ]:
+        if item in lower_str:
+            result_bool = True
+        
+    return result_bool
+
+# female aligned categories
+# ✅ # ((proof read again tho))
+def is_female_aligned(input_str:str):
+    """
+    takes a string
+
+    checks if the gender it describes qualifies as explicitly female-aligned 
+    (ie "A trans girl", "butch woman", etc)
+
+    if so returns True
+
+    else returns False
+    """
+
+    # making case insensitive
+    lower_str = input_str.lower()
+
+    # it it's already in male aligned we are not interested
+    if is_male_aligned(input_str) or is_conflicted_male_aligned(input_str):
+        return False
+
+    # things that qualify it if present
+    for item in [
+        "male to female",
+    ]:
+        if item in lower_str:
+            return True
+
+    # things we're excluding
+    for item in [
+        "boy",
+        "dude",
+        "guy",
+        "boi",
+        " man",
+        " male",
+        "in a woman's body", # indicates transmasc
+        "not a girl",
+        "not girl",
+        "not a woman",
+        "not quite",
+        "afab", # if you gotta specify I presume you're not female aligned
+        "female at birth",
+        "anything but",
+        "anything not",
+        "but not",
+        "dad",
+        "neutral)",
+        "demifemme",
+        "don't just refere to me as a girl",
+        "refused female hormones",
+        'emotionally female', 
+        'ex-girl', # indicates transmasc
+        "former girl",
+        "female to", # indicates transmasc
+        "female bodied",
+        "husband",
+        "passing",
+        "presenting",
+        "non woman",
+        "femme but",
+        "act like",
+        'girl dropout', # assuming this means dropping out of girl
+        "cismale",
+        "vibes only",
+        "on t",
+        "convenience",
+        "fag",
+        "twink",
+        "girlish",
+        'girlman', 
+        "girln't", 
+        'girloy', 
+        'prince', 
+        "girly",
+        'grammatically and physically female',
+        "he's my girlfriend",
+        "don't (usually) feel like a woman",
+        "dont want be read as female",
+        "just work here",
+        "not a lady",
+        "only a girl when",
+        'not "a woman."',
+        "not woman",
+        "out of phase of womanhood",
+        "ladyman",
+        'man enough to be a girl scout', 
+        'man shaped girl', 
+        'man who is a girl', 
+        'man w',
+        "man, w",
+        'man-maiden', 
+        'man-w', 
+        'man/w',
+        "man?wo"
+        "manw",
+        'masculine in a girly way', 
+        'female puberty', 
+        "woman but",
+        "mister",
+        "no comfortable",
+        "non woman",
+        "non-woman",
+        'nongirl',
+        "not completely",
+        'not entirely', 
+        "not female",
+        "not fully",
+        "not really",
+        "not-girl",
+        'not-woman', 
+        'notgirl', 
+        "brother",
+        "one of the",
+        "outwardly a girl",
+        "partner",
+        "physically",
+        "on tv",
+        "presumed",
+        "rarely",
+        "lady no",
+        "socialised",
+        "socialized",
+        "/man",
+        "son-daughter",
+        "started a girl, no",
+        '"man',
+        "scary transgender",
+        "unwomanly descent",
+        "girl mode",
+        "lady suit",
+        "cosplay",
+        "experience",
+        "woman't",
+        "(male)",
+        "womanhood just made me unhappy",
+        "girl but",
+        "drag queen",
+        "except",
+        "assigned",
+        "assumed",
+        "beard",
+        "bxy",
+        'female-born', 
+        "female impersonator",
+        "kisser",
+        "femalehood", # this is just a horrid word I dislike looking at and will not validate smh
+        "he/him",
+        "(joke)", # you brought this upon yourself
+        "as a joke",
+        "techically just a lad",
+        "bear",
+        "male and f",
+        'male (sometimes/for legal identification)',
+        'male woman', 
+        'male-female', 
+        'man and woman', 
+        "man or woman",
+        'mangirl', 
+        'manwoman', 
+        "female history",
+        'misgendered female', # I think this is misgendered as female??
+        'not a trans woman', 
+        'not like the other girls (sarcasm)', 
+        'not!woman', 
+        'not-a-girl', 
+        "not-a-woman",
+        'not-quite-a-woman', 
+        'other persons read me as female', 
+        'past-life female', 
+        'performatively female', 
+        "politically", # we're talking COLD HARD FACTS HERE YOU FEMINISTS YOU
+        "post-",
+        "default",
+        "raised woman",
+        "seen as",
+        "socially",
+        "appears to be",
+        "against my will",
+        "theydy",
+        "transman",
+        "transmasc",
+        'unable to girl',
+        "used to be a girl",
+        "woman, but",
+        "irrevelant",
+    ]:
         if item in lower_str:
             return False
 
     # if none of these things are in the string => it qualifies
     return True
 
+#TODO
+def is_non_female_aligned(input_str:str):
+    """
+    takes a string
+
+    checks if the gender it describes qualifies as explicitly non-female aligned
+    (ie "definitely not a woman", etc)
+
+    if so returns True
+
+    else returns False
+    """
+
+    # making case insensitive
+    lower_str = input_str.lower()
+
+    # non-male aligned must not be in the male-aligned group
+    if is_male_aligned(input_str):
+        return False
+
+    # => we only need to look at leftovers!
+
+    # things to include
+    for item in [
+    ]:
+        if item in lower_str:
+            return True
+
+    result_bool = False
+
+    # things that qualify it if included (to get rid of most other stuff)
+    for item in [
+        "not",
+        "never",
+        "non",
+        "but",
+        "except",
+        "don't",
+        "other",
+        "than",
+    ]:
+        if item in lower_str:
+            result_bool = True
+
+    if result_bool == True: # if it qualified to begin with
+        # things we're excluding (to narrow it down)
+        for item in [
+        ]:
+            if item in lower_str:
+                result_bool = False
+
+    return result_bool
+
+#TODO
+def is_conflicted_female_aligned(input_str:str):
+    """
+    takes a string
+
+    checks if the gender it describes explicitly mentions female-aligned language but does 
+    not seem to be able to make up its mind/commit to it (ie "a girl but not a woman", etc) 
+    but is not a more unaligned conflicting statement (ie "100% man and 100% woman")
+
+    if so returns True
+
+    else returns False
+    """
+
+    # making case insensitive
+    lower_str = input_str.lower()
+
+    # conflicted must not be in the explicitly male-aligned group
+    if is_female_aligned(input_str):
+        return False
+    
+    # conflicted must not be in the explicitly non_male-aligned group
+    if is_non_female_aligned(input_str):
+        return False
+
+    # => we only need to look at leftovers!
+
+    result_bool = True
+
+    # things to exclude
+    for item in [
+    ]:
+        if item in lower_str:
+            result_bool = False
+    
+    # things to re-include
+    for item in [
+    ]:
+        if item in lower_str:
+            result_bool = True
+        
+    return result_bool
+
+
+
 
 #TODO repeat for female aligned items (female-aligned, non-female aligned, conflicted female aligned)
 
 #TODO afterwards, do for other categories
+# - combine is conflicted male aligned & fagdyke shit to find all lesbianism for men!
+
+# (this may be in other collection file:) include "impersonator/impersonation/impersonating" 
+# and "principal boy", and "dame" ?? in cross dresser category!
 
 
 #TODO: make a helper func to dispense the correct function based on data case! ✅
@@ -352,6 +762,12 @@ def checking_func_dispenser(data_case:str):
         return is_non_male_aligned
     elif data_case == "conflicted_male_aligned":
         return is_conflicted_male_aligned
+    elif data_case == "female_aligned":
+        return is_female_aligned
+    elif data_case == "non_female_aligned":
+        return is_non_female_aligned
+    elif data_case == "conflicted_female_aligned":
+        return is_conflicted_female_aligned
 
 #TODO: continue adding new implemented data_cases to doc string
 def find_case(input_list:list, data_case:str):
@@ -366,6 +782,9 @@ def find_case(input_list:list, data_case:str):
         - data_case="male_aligned"
         - data_case="non_male_aligned"
         - data_case="conflicted_male_aligned"
+        - data_case="female_aligned"
+        - data_case="non_female_aligned"
+        - data_case="conflicted_female_aligned"
 
     """
 
