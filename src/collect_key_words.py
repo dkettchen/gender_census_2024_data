@@ -113,7 +113,12 @@ def collect_key_words_from_q2(input_list):
     for item in input_list:
 
         # skip items that are too long
-        if len(item) > 50: # no time for yappers
+            # no time for yappers
+            # no time for jokesters
+        if len(item) > 50 \
+        or "joke" in item.lower() \
+        or "joking" in item.lower() \
+        or "sarca" in item.lower(): 
             skip_overs += 1
             continue
 
