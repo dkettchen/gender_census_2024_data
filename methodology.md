@@ -63,6 +63,13 @@ In my continued quest to help my community and our theory to reconnect with the 
 
     - ex. "a transfemme transmasc" is a conflicting statement, you cannot be both of those things at once, they are mutually exclusive. This is once again a highly useless statement as it does not hint at which word is the tangible real life category that applies. (ie is this a transmasc who identifies with certain transfemme aesthetics? is this a transfemme who would have preferred to be born afab & then be transmasc about it? is it a detransitioner??? WE HAVE NO MEANS OF KNOWING)
 
+- I am not counting genital non-conformity, as common among trans people, (ie "pussyboy", "dick chick") as conflicting statements, but I will count more accessible choices like
+    - facial hair (ie "bearded lady")
+    - hrt outside of a known/claimed trans context (ie "woman on T" = conflict, "hrt femboy" = known concept, will be counted as unaligned rather than male-aligned)
+    - language (ie "femboy male to female transsexual sissy", "boy dyke", etc)
+
+    as conflicting
+
 I am taking the liberty to disregard replies that cannot provide useful info, are actively conflicting, and/or are obvious joke answers (which there are a lot of -.- why are you people like this).
 
 
