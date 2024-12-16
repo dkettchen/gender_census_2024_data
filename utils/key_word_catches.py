@@ -62,9 +62,9 @@ words_catching = {
         "dormant",
         "mantis",
         "man-naar-vrouw",
-        "(wo)man",
         'seiðmann', 
         "mangle",
+        "games and draw, man",
     ],
     "male": [
         'nemale', 
