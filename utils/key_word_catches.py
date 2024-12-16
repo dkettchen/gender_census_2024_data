@@ -136,6 +136,7 @@ words_catching = {
         "galax",
         "galac",
         'regal',
+        "legal",
     ],
     "female": [],
     "chic": [],
@@ -143,8 +144,13 @@ words_catching = {
     # ("ma","am"): [],
     "mom": [
         "moment",
+        "your mom",
+        "my mom",
     ],
-    "mum": [],
+    "mum": [
+        "your mum",
+        "my mum",
+    ],
     "miss": [
         'missingno',
         'submissive',
