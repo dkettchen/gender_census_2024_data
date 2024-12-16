@@ -54,8 +54,22 @@ def is_male_aligned(input_str:str):
         'male software female hardware', 
         'faggy trans non-binary man.', 
         'trans man, who is also non-binary',
+        "man trapped in a",
+        "a guy dressed as a girl",
+        "boy but girly",
+        "girly boy",
+        "girly guy",
+        "girlyboy",
+        "home im a guy who lies girls thats it im normale", # how did a straight guy get in here what
+        "im a guy in the way ships are female",
+        "like if a boy was raised as a girl", # assuming this to be literally this scenario??
+        "man in a woman's body",
+        "physically female, mentally male.",
+        "some girl's loser boyfriend",
     ]:
-        if item in lower_str and "to female" not in lower_str:
+        if item in lower_str \
+        and "to female" not in lower_str \
+        and "boy-girl" not in lower_str:
             return True
 
     # things we're excluding
@@ -218,6 +232,9 @@ def is_non_male_aligned(input_str:str):
         "don't know what to call me other than not a man",
         'almost a woman, definitely not a man', 
         "boyn't",
+        "never a man",
+        'not a guy, but "one of the guys"',
+        "never a boy",
     ]:
         if item in lower_str:
             return True
@@ -446,17 +463,15 @@ def is_conflicted_male_aligned(input_str:str):
         "ship is a woman",
         'man (in a gender neutral way)', # I will concede dude & guy gender neutral but man is largely Not That sorry
         'man (in a non-gendered context)', 
+        "boy (gender neutral)",
+        "boy but in an ungendered way",
     ]:
         if item in lower_str:
             result_bool = True
         
     return result_bool
 
-
-#TODO repeat for female aligned items (female-aligned, non-female aligned, conflicted female aligned)
-
-# female aligned categories
-# ✅ # ((proof read again tho))
+# female aligned categories ✅
 def is_female_aligned(input_str:str):
     """
     takes a string
@@ -544,8 +559,14 @@ def is_female_aligned(input_str:str):
         'woman, but as a job', 
         'woman, but specifically in sexual contexts', 
         "girl/woman but only to those I'm attracted to", 
+        "a girl driving a meatmech man",
+        "boyish lesbian",
+        "now woman",
+        "boyish woman",
+        "lesbian in a man's body", # assuming this is a trans(femme) lesbian
+        "a girl dressed as a guy",
     ]:
-        if item in lower_str:
+        if item in lower_str and "femboy" not in lower_str:
             return True
 
     # things we're excluding
@@ -668,8 +689,6 @@ def is_female_aligned(input_str:str):
         "kisser",
         "femalehood", # this is just a horrid word I dislike looking at and will not validate smh
         "he/him",
-        "(joke)", # you brought this upon yourself
-        "as a joke",
         "techically just a lad",
         "bear",
         "male and f",
@@ -683,7 +702,6 @@ def is_female_aligned(input_str:str):
         "female history",
         'misgendered female', # I think this is misgendered as female??
         'not a trans woman', 
-        'not like the other girls (sarcasm)', 
         'not!woman', 
         'not-a-girl', 
         "not-a-woman",
@@ -725,6 +743,8 @@ def is_female_aligned(input_str:str):
         "your mom",
         'non-female', 
         'once-girl', 
+        "92% neutral gender, 2% girl",
+        "not always a",
     ]:
         if item in lower_str:
             return False
@@ -732,7 +752,6 @@ def is_female_aligned(input_str:str):
     # if none of these things are in the string => it qualifies
     return True
 
-# ✅
 def is_non_female_aligned(input_str:str):
     """
     takes a string
@@ -769,6 +788,11 @@ def is_non_female_aligned(input_str:str):
         'no comfortable being called a woman', 
         'anything but a girl', 
         'everything but a girl', 
+        "even less a girl",
+        "definitely not female",
+        "certainly not woman",
+        "never a girl",
+        "not a man, but definetly not a woman", # bc leaning harder on not a woman part
     ]:
         if item in lower_str:
             return True
@@ -874,7 +898,6 @@ def is_non_female_aligned(input_str:str):
 
     return result_bool
 
-# ✅
 def is_conflicted_female_aligned(input_str:str):
     """
     takes a string
@@ -994,7 +1017,6 @@ def is_conflicted_female_aligned(input_str:str):
         "/man",
         'womanhood just made me unhappy', 
         "woman's hat",
-        "beard",
         "assigned",
         "girlish confusion",
         "bxy",
@@ -1005,16 +1027,14 @@ def is_conflicted_female_aligned(input_str:str):
         "girly",
         "expectation of femalehood",
         "he/him",
-        "joke",
         "techically just a lad",
-        "bear",
+        "a bear was",
         "male and female",
         'male woman', 
         "mangirl",
         'masculine person who has female history', 
         'misgendered female', 
         'not a trans woman', 
-        "sarcasm",
         "a-man",
         'once-girl', 
         'other persons read me as female', 
@@ -1056,6 +1076,256 @@ def is_conflicted_female_aligned(input_str:str):
         
     return result_bool
 
+#TODO is passing/presenting
+def is_present_passing(input_str:str, data_case:str):
+    """
+    returns true or false based on whether the string implies 
+    the person passes or presents as male or female
+
+    data_case="male|female"
+    """
+
+    # making case insensitive
+    lower_str = input_str.lower()
+
+    # if is_non_female_aligned(input_str) \
+    # or is_non_male_aligned(input_str) \
+    # or is_female_aligned(input_str) \
+    # or is_male_aligned(input_str) \
+    # or is_conflicted_female_aligned(input_str) \
+    # or is_conflicted_male_aligned(input_str):
+    #     return False
+
+    result_bool = False
+
+    # things that qualify it if included (to get rid of most other stuff)
+    for item in [
+        "passing", 
+        "present", 
+        "see", 
+        "perceive", 
+        "look",
+        "reason",
+        "convenie",
+        "rather",
+        "soci",
+        "shape",
+        "dress",
+        "legal",
+        "government",
+        "impersona",
+        "bod",
+
+    ]:
+        if item in lower_str:
+            result_bool = True
+
+    # excluding general stuff
+    if result_bool:
+        for item in [
+            # can't make up their mind, useless to this
+            "female/male",
+            "woman/man",
+
+            "a dress",
+            "dress like a teenage boy",
+            "dress boy",
+            "dressed as",
+            "crossdress",
+            "like dresses",
+
+            "dogs as boys",
+            "dissociated",
+            "government work",
+            "socialised",
+            "socialized",
+            "woman when its funny, man when it's convenient",
+            "woman who wears a dress (in a manly way)",
+            "wow what an ugly woman, she looks like a man",
+            "seem like a guy",
+            "femme presenting",
+            "masc-presenting",
+            "social ",
+            "misshapen",
+            "partner",
+            "society",
+            "see how it fits",
+            "in a trans woman's body",  # neither trans man nor cis woman in a trans woman's body 
+                                        # are valid under my label police rule smh
+
+            # implies not achieved presentation/passing
+            "prefers to be perceived",
+            "at least see me",
+            "i'd prefer",
+            "need to be perceived",
+            "will have a man's body",
+        ]:
+            if item in lower_str:
+                result_bool = False
+
+    # excluding gender specifics
+    if result_bool and data_case == "male":
+        for item in [
+            "ciswoman",
+            "looks female",
+            "looks like a girl",
+            "legally a she",
+            "legally girl",
+            "female passing",
+            "female presenting",
+            "female-shape",
+            "female shape",
+            "girl shape",
+            "girl-shape",
+            "girl of",
+            "girl out of",
+            "cis/girl",
+            "trapped in a woman's body",
+            "as a girl",
+            "shape of a girl",
+            "socially female",
+            "woman passing",
+            "a girl when",
+            "female by",
+            "female impersona",
+            "girl-passing",
+            "legally female",
+            "cis woman",
+            "socially a girl",
+            "socially a woman",
+            "as a woman",
+            "woman-shape",
+            "woman by",
+            "woman of",
+            "woman shape",
+            "woman when",
+            "woman-look",
+            "a woman's body",
+            "a female body",
+            "body is a woman",
+            "girl's body",
+            "boy stuck in a",
+            "female bodied",
+        ]:
+            if item in lower_str:
+                result_bool = False
+
+    elif result_bool and data_case == "female":
+
+        # stuff that qualifies if contains
+        for item in [
+            "ciswoman",
+            "looks female",
+            "looks like a girl",
+            "legally a she",
+            "legally girl",
+            "female passing",
+            "female presenting",
+            "female-shape",
+            "female shape",
+            "girl shape",
+            "girl-shape",
+            "girl of",
+            "girl out of",
+            "cis/girl",
+            "trapped in a woman's body",
+            "as a girl",
+            "shape of a girl",
+            "socially female",
+            "woman passing",
+            "a girl when",
+            "female by",
+            "female impersona",
+            "girl-passing",
+            "legally female",
+            "cis woman",
+            "socially a girl",
+            "socially a woman",
+            "as a woman",
+            "woman-shape",
+            "woman by",
+            "woman of",
+            "woman shape",
+            "woman when",
+            "woman-look",
+            "a woman's body",
+            "body is a woman",
+            "girl's body",
+            "boy stuck in a",
+            "female bodied",
+        ]:
+            if item in lower_str:
+                return True
+            
+        for item in [
+            "cisman",
+            "looks male",
+            "looks like a boy",
+            "legally a he",
+            "legally boy",
+            "male passing",
+            "male presenting",
+            "male-shape",
+            "male shape",
+            "boy shape",
+            "boy-shape",
+            "boy of",
+            "boy out of",
+            "cis/boy",
+            "trapped in a man's body",
+            "as a boy",
+            "shape of a boy",
+            "socially male",
+            "man passing",
+            "a boy when",
+            "male by",
+            "male impersona",
+            "boy-passing",
+            "legally male",
+            "cis man",
+            "socially a boy",
+            "socially a man",
+            "as a man",
+            "man-shape",
+            "man by",
+            "man of",
+            "man shape",
+            "man when",
+            "man-look",
+            "a man for legal reasons",
+            "perceived as male",
+            "male for the sake of convenience",
+            "man out of convenience",
+            "shape of a man",
+            "guy-shape",
+            "male (sometimes/for legal identification)",
+            "male for the sake of convenience",
+            "male is my government gender",
+            "male-passing",
+            "man for convenience's sake",
+            "dude, just impersonating",
+            "a man's body",
+            "male body",
+        ]:
+            if item in lower_str:
+                result_bool = False
+
+
+    return result_bool
+
+
+#TODO both
+def is_both(input_str:str):
+    pass
+
+#TODO neither
+def is_neither(input_str:str):
+    pass
+
+# there are certain ones indicating amab/afab in the male/female list leftovers 
+# -> include in there later
+# raised, etc
+
 
 #TODO afterwards, do for other categories
 # - combine is conflicted male aligned & fagdyke shit to find all lesbianism for men!
@@ -1081,6 +1351,8 @@ def checking_func_dispenser(data_case:str):
         return is_non_female_aligned
     elif data_case == "conflicted_female_aligned":
         return is_conflicted_female_aligned
+    elif data_case == "male_passing" or data_case == "female_passing":
+        return is_present_passing
 
 #TODO: continue adding new implemented data_cases to doc string
 def find_case(input_list:list, data_case:str):
@@ -1098,7 +1370,8 @@ def find_case(input_list:list, data_case:str):
         - data_case="female_aligned"
         - data_case="non_female_aligned"
         - data_case="conflicted_female_aligned"
-
+        - data_case="male_passing"
+        - data_case="female_passing"
     """
 
     output_list = []
@@ -1108,7 +1381,10 @@ def find_case(input_list:list, data_case:str):
     # check words in input list
     for item in sorted(list(set(input_list))):
         # if they fit criteria for being counted 
-        if checking_func(item):
+        if (data_case in ["male_passing","female_passing"] \
+            and checking_func(item, data_case[:-8]))\
+        or (data_case not in ["male_passing","female_passing"] \
+            and checking_func(item)):
             # they are added to output list
             output_list.append(item)
 
