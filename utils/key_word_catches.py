@@ -148,6 +148,7 @@ words_catching = {
     "miss": [
         'missingno',
         'submissive',
+        "misspelling",
     ],
     "ms": [
         "screams",
@@ -173,12 +174,15 @@ words_catching = {
     "wxman": [],
     "womxn": [],
     "woman/girl/female": [ # caught by ("ma","am") tuple
-        "salamander",
         "swamp man",
         "performance",
-        "+man",
+        "gender+man",
         "moss man",
         "a man",
-        "paraman",
+        "ama", # in various words
+        "am not defined as just masculine",
+        "man, i just am",
+        "i do not use human",
+        "humam",
     ]
 }

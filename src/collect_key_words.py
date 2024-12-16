@@ -298,6 +298,36 @@ def collect_key_words_from_q2(input_list):
                 and key_word[1] in lower_item):
                     if umbrella_word not in category_dict.keys():
                         category_dict[umbrella_word] = []
+
+                    # we have detected key word in the item
+                    contains_key_word_1 = True
+                    contains_key_word_2 = True
+                    # but was it a wrong catch?
+                    for incorrect_word in words_that_catch:
+                        # if the incorrect word is in the item
+                        if incorrect_word in lower_item:
+                            # we split at the incorrect word (eliminating it)
+                            split_string = split(incorrect_word, lower_item)
+                            # we don't know if it *also* contains our actual key word
+                            contains_key_word_1 = False
+                            contains_key_word_2 = False
+                            # we check every piece of the split string
+                            for piece in split_string:
+                                # if it still contains the word
+                                if key_word[0] in piece:
+                                    contains_key_word_1 = True
+                                if key_word[1] in piece:
+                                    contains_key_word_2 = True
+                                if contains_key_word_1 and contains_key_word_2:
+                                    break # we have located the correct word in this piece 
+                                        # so it does contain it
+                            break # we have located an incorrect word, 
+                                # so don't need to check the others
+
+                    # if it does not contain the word outside of a wrongly caught word
+                    if not contains_key_word_1 or not contains_key_word_2:
+                        continue
+                    # otherwise it appends the item
                     category_dict[umbrella_word].append(item)
                     was_not_collected = False # has been collected
 
@@ -307,6 +337,40 @@ def collect_key_words_from_q2(input_list):
                 and key_word[2] in lower_item):
                     if umbrella_word not in category_dict.keys():
                         category_dict[umbrella_word] = []
+
+                    # we have detected key word in the item
+                    contains_key_word_1 = True
+                    contains_key_word_2 = True
+                    contains_key_word_3 = True
+                    # but was it a wrong catch?
+                    for incorrect_word in words_that_catch:
+                        # if the incorrect word is in the item
+                        if incorrect_word in lower_item:
+                            # we split at the incorrect word (eliminating it)
+                            split_string = split(incorrect_word, lower_item)
+                            # we don't know if it *also* contains our actual key word
+                            contains_key_word_1 = False
+                            contains_key_word_2 = False
+                            contains_key_word_3 = False
+                            # we check every piece of the split string
+                            for piece in split_string:
+                                # if it still contains the word
+                                if key_word[0] in piece:
+                                    contains_key_word_1 = True
+                                if key_word[1] in piece:
+                                    contains_key_word_2 = True
+                                if key_word[1] in piece:
+                                    contains_key_word_3 = True
+                                if contains_key_word_1 and contains_key_word_2 and contains_key_word_3:
+                                    break # we have located the correct word in this piece 
+                                        # so it does contain it
+                            break # we have located an incorrect word, 
+                                # so don't need to check the others
+
+                    # if it does not contain the word outside of a wrongly caught word
+                    if not contains_key_word_1 or not contains_key_word_2 or not contains_key_word_3:
+                        continue
+                    # otherwise it appends the item
                     category_dict[umbrella_word].append(item)
                     was_not_collected = False # has been collected
 
