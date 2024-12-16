@@ -52,6 +52,8 @@ def is_male_aligned(input_str:str):
         'trans man but not always completely binary', 
         'trans man of butch experience', 
         'male software female hardware', 
+        'faggy trans non-binary man.', 
+        'trans man, who is also non-binary',
     ]:
         if item in lower_str and "to female" not in lower_str:
             return True
@@ -450,6 +452,9 @@ def is_conflicted_male_aligned(input_str:str):
         
     return result_bool
 
+
+#TODO repeat for female aligned items (female-aligned, non-female aligned, conflicted female aligned)
+
 # female aligned categories
 # ✅ # ((proof read again tho))
 def is_female_aligned(input_str:str):
@@ -468,12 +473,28 @@ def is_female_aligned(input_str:str):
     lower_str = input_str.lower()
 
     # it it's already in male aligned we are not interested
-    if is_male_aligned(input_str) or is_conflicted_male_aligned(input_str):
+    if is_non_male_aligned(input_str) \
+    or is_male_aligned(input_str) \
+    or is_conflicted_male_aligned(input_str):
         return False
 
     # things that qualify it if present
     for item in [
         "male to female",
+        'a woman with a splash of non binary', 
+        "to the left",
+        "but not quite",
+        "tough, muscular",
+        "60% opacity",
+        "tomato is a fruit",
+        "almost",
+        'girl but I miss my balls too much', 
+        'girl but a bit off', 
+        "like a boat",
+        "i'm half girl",
+        "i'm not not a woman", 
+        "kind of girl",
+        'off-brand', 
     ]:
         if item in lower_str:
             return True
@@ -624,7 +645,6 @@ def is_female_aligned(input_str:str):
         "politically", # we're talking COLD HARD FACTS HERE YOU FEMINISTS YOU
         "post-",
         "default",
-        "raised woman",
         "seen as",
         "socially",
         "appears to be",
@@ -636,6 +656,26 @@ def is_female_aligned(input_str:str):
         "used to be a girl",
         "woman, but",
         "irrevelant",
+        "size/fatness",
+        "duckling",
+        "everything outside of female",
+        "femboy",
+        "shape",
+        "man?woman?",
+        "will not correct my mom",
+        "not 100% a woman"
+        'not a "real" girl', 
+        "piloting",
+        "raised",
+        "girl's clothing",
+        "feels wrong",
+        "resembles",
+        "woman's hat",
+        "everything but",
+        "girl wasn't",
+        "your mom",
+        'non-female', 
+        'once-girl', 
     ]:
         if item in lower_str:
             return False
@@ -643,7 +683,7 @@ def is_female_aligned(input_str:str):
     # if none of these things are in the string => it qualifies
     return True
 
-#TODO
+# ✅
 def is_non_female_aligned(input_str:str):
     """
     takes a string
@@ -659,8 +699,11 @@ def is_non_female_aligned(input_str:str):
     # making case insensitive
     lower_str = input_str.lower()
 
-    # non-male aligned must not be in the male-aligned group
-    if is_male_aligned(input_str):
+    # non-female aligned must not be in prior groups
+    if is_female_aligned(input_str) \
+    or is_non_male_aligned(input_str) \
+    or is_male_aligned(input_str) \
+    or is_conflicted_male_aligned(input_str):
         return False
 
     # => we only need to look at leftovers!
@@ -690,6 +733,82 @@ def is_non_female_aligned(input_str:str):
     if result_bool == True: # if it qualified to begin with
         # things we're excluding (to narrow it down)
         for item in [
+            "boy",
+            "guy",
+            "girl but",
+            "and a butch woman",
+            "woman but",
+            "except male",
+            "female presenting",
+            "female( but",
+            "gal or fella",
+            "lady but",
+            "girl, but",
+            "a man",
+            "man/woman",
+            "if a girl was",
+            "usual girly girl",
+            "not *not*",
+            "not not",
+            'm "women"',
+            "woman, but",
+            "male nor female",
+            "not always a woman",
+            "non man",
+            "my mom",
+            "or man",
+            "entirely female",
+            "completely a woman",
+            "fully a girl",
+            "fully a woman",
+            "just a woman",
+            "male or female",
+            "quite a woman",
+            "quite girl",
+            "male/female",
+            "not-not",
+            "girl maybe sometime",
+            "girl-not girl",
+            "really a girl",
+            "(usually)",
+            "with left gender",
+            "entirely ma",
+            "not really",
+            "brother",
+            "partner",
+            "physically",
+            "politically",
+            "practicing",
+            "but a girl",
+            "woman not",
+            "woman/not",
+            "man or woman",
+            "female but",
+            "female gender but",
+            "not constantly",
+            "not always",
+            "girl (but",
+            "girl not",
+            "girl sometimes",
+            "a female animal",
+            "lady not",
+            "neither male not female",
+            "man, woman,",
+            "female or male",
+            "nonbinary man",
+            'not a trans woman', # unclear abt what distinction is made against
+            "woman/man",
+            "entirely a girl",
+            "not like the other girls",
+            "quite a girl",
+            "not totally",
+            "not-quite",
+            "read me as female",
+            'trans girl (but in the afab way)', # NOT HOW THAT WORKS MF
+            "woman as a descriptor",
+            "woman by",
+            "not man",
+            "non practing", # can't spell omg
         ]:
             if item in lower_str:
                 result_bool = False
@@ -739,10 +858,6 @@ def is_conflicted_female_aligned(input_str:str):
         
     return result_bool
 
-
-
-
-#TODO repeat for female aligned items (female-aligned, non-female aligned, conflicted female aligned)
 
 #TODO afterwards, do for other categories
 # - combine is conflicted male aligned & fagdyke shit to find all lesbianism for men!
