@@ -1,4 +1,5 @@
 from copy import deepcopy
+from re import split
 
 #TODO:
 # men's func:
@@ -60,6 +61,9 @@ def is_male_aligned(input_str:str):
         "girly boy",
         "girly guy",
         "girlyboy",
+        "girly dude",
+        "girlish boy",
+        "girlish-boy",
         "home im a guy who lies girls thats it im normale", # how did a straight guy get in here what
         "im a guy in the way ships are female",
         "like if a boy was raised as a girl", # assuming this to be literally this scenario??
@@ -235,6 +239,7 @@ def is_non_male_aligned(input_str:str):
         "never a man",
         'not a guy, but "one of the guys"',
         "never a boy",
+        "very much not a guy",
     ]:
         if item in lower_str:
             return True
@@ -565,6 +570,11 @@ def is_female_aligned(input_str:str):
         "boyish woman",
         "lesbian in a man's body", # assuming this is a trans(femme) lesbian
         "a girl dressed as a guy",
+        "want to be a girl",
+        "woman/girl/girlie/girly",
+        "woman who wears",
+        "tomboy dickgirl",
+        "euphoric as trans female",
     ]:
         if item in lower_str and "femboy" not in lower_str:
             return True
@@ -793,6 +803,7 @@ def is_non_female_aligned(input_str:str):
         "certainly not woman",
         "never a girl",
         "not a man, but definetly not a woman", # bc leaning harder on not a woman part
+        "not female but men are ick",
     ]:
         if item in lower_str:
             return True
@@ -1076,7 +1087,7 @@ def is_conflicted_female_aligned(input_str:str):
         
     return result_bool
 
-#TODO is passing/presenting
+# male & female passing/presenting ✅
 def is_present_passing(input_str:str, data_case:str):
     """
     returns true or false based on whether the string implies 
@@ -1088,13 +1099,7 @@ def is_present_passing(input_str:str, data_case:str):
     # making case insensitive
     lower_str = input_str.lower()
 
-    # if is_non_female_aligned(input_str) \
-    # or is_non_male_aligned(input_str) \
-    # or is_female_aligned(input_str) \
-    # or is_male_aligned(input_str) \
-    # or is_conflicted_female_aligned(input_str) \
-    # or is_conflicted_male_aligned(input_str):
-    #     return False
+    # we're not excluding any prior categories there may be overlap
 
     result_bool = False
 
@@ -1115,6 +1120,15 @@ def is_present_passing(input_str:str, data_case:str):
         "government",
         "impersona",
         "bod",
+        "deflaut",
+        "default",
+        "sumed", # assumed, presumed
+        "outwardly",
+        "form",
+        "on tv",
+        "read",
+        "the outside",
+        "woman as in i just work here",
 
     ]:
         if item in lower_str:
@@ -1253,6 +1267,7 @@ def is_present_passing(input_str:str, data_case:str):
             "girl's body",
             "boy stuck in a",
             "female bodied",
+            "woman as in i just work here",
         ]:
             if item in lower_str:
                 return True
@@ -1310,21 +1325,273 @@ def is_present_passing(input_str:str, data_case:str):
             if item in lower_str:
                 result_bool = False
 
+    return result_bool
+
+
+# both ✅
+def is_both(input_str:str):
+
+    # making case insensitive
+    lower_str = input_str.lower()
+
+    # excluding already aligned folks
+    if is_female_aligned(input_str) \
+    or is_male_aligned(input_str) \
+    or is_non_female_aligned(input_str) \
+    or is_non_male_aligned(input_str) \
+    or is_conflicted_male_aligned(input_str) \
+    or is_conflicted_female_aligned(input_str) \
+    or is_present_passing(input_str, "male") \
+    or is_present_passing(input_str, "female"):
+        return False
+
+    result_bool = False
+
+    # things that qualify it if included (to get rid of most other stuff)
+    for item in [
+        ("boy", "girl"),
+        ("man", "woman"),
+        ("guy", "girl"),
+        ("male", "female"),
+        ("guy", "sister"),
+        ("gay man", "lesbian"),
+        ("boy", "woman"),
+        ("male", "woman"),
+        ("boi", "grl"),
+        ("boi", "gurl"),
+        ("boi", "girl"),
+        ("bxy", "gxrl"),
+        ("dad", "mom"),
+        ("dad", "girl"),
+        ("dude", "chick"),
+        ("man", "female"),
+        ("husband", "female"),
+        ("fag", "girl"),
+        ("twink", "girl"),
+        ("man", "girl"),
+        ("prince", "girl"),
+        ("he", "girl"),
+        ("he", "lesbian"),
+        ("he", "woman"),
+        ("dude", "lady"),
+        ("fag", "lady"),
+        ("boy", "lady"), # actually wait we shouldn't be including "Ladyboy" bc that's a known thingy
+        ("boi", "lady"),
+        ("dude", "woman"),
+        ("man", "maiden"),
+        ("dude", "girl"),
+        ("male", "girl"),
+        ("guy", "mom"),
+        ("guy", "milf"),
+        ("man", "women"),
+        ("dude", "gal"),
+        ("man", "lady"),
+        ("miss", "mister"),
+        ("brother", "sister"),
+        ("son", "daughter"),
+        ("guy", "female"),
+        ("fem", "tom"),
+        ("guy", "lady"),
+        ("guy", "gal"),
+        ("guy", "tomboy"),
+        ("dad", "lady"),
+        ("bear", "girl"),
+        ("husband", "woman"),
+        ("man", "she"),
+        ("boy", "she"),
+        ("boy", "sister"),
+    ]:
+        
+        # if both items are in the string
+        if item[0] in lower_str and item[1] in lower_str:
+
+            # if the items overlap (ie man & woMAN)
+            if item[0] in item[1]:
+                # we don't know if it actually contains the smaller word!
+                contains_first_word = False
+                # exclude longer word
+                split_string = split(item[1], lower_str)
+                # check if smaller word remains
+                for piece in split_string:
+                    if item[0] in piece:
+                        contains_first_word = True
+
+            # elif the words are distinct it contains both
+            else: contains_first_word = True
+
+            # only if both words are contained in the string
+            if contains_first_word:
+                result_bool = True
+
+    for item in ["girloy","girboy", "both"]: # mfs CANNOT SPELL/DECIDE ON CONVENTIONS
+        if item in lower_str:
+            result_bool = True
+
+    # excluding general stuff
+    if result_bool:
+        for item in [
+            "trans girl (but in",   # you can't be transmasc & transfemme at once
+            "trans man in a trans woman's body",
+            "ugly woman", 
+            "socialised",
+            "socialized",
+            "girly",
+            "inside",
+            "cosplay",
+            "passing", "presenting",
+            "had a baby",
+            "ladyboy",
+            "girl scout",
+            "neither",
+            "never feel",
+            "no 'mis",
+            "non man",
+            "not",
+            "apathetic",
+            "don't know",
+            "everything except",
+            "in a cismale way", # I'm assuming this one means like girl in the gay way??
+            "creature",
+            "don't feel",
+            "blue",
+            "woman is 0",
+            "in between",
+            "spectrum",
+            "who knows",
+            "as opposed to man or woman",
+            "one of the",
+            "partner ",
+            "a pup",
+            "perceived as",
+            "raised",
+            "looks like",
+            "started a girl, no longer there",
+            "between",
+            "when it's funny",
+            "flamboyant girl",
+            "in an asthetic way",
+            "never 100%",
+            "a man's body",
+                # ok new rule: if they are CLAIMING TO BE BOTH, they will be counted
+                    # yes I will begrudgingly include the trans & cis divide disrespecters in this 
+                    # cause I GUESS THEY ALL ARE TECHNICALLY ANYWAY
+                # if they are neither we remove em
+                # if they do not qualify or are likely to not qualify we remove em too
+                # if they are one of the both & neither ppl - excluded for now bc they couldn't pick
+
+        ]:
+            if item in lower_str:
+                result_bool = False
 
     return result_bool
 
 
-#TODO both
-def is_both(input_str:str):
-    pass
-
 #TODO neither
 def is_neither(input_str:str):
-    pass
 
+    
+    # making case insensitive
+    lower_str = input_str.lower()
+
+    # excluding already aligned folks
+    if is_female_aligned(input_str) \
+    or is_male_aligned(input_str) \
+    or is_non_female_aligned(input_str) \
+    or is_non_male_aligned(input_str) \
+    or is_conflicted_male_aligned(input_str) \
+    or is_conflicted_female_aligned(input_str) \
+    or is_present_passing(input_str, "male") \
+    or is_present_passing(input_str, "female") \
+    or is_both(input_str):
+        return False
+
+    result_bool = True
+
+    # things that qualify it if included (to get rid of most other stuff)
+    for item in [
+        # ("boy", "girl"),
+        # ("man", "woman"),
+        # ("guy", "girl"),
+        # ("male", "female"),
+        # ("guy", "sister"),
+        # ("gay man", "lesbian"),
+        # ("boy", "woman"),
+        # ("male", "woman"),
+        # ("boi", "grl"),
+        # ("boi", "gurl"),
+        # ("boi", "girl"),
+        # ("bxy", "gxrl"),
+        # ("dad", "mom"),
+        # ("dad", "girl"),
+        # ("dude", "chick"),
+        # ("man", "female"),
+        # ("husband", "female"),
+        # ("fag", "girl"),
+        # ("twink", "girl"),
+        # ("man", "girl"),
+        # ("prince", "girl"),
+        # ("he", "girl"),
+        # ("he", "lesbian"),
+        # ("he", "woman"),
+        # ("dude", "lady"),
+        # ("fag", "lady"),
+        # ("boy", "lady"), # actually wait we shouldn't be including "Ladyboy" bc that's a known thingy
+        # ("boi", "lady"),
+        # ("dude", "woman"),
+        # ("man", "maiden"),
+        # ("dude", "girl"),
+        # ("male", "girl"),
+        # ("guy", "mom"),
+        # ("guy", "milf"),
+        # ("man", "women"),
+        # ("dude", "gal"),
+        # ("man", "lady"),
+        # ("miss", "mister"),
+        # ("brother", "sister"),
+        # ("son", "daughter"),
+        # ("guy", "female"),
+        # ("fem", "tom"),
+        # ("guy", "lady"),
+        # ("guy", "gal"),
+        # ("guy", "tomboy"),
+        # ("dad", "lady"),
+        # ("bear", "girl"),
+        # ("husband", "woman"),
+        # ("man", "she"),
+        # ("boy", "she"),
+        # ("boy", "sister"),
+    ]:
+        
+        # if both items are in the string
+        if item[0] in lower_str and item[1] in lower_str:
+
+            # if the items overlap (ie man & woMAN)
+            if item[0] in item[1]:
+                # we don't know if it actually contains the smaller word!
+                contains_first_word = False
+                # exclude longer word
+                split_string = split(item[1], lower_str)
+                # check if smaller word remains
+                for piece in split_string:
+                    if item[0] in piece:
+                        contains_first_word = True
+
+            # elif the words are distinct it contains both
+            else: contains_first_word = True
+
+            # only if both words are contained in the string
+            if contains_first_word:
+                result_bool = False
+
+    return result_bool
+
+#TODO amab & afab
 # there are certain ones indicating amab/afab in the male/female list leftovers 
 # -> include in there later
-# raised, etc
+# raised, socialised, check presenting lists too, etc
+
+#TODO femme & masc
+# needs to include various words like pretty, butch, rosboy (look up masc female equivalent), etc 
 
 
 #TODO afterwards, do for other categories
@@ -1334,7 +1601,7 @@ def is_neither(input_str:str):
 # and "principal boy", and "dame" ?? in cross dresser category!
 
 
-#TODO: make a helper func to dispense the correct function based on data case! ✅
+# helper func to dispense the correct function based on data case! ✅
 def checking_func_dispenser(data_case:str):
     """
     returns appropriate helper function depending on data case
@@ -1353,6 +1620,10 @@ def checking_func_dispenser(data_case:str):
         return is_conflicted_female_aligned
     elif data_case == "male_passing" or data_case == "female_passing":
         return is_present_passing
+    elif data_case == "both":
+        return is_both
+    elif data_case == "neither":
+        return is_neither
 
 #TODO: continue adding new implemented data_cases to doc string
 def find_case(input_list:list, data_case:str):
@@ -1372,6 +1643,8 @@ def find_case(input_list:list, data_case:str):
         - data_case="conflicted_female_aligned"
         - data_case="male_passing"
         - data_case="female_passing"
+        - data_case="both"
+        - data_case="neither"
     """
 
     output_list = []
