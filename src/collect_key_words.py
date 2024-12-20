@@ -102,6 +102,16 @@ def collect_key_words_from_q2(input_list):
         "he","him",
     ]
 
+    # do we want to add more items?
+        # alt words like punk -core etc?
+        # stud (and other words for gnc & queer folks we may have overlooked so far)
+        # ladyboy maybe bc a known word also joso? hijra?
+        # hormone info "hormone", "puberty", "hrt"
+        # add principal boy to crossdressers
+        # ex, former, once, etc -> denoting transition away from (there were others too)
+        # find colours for anyone who decides to describe middle or third option 
+            # using purple or yellow or green (maybe look for red, pink, blue too)
+
     # make dict
     category_dict = {}
 
