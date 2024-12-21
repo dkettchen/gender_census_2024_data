@@ -1194,10 +1194,10 @@ def is_conflicted_female_aligned(input_str:str):
 # male & female passing/presenting ✅
 def is_present_passing(input_str:str, data_case:str):
     """
+    takes an input string and a data case string (data_case="male|female")
+
     returns true or false based on whether the string implies 
     the person passes or presents as male or female
-
-    data_case="male|female"
     """
 
     # making case insensitive
@@ -1468,10 +1468,18 @@ def is_present_passing(input_str:str, data_case:str):
 
     return result_bool
 
-
-# both ✅
-    # doc string
+# both & neither ✅
 def is_both(input_str:str):
+    """
+    takes a string
+
+    checks if it describes a combination of male & female gender (ie "both a man and a woman")
+
+    if so returns True
+
+    else returns False
+    """
+
 
     # making case insensitive
     lower_str = input_str.lower()
@@ -1650,12 +1658,16 @@ def is_both(input_str:str):
 
     return result_bool
 
-
-#TODO neither
-    # doc string
-    # "not really" cases ToT -> maybe put in non-aligned?
 def is_neither(input_str:str):
+    """
+    takes a string
 
+    checks if it describes a negation of both male & female gender (ie "not a man or a woman")
+
+    if so returns True
+
+    else returns False
+    """
     
     # making case insensitive
     lower_str = input_str.lower()
