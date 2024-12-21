@@ -71,6 +71,9 @@ def is_male_aligned(input_str:str):
         "man in a woman's body",
         "physically female, mentally male.",
         "some girl's loser boyfriend",
+        "a ship is a woman",
+        "close to man, but not completely",
+        "i'm like if there was a guy",
     ]:
         if item in lower_str \
         and "to female" not in lower_str \
@@ -271,10 +274,12 @@ def is_non_male_aligned(input_str:str):
         "never a man",
         'not a guy, but "one of the guys"',
         "never a boy",
-        "very much not a guy",
-        "absolutely not a man but also not a woman",
     ]:
-        if item in lower_str:
+        if item in lower_str \
+        and "boy or guy (never a man tho)" not in lower_str \
+        and "no longer a woman, never a man" not in lower_str \
+        and "but sometimes i'm not a woman" not in lower_str \
+        and "never a man but always a gentleman" not in lower_str:
             return True
 
     result_bool = False
@@ -338,6 +343,18 @@ def is_non_male_aligned(input_str:str):
             "trans guy/dude",
             "not really a",
             "not quite a",
+            "never a man but sometimes i'm not a woman",
+            "no longer a woman, never a man",
+            "absolutely not a man but also not a woman",
+            "practicing",
+            "but in a boy way",
+            "there's another me who is now a guy",
+            "boy or guy (never a man tho)",
+            "(non-male) boy",
+            "(wo)man",
+            "sometimes i feel more like a man sometimes not",
+            "women liking non woman but very much not a guy"
+            
         ]:
             if item in lower_str:
                 result_bool = False
@@ -398,12 +415,8 @@ def is_conflicted_male_aligned(input_str:str):
     # making case insensitive
     lower_str = input_str.lower()
 
-    # conflicted must not be in the explicitly male-aligned group
-    if is_male_aligned(input_str):
-        return False
-    
-    # conflicted must not be in the explicitly non_male-aligned group
-    if is_non_male_aligned(input_str):
+    # conflicted must not be in the explicitly male-aligned group or explicitly non_male-aligned group
+    if is_male_aligned(input_str) or is_non_male_aligned(input_str):
         return False
 
     # => we only need to look at leftovers!
@@ -492,13 +505,30 @@ def is_conflicted_male_aligned(input_str:str):
         'wanna-be-hrt-femboy', 
         'whatever man',
         'middle age started male hormones', 
+        "one of the",
+        "there's another me who is now a guy",
+        "biological",
+        "boy mode",
+        "bro im just chilling",
+        "bro its just vibes",
+        "bromance",
+        "fe(male)",
+        "ftm trans guy who's not actually ftm",
+        "mamser",
+        "mandox",
+        "manly moth",
+        "manmoder",
+        "(wo)man",
+        "some manner of beast",
+        "sometimes i feel more like a man sometimes not",
+        "swarm of nanobots",
+        "they/them femboy",
     ]:
         if item in lower_str:
             result_bool = False
     
     # things to re-include
     for item in [
-        "ship is a woman",
         'man (in a gender neutral way)', # I will concede dude & guy gender neutral but man is largely Not That sorry
         'man (in a non-gendered context)', 
         "boy (gender neutral)",
@@ -611,7 +641,8 @@ def is_female_aligned(input_str:str):
     ]:
         if item in lower_str \
         and "femboy" not in lower_str \
-        and "not a girl but not not a girl" not in lower_str:
+        and "not a girl but not not a girl" not in lower_str \
+        and "kind of girl but not really" not in lower_str:
             return True
 
     # things we're excluding
@@ -808,6 +839,8 @@ def is_female_aligned(input_str:str):
         "practicing",
         "none girl",
         "occasionally ejected from womanhood",
+        "kind of girl but not really",
+        "mamser"
     ]:
         if item in lower_str:
             return False
@@ -851,12 +884,11 @@ def is_non_female_aligned(input_str:str):
         'no comfortable being called a woman', 
         'anything but a girl', 
         'everything but a girl', 
-        "even less a girl",
         "definitely not female",
         "certainly not woman",
         "never a girl",
-        "not a man, but definetly not a woman", # bc leaning harder on not a woman part
         "not female but men are ick",
+        "i was a girl but i am not a woman", # this implies transmasc
     ]:
         if item in lower_str:
             return True
@@ -956,6 +988,11 @@ def is_non_female_aligned(input_str:str):
             "woman by",
             "not man",
             "non practing", # can't spell omg
+            "don't just refere to me as a girl", # I misread this one before it's less clear than I thought
+            "girl like but not quite",
+            "not a guy but even less a girl",
+            "im just a girl (non gendered)",
+            "not a man, but definetly not a woman",
         ]:
             if item in lower_str:
                 result_bool = False
@@ -1128,6 +1165,20 @@ def is_conflicted_female_aligned(input_str:str):
         "feminine, but",
         "feminine but",
         "womanhood is irrevelant to me",
+        "biological",
+        "girl mode",
+        "don't just refere to me as a girl",
+        "person of the female sex.",
+        "practicing",
+        "womanhood resister",
+        "botgirl",
+        "genderless robot that's made to sound like a woman",
+        "bad at",
+        "girlmoder",
+        "girlmech",
+        "mamser",
+        "lady lover",
+        "legally female",
     ]:
         if item in lower_str:
             result_bool = False
