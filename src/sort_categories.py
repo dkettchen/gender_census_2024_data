@@ -74,7 +74,11 @@ def is_male_aligned(input_str:str):
     ]:
         if item in lower_str \
         and "to female" not in lower_str \
-        and "boy-girl" not in lower_str:
+        and "boy-girl" not in lower_str \
+        and "boyish woman" not in lower_str \
+        and "80/20" not in lower_str \
+        and "not actually ftm" not in lower_str\
+        and "just a girl/" not in lower_str:
             return True
 
     # things we're excluding
@@ -149,6 +153,8 @@ def is_male_aligned(input_str:str):
         "not-boy",
         "not male",
         'not-male',
+        "non-male",
+        "non-man",
         "not-man",
         "not man",
         "nonman",
@@ -180,7 +186,6 @@ def is_male_aligned(input_str:str):
         "boyn't",
         "not gender specific",
         "just work here",
-        "trans guy who's not actually ftm",
         "fuck if i know",
         "girboylent",
         "lady",
@@ -194,7 +199,6 @@ def is_male_aligned(input_str:str):
         "socialised",
         "never a boy",
         "never felt comfortable"
-        'one of the guys',
         'post-male', 
         "she's the man", 
         'hrt fem"boy"',
@@ -203,6 +207,33 @@ def is_male_aligned(input_str:str):
         'transfem boy', 
         "hrt-femboy",
         'whatever man', 
+        "(wo)man",
+        "one of the",
+        "saphboy",
+        "80/20 female to male",
+        "boiwife",
+        "boywife",
+        "princess",
+        "there's another me who is now a guy",
+        "biological",
+        "boy mode",
+        "bro im just chilling",
+        "bro its just vibes",
+        "bromance",
+        "fe(male)",
+        "not actually ftm",
+        "guywife",
+        "just a girl/",
+        "mamser",
+        "manly moth",
+        "mandox",
+        "manmoder",
+        "never felt comfortable being called a",
+        "some manner of beast",
+        "sometimes i feel more like a man sometimes not",
+        "swarm of nanobots",
+        "they/them femboy", # implies non-aligned femboy similar to hrt femboy
+        "practicing",
     ]:
         if item in lower_str:
             return False
@@ -505,12 +536,10 @@ def is_female_aligned(input_str:str):
         "male to female",
         'a woman with a splash of non binary', 
         "to the left",
-        "but not quite",
         "tough, muscular",
         "60% opacity",
         "tomato is a fruit",
         "almost",
-        'girl but I miss my balls too much', 
         'girl but a bit off', 
         "like a boat",
         "i'm half girl",
@@ -580,7 +609,9 @@ def is_female_aligned(input_str:str):
         "flamboyant girl",
         "in-between the middle of man and woman and a woman",
     ]:
-        if item in lower_str and "femboy" not in lower_str:
+        if item in lower_str \
+        and "femboy" not in lower_str \
+        and "not a girl but not not a girl" not in lower_str:
             return True
 
     # things we're excluding
@@ -759,6 +790,24 @@ def is_female_aligned(input_str:str):
         'once-girl', 
         "92% neutral gender, 2% girl",
         "not always a",
+        "biological",
+        "person of the female sex", 
+        "not a girl but not not a girl", # is conflicted
+        "womanhood resister",
+        "bad at ",
+        "botgirl", # this may be a misspelling of boygirl =.=
+        "genderless robot that's made to sound like a woman", # this is female passing??
+        "girlless catgirl", # is conflicted
+        "girlmech",
+        "girlmoder",
+        "(non gendered)",
+        "lady lover", # like girl kisser??
+        "ladybuck", # buck is a male deer right? if it was buck lady I'd let it slide same as doe boy
+        "legally",
+        "not quite",
+        "practicing",
+        "none girl",
+        "occasionally ejected from womanhood",
     ]:
         if item in lower_str:
             return False
@@ -1133,6 +1182,9 @@ def is_present_passing(input_str:str, data_case:str):
         "read",
         "the outside",
         "woman as in i just work here",
+        "inertia",
+        "habit",
+
 
     ]:
         if item in lower_str:
