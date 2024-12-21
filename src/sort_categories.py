@@ -533,6 +533,7 @@ def is_conflicted_male_aligned(input_str:str):
         'man (in a non-gendered context)', 
         "boy (gender neutral)",
         "boy but in an ungendered way",
+        "sometimes i feel more like a man sometimes not",
     ]:
         if item in lower_str:
             result_bool = True
@@ -1159,7 +1160,6 @@ def is_conflicted_female_aligned(input_str:str):
         'unable to girl', 
         "used to be",
         "convenien",
-        "not really a",
         "woman feels wrong",
         "experience",
         "feminine, but",
@@ -1327,6 +1327,26 @@ def is_present_passing(input_str:str, data_case:str):
             "girl's body",
             "boy stuck in a",
             "female bodied",
+            "afab",
+            "anxiety and dread but in a boy way",
+            "assigned female",
+            "sumed female",
+            "former",
+            "gender non conforming",
+            "gender non-conforming",
+            "gender noncomforming",
+            "gender nonconforming",
+            "non-conforming",
+            "girl on the outside",
+            "dont want be read",
+            "female form",
+            "play a girl on tv",
+            "woman as in i just work here",
+            "girl by default",
+            "habitual girl",
+            "other persons read me as female",
+            "performatively female",
+            "presumed woman for lack of a better option",
         ]:
             if item in lower_str:
                 result_bool = False
@@ -1358,7 +1378,6 @@ def is_present_passing(input_str:str, data_case:str):
             "female by",
             "female impersona",
             "girl-passing",
-            "legally female",
             "cis woman",
             "socially a girl",
             "socially a woman",
@@ -1375,6 +1394,7 @@ def is_present_passing(input_str:str, data_case:str):
             "boy stuck in a",
             "female bodied",
             "woman as in i just work here",
+            "deflaut",
         ]:
             if item in lower_str:
                 return True
@@ -1428,6 +1448,20 @@ def is_present_passing(input_str:str, data_case:str):
             "dude, just impersonating",
             "a man's body",
             "male body",
+            "afab",
+            "in a boy way",
+            "former",
+            "gender non conforming",
+            "gender non-conforming",
+            "gender noncomforming",
+            "gender nonconforming",
+            "non-conforming",
+            "man-form",
+            "not a boy, but i play one on tv",
+            "dont want be read", # implies potential retrospective (ie I no longer get read as female 
+            # but also still do not want to be read as female)
+            "legally female", # could refer to an outdated sex marker
+
         ]:
             if item in lower_str:
                 result_bool = False
@@ -1531,13 +1565,24 @@ def is_both(input_str:str):
             if contains_first_word:
                 result_bool = True
 
-    for item in ["girloy","girboy", "both"]: # mfs CANNOT SPELL/DECIDE ON CONVENTIONS
+    for item in [
+        "girloy","girboy", 
+        "both",
+        "(wo)man","(fe)male","wo(man)","fe(male)",
+    ]: # mfs CANNOT SPELL/DECIDE ON CONVENTIONS
         if item in lower_str:
             result_bool = True
 
     # excluding general stuff
     if result_bool:
         for item in [
+            # ok new rule: if they are CLAIMING TO BE BOTH, they will be counted
+                # yes I will begrudgingly include the trans & cis divide disrespecters in this 
+                # cause I GUESS THEY ALL ARE TECHNICALLY ANYWAY
+            # if they are neither we remove em
+            # if they do not qualify or are likely to not qualify we remove em too
+            # if they are one of the both & neither ppl - excluded for now bc they couldn't pick
+
             "trans girl (but in",   # you can't be transmasc & transfemme at once
             "trans man in a trans woman's body",
             "ugly woman", 
@@ -1581,12 +1626,7 @@ def is_both(input_str:str):
             "a man's body",
             "notboynotgirl",
             "notgirl/notboy",
-                # ok new rule: if they are CLAIMING TO BE BOTH, they will be counted
-                    # yes I will begrudgingly include the trans & cis divide disrespecters in this 
-                    # cause I GUESS THEY ALL ARE TECHNICALLY ANYWAY
-                # if they are neither we remove em
-                # if they do not qualify or are likely to not qualify we remove em too
-                # if they are one of the both & neither ppl - excluded for now bc they couldn't pick
+            "no longer a woman, never a man",
 
         ]:
             if item in lower_str:
@@ -1673,11 +1713,23 @@ def is_neither(input_str:str):
             "she/he",
             "woman by experience",
             "mix",
+            "practicing",
+            "there's another me who is now a guy",
+            "ftm trans guy who's not actually ftm",
+            "not really",
 
             # the not reallys are giving me trouble figure out
         ]:
             if item in lower_str:
                 result_bool = False
+
+        # things to reinclude
+        for item in [
+            "not really a boy, but not really a girl",
+            "not really male/female",
+        ]:
+            if item in lower_str:
+                result_bool = True
 
     return result_bool
 
