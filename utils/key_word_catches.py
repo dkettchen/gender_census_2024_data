@@ -190,5 +190,6 @@ words_catching = {
         "man, i just am",
         "i do not use human",
         "humam",
+        "amser \(filipino slang i guess\) \(lit\. maa",
     ]
 }
