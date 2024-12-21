@@ -191,5 +191,10 @@ words_catching = {
         "i do not use human",
         "humam",
         "amser \(filipino slang i guess\) \(lit\. maa",
+    ],
+
+    "both": [
+        "bother",
+        "both the music and the aesthetic",
     ]
 }

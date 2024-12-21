@@ -1468,6 +1468,36 @@ def is_present_passing(input_str:str, data_case:str):
 
     return result_bool
 
+
+# helper
+def is_in_binaries_list(input_str):
+    """
+    takes a string
+
+    checks if the string contains any of the key words that were being caught 
+    for the male & female categories
+
+    if so returns True
+
+    otherwise returns False
+    """
+
+    # making case insensitive
+    lower_str = input_str.lower()
+
+    for item in [ # if the item was caught in the male/female list 
+        "girl","woman","lady","gal","female","chic","maiden",
+        "ma","am","mom","mum","miss","ms","daughter","sister","gxrl","wxman","womxn",
+
+        "guy","dude","boy","boi","man","male","sir","lad","lord",
+        "dad","mr","mister","son","bro","bloke","bxy","bruv",
+    ]:
+        if item in lower_str:
+            return True
+    
+    return False
+
+
 # both & neither ✅
 def is_both(input_str:str):
     """
@@ -1479,22 +1509,21 @@ def is_both(input_str:str):
 
     else returns False
     """
-
-
     # making case insensitive
     lower_str = input_str.lower()
 
-    # excluding already aligned folks
-    if is_female_aligned(input_str) \
-    or is_male_aligned(input_str) \
-    or is_non_female_aligned(input_str) \
-    or is_non_male_aligned(input_str) \
-    or is_conflicted_male_aligned(input_str) \
-    or is_conflicted_female_aligned(input_str) \
-    or is_present_passing(input_str, "male") \
-    or is_present_passing(input_str, "female"):
-        return False
-
+    if is_in_binaries_list(input_str):
+        # excluding already aligned folks
+        if is_female_aligned(input_str) \
+        or is_male_aligned(input_str) \
+        or is_non_female_aligned(input_str) \
+        or is_non_male_aligned(input_str) \
+        or is_conflicted_male_aligned(input_str) \
+        or is_conflicted_female_aligned(input_str) \
+        or is_present_passing(input_str, "male") \
+        or is_present_passing(input_str, "female"):
+            return False
+    
     result_bool = False
 
     # things that qualify it if included (to get rid of most other stuff)
@@ -1575,7 +1604,7 @@ def is_both(input_str:str):
 
     for item in [
         "girloy","girboy", 
-        "both",
+        "both", "either",
         "(wo)man","(fe)male","wo(man)","fe(male)",
     ]: # mfs CANNOT SPELL/DECIDE ON CONVENTIONS
         if item in lower_str:
@@ -1635,10 +1664,11 @@ def is_both(input_str:str):
             "notboynotgirl",
             "notgirl/notboy",
             "no longer a woman, never a man",
-
         ]:
             if item in lower_str:
-                result_bool = False
+                if item != "neither" \
+                or (item == "neither" and "both" not in lower_str):
+                    result_bool = False
 
         if not result_bool:
             for item in [
@@ -1652,6 +1682,9 @@ def is_both(input_str:str):
                 "boy-girl",
                 "girlboy",
                 "quantum",
+                "why not both",
+                "neither exclusively, more like both",
+                "either and neither",
             ]:
                 if item in lower_str:
                     result_bool = True
@@ -1672,16 +1705,18 @@ def is_neither(input_str:str):
     # making case insensitive
     lower_str = input_str.lower()
 
-    # excluding already aligned folks
-    if is_female_aligned(input_str) \
-    or is_male_aligned(input_str) \
-    or is_non_female_aligned(input_str) \
-    or is_non_male_aligned(input_str) \
-    or is_conflicted_male_aligned(input_str) \
-    or is_conflicted_female_aligned(input_str) \
-    or is_present_passing(input_str, "male") \
-    or is_present_passing(input_str, "female") \
-    or is_both(input_str):
+    if is_in_binaries_list(input_str):
+        # excluding already aligned folks
+        if is_female_aligned(input_str) \
+        or is_male_aligned(input_str) \
+        or is_non_female_aligned(input_str) \
+        or is_non_male_aligned(input_str) \
+        or is_conflicted_male_aligned(input_str) \
+        or is_conflicted_female_aligned(input_str) \
+        or is_present_passing(input_str, "male") \
+        or is_present_passing(input_str, "female"):
+            return False
+    if is_both(input_str):
         return False
 
     result_bool = False
@@ -1729,8 +1764,8 @@ def is_neither(input_str:str):
             "there's another me who is now a guy",
             "ftm trans guy who's not actually ftm",
             "not really",
-
-            # the not reallys are giving me trouble figure out
+            "i'm both cisgender and nonbinary : i'm intersex.",
+            "i'm not both binary genders.",
         ]:
             if item in lower_str:
                 result_bool = False
@@ -1746,6 +1781,51 @@ def is_neither(input_str:str):
     return result_bool
 
 #TODO amab & afab
+def is_agab(input_str:str, data_case:str):
+
+    
+    # making case insensitive
+    lower_str = input_str.lower()
+
+    result_bool = True
+
+    # things that qualify it if included (to get rid of most other stuff)
+    for item in [
+        "raised",
+        "born",
+        "assigned",
+        "at birth",
+        "child",
+        "trans",
+        "hrt",
+        "ex",
+        "former",
+        "now",
+        "cis",
+
+        "afab",
+        "dfab",
+        "ft",
+        "female to",
+
+        "amab",
+        "dmab",
+        "mt",
+        "male to",
+
+    ]:
+        if item in lower_str:
+            result_bool = False
+
+    if result_bool:
+        # things to exclude
+        for item in []:
+            if item in lower_str:
+                result_bool = False
+
+    return result_bool
+
+    pass
 # there are certain ones indicating amab/afab in the male/female list leftovers 
 # -> include in there later
 # raised, socialised, check presenting lists too, etc
@@ -1784,6 +1864,8 @@ def checking_func_dispenser(data_case:str):
         return is_both
     elif data_case == "neither":
         return is_neither
+    elif data_case == "afab" or data_case == "amab":
+        return is_agab
 
 #TODO: continue adding new implemented data_cases to doc string
 def find_case(input_list:list, data_case:str):
@@ -1805,6 +1887,8 @@ def find_case(input_list:list, data_case:str):
         - data_case="female_passing"
         - data_case="both"
         - data_case="neither"
+        - data_case="afab"
+        - data_case="amab"
     """
 
     output_list = []
@@ -1813,11 +1897,24 @@ def find_case(input_list:list, data_case:str):
 
     # check words in input list
     for item in sorted(list(set(input_list))):
+
         # if they fit criteria for being counted 
-        if (data_case in ["male_passing","female_passing"] \
-            and checking_func(item, data_case[:-8]))\
-        or (data_case not in ["male_passing","female_passing"] \
-            and checking_func(item)):
+        if (data_case not in [ 
+            # cases that need a data_case
+            "male_passing",
+            "female_passing",
+            "afab", 
+            "amab"
+        ] and checking_func(item))\
+        or (data_case in [ # data case useable as is
+            "afab",
+            "amab"
+        ] and checking_func(item, data_case))\
+        or (data_case in [ # removing "_passing" or other 8 last letters from data case
+            "male_passing",
+            "female_passing"
+        ] and checking_func(item, data_case[:-8])):
+            
             # they are added to output list
             output_list.append(item)
 
