@@ -64,6 +64,7 @@ def is_male_aligned(input_str:str):
         "girly dude",
         "girlish boy",
         "girlish-boy",
+        "a girly man",
         "home im a guy who lies girls thats it im normale", # how did a straight guy get in here what
         "im a guy in the way ships are female",
         "like if a boy was raised as a girl", # assuming this to be literally this scenario??
@@ -240,6 +241,7 @@ def is_non_male_aligned(input_str:str):
         'not a guy, but "one of the guys"',
         "never a boy",
         "very much not a guy",
+        "absolutely not a man but also not a woman",
     ]:
         if item in lower_str:
             return True
@@ -575,6 +577,8 @@ def is_female_aligned(input_str:str):
         "woman who wears",
         "tomboy dickgirl",
         "euphoric as trans female",
+        "flamboyant girl",
+        "in-between the middle of man and woman and a woman",
     ]:
         if item in lower_str and "femboy" not in lower_str:
             return True
@@ -1329,6 +1333,7 @@ def is_present_passing(input_str:str, data_case:str):
 
 
 # both ✅
+    # doc string
 def is_both(input_str:str):
 
     # making case insensitive
@@ -1436,7 +1441,6 @@ def is_both(input_str:str):
             "socialised",
             "socialized",
             "girly",
-            "inside",
             "cosplay",
             "passing", "presenting",
             "had a baby",
@@ -1446,7 +1450,7 @@ def is_both(input_str:str):
             "never feel",
             "no 'mis",
             "non man",
-            "not",
+            "not ",
             "apathetic",
             "don't know",
             "everything except",
@@ -1472,6 +1476,8 @@ def is_both(input_str:str):
             "in an asthetic way",
             "never 100%",
             "a man's body",
+            "notboynotgirl",
+            "notgirl/notboy",
                 # ok new rule: if they are CLAIMING TO BE BOTH, they will be counted
                     # yes I will begrudgingly include the trans & cis divide disrespecters in this 
                     # cause I GUESS THEY ALL ARE TECHNICALLY ANYWAY
@@ -1483,10 +1489,28 @@ def is_both(input_str:str):
             if item in lower_str:
                 result_bool = False
 
+        if not result_bool:
+            for item in [
+                "if a boy was a girl",
+                "if a man was a woman",
+                "both and neither",
+                "partly",
+                "a boy but also a girl",
+                "a boy and a girl",
+                "boygirl",
+                "boy-girl",
+                "girlboy",
+                "quantum",
+            ]:
+                if item in lower_str:
+                    result_bool = True
+
     return result_bool
 
 
 #TODO neither
+    # doc string
+    # "not really" cases ToT -> maybe put in non-aligned?
 def is_neither(input_str:str):
 
     
@@ -1505,82 +1529,51 @@ def is_neither(input_str:str):
     or is_both(input_str):
         return False
 
-    result_bool = True
+    result_bool = False
 
     # things that qualify it if included (to get rid of most other stuff)
     for item in [
-        # ("boy", "girl"),
-        # ("man", "woman"),
-        # ("guy", "girl"),
-        # ("male", "female"),
-        # ("guy", "sister"),
-        # ("gay man", "lesbian"),
-        # ("boy", "woman"),
-        # ("male", "woman"),
-        # ("boi", "grl"),
-        # ("boi", "gurl"),
-        # ("boi", "girl"),
-        # ("bxy", "gxrl"),
-        # ("dad", "mom"),
-        # ("dad", "girl"),
-        # ("dude", "chick"),
-        # ("man", "female"),
-        # ("husband", "female"),
-        # ("fag", "girl"),
-        # ("twink", "girl"),
-        # ("man", "girl"),
-        # ("prince", "girl"),
-        # ("he", "girl"),
-        # ("he", "lesbian"),
-        # ("he", "woman"),
-        # ("dude", "lady"),
-        # ("fag", "lady"),
-        # ("boy", "lady"), # actually wait we shouldn't be including "Ladyboy" bc that's a known thingy
-        # ("boi", "lady"),
-        # ("dude", "woman"),
-        # ("man", "maiden"),
-        # ("dude", "girl"),
-        # ("male", "girl"),
-        # ("guy", "mom"),
-        # ("guy", "milf"),
-        # ("man", "women"),
-        # ("dude", "gal"),
-        # ("man", "lady"),
-        # ("miss", "mister"),
-        # ("brother", "sister"),
-        # ("son", "daughter"),
-        # ("guy", "female"),
-        # ("fem", "tom"),
-        # ("guy", "lady"),
-        # ("guy", "gal"),
-        # ("guy", "tomboy"),
-        # ("dad", "lady"),
-        # ("bear", "girl"),
-        # ("husband", "woman"),
-        # ("man", "she"),
-        # ("boy", "she"),
-        # ("boy", "sister"),
+        "apathetic",
+        "everything except",
+        "neither",
+        "as much not",
+        "don't feel",
+        "never",
+        "non",
+        "not",
+        "no 'miss,'",
+        "opposed to",
+        '"or"',
+        "between",
     ]:
         
-        # if both items are in the string
-        if item[0] in lower_str and item[1] in lower_str:
+        # if item is in the string
+        if item in lower_str:
+            result_bool = True
 
-            # if the items overlap (ie man & woMAN)
-            if item[0] in item[1]:
-                # we don't know if it actually contains the smaller word!
-                contains_first_word = False
-                # exclude longer word
-                split_string = split(item[1], lower_str)
-                # check if smaller word remains
-                for piece in split_string:
-                    if item[0] in piece:
-                        contains_first_word = True
+    if result_bool:
+        for item in [
+            "girly but not really",
+            "girly girl",
+            "never masculine",
+            "nonboyna",
+            "left gender",
+            "raised",
+            "not entirely female",
+            "not constantly",
+            "not always",
+            "non-gender",
+            "more boy than girl",
+            "rest of the spectrum",
+            "a man's body",
+            "not a trans woman",
+            "she/he",
+            "woman by experience",
+            "mix",
 
-            # elif the words are distinct it contains both
-            else: contains_first_word = True
-
-            # only if both words are contained in the string
-            if contains_first_word:
+            # the not reallys are giving me trouble figure out
+        ]:
+            if item in lower_str:
                 result_bool = False
 
     return result_bool
