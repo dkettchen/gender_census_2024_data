@@ -2209,8 +2209,18 @@ def is_agab(input_str:str, data_case:str):
             "flamboyant girl",
             " but girl",
             "part girl part creature",
-            "world's first cisgender trans woman" # idk what that means girl
-            
+            "world's first cisgender trans woman", # idk what that means girl
+            "afab/amab", # USELESS
+            "transfemme/transmasc",
+            "transfem transmasc",
+            "if a transmasc guy was also transfem",
+            "transfem in a transmasc way",
+            "transfeminine in a transmasculine way",
+            "transfeminine transmasc",
+            "feminist",
+            "transmasc but transfem in a way",
+            "transmasc transfem",
+            "transmasc transgirl",
             
         ]:
             if item in lower_str:
@@ -2293,27 +2303,8 @@ def is_agab(input_str:str, data_case:str):
 
             # things to exclude
             for item in [
-                "afab",
-                "dfab",
-                "bonus hole",
-                "uterus",
-                "womb",
-                "pussy",
-                "cunt",
-                "was a girl",
-                "seahorse", # mpreg innit
-                "tboy",
-                "tboi",
-                "tguy",
-                "c-boy", # assuming this is short for cunt
-                "cboy",
-                "t boy",
-                "t guy",
-                "t man",
-                "t-boy",
-                "in a woman's body",
-                "transmasc",
-                "identified as male, no hrt", # this implies no-hrt transmasc
+                
+                
             ]:
                 if item in lower_str:
                     result_bool = False
@@ -2391,6 +2382,10 @@ def is_agab(input_str:str, data_case:str):
                 "i would be the same if i had been amab", # implies they are actually afab
                 "dickless boy toy",
                 "presents as female by default",
+                "afab transfem",
+                "afab trans woman", # not how that works but you're telling me your birth assignment hnng
+                "trans girl (but in the afab way)",
+                "in a transmasc body",
             ]:
                 if item in lower_str:
                     result_bool = True
