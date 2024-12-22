@@ -244,10 +244,6 @@ def collect_key_words_from_q2(input_list):
                 umbrella_word = "two-spirit"
             elif key_word in ["butch", "masc","tomboy",]:
                 umbrella_word = "butch/masc/tomboy"
-            elif key_word in ["black", ("n","gga")]:
-                umbrella_word = "black"
-            elif key_word == "sian":
-                umbrella_word = "asian"
             elif key_word in ["she","her"]:
                 umbrella_word = "she/her"
             elif key_word in ["he","him"]:
@@ -259,6 +255,8 @@ def collect_key_words_from_q2(input_list):
                 "brown",
             ]:
                 umbrella_word = "POC_mention"
+            elif key_word in ["jew", "muslim"]:
+                umbrella_word = "religion_mention"
             else: umbrella_word = key_word # if it doesn't need to be different
 
             # words we don't mean that might catch on our key words!
