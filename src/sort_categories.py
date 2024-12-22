@@ -2079,7 +2079,6 @@ def is_agab(input_str:str, data_case:str):
             "boy not man",
             "boy, but not man",
             "cis the same way a tomato is a fruit",
-            "diet man",
             "double trans",
             "external presentation trans",
             "extreme trans-neptunian object", # you are not space rocks, if you can FILL OUT A SURVEY, 
@@ -2178,6 +2177,40 @@ def is_agab(input_str:str, data_case:str):
             "woman by experience, nonbinary by identity",
             "left guy",
             "(distinct from fag)",
+            "a boy but girl",
+            "almost girl",
+            "almost-girl",
+            "comet",
+            "diet",
+            "girl-not girl",
+            "hot girl",
+            "meat girl", # could be dick euphemism but I won't put my money on that
+            "left girl",
+            "not girl",
+            "not-girl",
+            "notgirl",
+            "part-girl",
+            "plant",
+            "spiritually transfemme", # not a thing
+            "trans-femme-tomboy-whatever",
+            "transfemmasc",
+            "transfemmemasc",
+            "transfemasc",
+            "transfemneumasc",
+            "transneufemmasc",
+            "transtransfem",
+            "but not girl or ms",
+            " at girl",
+            "beast",
+            "botgirl",
+            "boy but girly",
+            "dick/bitch (both)",
+            "femininity in an amab way",
+            "flamboyant girl",
+            " but girl",
+            "part girl part creature",
+            "world's first cisgender trans woman" # idk what that means girl
+            
             
         ]:
             if item in lower_str:
@@ -2244,6 +2277,9 @@ def is_agab(input_str:str, data_case:str):
             "transperson",
             "transsexual/transexual",
             "transsexuel",
+            "not a trans woman",
+            "somewhat girl",
+            
         ]:
             if item == lower_str: # if it needs to be exactly that 
                                     # bc there may be longer versions we wanna include
@@ -2251,6 +2287,10 @@ def is_agab(input_str:str, data_case:str):
     
     if data_case == "amab":
         if result_bool:
+
+            if is_agab(input_str, "afab"): # if it's already in the afab list we don't need to bother
+                return False
+
             # things to exclude
             for item in [
                 "afab",
@@ -2260,7 +2300,6 @@ def is_agab(input_str:str, data_case:str):
                 "womb",
                 "pussy",
                 "cunt",
-                "on t",
                 "was a girl",
                 "seahorse", # mpreg innit
                 "tboy",
@@ -2341,12 +2380,20 @@ def is_agab(input_str:str, data_case:str):
                 "wanna-be-hrt-femboy",
                 "wannabe-woman",
                 "want to be a girl but don't hate being a guy",
-
-                
             ]:
                 if item in lower_str:
                     result_bool = False
 
+        if not result_bool:
+            for item in [
+                "ftmtf",
+                "female to male to female",
+                "i would be the same if i had been amab", # implies they are actually afab
+                "dickless boy toy",
+                "presents as female by default",
+            ]:
+                if item in lower_str:
+                    result_bool = True
             
 
     return result_bool
