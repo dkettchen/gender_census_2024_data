@@ -10,18 +10,27 @@ def find_case(input_list:list, data_case:str):
     according to the data_case's relevant helper function's criteria
 
     currently implemented data_cases (using corresponding helper functions):
+
         - data_case="male_aligned"
         - data_case="non_male_aligned"
         - data_case="conflicted_male_aligned"
+        
         - data_case="female_aligned"
         - data_case="non_female_aligned"
         - data_case="conflicted_female_aligned"
+
         - data_case="male_passing"
         - data_case="female_passing"
+
         - data_case="both"
         - data_case="neither"
+
         - data_case="afab"
         - data_case="amab"
+
+        - data_case="femme"
+        - data_case="masc"
+        - data_case="futch"
     """
 
     output_list = []
