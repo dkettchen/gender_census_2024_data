@@ -50,9 +50,9 @@ def collect_key_words_from_q2(input_list):
         'agender',
         'bigender',
         'binary',
-        'butch',"tomboy",
-        "femi","femm",
-        "masc",
+        'butch',"tom","azur","masc",
+        "fem","ros","pretty",
+        "futch",
         'cis',
         'demiboy',
         'demigirl',
@@ -66,7 +66,7 @@ def collect_key_words_from_q2(input_list):
         "system","plural","did","alter",
         ("a","hd"),"neuro","nuro",
         "both","neither",
-        "femboy",
+        "femboy","femboi",
         "they","them",
         "twink",
         "bear",
@@ -197,6 +197,10 @@ def collect_key_words_from_q2(input_list):
                 "bruv",
             ]:
                 umbrella_word = "man/boy/male"
+            elif key_word in ['butch',"tom","azur","masc",]:
+                umbrella_word = "masc"
+            elif key_word in ["fem","ros","pretty",]:
+                umbrella_word = "femme"
             elif key_word == "question":
                 umbrella_word = "questioning"
             elif key_word == ("fag","dyke"):
@@ -214,8 +218,6 @@ def collect_key_words_from_q2(input_list):
                 umbrella_word = "other_neurodiversity_related"
             elif key_word in ["tran", ("tr","nny")]:
                 umbrella_word = "trans"
-            elif key_word in ["femi", "femm"]:
-                umbrella_word = "femme"
             elif key_word in ["lesb", "lez", "les",]: 
                 umbrella_word = "lesbian"
             elif key_word == "sapph":
@@ -242,8 +244,6 @@ def collect_key_words_from_q2(input_list):
                 umbrella_word = "dysphoric"
             elif key_word in [("2","spirit"),("two","spirit"),]:
                 umbrella_word = "two-spirit"
-            elif key_word in ["butch", "masc","tomboy",]:
-                umbrella_word = "butch/masc/tomboy"
             elif key_word in ["she","her"]:
                 umbrella_word = "she/her"
             elif key_word in ["he","him"]:
@@ -257,6 +257,8 @@ def collect_key_words_from_q2(input_list):
                 umbrella_word = "POC_mention"
             elif key_word in ["jew", "muslim"]:
                 umbrella_word = "religion_mention"
+            elif key_word == "femboi":
+                umbrella_word = "femboy"
             else: umbrella_word = key_word # if it doesn't need to be different
 
             # words we don't mean that might catch on our key words!

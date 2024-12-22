@@ -3,12 +3,42 @@
 
 # anything femme
 def is_femme(input_str:str):
-    pass
+
+    # making case insensitive
+    lower_str = input_str.lower()
+
+    result_bool = True
+    
+    for item in []:
+        if item in lower_str:
+            result_bool = False
+    
+    return result_bool
 
 # anything masc
 def is_masc(input_str:str):
-    pass
+
+    # making case insensitive
+    lower_str = input_str.lower()
+
+    result_bool = True
+    
+    for item in []:
+        if item in lower_str:
+            result_bool = False
+    
+    return result_bool
 
 # anything both
 def is_futch(input_str:str):
-    pass
+
+    # making case insensitive
+    lower_str = input_str.lower()
+
+    result_bool = True
+    
+    for item in []:
+        if item in lower_str:
+            result_bool = False
+    
+    return result_bool
