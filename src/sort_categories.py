@@ -1929,9 +1929,7 @@ def is_agab(input_str:str, data_case:str):
             "cistrans",
             "context-dependently transgender",
             "culturally afab", # you better be intersex mf or transitioned mtf as a toddler
-            "Demi-transbinary",
-            "detrans", # add useable ones back in later
-            "diet trans",
+            "demi-transbinary",
             "digi-trans",
             "discount",
             "don't want to transition",
@@ -1940,9 +1938,7 @@ def is_agab(input_str:str, data_case:str):
             "refused female hormones", # not enough info may be intersex
             "evil trans",
             "in a cismale way", # does not say *they* are cis male
-            "former man",
             "full medical transition completed",
-            "trans fae", # fae is fem-spec, faun is masc-spec
             "gender non conforming black woman",
             "gender non-conforming female",
             "but boy",
@@ -2221,7 +2217,6 @@ def is_agab(input_str:str, data_case:str):
             "transmasc but transfem in a way",
             "transmasc transfem",
             "transmasc transgirl",
-            
         ]:
             if item in lower_str:
                 result_bool = False
@@ -2243,7 +2238,6 @@ def is_agab(input_str:str, data_case:str):
             "a transgender",
             "atransgender", # why
             "transneu", # TIL neugender's neu is short for neutral/neutrois, not the german word for new
-            "demi-transbinary",
             "externally trans",
             "non-transitioning",
             "nonbinary/trans",
@@ -2289,25 +2283,21 @@ def is_agab(input_str:str, data_case:str):
             "transsexuel",
             "not a trans woman",
             "somewhat girl",
-            
+            "detrans", # add useable ones back in later
+            "detransitioned",
+            "detransitioning",
+            "of detrans experience",
+            "detransfem", # idk what this means
         ]:
             if item == lower_str: # if it needs to be exactly that 
                                     # bc there may be longer versions we wanna include
                 result_bool = False
     
     if data_case == "amab":
-        if result_bool:
-
-            if is_agab(input_str, "afab"): # if it's already in the afab list we don't need to bother
-                return False
-
-            # things to exclude
-            for item in [
-                
-                
-            ]:
-                if item in lower_str:
-                    result_bool = False
+        if result_bool and is_agab(input_str, "afab"): 
+            # if it's already in the afab list
+            return False
+            # otherwise it's true because we've sorted out all non-useable ones above already!
 
     elif data_case == "afab":
         if result_bool:
@@ -2371,11 +2361,15 @@ def is_agab(input_str:str, data_case:str):
                 "wanna-be-hrt-femboy",
                 "wannabe-woman",
                 "want to be a girl but don't hate being a guy",
+                "former man",
+                "trans fae",
+                "don't want to be a man",
             ]:
                 if item in lower_str:
                     result_bool = False
 
         if not result_bool:
+            # things to re-include
             for item in [
                 "ftmtf",
                 "female to male to female",
@@ -2386,6 +2380,7 @@ def is_agab(input_str:str, data_case:str):
                 "afab trans woman", # not how that works but you're telling me your birth assignment hnng
                 "trans girl (but in the afab way)",
                 "in a transmasc body",
+                "detrans woman",
             ]:
                 if item in lower_str:
                     result_bool = True
