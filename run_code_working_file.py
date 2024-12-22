@@ -1,6 +1,6 @@
 from utils.read_txt import read_txt
 from src.collect_key_words import collect_key_words_from_q2
-from src.sort_categories import find_case
+from src.find_case import find_case
 from utils.json_writer import write_json_files
 
 raw_data = read_txt("q2")
