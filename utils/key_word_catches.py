@@ -65,6 +65,7 @@ words_catching = {
         'seiðmann', 
         "mangle",
         "games and draw, man",
+        "manner",
     ],
     "male": [
         'nemale', 
@@ -189,12 +190,27 @@ words_catching = {
         "am not defined as just masculine",
         "man, i just am",
         "i do not use human",
-        "humam",
+        "mam",
         "amser \(filipino slang i guess\) \(lit\. maa",
+        "i am",
+        "mammal",
+        "manic pixie dream",
     ],
 
     "both": [
         "bother",
         "both the music and the aesthetic",
+    ],
+
+    "trans": [
+        "strange",
+        "transident",
+        "transparent",
+        "transcend",
+        "transensual",
+        "transemph",
+        "transformer",
+        "transgres",
+        "transistor",
     ]
 }
