@@ -32,7 +32,7 @@ key_word_dict = collect_key_words_from_q2(raw_data)
 # amab_list = find_case(birth_assignments_list, "amab")
 
 femme_list = find_case(key_word_dict["femme"], "femme") # femboy should be caught in this already =.=
-# masc_list = find_case(key_word_dict["masc"], "masc")
+masc_list = find_case(key_word_dict["masc"], "masc")
 
 # presentation_list = femme_list + masc_list + key_word_dict["futch"]
 # futch_list = find_case(presentation_list, "futch")
@@ -58,7 +58,7 @@ data_dict = {
     # "amab" : amab_list,
 
     "femme" : femme_list,
-    # "masc" : masc_list,
+    "masc" : masc_list,
     # "futch" : futch_list,
 }
 

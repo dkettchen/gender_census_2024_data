@@ -8,10 +8,7 @@ from re import split
     # start w ones that we need for cross referencing (ie women, various adjectives)
 
 
-#TODO separate this file into multiple & organise necessary imports
-
-#TODO femme & masc
-# needs to include various words like pretty, butch, rosboy (look up masc female equivalent), etc 
+#TODO separate this file into multiple & organise necessary imports ✅
 
 
 #TODO afterwards, do for other categories

@@ -215,6 +215,44 @@ words_catching = {
     ],
     "amab": [
         "thingamabobber",
+    ],
+    
+    "fem": [
+        "female",
+        "feminis",
+        "transfem",
+        "trans fem",
+        "trans-fem",
+        "transneufem",
+        "cufemian", # idk what this is
+        "exparfem", #
+        "femache", #
+        "cuerpo femenino", # the prompt was "in english"
+        "afem", # unsure whether this is negating or no
+    ],
+    "ros": [
+        "bros",
+        "cross",
+        "monstrosity",
+        "aros",
+        "queeros",
+        "roseinae", # no idea what this is
+        "rosymothic", #
+        "roster",
+        "corrosive",
+        "rosis",
+        "prostitute",
+        "sexual",
+    ],
+    "pretty": [
+        "pretty sure",
+        "pretty cool",
+        "pretty much",
+    ],
+    
+    "masc": [
+        "transmasc",
+        "trans masc",
+        "trans-masc",
     ]
-
 }
