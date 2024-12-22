@@ -212,5 +212,9 @@ words_catching = {
         "transformer",
         "transgres",
         "transistor",
+    ],
+    "amab": [
+        "thingamabobber",
     ]
+
 }
