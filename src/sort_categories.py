@@ -1783,7 +1783,7 @@ def is_neither(input_str:str):
     return result_bool
 
 
-#helper
+# helper
 def caught_wrong_word(input_str:str, key_word, catch_word):
     """
     takes an input string that should contain the key word
@@ -1803,10 +1803,14 @@ def caught_wrong_word(input_str:str, key_word, catch_word):
             return True
     return False
 
-#TODO amab & afab
+# amab & afab ✅
 def is_agab(input_str:str, data_case:str):
+    """
+    takes an input string and a data case string (data_case="amab|afab")
 
-    
+    returns true or false based on whether the string implies 
+    the person is amab or afab
+    """
     # making case insensitive
     lower_str = input_str.lower()
 
@@ -2293,6 +2297,7 @@ def is_agab(input_str:str, data_case:str):
                                     # bc there may be longer versions we wanna include
                 result_bool = False
     
+    # separating case specifics
     if data_case == "amab":
         if result_bool and is_agab(input_str, "afab"): 
             # if it's already in the afab list
@@ -2384,14 +2389,11 @@ def is_agab(input_str:str, data_case:str):
             ]:
                 if item in lower_str:
                     result_bool = True
-            
 
     return result_bool
 
     pass
-# there are certain ones indicating amab/afab in the male/female list leftovers 
-# -> include in there later
-# raised, socialised, check presenting lists too, etc
+
 
 #TODO femme & masc
 # needs to include various words like pretty, butch, rosboy (look up masc female equivalent), etc 
