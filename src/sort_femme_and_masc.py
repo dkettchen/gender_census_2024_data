@@ -1,6 +1,3 @@
-#TODO femme & masc
-# needs to include various words like pretty, butch, rosboy (look up masc female equivalent), etc 
-
 # anything femme ✅
 def is_femme(input_str:str):
     """
@@ -137,8 +134,15 @@ def is_masc(input_str:str):
     
     return result_bool
 
-# anything both
+# anything both ✅
 def is_futch(input_str:str):
+    """
+    takes a string
+
+    returns True if it denotes an alignment with both masculinity and femininity
+
+    otherwise returns False
+    """
 
     # making case insensitive
     lower_str = input_str.lower()
