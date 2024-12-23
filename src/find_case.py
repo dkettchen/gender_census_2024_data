@@ -31,6 +31,9 @@ def find_case(input_list:list, data_case:str):
         - data_case="femme"
         - data_case="masc"
         - data_case="futch"
+
+        - data_case="androgynous"
+        - data_case="androgyne"
     """
 
     output_list = []

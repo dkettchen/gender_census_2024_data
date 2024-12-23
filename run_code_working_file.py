@@ -31,12 +31,15 @@ key_word_dict = collect_key_words_from_q2(raw_data)
 # afab_list = find_case(birth_assignments_list, "afab")
 # amab_list = find_case(birth_assignments_list, "amab")
 
-femme_list = find_case(key_word_dict["femme"], "femme") # femboy should be caught in this already =.=
-masc_list = find_case(key_word_dict["masc"], "masc")
+# femme_list = find_case(key_word_dict["femme"], "femme") # femboy should be caught in this already =.=
+# masc_list = find_case(key_word_dict["masc"], "masc")
 
-presentation_list = key_word_dict["femme"] + key_word_dict["masc"] \
-                    + key_word_dict["futch"] #+ key_word_dict["androgynous"]
-futch_list = find_case(presentation_list, "futch")
+# presentation_list = key_word_dict["femme"] + key_word_dict["masc"] \
+#                     + key_word_dict["futch"]
+# futch_list = find_case(presentation_list, "futch")
+
+androgynous_list = find_case(key_word_dict["androgynous"], "androgynous")
+# androgyne_list = find_case(key_word_dict["androgynous"], "androgyne")
 
 # print(confl_female_list)
 
@@ -58,9 +61,12 @@ data_dict = {
     # "afab" : afab_list,
     # "amab" : amab_list,
 
-    "femme" : femme_list,
-    "masc" : masc_list,
-    "futch" : futch_list,
+    # "femme" : femme_list,
+    # "masc" : masc_list,
+    # "futch" : futch_list,
+
+    "androgynous": androgynous_list,
+    # "androgyne": androgyne_list,
 }
 
 write_json_files(data_dict, "data/cleaned_q2_write_ins/")
