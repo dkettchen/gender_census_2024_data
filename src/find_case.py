@@ -34,6 +34,8 @@ def find_case(input_list:list, data_case:str):
 
         - data_case="androgynous"
         - data_case="androgyne"
+
+        - data_case="crossdresser"
     """
 
     output_list = []

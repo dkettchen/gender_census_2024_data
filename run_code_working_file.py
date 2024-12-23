@@ -38,8 +38,10 @@ key_word_dict = collect_key_words_from_q2(raw_data)
 #                     + key_word_dict["futch"]
 # futch_list = find_case(presentation_list, "futch")
 
-androgynous_list = find_case(key_word_dict["androgynous"], "androgynous")
-androgyne_list = find_case(key_word_dict["androgynous"], "androgyne")
+# androgynous_list = find_case(key_word_dict["androgynous"], "androgynous")
+# androgyne_list = find_case(key_word_dict["androgynous"], "androgyne")
+
+crossdresser_list = find_case(key_word_dict["crossdresser"], "crossdresser")
 
 # print(confl_female_list)
 
@@ -65,8 +67,10 @@ data_dict = {
     # "masc" : masc_list,
     # "futch" : futch_list,
 
-    "androgynous": androgynous_list,
-    "androgyne": androgyne_list,
+    # "androgynous": androgynous_list,
+    # "androgyne": androgyne_list,
+
+    "crossdresser": crossdresser_list,
 }
 
 write_json_files(data_dict, "data/cleaned_q2_write_ins/")

@@ -7,6 +7,7 @@ from src.sort_both_and_neither import is_both, is_neither
 from src.sort_birth_assignments import is_agab
 from src.sort_femme_and_masc import is_femme, is_masc, is_futch
 from src.sort_androgyny import is_androgyne, is_androgynous
+from src.sort_crossdressers import is_crossdresser
 
 # helper func to dispense the correct function based on data case! ✅
 def checking_func_dispenser(data_case:str):
@@ -43,3 +44,5 @@ def checking_func_dispenser(data_case:str):
         return is_androgynous
     elif data_case == "androgyne":
         return is_androgyne
+    elif data_case == "crossdresser":
+        return is_crossdresser

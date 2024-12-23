@@ -28,7 +28,7 @@ def collect_key_words_from_q2(input_list):
         ("trans", "woman"),
         ("trans", "guy"),
         ("trans", "girl"),
-        "transv","cross","drag","trav",
+        "transv","cross","drag","trav","panto","principal boy",
         "sissy",
         "tran", ("tr","nny"), # tryna catch slurs too
         "queen", # leaving this separate due to gay connotation
@@ -66,7 +66,7 @@ def collect_key_words_from_q2(input_list):
         "system","plural","did","alter",
         ("a","hd"),"neuro","nuro",
         "both","neither",
-        "femboy","femboi",
+        ("fem", "boy"),("fem", "boi"),
         "they","them",
         "twink",
         "bear",
@@ -156,8 +156,8 @@ def collect_key_words_from_q2(input_list):
                 umbrella_word = "transmasc"
             elif key_word in [("trans", "fem"),("trans", "woman"),("trans", "girl"),"mtf"]:
                 umbrella_word = "transfemme"
-            elif key_word in ["transv", "cross", "drag", "trav"]: # "or" ones can just be strings
-                umbrella_word = "transvestite/crossdresser/drag"
+            elif key_word in ["transv", "cross", "drag", "trav","panto","principal boy",]: # "or" ones can just be strings
+                umbrella_word = "crossdresser"
             elif key_word in [
                 "girl",
                 "woman",
@@ -259,7 +259,7 @@ def collect_key_words_from_q2(input_list):
                 umbrella_word = "POC_mention"
             elif key_word in ["jew", "muslim"]:
                 umbrella_word = "religion_mention"
-            elif key_word == "femboi":
+            elif key_word in [("fem", "boy"),("fem", "boi"),]:
                 umbrella_word = "femboy"
             elif key_word in ["testo", "estro", "hrt", "horm",]:
                 umbrella_word = "hormones"

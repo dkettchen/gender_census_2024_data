@@ -5,7 +5,6 @@ to sort out at initial collection already
 """
 
 words_catching = {
-    "guy": [],
     "dude": [
         "dudette",
     ],
@@ -90,7 +89,6 @@ words_catching = {
         "salad",
         'paladin',
     ],
-    "lord": [],
     "dad": [
         "verdad",
     ],
@@ -104,7 +102,6 @@ words_catching = {
         'mrrp', 
         "mr grinch",
     ],
-    "mister": [],
     "son": [
         "song",
         "arson",
@@ -124,12 +121,7 @@ words_catching = {
         "brown",
         "fibromyalgia",
     ],
-    "bloke": [],
-    "bxy": [],
-    "bruv": [],
 
-    "girl": [],
-    "woman": [],
     "lady": [
         "ladybug"
     ],
@@ -139,10 +131,6 @@ words_catching = {
         'regal',
         "legal",
     ],
-    "female": [],
-    "chic": [],
-    "maiden": [],
-    # ("ma","am"): [],
     "mom": [
         "moment",
         "your mom",
@@ -175,11 +163,6 @@ words_catching = {
         "mspec",
         "mushrooms",
     ],
-    "daughter": [],
-    "sister": [],
-    "gxrl": [],
-    "wxman": [],
-    "womxn": [],
     "woman/girl/female": [ # caught by ("ma","am") tuple
         "swamp man",
         "performance",
@@ -250,7 +233,6 @@ words_catching = {
         "pretty cool",
         "pretty much",
     ],
-    
     "masc": [
         "transmasc",
         "trans masc",
@@ -280,5 +262,21 @@ words_catching = {
         "android",
         "gynandro",
         "androgino", # prompt was english only
-    ]
+    ],
+    "drag": [
+        "dragon",
+        "draggy", # idk what that means
+    ],
+    "cross": [
+        "crossroad",
+        "crossing",
+    ],
+    "trav": [
+        "travel",
+        "trava",
+    ],
+    "transv": [
+        "transvia",
+    ],
+
 }
