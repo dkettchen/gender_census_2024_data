@@ -36,6 +36,8 @@ def is_femme(input_str:str):
         "trans fem / transfem",
         "transfem (short but cute for transfeminine)",
         "would be cuter if i wasn't so lazy",
+        "azur",
+        "tom",
     ]:
         if item in lower_str:
             result_bool = False
@@ -53,17 +55,28 @@ def is_femme(input_str:str):
     for item in [
         "transmascfem",
         "transmascfemme",
+        "butch",
     ]:
         if item in lower_str:
             result_bool = False
     
     return result_bool
 
-# anything masc
+# anything masc ✅
 def is_masc(input_str:str):
+    """
+    takes a string
+
+    returns True if it denotes an alignment with masculinity
+
+    otherwise returns False
+    """
 
     # making case insensitive
     lower_str = input_str.lower()
+
+    if is_femme(input_str):
+        return False
 
     result_bool = True
     
