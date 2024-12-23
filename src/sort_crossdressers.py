@@ -33,12 +33,11 @@ def is_crossdresser(input_str:str):
 
     return result_bool
 
-#TODO
 def is_femboy(input_str:str):
     """
     takes a string
 
-    returns True if it denotes [...]
+    returns True if it describes a femboy
 
     otherwise returns False
     """
@@ -50,7 +49,11 @@ def is_femboy(input_str:str):
     
     # excluding stuff
     for item in [
-
+        "boy but in a fem way",
+        "fem and masc but neither boy or girl",
+        "wanna",
+        "boyfem",
+        "if a femboy were butch", # no hypotheticals 😤
     ]:
         if item in lower_str:
             result_bool = False

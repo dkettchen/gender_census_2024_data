@@ -279,4 +279,9 @@ words_catching = {
         "transvia",
     ],
 
+    "femboy": [
+        "feminin",
+        "femme",
+        "transfem",
+    ]
 }
