@@ -34,6 +34,8 @@ def is_femme(input_str:str):
         "post-",
         "rosazur",
         "trans fem / transfem",
+        "transfem (short but cute for transfeminine)",
+        "would be cuter if i wasn't so lazy",
     ]:
         if item in lower_str:
             result_bool = False
@@ -66,7 +68,31 @@ def is_masc(input_str:str):
     result_bool = True
     
     for item in [
-        
+        "fem",
+        "gay man", # bc used as opposing butch
+        "fag",
+        "flamboyant",
+        "peacock",
+        "girly",
+        "andro",
+        "pretty",
+        "cute",
+        "rosazur",
+
+        "i was a tomboy", # in the past or hypothesis
+        "when i was young",
+        "former ",
+        "wanna",
+        "moder",
+
+        "masc because that's what people expect of me", # implies non-enjoyment
+        "never masc",
+        "not masc",
+        "non masc",
+        "non-masc",
+        "masculine urge",
+        "not always masc",
+        "not butch",
     ]:
         if item in lower_str:
             result_bool = False

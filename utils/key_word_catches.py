@@ -254,5 +254,24 @@ words_catching = {
         "transmasc",
         "trans masc",
         "trans-masc",
+        "transneumasc",
+        "transnuemasc",
+        "amasc",
+        "cumascian",
+        "masculino", # english only was the prompt
+        "mascic",
+        "isomasc",
+        "masculis",
+        "mascharsic", # idk what this means
+    ],
+    "tom": [
+        "tomato",
+        "stomach",
+        "bottom",
+        "pantomime",
+        "lobotom",
+        "tomb ",
+        "auto", 
+        "phantom",
     ]
 }

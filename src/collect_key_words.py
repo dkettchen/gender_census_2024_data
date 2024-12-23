@@ -51,7 +51,7 @@ def collect_key_words_from_q2(input_list):
         'bigender',
         'binary',
         'butch',"tom","azur","masc",
-        "fem","ros","pretty",
+        "fem","ros","pretty","cute","flamboyant",
         "futch",
         'cis',
         'demiboy',
@@ -100,6 +100,8 @@ def collect_key_words_from_q2(input_list):
         
         "she","her",
         "he","him",
+
+        "testo", "estro", "hrt", "horm",
     ]
 
     # do we want to add more items?
@@ -199,7 +201,7 @@ def collect_key_words_from_q2(input_list):
                 umbrella_word = "man/boy/male"
             elif key_word in ['butch',"tom","azur","masc",]:
                 umbrella_word = "masc"
-            elif key_word in ["fem","ros","pretty",]:
+            elif key_word in ["fem","ros","pretty","cute","flamboyant",]:
                 umbrella_word = "femme"
             elif key_word == "question":
                 umbrella_word = "questioning"
@@ -259,6 +261,8 @@ def collect_key_words_from_q2(input_list):
                 umbrella_word = "religion_mention"
             elif key_word == "femboi":
                 umbrella_word = "femboy"
+            elif key_word in ["testo", "estro", "hrt", "horm",]:
+                umbrella_word = "hormones"
             else: umbrella_word = key_word # if it doesn't need to be different
 
             # words we don't mean that might catch on our key words!
