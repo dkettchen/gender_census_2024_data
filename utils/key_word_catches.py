@@ -274,5 +274,11 @@ words_catching = {
         "tomb ",
         "auto", 
         "phantom",
+    ],
+
+    "andro": [
+        "android",
+        "gynandro",
+        "androgino", # prompt was english only
     ]
 }
