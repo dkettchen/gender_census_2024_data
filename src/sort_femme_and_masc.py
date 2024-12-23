@@ -34,6 +34,7 @@ def is_femme(input_str:str):
         "would be cuter if i wasn't so lazy",
         "azur",
         "tom",
+        "handsome",
     ]:
         if item in lower_str:
             result_bool = False

@@ -16,9 +16,10 @@ def collect_key_words_from_q2(input_list):
     # key words we'll be finding
     key_word_list = [
         "human","person","people",
-        "creature",
         
-        ("gender", "queer"),"fluid","flux",
+        ("gender", "queer"),
+        "fluid",
+        "flux",
         ("gender", "non", "conforming"),"snc","gnc",
         
         ("trans", "masc"),
@@ -27,7 +28,7 @@ def collect_key_words_from_q2(input_list):
         ("trans", "woman"),
         ("trans", "guy"),
         ("trans", "girl"),
-        "transv","cross","drag","trav","panto","principal boy",
+        "transv","cross","drag","trav","panto","principal boy", # not looking for dame cause that's lady in german
         "sissy",
         "tran", ("tr","nny"), # tryna catch slurs too
         "queen", # leaving this separate due to gay connotation
@@ -40,7 +41,8 @@ def collect_key_words_from_q2(input_list):
 
         "afab","dfab",
         "amab","dmab",
-        "ftm","mtf","ft","mt","f2","m2",
+        "ftm","ft","f2",
+        "mtf","mt","m2",
         "question",
         'nonbinary','by',("non", "bin"),"nb",
         'queer',
@@ -49,7 +51,7 @@ def collect_key_words_from_q2(input_list):
         'agender',
         'bigender',
         'binary',
-        'butch',"tom","azur","masc",
+        'butch',"tom","azur","masc","handsome",
         "fem","ros","pretty","cute","flamboyant","beautiful",
         "futch",
         'cis',
@@ -69,16 +71,12 @@ def collect_key_words_from_q2(input_list):
         "they","them",
         "twink",
         "bear",
-        "half",
-        "thing",
         "intersex","herm",
         "sexual","bi","pan","ace","aro","roman",
         "andro",
         "neut",
         "dysp",
         ("2","spirit"),("two","spirit"),
-        "none",
-        "no",
         "other",
         "demi",
         "sex",
@@ -199,7 +197,7 @@ def collect_key_words_from_q2(input_list):
                 "bruv",
             ]:
                 umbrella_word = "man/boy/male"
-            elif key_word in ['butch',"tom","azur","masc",]:
+            elif key_word in ['butch',"tom","azur","masc","handsome",]:
                 umbrella_word = "masc"
             elif key_word in ["fem","ros","pretty","cute","flamboyant","beautiful",]:
                 umbrella_word = "femme"
@@ -232,12 +230,8 @@ def collect_key_words_from_q2(input_list):
                 umbrella_word = "amab"
             elif key_word in ["they", "them"]:
                 umbrella_word = "they/them"
-            elif key_word == "people":
-                umbrella_word = "person"
             elif key_word == "herm":
                 umbrella_word = "hermaphrodite"
-            elif key_word == "sexual":
-                umbrella_word = "-sexual"
             elif key_word == "andro":
                 umbrella_word = "androgynous"
             elif key_word == "neut":
