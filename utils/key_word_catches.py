@@ -310,4 +310,34 @@ words_catching = {
         "didhewek",
         "did i use",
     ],
+
+    "nb": [
+        "rainbow",
+        "chickenbunny",
+        "clown",
+        "abyss",
+        "baby",
+        "bycicle",
+        " by ",
+        "chubby",
+        "deeby",
+        "\(by ",
+        "between",
+        "kirby",
+        "pubby",
+        "scooby",
+        "sunboy",
+        "bother",
+        "xenboy",
+        "dragonboy",
+        "enban", # idk what these are
+        "enbin",
+        "enben",
+        "unbound",
+        "womanboy",
+        "nanb", # idk what this means
+        "hobby",
+        "unboxed",
+        "wibby wobby",
+    ]
 }
