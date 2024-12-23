@@ -566,6 +566,10 @@ def is_agab(input_str:str, data_case:str):
                 "former man",
                 "trans fae",
                 "don't want to be a man",
+                "mtx",
+                "mtu",
+                "mtn",
+                "mtwtf", # no clue what this stands for but go off hon, you're def not from the f camp
             ]:
                 if item in lower_str:
                     result_bool = False
@@ -583,6 +587,8 @@ def is_agab(input_str:str, data_case:str):
                 "trans girl (but in the afab way)",
                 "in a transmasc body",
                 "detrans woman",
+                "ftmtn",
+                "ftmtx",
             ]:
                 if item in lower_str:
                     result_bool = True

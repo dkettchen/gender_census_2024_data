@@ -199,7 +199,25 @@ words_catching = {
     "amab": [
         "thingamabobber",
     ],
-    
+    "transfemme": [
+        "dreamt",
+        "mthing",
+        "femt",
+        "tum",
+        "tim",
+        "smth",
+        "umtsveyik",
+    ],
+    "transmasc": [
+        "drift",
+        "aft",
+        "shift",
+        "oft",
+        "reft",
+        "fthing",
+        "twelfth",
+    ],
+
     "fem": [
         "female",
         "feminis",

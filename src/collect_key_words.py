@@ -40,9 +40,9 @@ def collect_key_words_from_q2(input_list):
 
         "afab","dfab",
         "amab","dmab",
-        "ftm","mtf",
+        "ftm","mtf","ft","mt","f2","m2",
         "question",
-        'nonbinary','enby',("non", "bin"),"nb",
+        'nonbinary','by',("non", "bin"),"nb",
         'queer',
         'name',
         "me",
@@ -152,9 +152,9 @@ def collect_key_words_from_q2(input_list):
                 umbrella_word = "gnc"
             elif key_word == "auti":
                 umbrella_word = "autism_related"
-            elif key_word in [("trans", "masc"),("trans", "man"),("trans", "guy"),"ftm"]:
+            elif key_word in [("trans", "masc"),("trans", "man"),("trans", "guy"),"ftm","ft","f2",]:
                 umbrella_word = "transmasc"
-            elif key_word in [("trans", "fem"),("trans", "woman"),("trans", "girl"),"mtf"]:
+            elif key_word in [("trans", "fem"),("trans", "woman"),("trans", "girl"),"mtf","m2","mt",]:
                 umbrella_word = "transfemme"
             elif key_word in ["transv", "cross", "drag", "trav","panto","principal boy",]: # "or" ones can just be strings
                 umbrella_word = "crossdresser"
@@ -207,7 +207,7 @@ def collect_key_words_from_q2(input_list):
                 umbrella_word = "questioning"
             elif key_word == ("fag","dyke"):
                 umbrella_word = "fag_dyke"
-            elif key_word in [("non","bin"),"enby","nb"]:
+            elif key_word in [("non","bin"),"nb","by"]:
                 umbrella_word = "nb"
             elif key_word in [
                 "system",
