@@ -50,7 +50,7 @@ def collect_key_words_from_q2(input_list):
         'bigender',
         'binary',
         'butch',"tom","azur","masc",
-        "fem","ros","pretty","cute","flamboyant",
+        "fem","ros","pretty","cute","flamboyant","beautiful",
         "futch",
         'cis',
         'demiboy',
@@ -201,7 +201,7 @@ def collect_key_words_from_q2(input_list):
                 umbrella_word = "man/boy/male"
             elif key_word in ['butch',"tom","azur","masc",]:
                 umbrella_word = "masc"
-            elif key_word in ["fem","ros","pretty","cute","flamboyant",]:
+            elif key_word in ["fem","ros","pretty","cute","flamboyant","beautiful",]:
                 umbrella_word = "femme"
             elif key_word == "question":
                 umbrella_word = "questioning"

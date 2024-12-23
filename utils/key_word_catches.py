@@ -283,5 +283,9 @@ words_catching = {
         "feminin",
         "femme",
         "transfem",
+    ],
+    
+    "auti": [
+        "beautiful",
     ]
 }
