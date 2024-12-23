@@ -41,7 +41,31 @@ key_word_dict = collect_key_words_from_q2(raw_data)
 # androgynous_list = find_case(key_word_dict["androgynous"], "androgynous")
 # androgyne_list = find_case(key_word_dict["androgynous"], "androgyne")
 
-crossdresser_list = find_case(key_word_dict["crossdresser"], "crossdresser")
+# crossdresser_list = find_case(key_word_dict["crossdresser"], "crossdresser")
+
+#TODO:
+
+femboy_list = find_case(key_word_dict["femboy"], "femboy")
+
+# autism_list = find_case(key_word_dict["autism"], "autistic")
+# neurodiversity = key_word_dict["neurodiversity"] + key_word_dict["autism"]
+# neuro_list = find_case(neurodiversity, "neurodivergent")
+# plural_list = find_case(key_word_dict["DID"], "plural")
+
+# genderqueer_list = find_case(key_word_dict["genderqueer"], "genderqueer")
+# genderfluid_list = find_case(key_word_dict["genderfluid"], "genderfluid")
+# genderflux_list = find_case(key_word_dict["genderflux"], "genderflux")
+# queer_list = find_case(key_word_dict["queer"], "queer")
+# gnc_list = find_case(key_word_dict["gnc"], "gnc")
+# nb_list = find_case(key_word_dict["nb"], "nb")
+
+# people_humans_list = find_case(key_word_dict["human/person"], "human/person")
+# non_people_humans_list = find_case(key_word_dict["human/person"], "non-human/-person")
+
+
+# queer words (wlw, mlm, dykefag) -> have not been put into dispenser yet!
+# trans & cis -> have not been put into dispenser yet either
+
 
 # print(confl_female_list)
 
@@ -70,7 +94,23 @@ data_dict = {
     # "androgynous": androgynous_list,
     # "androgyne": androgyne_list,
 
-    "crossdresser": crossdresser_list,
+    # "crossdresser": crossdresser_list,
+
+    "femboy" : femboy_list,
+
+    # "autistic" : autism_list,
+    # "neurodivergent" : neuro_list,
+    # "plural" : plural_list,
+
+    # "genderqueer" : genderqueer_list,
+    # "genderfluid" : genderfluid_list,
+    # "genderflux" : genderflux_list,
+    # "queer" : queer_list,
+    # "gnc" : gnc_list,
+    # "nb" : nb_list,
+
+    # "human_person" : people_humans_list,
+    # "non_human_person" : non_people_humans_list,
 }
 
 write_json_files(data_dict, "data/cleaned_q2_write_ins/")

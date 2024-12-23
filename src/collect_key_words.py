@@ -20,7 +20,7 @@ def collect_key_words_from_q2(input_list):
         
         ("gender", "queer"),"fluid","flux",
         ("gender", "non", "conforming"),"snc","gnc",
-        ("non", "bin"),
+        
         ("trans", "masc"),
         ("trans", "fem"),
         ("trans", "man"),
@@ -42,7 +42,7 @@ def collect_key_words_from_q2(input_list):
         "amab","dmab",
         "ftm","mtf",
         "question",
-        'nonbinary','enby',
+        'nonbinary','enby',("non", "bin"),"nb",
         'queer',
         'name',
         "me",
@@ -72,7 +72,7 @@ def collect_key_words_from_q2(input_list):
         "half",
         "thing",
         "intersex","herm",
-        "sexual",
+        "sexual","bi","pan","ace","aro","roman",
         "andro",
         "neut",
         "dysp",
@@ -80,7 +80,6 @@ def collect_key_words_from_q2(input_list):
         "none",
         "no",
         "other",
-        "nb",
         "demi",
         "sex",
         "trap",
@@ -147,6 +146,8 @@ def collect_key_words_from_q2(input_list):
                 umbrella_word = "genderqueer"
             elif key_word == "fluid":
                 umbrella_word = "genderfluid"
+            elif key_word == "flux":
+                umbrella_word = "genderflux"
             elif key_word in [("gender", "non", "conforming"), "snc"]:
                 umbrella_word = "gnc"
             elif key_word == "auti":
@@ -262,6 +263,10 @@ def collect_key_words_from_q2(input_list):
                 umbrella_word = "femboy"
             elif key_word in ["testo", "estro", "hrt", "horm",]:
                 umbrella_word = "hormones"
+            elif key_word in ["human","person","people",]:
+                umbrella_word = "human/person"
+            elif key_word in ["sexual","bi","pan","ace","aro","roman",]:
+                umbrella_word = "sexuality_mention"
             else: umbrella_word = key_word # if it doesn't need to be different
 
             # words we don't mean that might catch on our key words!

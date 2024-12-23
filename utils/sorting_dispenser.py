@@ -73,3 +73,4 @@ def checking_func_dispenser(data_case:str):
         return is_person_human
     elif data_case == "non-human/-person":
         return is_non_person_human
+    #TODO: add queer, trans & cis funcs
