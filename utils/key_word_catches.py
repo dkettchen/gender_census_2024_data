@@ -229,6 +229,7 @@ words_catching = {
         "femache", #
         "cuerpo femenino", # the prompt was "in english"
         "afem", # unsure whether this is negating or no
+        "femoid",
     ],
     "ros": [
         "bros",
