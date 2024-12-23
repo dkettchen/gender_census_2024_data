@@ -36,6 +36,21 @@ def find_case(input_list:list, data_case:str):
         - data_case="androgyne"
 
         - data_case="crossdresser"
+        - data_case="femboy"
+
+        - data_case="autistic"
+        - data_case="neurodivergent"
+        - data_case="plural"
+
+        - data_case="genderqueer"
+        - data_case="genderfluid"
+        - data_case="genderflux"
+        - data_case="queer"
+        - data_case="gnc"
+        - data_case="nb"
+
+        - data_case="human/person"
+        - data_case="non-human/person"
     """
 
     output_list = []

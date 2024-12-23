@@ -1,4 +1,4 @@
-def is_crossdresser(input_str):
+def is_crossdresser(input_str:str):
     """
     takes a string
 
@@ -32,3 +32,7 @@ def is_crossdresser(input_str):
             result_bool = False
 
     return result_bool
+
+#TODO
+def is_femboy(input_str:str):
+    pass

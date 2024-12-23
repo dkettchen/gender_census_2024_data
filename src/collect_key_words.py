@@ -17,10 +17,9 @@ def collect_key_words_from_q2(input_list):
     key_word_list = [
         "human","person","people",
         "creature",
-        "auti",
-        ("gender", "queer"),"fluid",
-        ("gender", "non", "conforming"),
-        "gnc",
+        
+        ("gender", "queer"),"fluid","flux",
+        ("gender", "non", "conforming"),"snc","gnc",
         ("non", "bin"),
         ("trans", "masc"),
         ("trans", "fem"),
@@ -62,7 +61,7 @@ def collect_key_words_from_q2(input_list):
         "sapph",
         "fag","gay","achillean","homo"
         "xeno",
-        "flux",
+        "auti",
         "system","plural","did","alter",
         ("a","hd"),"neuro","nuro",
         "both","neither",
@@ -148,7 +147,7 @@ def collect_key_words_from_q2(input_list):
                 umbrella_word = "genderqueer"
             elif key_word == "fluid":
                 umbrella_word = "genderfluid"
-            elif key_word == ("gender", "non", "conforming"):
+            elif key_word in [("gender", "non", "conforming"), "snc"]:
                 umbrella_word = "gnc"
             elif key_word == "auti":
                 umbrella_word = "autism_related"
