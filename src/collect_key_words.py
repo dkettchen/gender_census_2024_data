@@ -63,7 +63,7 @@ def collect_key_words_from_q2(input_list):
         "xeno",
         "auti",
         "system","plural","did","alter",
-        ("a","hd"),"neuro","nuro",
+        ("a","hd"),"neuro","nuro","dysl","lexi","dysc","dyspr",
         "both","neither",
         ("fem", "boy"),("fem", "boi"),
         "they","them",
@@ -216,7 +216,7 @@ def collect_key_words_from_q2(input_list):
                 "alter"
             ]:
                 umbrella_word = "DID_related"
-            elif key_word in [("a","hd"),"neuro","nuro"]:
+            elif key_word in [("a","hd"),"neuro","nuro","dysl","lexi","dysc","dyspr",]:
                 umbrella_word = "other_neurodiversity_related"
             elif key_word in ["tran", ("tr","nny")]:
                 umbrella_word = "trans"

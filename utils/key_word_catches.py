@@ -287,5 +287,27 @@ words_catching = {
     
     "auti": [
         "beautiful",
-    ]
+    ],
+    "neuro": [
+        "neuron",
+        "neurotis",
+    ],
+    "lexi": [
+        "flexi",
+        "alexi",
+    ],
+    "alter": [
+        "alterhuman",
+        "alternat",
+        "alterous",
+        "altersex",
+        "alterbeing",
+        "altergender",
+        "alterian",
+    ],
+    "did": [
+        "didn't",
+        "didhewek",
+        "did i use",
+    ],
 }
