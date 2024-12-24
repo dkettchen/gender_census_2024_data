@@ -104,13 +104,16 @@ def is_transmasc(input_str:str):
     """
     takes a string
 
-    returns True if it denotes [...]
+    returns True if it denotes ftm (trans man), ftx (afab nb), or xtm (intersex trans man)
 
     otherwise returns False
     """
 
     # making case insensitive
     lower_str = input_str.lower()
+
+    if not is_trans(input_str):
+        return False
 
     result_bool = True
     
@@ -123,12 +126,11 @@ def is_transmasc(input_str:str):
 
     return result_bool
 
-#TODO
 def is_transfemme(input_str:str):
     """
     takes a string
 
-    returns True if it denotes [...]
+    returns True if it denotes anyone mtf (trans woman), mtx (amab nb), or xtf (intersex trans woman)
 
     otherwise returns False
     """
@@ -136,11 +138,30 @@ def is_transfemme(input_str:str):
     # making case insensitive
     lower_str = input_str.lower()
 
+    if not is_trans(input_str):
+        return False
+
     result_bool = True
     
     # excluding stuff
     for item in [
-
+        "transmasc",
+        "trans masc",
+        "trans-masc",
+        "ftm",
+        "female to male",
+        "afab",
+        "trans man",
+        "trans guy",
+        "trans dude",
+        "trans boy",
+        "transman",
+        "girl in a trans way",
+        "my gender is more trans than feminine",
+        "trans and feminine",
+        "assigned female",
+        "effeminate",
+        "transfem boy",
     ]:
         if item in lower_str:
             result_bool = False
