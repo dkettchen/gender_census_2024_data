@@ -195,6 +195,11 @@ words_catching = {
         "transformer",
         "transgres",
         "transistor",
+        "transhuman",
+        "centrangi",
+        "trans-neptunian",
+        "neutrandrogyne",
+        "transkeno",
     ],
     "amab": [
         "thingamabobber",

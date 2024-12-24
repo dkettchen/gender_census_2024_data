@@ -71,7 +71,7 @@ def collect_key_words_from_q2(input_list):
         "they","them",
         "twink",
         "bear",
-        "intersex","herm",
+        "inter","herm",
         "sexual","bi","pan","ace","aro","roman",
         "andro",
         "neut",
@@ -231,8 +231,8 @@ def collect_key_words_from_q2(input_list):
                 umbrella_word = "amab"
             elif key_word in ["they", "them"]:
                 umbrella_word = "they/them"
-            elif key_word == "herm":
-                umbrella_word = "hermaphrodite"
+            elif key_word in ["inter","herm",]:
+                umbrella_word = "intersex/hermaphrodite"
             elif key_word == "andro":
                 umbrella_word = "androgynous"
             elif key_word == "neut":
