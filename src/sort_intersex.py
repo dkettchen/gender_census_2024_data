@@ -1,4 +1,3 @@
-#TODO
 def is_intersex(input_str:str):
     """
     takes a string
