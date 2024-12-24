@@ -64,8 +64,15 @@ def is_plural(input_str:str): #DID
     for item in [
         "hacked the system",
         "colonial-modern gender system",
+        "many-gendered",
+        "many genders and no gender",
+        "many hats",
+        "many conflicting flavours",
     ]:
         if item in lower_str:
             result_bool = False
+
+    if lower_str == "many":
+        result_bool = False
 
     return result_bool

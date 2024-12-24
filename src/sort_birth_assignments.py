@@ -18,7 +18,7 @@ def is_agab(input_str:str, data_case:str):
         "raised",
         "born",
         "assigned",
-        "at birth",
+        "birth",
         "child",
         "trans",
         "hrt",
@@ -69,6 +69,9 @@ def is_agab(input_str:str, data_case:str):
         "t guy",
         "t man",
         "t-boy",
+        "vagi",
+        "clit",
+        "preg",
 
         "amab",
         "dmab",
@@ -77,7 +80,8 @@ def is_agab(input_str:str, data_case:str):
         "male to",
         "dick",
         "sack",
-        "balls",
+        "ball",
+        "penis",
         "boy parts",
         "ladyboy", # explicitly transfemme term
         "tgirl",
@@ -418,6 +422,18 @@ def is_agab(input_str:str, data_case:str):
             "transmasc but transfem in a way",
             "transmasc transfem",
             "transmasc transgirl",
+            "wants a penis",
+            "ball jointed",
+            "ball of",
+            "ball filled",
+            "better than just dicks and clits",
+            "we ball",
+            "goofball",
+            "with a penis", # doesn't guarantee natively
+            "vagina wielder",
+            "dickless!!",
+            "don't be a dick",
+            "dickhead",
         ]:
             if item in lower_str:
                 result_bool = False
@@ -489,6 +505,10 @@ def is_agab(input_str:str, data_case:str):
             "detransitioning",
             "of detrans experience",
             "detransfem", # idk what this means
+            "ball",
+            "pussy",
+            "pussy van faggot",
+            "pussy gender",
         ]:
             if item == lower_str: # if it needs to be exactly that 
                                     # bc there may be longer versions we wanna include
@@ -500,6 +520,13 @@ def is_agab(input_str:str, data_case:str):
             # if it's already in the afab list
             return False
             # otherwise it's true because we've sorted out all non-useable ones above already!
+        for item in [
+            "cunt",
+            
+
+        ]:
+            if item in lower_str:
+                result_bool = False
 
     elif data_case == "afab":
         if result_bool:
@@ -570,6 +597,9 @@ def is_agab(input_str:str, data_case:str):
                 "mtu",
                 "mtn",
                 "mtwtf", # no clue what this stands for but go off hon, you're def not from the f camp
+                "cunt",
+                "pussy",
+                "wants a penis", # could be intersex
             ]:
                 if item in lower_str:
                     result_bool = False
@@ -589,6 +619,21 @@ def is_agab(input_str:str, data_case:str):
                 "detrans woman",
                 "ftmtn",
                 "ftmtx",
+                "t-cunt",
+                "with a pussy",
+                "pussy haver",
+                "cunt boy",
+                "cuntboy",
+                "cunt-boy",
+                "pussy boy",
+                "pussyboy",
+                "boycunt",
+                "boypussy",
+                "cuntman", # favourite superhero smh
+                "pussyboi",
+                #"birthing",
+                #"preg", # we officially do NOT have the word mpreg in here I am so happy x'D
+                #"clit",
             ]:
                 if item in lower_str:
                     result_bool = True

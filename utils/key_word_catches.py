@@ -203,7 +203,12 @@ words_catching = {
     ],
     "amab": [
         "thingamabobber",
+        "eyeball",
     ],
+    # "afab": [
+    #     "vague",
+    #     "nova",
+    # ],
     "transfemme": [
         "dreamt",
         "mthing",
@@ -366,7 +371,6 @@ words_catching = {
         "unboxed",
         "wibby wobby",
     ],
-
     "cis": [
         "decis",
         "cish",

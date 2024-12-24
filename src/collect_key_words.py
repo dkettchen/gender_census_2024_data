@@ -39,7 +39,7 @@ def collect_key_words_from_q2(input_list):
         "guy","dude","boy","boi","bot","man","male","sir","lad","lord",
         "dad","mr","mister","son","bro","bloke","bxy","bruv",
 
-        "afab","dfab","uterus","womb","preg","pussy","cunt","menstr","bonus hole","birthi",
+        "afab","dfab","uterus","womb","preg","pussy","cunt","menstr","bonus hole","birthi","vagi","clit",
         "amab","dmab","ball","testi","dick","penis",
         "ftm","ft","f2",
         "mtf","mt","m2",
@@ -225,7 +225,10 @@ def collect_key_words_from_q2(input_list):
                 umbrella_word = "sapphic"
             elif key_word in ["gay", "achillean", "homo", "fag", "twink", "bear"]:
                 umbrella_word = "gay"
-            elif key_word in ["dfab","uterus","womb","preg","pussy","cunt","menstr","bonus hole",]:
+            elif key_word in [
+                "dfab","uterus","womb","preg","pussy","cunt","menstr",
+                "bonus hole","birthi","vagi","clit",
+            ]:
                 umbrella_word = "afab"
             elif key_word in ["dmab","ball","testi","dick","penis",]:
                 umbrella_word = "amab"
