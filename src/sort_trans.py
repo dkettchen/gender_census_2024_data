@@ -174,12 +174,11 @@ def is_transfemme(input_str:str):
 
     return result_bool
 
-#TODO (not added to dispenser yet)
 def is_detrans(input_str:str):
     """
     takes a string
 
-    returns True if it denotes [...]
+    returns True if it denotes a non-reverted detransition (-> excluding "retransitioner"s)
 
     otherwise returns False
     """
@@ -187,13 +186,20 @@ def is_detrans(input_str:str):
     # making case insensitive
     lower_str = input_str.lower()
 
-    result_bool = True
+    result_bool = False
     
-    # excluding stuff
+    # including stuff
     for item in [
-
+        "detrans",
+        "mtftm",
+        "ftmtf",
+        "(mtf)tm",
+        "male to female to male",
+        "female to male to female",
+        "f2m2f",
+        "m2f2m",
     ]:
         if item in lower_str:
-            result_bool = False
+            result_bool = True
 
     return result_bool

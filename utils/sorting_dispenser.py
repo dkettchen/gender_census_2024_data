@@ -12,7 +12,7 @@ from src.sort_neurodiversity import is_autistic, is_neurodivergent, is_plural
 from src.sort_other_listed_labels import is_genderfluid, is_genderflux, is_genderqueer, is_queer, is_gnc, is_nb
 from src.sort_person_human_non_human import is_person, is_human
 from src.sort_cis import is_cis
-from src.sort_trans import is_trans, is_transfemme, is_transmasc
+from src.sort_trans import is_trans, is_transfemme, is_transmasc, is_detrans
 
 # helper func to dispense the correct function based on data case! ✅
 def checking_func_dispenser(data_case:str):
@@ -65,7 +65,8 @@ def checking_func_dispenser(data_case:str):
         "trans" : is_trans,
         "transfemme" : is_transfemme,
         "transmasc" : is_transmasc,
-        "cis" : is_cis
+        "detrans" : is_detrans,
+        "cis" : is_cis,
     }
 
     #TODO: add queer funcs
