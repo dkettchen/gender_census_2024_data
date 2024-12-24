@@ -1,4 +1,3 @@
-#TODO
 def is_trans(input_str:str):
     """
     takes a string
@@ -88,7 +87,12 @@ def is_trans(input_str:str):
         "trantran",
         "trans-cis",
         "world's first cisgender trans woman",
-        "what Lovecraft would think of a trans person",
+        "of a trans person",
+        "(mtf)tm", # more detransitioners
+        "ftmtf",
+        "mtftm",
+        "f2m2f2m2f",
+        "ftmgirl",
     ]:
         if item in lower_str:
             result_bool = False

@@ -221,6 +221,9 @@ words_catching = {
         "reft",
         "fthing",
         "twelfth",
+        "left",
+        "fifth",
+        "transhuman", # caught on trans man I think
     ],
 
     "fem": [
