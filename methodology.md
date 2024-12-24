@@ -72,6 +72,8 @@ In my continued quest to help my community and our theory to reconnect with the 
 
 I am taking the liberty to disregard replies that cannot provide useful info, are actively conflicting, and/or are obvious joke answers (which there are a lot of -.- why are you people like this).
 
+Some answers that mean the same thing as my categories may be omitted due to different languages or otherwise not being caught in my relevant word collection. This means that any numbers gained from the write ins are still mere estimates with variation within a small range (ex maybe a handful of answers fell through the cracks and was not counted but most of them (we're talking tens of thousands of total participants after all) will have been counted, so it should still be generally accurate)
+
 
 # No but for real why are you doing this
 
