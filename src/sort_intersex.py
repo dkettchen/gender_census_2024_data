@@ -15,9 +15,15 @@ def is_intersex(input_str:str):
     
     # excluding stuff
     for item in [
-
+        "mental",
+        "in a ",
+        "herm ",
+        "sacred", # you don't get to decide that
     ]:
         if item in lower_str:
             result_bool = False
+
+    if lower_str == "herm":
+        result_bool = False
 
     return result_bool

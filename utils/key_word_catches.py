@@ -205,10 +205,6 @@ words_catching = {
         "thingamabobber",
         "eyeball",
     ],
-    # "afab": [
-    #     "vague",
-    #     "nova",
-    # ],
     "transfemme": [
         "dreamt",
         "mthing",
@@ -377,5 +373,24 @@ words_catching = {
         "anarc",
         "physic",
         "narcis",
+    ],
+    "inter": [
+        "winter",
+        "interest",
+        "internet",
+        "intergender",
+        "interro",
+        "internal",
+        "interpret",
+        "interim",
+        "interfac",
+        "internon",
+        "interpunk",
+        "interqueer",
+    ],
+    "herm": [
+        "leatherman",
+        "hermit",
     ]
+
 }
