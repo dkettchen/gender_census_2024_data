@@ -11,66 +11,65 @@ from src.sort_crossdressers import is_crossdresser, is_femboy
 from src.sort_neurodiversity import is_autistic, is_neurodivergent, is_plural
 from src.sort_other_listed_labels import is_genderfluid, is_genderflux, is_genderqueer, is_queer, is_gnc, is_nb
 from src.sort_person_human_non_human import is_person, is_human
+from src.sort_cis import is_cis
+from src.sort_trans import is_trans, is_transfemme, is_transmasc
 
 # helper func to dispense the correct function based on data case! ✅
 def checking_func_dispenser(data_case:str):
     """
     returns appropriate helper function depending on data case
     """
-    if data_case == "male_aligned":
-        return is_male_aligned
-    elif data_case == "non_male_aligned":
-        return is_non_male_aligned
-    elif data_case == "conflicted_male_aligned":
-        return is_conflicted_male_aligned
-    elif data_case == "female_aligned":
-        return is_female_aligned
-    elif data_case == "non_female_aligned":
-        return is_non_female_aligned
-    elif data_case == "conflicted_female_aligned":
-        return is_conflicted_female_aligned
-    elif data_case == "male_passing" or data_case == "female_passing":
-        return is_present_passing
-    elif data_case == "both":
-        return is_both
-    elif data_case == "neither":
-        return is_neither
-    elif data_case == "afab" or data_case == "amab":
-        return is_agab
-    elif data_case == "femme":
-        return is_femme
-    elif data_case == "masc":
-        return is_masc
-    elif data_case == "futch":
-        return is_futch
-    elif data_case == "androgynous":
-        return is_androgynous
-    elif data_case == "androgyne":
-        return is_androgyne
-    elif data_case == "crossdresser":
-        return is_crossdresser
-    elif data_case == "femboy":
-        return is_femboy
-    elif data_case == "autistic":
-        return is_autistic
-    elif data_case == "neurodivergent":
-        return is_neurodivergent
-    elif data_case == "plural":
-        return is_plural
-    elif data_case == "genderqueer":
-        return is_genderqueer
-    elif data_case == "genderfluid":
-        return is_genderfluid
-    elif data_case == "genderflux":
-        return is_genderflux
-    elif data_case == "queer":
-        return is_queer
-    elif data_case == "gnc":
-        return is_gnc
-    elif data_case == "nb":
-        return is_nb
-    elif data_case == "human":
-        return is_human
-    elif data_case == "person":
-        return is_person
-    #TODO: add queer, trans & cis funcs
+
+    func_dict = {
+        "male_aligned" : is_male_aligned,
+        "non_male_aligned" : is_non_male_aligned,
+        "conflicted_male_aligned" : is_conflicted_male_aligned,
+
+        "female_aligned" : is_female_aligned,
+        "non_female_aligned" : is_non_female_aligned,
+        "conflicted_female_aligned" : is_conflicted_female_aligned,
+
+        "male_passing" : is_present_passing,
+        "female_passing" : is_present_passing,
+
+        "both" : is_both,
+        "neither" : is_neither,
+
+        "afab" : is_agab, 
+        "amab" : is_agab,
+
+        "femme" : is_femme,
+        "masc" : is_masc,
+        "futch" : is_futch,
+
+        "androgynous" : is_androgynous,
+        "androgyne" : is_androgyne,
+
+        "crossdresser" : is_crossdresser,
+        "femboy" : is_femboy,
+
+        "autistic" : is_autistic,
+        "neurodivergent" : is_neurodivergent,
+        "plural" : is_plural,
+
+        "genderqueer" : is_genderqueer,
+        "genderfluid" : is_genderfluid,
+        "genderflux" : is_genderflux,
+        "queer" : is_queer,
+        "gnc" : is_gnc,
+        "nb" : is_nb,
+
+        "human" : is_human,
+        "person" : is_person,
+
+        "trans" : is_trans,
+        "transfemme" : is_transfemme,
+        "transmasc" : is_transmasc,
+        "cis" : is_cis
+    }
+
+    #TODO: add queer funcs
+
+    if data_case in func_dict:
+        return func_dict[data_case]
+
