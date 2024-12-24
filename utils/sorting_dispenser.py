@@ -13,6 +13,7 @@ from src.sort_other_listed_labels import is_genderfluid, is_genderflux, is_gende
 from src.sort_person_human_non_human import is_person, is_human
 from src.sort_cis import is_cis
 from src.sort_trans import is_trans, is_transfemme, is_transmasc, is_detrans
+from src.sort_intersex import is_intersex
 
 # helper func to dispense the correct function based on data case! ✅
 def checking_func_dispenser(data_case:str):
@@ -67,6 +68,7 @@ def checking_func_dispenser(data_case:str):
         "transmasc" : is_transmasc,
         "detrans" : is_detrans,
         "cis" : is_cis,
+        "intersex" : is_intersex,
     }
 
     #TODO: add queer funcs

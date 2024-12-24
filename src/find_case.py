@@ -57,6 +57,7 @@ def find_case(input_list:list, data_case:str):
         - data_case="transmasc"
         - data_case="detrans"
         - data_case="cis"
+        - data_case="intersex"
     """
 
     output_list = []
