@@ -99,7 +99,6 @@ def is_trans(input_str:str):
 
     return result_bool
 
-#TODO
 def is_transmasc(input_str:str):
     """
     takes a string
@@ -119,7 +118,14 @@ def is_transmasc(input_str:str):
     
     # excluding stuff
     for item in [
-
+        "woman",
+        "girl",
+        "gal",
+        "amab",
+        "mtf",
+        "transfem",
+        "trans fem",
+        "trans-fem",
     ]:
         if item in lower_str:
             result_bool = False
