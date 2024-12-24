@@ -39,8 +39,8 @@ def collect_key_words_from_q2(input_list):
         "guy","dude","boy","boi","bot","man","male","sir","lad","lord",
         "dad","mr","mister","son","bro","bloke","bxy","bruv",
 
-        "afab","dfab",
-        "amab","dmab",
+        "afab","dfab","uterus","womb","preg","pussy","cunt","menstr","bonus hole","birthi",
+        "amab","dmab","ball","testi","dick","penis",
         "ftm","ft","f2",
         "mtf","mt","m2",
         "question",
@@ -64,7 +64,7 @@ def collect_key_words_from_q2(input_list):
         "fag","gay","achillean","homo"
         "xeno",
         "auti",
-        "system","plural","did","alter",
+        "system","plural","did","alter","many",
         ("a","hd"),"neuro","nuro","dysl","lexi","dysc","dyspr",
         "both","neither",
         ("fem", "boy"),("fem", "boi"),
@@ -211,7 +211,8 @@ def collect_key_words_from_q2(input_list):
                 "system",
                 "plural",
                 "did",
-                "alter"
+                "alter",
+                "many",
             ]:
                 umbrella_word = "DID_related"
             elif key_word in [("a","hd"),"neuro","nuro","dysl","lexi","dysc","dyspr",]:
@@ -224,9 +225,9 @@ def collect_key_words_from_q2(input_list):
                 umbrella_word = "sapphic"
             elif key_word in ["gay", "achillean", "homo", "fag", "twink", "bear"]:
                 umbrella_word = "gay"
-            elif key_word == "dfab":
+            elif key_word in ["dfab","uterus","womb","preg","pussy","cunt","menstr","bonus hole",]:
                 umbrella_word = "afab"
-            elif key_word == "dmab":
+            elif key_word in ["dmab","ball","testi","dick","penis",]:
                 umbrella_word = "amab"
             elif key_word in ["they", "them"]:
                 umbrella_word = "they/them"

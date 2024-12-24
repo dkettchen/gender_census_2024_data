@@ -49,8 +49,8 @@ def find_case(input_list:list, data_case:str):
         - data_case="gnc"
         - data_case="nb"
 
-        - data_case="human/person"
-        - data_case="non-human/person"
+        - data_case="human"
+        - data_case="person"
     """
 
     output_list = []

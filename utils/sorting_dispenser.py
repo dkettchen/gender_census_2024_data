@@ -10,7 +10,7 @@ from src.sort_androgyny import is_androgyne, is_androgynous
 from src.sort_crossdressers import is_crossdresser, is_femboy
 from src.sort_neurodiversity import is_autistic, is_neurodivergent, is_plural
 from src.sort_other_listed_labels import is_genderfluid, is_genderflux, is_genderqueer, is_queer, is_gnc, is_nb
-from src.sort_person_human_non_human import is_non_person_human, is_person_human
+from src.sort_person_human_non_human import is_person, is_human
 
 # helper func to dispense the correct function based on data case! ✅
 def checking_func_dispenser(data_case:str):
@@ -69,8 +69,8 @@ def checking_func_dispenser(data_case:str):
         return is_gnc
     elif data_case == "nb":
         return is_nb
-    elif data_case == "human/person":
-        return is_person_human
-    elif data_case == "non-human/-person":
-        return is_non_person_human
+    elif data_case == "human":
+        return is_human
+    elif data_case == "person":
+        return is_person
     #TODO: add queer, trans & cis funcs

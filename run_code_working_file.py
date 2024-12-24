@@ -42,15 +42,12 @@ key_word_dict = collect_key_words_from_q2(raw_data)
 # androgyne_list = find_case(key_word_dict["androgynous"], "androgyne")
 
 # crossdresser_list = find_case(key_word_dict["crossdresser"], "crossdresser")
+# femboy_list = find_case(key_word_dict["femboy"], "femboy")
 
-#TODO:
-
-femboy_list = find_case(key_word_dict["femboy"], "femboy")
-
-# autism_list = find_case(key_word_dict["autism"], "autistic")
-# neurodiversity = key_word_dict["neurodiversity"] + key_word_dict["autism"]
+# autism_list = find_case(key_word_dict["autism_related"], "autistic")
+# neurodiversity = key_word_dict["other_neurodiversity_related"] #+ key_word_dict["autism_related"]
 # neuro_list = find_case(neurodiversity, "neurodivergent")
-# plural_list = find_case(key_word_dict["DID"], "plural")
+# plural_list = find_case(key_word_dict["DID_related"], "plural")
 
 # genderqueer_list = find_case(key_word_dict["genderqueer"], "genderqueer")
 # genderfluid_list = find_case(key_word_dict["genderfluid"], "genderfluid")
@@ -59,12 +56,36 @@ femboy_list = find_case(key_word_dict["femboy"], "femboy")
 # gnc_list = find_case(key_word_dict["gnc"], "gnc")
 # nb_list = find_case(key_word_dict["nb"], "nb")
 
-# people_humans_list = find_case(key_word_dict["human/person"], "human/person")
-# non_people_humans_list = find_case(key_word_dict["human/person"], "non-human/-person")
+# people_list = find_case(key_word_dict["human/person"], "person")
+# human_list = find_case(key_word_dict["human/person"], "human")
 
+#TODO:
 
-# queer words (wlw, mlm, dykefag) -> have not been put into dispenser yet!
+# queer words (wlw, mlm, dykefag, sexuality mentions) -> have not been put into dispenser yet!
 # trans & cis -> have not been put into dispenser yet either
+
+# also make ones for
+    # intersex (incl hermaphrodites I guess)
+    # questioning
+    # pronouns (they, she, he)
+    # neutral/neutrois
+    # dysphoria
+    # two spirits
+    # look for other cultural terms like ladyboy, hijra etc
+    # poc mention (also add indig/native/etc to it)
+    # race mention in general maybe to include the white ones?
+    # religion mention (add christianity to it? idk we only saw jewish & muslim folks so far)
+    # do smth abt the hormone mentions
+    # add sissy mentions to crossdressers file!
+    # queen (separate from drag)
+    # name, me, etc?
+    # agender is another common label, as is genderless, -> collect & make a func for them
+    # also bigender
+    # binary
+    # the demis
+    # twinks and bears can go with the explicitly queer labels file
+    # third/other gender?
+    # add traps to crossdresser file too
 
 
 # print(confl_female_list)
@@ -95,11 +116,10 @@ data_dict = {
     # "androgyne": androgyne_list,
 
     # "crossdresser": crossdresser_list,
-
-    "femboy" : femboy_list,
+    # "femboy" : femboy_list,
 
     # "autistic" : autism_list,
-    # "neurodivergent" : neuro_list,
+    # "other_neurodivergent" : neuro_list,
     # "plural" : plural_list,
 
     # "genderqueer" : genderqueer_list,
@@ -109,8 +129,8 @@ data_dict = {
     # "gnc" : gnc_list,
     # "nb" : nb_list,
 
-    # "human_person" : people_humans_list,
-    # "non_human_person" : non_people_humans_list,
+    # "human" : human_list,
+    # "person" : people_list,
 }
 
 write_json_files(data_dict, "data/cleaned_q2_write_ins/")
