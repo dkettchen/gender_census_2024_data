@@ -391,6 +391,29 @@ words_catching = {
     "herm": [
         "leatherman",
         "hermit",
+    ],
+    "lesbian": [
+        "less",
+        "flesh",
+        "molecules",
+        "sprinkles",
+        "celest",
+        "marbles",
+        "wobbles",
+        "genderless amalgamation of flesh",
+        "malespec",
+        "multiples",
+        "rules",
+        "apples",
+        "needles",
+        "leste",
+        "peoples",
+        "scales",
+        "resembles",
+        "holes",
+        "achilles",
+        "muscles",
+        "roles",
     ]
 
 }

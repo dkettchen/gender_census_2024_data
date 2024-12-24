@@ -61,7 +61,7 @@ def collect_key_words_from_q2(input_list):
         "dyke",
         "lesb","lez","les",
         "sapph",
-        "fag","gay","achillean","homo"
+        "fag","gay","achillean","homo",
         "xeno",
         "auti",
         "system","plural","did","alter","many",
@@ -197,7 +197,7 @@ def collect_key_words_from_q2(input_list):
                 "bruv",
             ]:
                 umbrella_word = "man/boy/male"
-            elif key_word in ['butch',"tom","azur","masc","handsome",]:
+            elif key_word in ["tom","azur","masc","handsome",]:
                 umbrella_word = "masc"
             elif key_word in ["fem","ros","pretty","cute","flamboyant","beautiful",]:
                 umbrella_word = "femme"
@@ -223,7 +223,7 @@ def collect_key_words_from_q2(input_list):
                 umbrella_word = "lesbian"
             elif key_word == "sapph":
                 umbrella_word = "sapphic"
-            elif key_word in ["gay", "achillean", "homo", "fag", "twink", "bear"]:
+            elif key_word in ["gay", "homo", "fag", "twink", "bear"]:
                 umbrella_word = "gay"
             elif key_word in [
                 "dfab","uterus","womb","preg","pussy","cunt","menstr",

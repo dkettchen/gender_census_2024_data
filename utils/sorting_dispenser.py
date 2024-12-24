@@ -14,6 +14,7 @@ from src.sort_person_human_non_human import is_person, is_human
 from src.sort_cis import is_cis
 from src.sort_trans import is_trans, is_transfemme, is_transmasc, is_detrans
 from src.sort_intersex import is_intersex
+from src.sort_queer_words import is_wlw, is_mlm
 
 # helper func to dispense the correct function based on data case! ✅
 def checking_func_dispenser(data_case:str):
@@ -69,6 +70,9 @@ def checking_func_dispenser(data_case:str):
         "detrans" : is_detrans,
         "cis" : is_cis,
         "intersex" : is_intersex,
+
+        "wlw" : is_wlw,
+        "mlm" : is_mlm,
     }
 
     #TODO: add queer funcs
