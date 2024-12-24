@@ -357,5 +357,13 @@ words_catching = {
         "hobby",
         "unboxed",
         "wibby wobby",
+    ],
+
+    "cis": [
+        "decis",
+        "cish",
+        "anarc",
+        "physic",
+        "narcis",
     ]
 }
