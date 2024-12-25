@@ -420,6 +420,8 @@ words_catching = {
         "serbian",
         "sparkles",
         "bianary",
+        "coolest",
+        "succubian",
     ],
     "bear": [
         "beard",
