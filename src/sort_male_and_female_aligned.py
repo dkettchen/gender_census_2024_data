@@ -564,11 +564,10 @@ def is_female_aligned(input_str:str):
         "tough, muscular",
         "60% opacity",
         "tomato is a fruit",
-        "almost",
+        # "almost",
         'girl but a bit off', 
         "like a boat",
         "i'm half girl",
-        "i'm not not a woman", 
         "kind of girl",
         'off-brand', 
         '3d anime girl model', 
@@ -607,8 +606,6 @@ def is_female_aligned(input_str:str):
         'girl, but not completely', 
         "girl/woman but only to those I'm attracted to", 
         'not not a girl', 
-        'not not a woman', 
-        'not not a woman, not not cis', 
         'not not-a-girl', 
         'on the girl spectrum', 
         'on the woman-spectrum', 
@@ -637,7 +634,7 @@ def is_female_aligned(input_str:str):
         if item in lower_str \
         and "femboy" not in lower_str \
         and "not a girl but not not a girl" not in lower_str \
-        and "kind of girl but not really" not in lower_str:
+        and "not really" not in lower_str:
             return True
 
     # things we're excluding
