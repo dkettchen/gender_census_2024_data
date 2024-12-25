@@ -17,13 +17,16 @@ def is_in_binaries_list(input_str):
 
     for item in [ # if the item was caught in the male/female list 
         "girl","woman","lady","gal","female","chic","maiden",
-        "ma","am","mom","mum","miss","ms","daughter","sister","gxrl","wxman","womxn",
+        "mom","mum","miss","ms","daughter","sister","gxrl","wxman","womxn",
 
         "guy","dude","boy","boi","man","male","sir","lad","lord",
         "dad","mr","mister","son","bro","bloke","bxy","bruv",
     ]:
         if item in lower_str:
             return True
+    
+    if "ma" in lower_str and "am" in lower_str:
+        return True
     
     return False
 
