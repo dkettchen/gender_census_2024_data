@@ -84,16 +84,16 @@ twink_list = find_case(key_word_dict["twink"], "twink")
 bear_list = find_case(key_word_dict["bear"], "bear")
 homo_list = find_case(key_word_dict["homo"], "homo")
 fag_list = find_case(key_word_dict["fag"], "fag")
-# wlw_collected = key_word_dict["lesbian"] + key_word_dict["dyke"] \
-#                 + key_word_dict["butch"] + key_word_dict["sapphic"] \
-#                 + key_word_dict["gay"]
-# wlw_list = find_case(wlw_collected, "wlw")
 
-# mlm_collected = key_word_dict["gay"] + key_word_dict["achillean"] \
-#                 + key_word_dict["twink"] + key_word_dict["bear"] \
-#                 + key_word_dict["homo"] + key_word_dict["fag"]
-# mlm_list = find_case(mlm_collected, "mlm")
-# # should we just make all separate lists for these??
+all_queer_labels = key_word_dict["lesbian"] + key_word_dict["dyke"] \
+                    + key_word_dict["butch"] + key_word_dict["sapphic"] \
+                    + key_word_dict["gay"] + key_word_dict["achillean"] \
+                    + key_word_dict["twink"] + key_word_dict["bear"] \
+                    + key_word_dict["homo"] + key_word_dict["fag"]
+conflicted_queer_list = find_case(all_queer_labels, "conflicted_queer_labels")
+dyke_fag_list = find_case(all_queer_labels, "dykefag")
+lesb_for_men_list = find_case(all_queer_labels, "lesbianism_for_men")
+fag_for_women_list = find_case(all_queer_labels, "faggotry_for_women")
 
 #TODO
 # queer words (dykefag, sexuality mentions) -> have not been put into dispenser yet!
@@ -184,6 +184,10 @@ data_dict = {
     "bear" : bear_list,
     "homo" : homo_list,
     "fag" : fag_list,
+    "conflicted_queer" : conflicted_queer_list,
+    "dykefag" : dyke_fag_list,
+    "lesbianism_for_men" : lesb_for_men_list,
+    "faggotry_for_women" : fag_for_women_list,
 }
 
 write_json_files(data_dict, "data/cleaned_q2_write_ins/")

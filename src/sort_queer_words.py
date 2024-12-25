@@ -150,6 +150,14 @@ def is_dyke(input_str:str):
         if item in lower_str:
             result_bool = False
 
+    # reinclude
+    for item in [
+        "fat dyke",
+        "art dyke",
+    ]:
+        if item in lower_str:
+            result_bool = True
+
     return result_bool
 
 def is_fag(input_str:str):
@@ -232,6 +240,13 @@ def is_gay(input_str:str):
     ]:
         if item in lower_str:
             result_bool = False
+
+    # reinclude
+    for item in [
+        "i'm gay, and i like men, so whatever that makes me",
+    ]:
+        if item in lower_str:
+            result_bool = True
 
     return result_bool
 
@@ -317,6 +332,14 @@ def is_lesbian(input_str:str):
         if item in lower_str:
             result_bool = False
 
+    # reinclude
+    for item in [
+        "in a man's body",
+        "boyish lesbian",
+    ]:
+        if item in lower_str:
+            result_bool = True
+
     return result_bool
 
 def is_sapphic(input_str:str):
@@ -378,6 +401,157 @@ def is_twink(input_str:str):
 
     return result_bool
 
+
+def is_conflicting_queer(input_str:str):
+    """
+    takes a string
+
+    returns True if it denotes any conflicting combo (ie lesbianism for men, 
+    faggotry for women, both mlm and wlw) of the various other queer labels
+
+    otherwise returns False
+    """
+
+    # making case insensitive
+    lower_str = input_str.lower()
+
+    # excluding all single label items
+    if is_butch(input_str) or is_bear(input_str) \
+    or is_achillean(input_str) or is_dyke(input_str) \
+    or is_fag(input_str) or is_gay(input_str) \
+    or is_lesbian(input_str) or is_homosexual(input_str) \
+    or is_sapphic(input_str) or is_twink(input_str):
+        return False
+
+    result_bool = True
+    
+    # excluding stuff
+    for item in [
+        "in spirit",
+        "neither gay nor a man",
+        "teddy bear",
+        "teddybear",
+        "(like the animal)",
+        "build-a-bear",
+        "is gay",
+        "by way of",
+        "in a gay man way",
+        "genderless amalgamation of flesh",
+        "with the lesbians",
+        "(though I am not a lesbian)",
+        "coded",
+        "are attracted to me",
+        "mama bear",
+        "otter",
+        "whatever makes you",
+        "is inherently gay",
+        "culturally",
+        "emotionally hetero",
+        "of dyke experience",
+        "futch",
+        "hermaphrodyke",
+        "i kinda wish i was a boy but still a lesbian",
+        "you're gay",
+        "it's not gay to like they",
+        "like a nonbinary lesbian but the other way",
+        "like if a dyke and a faggot had a baby",
+        "of lesbian origin",
+        "not butch but i respect their beliefs",
+        "polar bear",
+        "of butch experience",
+        "what ever makes",
+        "whatever gender makes",
+        "whatever makes",
+        "where is dyke",
+        "why is fag on the list but not dyke",
+        "lesbian but in a yaoi way", # this just has no overlap, like- there are no lesbians in yaoi?? wym??
+    ]:
+        if item in lower_str:
+            result_bool = False
+
+    return result_bool
+#TODO
+def is_dykefag(input_str:str):
+    """
+    takes a string
+
+    returns True if it denotes any conflicting combos of mlm & wlw language 
+    that cannot be discerned as male/wlw or female/mlm aligned (ie dykefag 
+    -> are u claiming to be a faggy dyke or a dykey fag?? idk!)
+
+    otherwise returns False
+    """
+
+    # making case insensitive
+    lower_str = input_str.lower()
+
+    if is_conflicting_queer(input_str):
+        result_bool = True
+    else: return False
+    
+    # excluding stuff
+    for item in [
+
+    ]:
+        if item in lower_str:
+            result_bool = False
+
+    return result_bool
+#TODO
+def is_lesbianism_for_men(input_str:str):
+    """
+    takes a string
+
+    returns True if it denotes any conflicting combo of wlw language and male/male_aligned 
+    (incl transmasc (as denotes explicit non-cis/non-femaleness) but excl unspecific nb 
+    (as may be transfemme or cis-leaning)) identity
+
+    otherwise returns False
+    """
+
+    # making case insensitive
+    lower_str = input_str.lower()
+
+    if is_conflicting_queer(input_str):
+        result_bool = True
+    else: return False
+    
+    # excluding stuff
+    for item in [
+
+    ]:
+        if item in lower_str:
+            result_bool = False
+
+    return result_bool
+#TODO
+def is_faggotry_for_women(input_str:str):
+    """
+    takes a string
+
+    returns True if it denotes any conflicting combo of mlm language and female/female_aligned 
+    (incl transfemme (as denotes explicit non-cis/non-maleness) but excl unspecific nb 
+    (as may be transmasc or cis-leaning)) identity
+
+    otherwise returns False
+    """
+
+    # making case insensitive
+    lower_str = input_str.lower()
+
+    if is_conflicting_queer(input_str):
+        result_bool = True
+    else: return False
+    
+    # excluding stuff
+    for item in [
+
+    ]:
+        if item in lower_str:
+            result_bool = False
+
+    return result_bool
+
 #TODO
 def is_bi_pan(input_str:str):
     """
@@ -403,31 +577,6 @@ def is_bi_pan(input_str:str):
     return result_bool
 #TODO
 def is_ace_aro(input_str:str):
-    """
-    takes a string
-
-    returns True if it denotes [...]
-
-    otherwise returns False
-    """
-
-    # making case insensitive
-    lower_str = input_str.lower()
-
-    result_bool = True
-    
-    # excluding stuff
-    for item in [
-
-    ]:
-        if item in lower_str:
-            result_bool = False
-
-    return result_bool
-
-
-#TODO
-def is_dykefag(input_str:str):
     """
     takes a string
 

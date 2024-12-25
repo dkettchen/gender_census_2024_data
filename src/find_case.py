@@ -73,6 +73,10 @@ def find_case(input_list:list, data_case:str):
         - data_case="homo"
         - data_case="sapphic"
         - data_case="achillean"
+        - data_case="conflicted_queer_labels"
+        - data_case="dykefag"
+        - data_case="lesbianism_for_men"
+        - data_case="faggotry_for_women"
     """
 
     output_list = []

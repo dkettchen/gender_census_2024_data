@@ -15,9 +15,7 @@ from src.sort_cis import is_cis
 from src.sort_trans import is_trans, is_transfemme, is_transmasc, is_detrans
 from src.sort_intersex import is_intersex
 from src.sort_queer_words import (
-    is_wlw, 
-    is_mlm, 
-    is_dykefag,
+    is_conflicting_queer,
     is_lesbian, 
     is_achillean, 
     is_ace_aro, 
@@ -30,6 +28,9 @@ from src.sort_queer_words import (
     is_gay,
     is_homosexual,
     is_twink,
+    is_dykefag,
+    is_lesbianism_for_men,
+    is_faggotry_for_women,
 )
 from src.sort_agender_and_neutral import is_genderless, is_neutral
 
@@ -102,9 +103,10 @@ def checking_func_dispenser(data_case:str):
         "bear" : is_bear,
         "homo" : is_homosexual,
         "fag" : is_fag,
-
-        "wlw" : is_wlw,
-        "mlm" : is_mlm,
+        "conflicted_queer_labels" : is_conflicting_queer,
+        "dykefag" : is_dykefag,
+        "lesbianism_for_men" : is_lesbianism_for_men,
+        "faggotry_for_women" : is_faggotry_for_women,
     }
 
     #TODO: add queer funcs
