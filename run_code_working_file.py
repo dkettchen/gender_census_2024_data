@@ -74,33 +74,34 @@ key_word_dict = collect_key_words_from_q2(raw_data)
 
 # intersex_list = find_case(key_word_dict["intersex/hermaphrodite"], "intersex")
 
-lesbian_list = find_case(key_word_dict["lesbian"], "lesbian")
-dyke_list = find_case(key_word_dict["dyke"], "dyke")
-butch_list = find_case(key_word_dict["butch"], "butch")
-sapphic_list = find_case(key_word_dict["sapphic"], "sapphic")
-gay_list = find_case(key_word_dict["gay"], "gay")
-achillean_list = find_case(key_word_dict["achillean"], "achillean")
-twink_list = find_case(key_word_dict["twink"], "twink")
-bear_list = find_case(key_word_dict["bear"], "bear")
-homo_list = find_case(key_word_dict["homo"], "homo")
-fag_list = find_case(key_word_dict["fag"], "fag")
+# lesbian_list = find_case(key_word_dict["lesbian"], "lesbian")
+# dyke_list = find_case(key_word_dict["dyke"], "dyke")
+# butch_list = find_case(key_word_dict["butch"], "butch")
+# sapphic_list = find_case(key_word_dict["sapphic"], "sapphic")
+# gay_list = find_case(key_word_dict["gay"], "gay")
+# achillean_list = find_case(key_word_dict["achillean"], "achillean")
+# twink_list = find_case(key_word_dict["twink"], "twink")
+# bear_list = find_case(key_word_dict["bear"], "bear")
+# homo_list = find_case(key_word_dict["homo"], "homo")
+# fag_list = find_case(key_word_dict["fag"], "fag")
 
-all_queer_labels = key_word_dict["lesbian"] + key_word_dict["dyke"] \
-                    + key_word_dict["butch"] + key_word_dict["sapphic"] \
-                    + key_word_dict["gay"] + key_word_dict["achillean"] \
-                    + key_word_dict["twink"] + key_word_dict["bear"] \
-                    + key_word_dict["homo"] + key_word_dict["fag"]
-conflicted_queer_list = find_case(all_queer_labels, "conflicted_queer_labels")
-dyke_fag_list = find_case(all_queer_labels, "dykefag")
-lesb_for_men_list = find_case(all_queer_labels, "lesbianism_for_men")
-fag_for_women_list = find_case(all_queer_labels, "faggotry_for_women")
+# all_queer_labels = key_word_dict["lesbian"] + key_word_dict["dyke"] \
+#                     + key_word_dict["butch"] + key_word_dict["sapphic"] \
+#                     + key_word_dict["gay"] + key_word_dict["achillean"] \
+#                     + key_word_dict["twink"] + key_word_dict["bear"] \
+#                     + key_word_dict["homo"] + key_word_dict["fag"]
+# conflicted_queer_list = find_case(all_queer_labels, "conflicted_queer_labels")
+# dyke_fag_list = find_case(all_queer_labels, "dykefag")
+# lesb_for_men_list = find_case(all_queer_labels, "lesbianism_for_men")
+# fag_for_women_list = find_case(all_queer_labels, "faggotry_for_women")
+
+she_list = find_case(key_word_dict["she/her"], "she")
+he_list = find_case(key_word_dict["he/him"], "he")
+they_list = find_case(key_word_dict["they/them"], "they")
 
 #TODO
-# queer words (dykefag, sexuality mentions) -> have not been put into dispenser yet!
-# rerun wlw & mlm terms & make separate lists for each also, possibly in lieu of wlw/mlm ones
-    # incl queen one!
-# two spirit
-    # also look for like ladyboy, hijra, etc, if we wanna track em all
+# queer words (sexuality mentions) -> have not been put into dispenser yet!
+    # make queen category?
 # demis, also look for grey/gray?
 # look for binary
 # bigender/pangender?
@@ -108,14 +109,12 @@ fag_for_women_list = find_case(all_queer_labels, "faggotry_for_women")
 # also make ones for
     # questioning
     # pronouns (they, she, he)
-    # poc mention (also add indig/native/etc to it)
-    # race mention in general maybe to include the white ones?
-    # religion mention (add christianity to it? idk we only saw jewish & muslim folks so far)
     # do smth abt the hormone mentions
     # name, me, etc?
     # third/other gender?
 
-# print(confl_female_list)
+# I've decided cultural/racial/religious mentions aren't relevant to what I'm tryna make points about 
+# so we won't look into them after all
 
 data_dict = {
     # "male_aligned" : male_list,
@@ -171,23 +170,24 @@ data_dict = {
 
     # "intersex" : intersex_list,
 
-    # "wlw" : wlw_list,
-    # "mlm" : mlm_list,
+    # "lesbian" : lesbian_list,
+    # "dyke" : dyke_list,
+    # "butch" : butch_list,
+    # "sapphic" : sapphic_list,
+    # "gay" : gay_list,
+    # "achillean" : achillean_list,
+    # "twink" : twink_list,
+    # "bear" : bear_list,
+    # "homo" : homo_list,
+    # "fag" : fag_list,
+    # "conflicted_queer" : conflicted_queer_list,
+    # "dykefag" : dyke_fag_list,
+    # "lesbianism_for_men" : lesb_for_men_list,
+    # "faggotry_for_women" : fag_for_women_list,
 
-    "lesbian" : lesbian_list,
-    "dyke" : dyke_list,
-    "butch" : butch_list,
-    "sapphic" : sapphic_list,
-    "gay" : gay_list,
-    "achillean" : achillean_list,
-    "twink" : twink_list,
-    "bear" : bear_list,
-    "homo" : homo_list,
-    "fag" : fag_list,
-    "conflicted_queer" : conflicted_queer_list,
-    "dykefag" : dyke_fag_list,
-    "lesbianism_for_men" : lesb_for_men_list,
-    "faggotry_for_women" : fag_for_women_list,
+    "she": she_list,
+    "he": he_list,
+    "they": they_list,
 }
 
 write_json_files(data_dict, "data/cleaned_q2_write_ins/")

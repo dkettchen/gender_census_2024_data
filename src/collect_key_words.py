@@ -72,7 +72,6 @@ def collect_key_words_from_q2(input_list):
         ("a","hd"),"neuro","nuro","dysl","lexi","dysc","dyspr",
         "both","neither",
         ("fem", "boy"),("fem", "boi"),
-        "they","them",
         "twink",
         "bear",
         "inter","herm",
@@ -98,7 +97,8 @@ def collect_key_words_from_q2(input_list):
         "eastern european", # why 
         
         "she","her",
-        "he","him",
+        "he","him","his",
+        "they","them","their",
 
         "testo", "estro", "hrt", "horm",
     ]
@@ -253,11 +253,11 @@ def collect_key_words_from_q2(input_list):
 
             elif key_word == "question":
                 umbrella_word = "questioning"
-            elif key_word in ["they", "them"]:
+            elif key_word in ["they", "them","their",]:
                 umbrella_word = "they/them"
             elif key_word in ["she","her"]:
                 umbrella_word = "she/her"
-            elif key_word in ["he","him"]:
+            elif key_word in ["he","him","his",]:
                 umbrella_word = "he/him"
             elif key_word in [
                 "of color", "of colour", "woc", "moc", "poc",

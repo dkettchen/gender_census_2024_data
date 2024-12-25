@@ -33,6 +33,7 @@ from src.sort_queer_words import (
     is_faggotry_for_women,
 )
 from src.sort_agender_and_neutral import is_genderless, is_neutral
+from src.sort_pronouns import is_he, is_she, is_they
 
 # helper func to dispense the correct function based on data case! ✅
 def checking_func_dispenser(data_case:str):
@@ -107,9 +108,11 @@ def checking_func_dispenser(data_case:str):
         "dykefag" : is_dykefag,
         "lesbianism_for_men" : is_lesbianism_for_men,
         "faggotry_for_women" : is_faggotry_for_women,
-    }
 
-    #TODO: add queer funcs
+        "she" : is_she,
+        "he" : is_he,
+        "they" : is_they,
+    }
 
     if data_case in func_dict:
         return func_dict[data_case]
