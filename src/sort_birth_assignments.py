@@ -72,6 +72,7 @@ def is_agab(input_str:str, data_case:str):
         "vagi",
         "clit",
         "preg",
+        "menstr",
 
         "amab",
         "dmab",
@@ -434,6 +435,7 @@ def is_agab(input_str:str, data_case:str):
             "dickless!!",
             "don't be a dick",
             "dickhead",
+            "sex dysphoric",
         ]:
             if item in lower_str:
                 result_bool = False
@@ -631,9 +633,6 @@ def is_agab(input_str:str, data_case:str):
                 "boypussy",
                 "cuntman", # favourite superhero smh
                 "pussyboi",
-                #"birthing",
-                #"preg", # we officially do NOT have the word mpreg in here I am so happy x'D
-                #"clit",
             ]:
                 if item in lower_str:
                     result_bool = True
