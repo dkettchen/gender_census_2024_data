@@ -470,34 +470,7 @@ def is_conflicting_queer(input_str:str):
             result_bool = False
 
     return result_bool
-#TODO
-def is_dykefag(input_str:str):
-    """
-    takes a string
 
-    returns True if it denotes any conflicting combos of mlm & wlw language 
-    that cannot be discerned as male/wlw or female/mlm aligned (ie dykefag 
-    -> are u claiming to be a faggy dyke or a dykey fag?? idk!)
-
-    otherwise returns False
-    """
-
-    # making case insensitive
-    lower_str = input_str.lower()
-
-    if is_conflicting_queer(input_str):
-        result_bool = True
-    else: return False
-    
-    # excluding stuff
-    for item in [
-
-    ]:
-        if item in lower_str:
-            result_bool = False
-
-    return result_bool
-#TODO
 def is_lesbianism_for_men(input_str:str):
     """
     takes a string
@@ -518,13 +491,23 @@ def is_lesbianism_for_men(input_str:str):
     
     # excluding stuff
     for item in [
-
+        "fag",
+        "gay",
+        "female twink",
+        "manwoman",
+        "direction",
+        "girl",
+        "twinkette",
+        "(though i am not a lesbian)",
+        "mix between fem twink and butch lesbian",
+        "shebear",
+        "sissy", # bc largely amab crossdressers leaning toward transfemme
     ]:
         if item in lower_str:
             result_bool = False
 
     return result_bool
-#TODO
+
 def is_faggotry_for_women(input_str:str):
     """
     takes a string
@@ -543,9 +526,50 @@ def is_faggotry_for_women(input_str:str):
         result_bool = True
     else: return False
     
+    if is_lesbianism_for_men(input_str):
+        return False
+
     # excluding stuff
     for item in [
+        "dyke",
+        "butch",
+        "bian",
+        "boygirl",
+        "direction",
+        "both ways",
+        "for everyone",
+        "gayboy, gaygirl",
+        "lesb",
+    ]:
+        if item in lower_str:
+            result_bool = False
 
+    return result_bool
+
+def is_dykefag(input_str:str):
+    """
+    takes a string
+
+    returns True if it denotes any conflicting combos of mlm & wlw language 
+    that cannot be discerned as male/wlw or female/mlm aligned (ie dykefag 
+    -> are u claiming to be a faggy dyke or a dykey fag?? idk!)
+
+    otherwise returns False
+    """
+
+    # making case insensitive
+    lower_str = input_str.lower()
+
+    if is_conflicting_queer(input_str):
+        result_bool = True
+    else: return False
+
+    if is_faggotry_for_women(input_str) or is_lesbianism_for_men(input_str):
+        return False
+    
+    # excluding stuff
+    for item in [
+        "(though I am not a lesbian)",
     ]:
         if item in lower_str:
             result_bool = False
