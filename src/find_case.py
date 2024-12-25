@@ -50,6 +50,8 @@ def find_case(input_list:list, data_case:str):
         - data_case="queer"
         - data_case="gnc"
         - data_case="nb"
+        - data_case="agender"
+        - data_case="neutral"
 
         - data_case="human"
         - data_case="person"

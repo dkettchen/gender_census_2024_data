@@ -77,8 +77,12 @@ binaries_list = key_word_dict["man/boy/male"] + key_word_dict["woman/girl/female
 #                 + key_word_dict["butch"] + key_word_dict["sapphic"]
 # wlw_list = find_case(wlw_collected, "wlw")
 
-# mlm_collected = key_word_dict["gay"] + key_word_dict["achillean"]
+# mlm_collected = key_word_dict["gay"] + key_word_dict["achillean"] \
+#                 + key_word_dict["twink"] + key_word_dict["bear"]
 # mlm_list = find_case(mlm_collected, "mlm")
+
+agender_list = find_case(key_word_dict["agender/genderless"], "agender")
+neutral_list = find_case(key_word_dict["neutral"], "neutral")
 
 #TODO
 # queer words (dykefag, sexuality mentions) -> have not been put into dispenser yet!
@@ -88,23 +92,18 @@ binaries_list = key_word_dict["man/boy/male"] + key_word_dict["woman/girl/female
 # also make ones for
     # questioning
     # pronouns (they, she, he)
-    # neutral/neutrois
-    # dysphoria # I've added it to trans -> rerun
     # two spirits
     # look for other cultural terms like ladyboy, hijra etc
     # poc mention (also add indig/native/etc to it)
     # race mention in general maybe to include the white ones?
     # religion mention (add christianity to it? idk we only saw jewish & muslim folks so far)
     # do smth abt the hormone mentions
-    # add sissy mentions to crossdressers file!
     # queen (separate from drag)
     # name, me, etc?
-    # agender is another common label, as is genderless, -> collect & make a func for them
     # also bigender
     # binary
     # the demis
     # third/other gender?
-    # add traps to crossdresser file too
     # make twinks & bears their own categories like butch & dyke
 
 
@@ -150,6 +149,8 @@ data_dict = {
     # "queer" : queer_list,
     # "gnc" : gnc_list,
     # "nb" : nb_list,
+    "agender" : agender_list,
+    "neutral" : neutral_list,
 
     # "human" : human_list,
     # "person" : people_list,
