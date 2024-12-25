@@ -14,7 +14,7 @@ key_word_dict = collect_key_words_from_q2(raw_data)
 # non_female_list = find_case(key_word_dict["woman/girl/female"], "non_female_aligned")
 # confl_female_list = find_case(key_word_dict["woman/girl/female"], "conflicted_female_aligned")
 
-binaries_list = key_word_dict["man/boy/male"] + key_word_dict["woman/girl/female"]
+# binaries_list = key_word_dict["man/boy/male"] + key_word_dict["woman/girl/female"]
 
 # male_passing_list = find_case(binaries_list, "male_passing")
 # female_passing_list = find_case(binaries_list, "female_passing")
@@ -48,7 +48,6 @@ binaries_list = key_word_dict["man/boy/male"] + key_word_dict["woman/girl/female
 # sissy_list = find_case(key_word_dict["sissy"], "sissy")
 # trap_list = find_case(key_word_dict["trap"], "trap")
 
-
 # autism_list = find_case(key_word_dict["autism_related"], "autistic")
 # neurodiversity = key_word_dict["other_neurodiversity_related"] #+ key_word_dict["autism_related"]
 # neuro_list = find_case(neurodiversity, "neurodivergent")
@@ -60,6 +59,8 @@ binaries_list = key_word_dict["man/boy/male"] + key_word_dict["woman/girl/female
 # queer_list = find_case(key_word_dict["queer"], "queer")
 # gnc_list = find_case(key_word_dict["gnc"], "gnc")
 # nb_list = find_case(key_word_dict["nb"], "nb")
+# agender_list = find_case(key_word_dict["agender/genderless"], "agender")
+# neutral_list = find_case(key_word_dict["neutral"], "neutral")
 
 # people_list = find_case(key_word_dict["human/person"], "person")
 # human_list = find_case(key_word_dict["human/person"], "human")
@@ -73,39 +74,46 @@ binaries_list = key_word_dict["man/boy/male"] + key_word_dict["woman/girl/female
 
 # intersex_list = find_case(key_word_dict["intersex/hermaphrodite"], "intersex")
 
+lesbian_list = find_case(key_word_dict["lesbian"], "lesbian")
+dyke_list = find_case(key_word_dict["dyke"], "dyke")
+butch_list = find_case(key_word_dict["butch"], "butch")
+sapphic_list = find_case(key_word_dict["sapphic"], "sapphic")
+gay_list = find_case(key_word_dict["gay"], "gay")
+achillean_list = find_case(key_word_dict["achillean"], "achillean")
+twink_list = find_case(key_word_dict["twink"], "twink")
+bear_list = find_case(key_word_dict["bear"], "bear")
+homo_list = find_case(key_word_dict["homo"], "homo")
+fag_list = find_case(key_word_dict["fag"], "fag")
 # wlw_collected = key_word_dict["lesbian"] + key_word_dict["dyke"] \
-#                 + key_word_dict["butch"] + key_word_dict["sapphic"]
+#                 + key_word_dict["butch"] + key_word_dict["sapphic"] \
+#                 + key_word_dict["gay"]
 # wlw_list = find_case(wlw_collected, "wlw")
 
 # mlm_collected = key_word_dict["gay"] + key_word_dict["achillean"] \
-#                 + key_word_dict["twink"] + key_word_dict["bear"]
+#                 + key_word_dict["twink"] + key_word_dict["bear"] \
+#                 + key_word_dict["homo"] + key_word_dict["fag"]
 # mlm_list = find_case(mlm_collected, "mlm")
-
-agender_list = find_case(key_word_dict["agender/genderless"], "agender")
-neutral_list = find_case(key_word_dict["neutral"], "neutral")
+# # should we just make all separate lists for these??
 
 #TODO
 # queer words (dykefag, sexuality mentions) -> have not been put into dispenser yet!
-# neutral/neutrois
-# agender/genderless
+# rerun wlw & mlm terms & make separate lists for each also, possibly in lieu of wlw/mlm ones
+    # incl queen one!
+# two spirit
+    # also look for like ladyboy, hijra, etc, if we wanna track em all
+# demis, also look for grey/gray?
+# look for binary
+# bigender/pangender?
 
 # also make ones for
     # questioning
     # pronouns (they, she, he)
-    # two spirits
-    # look for other cultural terms like ladyboy, hijra etc
     # poc mention (also add indig/native/etc to it)
     # race mention in general maybe to include the white ones?
     # religion mention (add christianity to it? idk we only saw jewish & muslim folks so far)
     # do smth abt the hormone mentions
-    # queen (separate from drag)
     # name, me, etc?
-    # also bigender
-    # binary
-    # the demis
     # third/other gender?
-    # make twinks & bears their own categories like butch & dyke
-
 
 # print(confl_female_list)
 
@@ -149,8 +157,8 @@ data_dict = {
     # "queer" : queer_list,
     # "gnc" : gnc_list,
     # "nb" : nb_list,
-    "agender" : agender_list,
-    "neutral" : neutral_list,
+    # "agender" : agender_list,
+    # "neutral" : neutral_list,
 
     # "human" : human_list,
     # "person" : people_list,
@@ -165,6 +173,17 @@ data_dict = {
 
     # "wlw" : wlw_list,
     # "mlm" : mlm_list,
+
+    "lesbian" : lesbian_list,
+    "dyke" : dyke_list,
+    "butch" : butch_list,
+    "sapphic" : sapphic_list,
+    "gay" : gay_list,
+    "achillean" : achillean_list,
+    "twink" : twink_list,
+    "bear" : bear_list,
+    "homo" : homo_list,
+    "fag" : fag_list,
 }
 
 write_json_files(data_dict, "data/cleaned_q2_write_ins/")

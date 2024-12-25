@@ -30,10 +30,11 @@ def collect_key_words_from_q2(input_list):
         ("trans", "woman"),
         ("trans", "guy"),
         ("trans", "girl"),
-        "transv","cross","drag","trav","panto","principal boy", # not looking for dame cause that's lady in german
+        "transv","cross","drag","trav","panto","principal boy","imperso",
+        # not looking for panto dame cause that's lady in german
         "sissy",
         "trap",
-        "tran", ("tr","nny"), # tryna catch slurs too
+        "tran", "t4t", ("tr","nny"), # tryna catch slurs too
         
         "girl","woman","lady","gal","female","chic","maiden",
         ("ma","am"),"mom","mum","miss","ms","daughter","sister","gxrl","wxman","womxn",
@@ -62,7 +63,7 @@ def collect_key_words_from_q2(input_list):
         'demigirl',
         ("fag","dyke"),
         "dyke",
-        "lesb","lez","les",
+        "lez","les","bian",
         "sapph",
         "fag","gay","achillean","homo",
         "xeno",
@@ -156,7 +157,7 @@ def collect_key_words_from_q2(input_list):
                 umbrella_word = "transmasc"
             elif key_word in [("trans", "fem"),("trans", "woman"),("trans", "girl"),"mtf","m2","mt",]:
                 umbrella_word = "transfemme"
-            elif key_word in ["transv", "cross", "drag", "trav","panto","principal boy",]: # "or" ones can just be strings
+            elif key_word in ["transv", "cross", "drag", "trav","panto","principal boy","imperso",]: # "or" ones can just be strings
                 umbrella_word = "crossdresser"
             elif key_word in [
                 "girl",
@@ -215,14 +216,8 @@ def collect_key_words_from_q2(input_list):
                 umbrella_word = "DID_related"
             elif key_word in [("a","hd"),"neuro","nuro","dysl","lexi","dysc","dyspr",]:
                 umbrella_word = "other_neurodiversity_related"
-            elif key_word in ["tran", ("tr","nny"),"dysp"]:
+            elif key_word in ["tran", ("tr","nny"),"dysp","t4t",]:
                 umbrella_word = "trans"
-            elif key_word in ["lesb", "lez", "les",]: 
-                umbrella_word = "lesbian"
-            elif key_word == "sapph":
-                umbrella_word = "sapphic"
-            elif key_word in ["gay", "homo", "fag",]:
-                umbrella_word = "gay"
             elif key_word in [
                 "dfab","uterus","womb","preg","pussy","cunt","menstr",
                 "bonus hole","birthi","vagi","clit",
@@ -245,6 +240,10 @@ def collect_key_words_from_q2(input_list):
 
             elif key_word in ["sexual","bi","pan","ace","aro","roman",]:
                 umbrella_word = "other_sexuality_mention"
+            elif key_word in ["lez", "les","bian",]: 
+                umbrella_word = "lesbian"
+            elif key_word == "sapph":
+                umbrella_word = "sapphic"
             elif key_word == ("fag","dyke"):
                 umbrella_word = "fag_dyke"
             elif key_word in [("2","spirit"),("two","spirit"),]:

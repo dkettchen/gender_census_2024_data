@@ -62,6 +62,17 @@ def find_case(input_list:list, data_case:str):
         - data_case="detrans"
         - data_case="cis"
         - data_case="intersex"
+
+        - data_case="lesbian"
+        - data_case="butch"
+        - data_case="dyke"
+        - data_case="fag"
+        - data_case="gay"
+        - data_case="twink"
+        - data_case="bear"
+        - data_case="homo"
+        - data_case="sapphic"
+        - data_case="achillean"
     """
 
     output_list = []

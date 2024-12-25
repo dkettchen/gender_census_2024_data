@@ -417,6 +417,18 @@ words_catching = {
         "achilles",
         "muscles",
         "roles",
+        "serbian",
+        "sparkles",
+        "bianary",
+    ],
+    "bear": [
+        "beard",
+        "bearing",
+    ],
+    "homo": [
+        "homogen",
+        "homonculus",
+        "homophile",
     ],
 
     "agender/genderless" : [

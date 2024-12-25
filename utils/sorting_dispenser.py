@@ -14,7 +14,23 @@ from src.sort_person_human_non_human import is_person, is_human
 from src.sort_cis import is_cis
 from src.sort_trans import is_trans, is_transfemme, is_transmasc, is_detrans
 from src.sort_intersex import is_intersex
-from src.sort_queer_words import is_wlw, is_mlm
+from src.sort_queer_words import (
+    is_wlw, 
+    is_mlm, 
+    is_dykefag,
+    is_lesbian, 
+    is_achillean, 
+    is_ace_aro, 
+    is_bear, 
+    is_bi_pan, 
+    is_butch, 
+    is_dyke, 
+    is_sapphic, 
+    is_fag, 
+    is_gay,
+    is_homosexual,
+    is_twink,
+)
 from src.sort_agender_and_neutral import is_genderless, is_neutral
 
 # helper func to dispense the correct function based on data case! ✅
@@ -75,6 +91,17 @@ def checking_func_dispenser(data_case:str):
         "detrans" : is_detrans,
         "cis" : is_cis,
         "intersex" : is_intersex,
+
+        "lesbian" : is_lesbian,
+        "dyke" : is_dyke,
+        "butch" : is_butch,
+        "sapphic" :is_sapphic,
+        "gay" : is_gay,
+        "achillean" : is_achillean,
+        "twink" : is_twink,
+        "bear" : is_bear,
+        "homo" : is_homosexual,
+        "fag" : is_fag,
 
         "wlw" : is_wlw,
         "mlm" : is_mlm,
