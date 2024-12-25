@@ -311,7 +311,10 @@ words_catching = {
         "femme",
         "transfem",
     ],
-    
+    "trap": [
+        "trapped",
+    ],
+
     "auti": [
         "beautiful",
     ],

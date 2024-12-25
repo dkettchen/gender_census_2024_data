@@ -7,7 +7,7 @@ from src.sort_both_and_neither import is_both, is_neither
 from src.sort_birth_assignments import is_agab
 from src.sort_femme_and_masc import is_femme, is_masc, is_futch
 from src.sort_androgyny import is_androgyne, is_androgynous
-from src.sort_crossdressers import is_crossdresser, is_femboy
+from src.sort_crossdressers import is_crossdresser, is_femboy, is_sissy, is_trap
 from src.sort_neurodiversity import is_autistic, is_neurodivergent, is_plural
 from src.sort_other_listed_labels import is_genderfluid, is_genderflux, is_genderqueer, is_queer, is_gnc, is_nb
 from src.sort_person_human_non_human import is_person, is_human
@@ -49,6 +49,8 @@ def checking_func_dispenser(data_case:str):
 
         "crossdresser" : is_crossdresser,
         "femboy" : is_femboy,
+        "sissy" : is_sissy,
+        "trap" : is_trap,
 
         "autistic" : is_autistic,
         "neurodivergent" : is_neurodivergent,

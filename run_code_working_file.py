@@ -14,7 +14,7 @@ key_word_dict = collect_key_words_from_q2(raw_data)
 # non_female_list = find_case(key_word_dict["woman/girl/female"], "non_female_aligned")
 # confl_female_list = find_case(key_word_dict["woman/girl/female"], "conflicted_female_aligned")
 
-# binaries_list = key_word_dict["man/boy/male"] + key_word_dict["woman/girl/female"]
+binaries_list = key_word_dict["man/boy/male"] + key_word_dict["woman/girl/female"]
 
 # male_passing_list = find_case(binaries_list, "male_passing")
 # female_passing_list = find_case(binaries_list, "female_passing")
@@ -32,9 +32,11 @@ key_word_dict = collect_key_words_from_q2(raw_data)
 # amab_list = find_case(birth_assignments_list, "amab")
 
 # femme_list = find_case(key_word_dict["femme"], "femme") # femboy should be caught in this already =.=
-# masc_list = find_case(key_word_dict["masc"], "masc")
 
-# presentation_list = key_word_dict["femme"] + key_word_dict["masc"] \
+# masc_collected = key_word_dict["masc"] + key_word_dict["butch"]
+# masc_list = find_case(masc_collected, "masc")
+
+# presentation_list = key_word_dict["femme"] + masc_collected \
 #                     + key_word_dict["futch"]
 # futch_list = find_case(presentation_list, "futch")
 
@@ -43,6 +45,9 @@ key_word_dict = collect_key_words_from_q2(raw_data)
 
 # crossdresser_list = find_case(key_word_dict["crossdresser"], "crossdresser")
 # femboy_list = find_case(key_word_dict["femboy"], "femboy")
+# sissy_list = find_case(key_word_dict["sissy"], "sissy")
+# trap_list = find_case(key_word_dict["trap"], "trap")
+
 
 # autism_list = find_case(key_word_dict["autism_related"], "autistic")
 # neurodiversity = key_word_dict["other_neurodiversity_related"] #+ key_word_dict["autism_related"]
@@ -66,17 +71,25 @@ key_word_dict = collect_key_words_from_q2(raw_data)
 # transmasc_list = find_case(key_word_dict["transmasc"], "transmasc")
 # detrans_list = find_case(trans_collected, "detrans")
 
-intersex_list = find_case(key_word_dict["intersex/hermaphrodite"], "intersex")
+# intersex_list = find_case(key_word_dict["intersex/hermaphrodite"], "intersex")
+
+# wlw_collected = key_word_dict["lesbian"] + key_word_dict["dyke"] \
+#                 + key_word_dict["butch"] + key_word_dict["sapphic"]
+# wlw_list = find_case(wlw_collected, "wlw")
+
+# mlm_collected = key_word_dict["gay"] + key_word_dict["achillean"]
+# mlm_list = find_case(mlm_collected, "mlm")
 
 #TODO
-# queer words (wlw, mlm, dykefag, sexuality mentions) -> have not been put into dispenser yet!
+# queer words (dykefag, sexuality mentions) -> have not been put into dispenser yet!
+# neutral/neutrois
+# agender/genderless
 
 # also make ones for
-    # intersex (incl hermaphrodites I guess)
     # questioning
     # pronouns (they, she, he)
     # neutral/neutrois
-    # dysphoria
+    # dysphoria # I've added it to trans -> rerun
     # two spirits
     # look for other cultural terms like ladyboy, hijra etc
     # poc mention (also add indig/native/etc to it)
@@ -90,9 +103,9 @@ intersex_list = find_case(key_word_dict["intersex/hermaphrodite"], "intersex")
     # also bigender
     # binary
     # the demis
-    # twinks and bears can go with the explicitly queer labels file
     # third/other gender?
     # add traps to crossdresser file too
+    # make twinks & bears their own categories like butch & dyke
 
 
 # print(confl_female_list)
@@ -124,6 +137,8 @@ data_dict = {
 
     # "crossdresser": crossdresser_list,
     # "femboy" : femboy_list,
+    # "sissy": sissy_list,
+    # "trap" : trap_list,
 
     # "autistic" : autism_list,
     # "other_neurodivergent" : neuro_list,
@@ -145,7 +160,10 @@ data_dict = {
     # "transmasc" : transmasc_list,
     # "detrans" : detrans_list,
 
-    "intersex" : intersex_list,
+    # "intersex" : intersex_list,
+
+    # "wlw" : wlw_list,
+    # "mlm" : mlm_list,
 }
 
 write_json_files(data_dict, "data/cleaned_q2_write_ins/")

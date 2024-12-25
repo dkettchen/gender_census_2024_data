@@ -37,6 +37,8 @@ def find_case(input_list:list, data_case:str):
 
         - data_case="crossdresser"
         - data_case="femboy"
+        - data_case="sissy"
+        - data_case="trap"
 
         - data_case="autistic"
         - data_case="neurodivergent"

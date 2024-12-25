@@ -30,6 +30,7 @@ def collect_key_words_from_q2(input_list):
         ("trans", "girl"),
         "transv","cross","drag","trav","panto","principal boy", # not looking for dame cause that's lady in german
         "sissy",
+        "trap",
         "tran", ("tr","nny"), # tryna catch slurs too
         "queen", # leaving this separate due to gay connotation
 
@@ -80,7 +81,6 @@ def collect_key_words_from_q2(input_list):
         "other",
         "demi",
         "sex",
-        "trap",
         "gender", # this gets us a solid 2k extra catches atm 
 
         "black",("n","gga"), # I saw the n word in there somewhere
@@ -217,7 +217,7 @@ def collect_key_words_from_q2(input_list):
                 umbrella_word = "DID_related"
             elif key_word in [("a","hd"),"neuro","nuro","dysl","lexi","dysc","dyspr",]:
                 umbrella_word = "other_neurodiversity_related"
-            elif key_word in ["tran", ("tr","nny")]:
+            elif key_word in ["tran", ("tr","nny"),"dysp"]:
                 umbrella_word = "trans"
             elif key_word in ["lesb", "lez", "les",]: 
                 umbrella_word = "lesbian"
@@ -240,8 +240,6 @@ def collect_key_words_from_q2(input_list):
                 umbrella_word = "androgynous"
             elif key_word == "neut":
                 umbrella_word = "neutral"
-            elif key_word == "dysp":
-                umbrella_word = "dysphoric"
             elif key_word in [("2","spirit"),("two","spirit"),]:
                 umbrella_word = "two-spirit"
             elif key_word in ["she","her"]:
