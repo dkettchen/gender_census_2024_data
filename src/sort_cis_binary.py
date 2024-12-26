@@ -70,6 +70,30 @@ def is_binary(input_str:str):
     
     # excluding stuff
     for item in [
+        "outside",
+        "extra",
+        "gender binary",
+        "binary spectrum",
+        "of the binary",
+        "nonbinary",
+        "never binary",
+        "can't understand binary",
+        "not both binary genders",
+        "ain't binary",
+        "mid",
+        "binary broken",
+        "binary lie",
+        "non-binary",
+        "non binary",
+        "of binary gender",
+        "beyond",
+        "too early",
+        "is fake",
+        "removed from",
+        "not entirely binary",
+        "not in the binary",
+        "not very binary",
+        "philosophically opposed",
         
     ]:
         if item in lower_str:
