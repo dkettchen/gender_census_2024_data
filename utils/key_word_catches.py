@@ -372,7 +372,6 @@ words_catching = {
     ],
     "cis": [
         "decis",
-        "cish",
         "anarc",
         "physic",
         "narcis",

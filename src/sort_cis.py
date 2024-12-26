@@ -9,6 +9,10 @@ def is_cis(input_str:str):
     # making case insensitive
     lower_str = input_str.lower()
 
+    # input checking
+    if "cis" not in lower_str:
+        return False
+
     result_bool = True
     
     # excluding stuff
@@ -37,9 +41,13 @@ def is_cis(input_str:str):
         "it ain't cis",
         "t4t", # can't be t4t if you're not t hun
         "not in a cis way",
+        "cish ",
     ]:
         if item in lower_str:
             result_bool = False
+
+    if lower_str == "cish":
+        result_bool = False
 
     return result_bool
 
