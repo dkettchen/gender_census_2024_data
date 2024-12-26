@@ -592,4 +592,7 @@ words_catching = {
         "sheep",
         "hermit",
     ],
+    "they/them" : [
+        "themed",
+    ],
 }

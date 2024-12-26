@@ -107,7 +107,7 @@ def is_she(input_str:str):
         result_bool = False
 
     return result_bool
-#TODO
+
 def is_they(input_str:str):
     """
     takes a string
@@ -125,7 +125,24 @@ def is_they(input_str:str):
     
     # excluding stuff
     for item in [
-
+        "of them",
+        "anything but they/them",
+        "they don't",
+        "they are",
+        "they broke the mould when they made me",
+        "they will",
+        "they'll",
+        "they're",
+        "saw them self as",
+        "to them",
+        "i hardly know... them",
+        "to like they",
+        "if they turned",
+        "their own",
+        "you want them",
+        "their beliefs",
+        "i am their",
+        "they call me",
     ]:
         if item in lower_str:
             result_bool = False
