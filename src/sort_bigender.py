@@ -1,4 +1,3 @@
-#TODO
 def is_genderfull(input_str:str):
     """
     takes a string
