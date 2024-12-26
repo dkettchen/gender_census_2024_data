@@ -565,6 +565,20 @@ words_catching = {
         "peaceful",
         "cupioromantic",
     ],
+    "demi/grey" : [
+        "grey area",
+        "gray area",
+        "grey blob",
+        "gray blob",
+        "earlybluegreytimic",
+        "demi-ambonec",
+        "demigod",
+        "demihuman",
+        "demivixen",
+        "demivoid",
+        "academic",
+        "demiambonec",
+    ],
 
     "agender/genderless" : [
         "regardless",
