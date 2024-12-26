@@ -110,6 +110,8 @@ def checking_func_dispenser(data_case:str):
         "dykefag" : is_dykefag,
         "lesbianism_for_men" : is_lesbianism_for_men,
         "faggotry_for_women" : is_faggotry_for_women,
+        "bi_pan" : is_bi_pan,
+        "ace_aro" : is_ace_aro,
 
         "she" : is_she,
         "he" : is_he,

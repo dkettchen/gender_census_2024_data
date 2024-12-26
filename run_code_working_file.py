@@ -61,6 +61,7 @@ key_word_dict = collect_key_words_from_q2(raw_data)
 # nb_list = find_case(key_word_dict["nb"], "nb")
 # agender_list = find_case(key_word_dict["agender/genderless"], "agender")
 # neutral_list = find_case(key_word_dict["neutral"], "neutral")
+# bigender_list = find_case(key_word_dict["bigender/genderfull"], "bigender")
 
 # people_list = find_case(key_word_dict["human/person"], "person")
 # human_list = find_case(key_word_dict["human/person"], "human")
@@ -94,17 +95,20 @@ key_word_dict = collect_key_words_from_q2(raw_data)
 # dyke_fag_list = find_case(all_queer_labels, "dykefag")
 # lesb_for_men_list = find_case(all_queer_labels, "lesbianism_for_men")
 # fag_for_women_list = find_case(all_queer_labels, "faggotry_for_women")
+bi_pan_list = find_case(key_word_dict["other_sexuality_mention"], "bi_pan")
+ace_aro_list = find_case(key_word_dict["other_sexuality_mention"], "ace_aro")
 
-she_list = find_case(key_word_dict["she/her"], "she")
-he_list = find_case(key_word_dict["he/him"], "he")
-they_list = find_case(key_word_dict["they/them"], "they")
+# she_list = find_case(key_word_dict["she/her"], "she")
+# he_list = find_case(key_word_dict["he/him"], "he")
+# they_list = find_case(key_word_dict["they/them"], "they")
+
+
 
 #TODO
 # queer words (sexuality mentions) -> have not been put into dispenser yet!
     # make queen category?
 # demis, also look for grey/gray?
 # look for binary
-# bigender/pangender?
 
 # also make ones for
     # questioning
@@ -158,6 +162,7 @@ data_dict = {
     # "nb" : nb_list,
     # "agender" : agender_list,
     # "neutral" : neutral_list,
+    # "bigender" : bigender_list,
 
     # "human" : human_list,
     # "person" : people_list,
@@ -184,10 +189,12 @@ data_dict = {
     # "dykefag" : dyke_fag_list,
     # "lesbianism_for_men" : lesb_for_men_list,
     # "faggotry_for_women" : fag_for_women_list,
+    "bi_pan" : bi_pan_list,
+    "ace_aro" : ace_aro_list,
 
-    "she": she_list,
-    "he": he_list,
-    "they": they_list,
+    # "she": she_list,
+    # "he": he_list,
+    # "they": they_list,
 }
 
 write_json_files(data_dict, "data/cleaned_q2_write_ins/")

@@ -246,6 +246,8 @@ def collect_key_words_from_q2(input_list):
                 umbrella_word = "she/her"
             elif key_word in ["he","him","his",]:
                 umbrella_word = "he/him"
+            elif key_word in [("bi","gender"),("tri","gender"),("pan","gender"),("ful","gender"),]:
+                umbrella_word = "bigender/genderfull"
 
             elif key_word in ["sexual","bi","pan","ace","aro","roman",]:
                 umbrella_word = "other_sexuality_mention"
@@ -253,8 +255,6 @@ def collect_key_words_from_q2(input_list):
                 umbrella_word = "hormones"
             elif key_word == "question":
                 umbrella_word = "questioning"
-            elif key_word in [("bi","gender"),("tri","gender"),("pan","gender"),("ful","gender"),]:
-                umbrella_word = "bigender/genderfull"
 
             # elif key_word in [("2","spirit"),("two","spirit"),]:
             #     umbrella_word = "two-spirit"

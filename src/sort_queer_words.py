@@ -576,12 +576,12 @@ def is_dykefag(input_str:str):
 
     return result_bool
 
-#TODO
+
 def is_bi_pan(input_str:str):
     """
     takes a string
 
-    returns True if it denotes [...]
+    returns True if it denotes polysexuality (bi/pan/etc)
 
     otherwise returns False
     """
@@ -593,18 +593,37 @@ def is_bi_pan(input_str:str):
     
     # excluding stuff
     for item in [
+        "a bit of both (both being female and non-binary)",
+        "lesbian (sexuality)",
+        "n.bi",
+        "nobi",
+        "panadox (pangender + agender in a paradoxical way)",
+        "tr*nssexual",
+        "bi-gender",
+        "bi-sex/bi-sexed",
+        "lesbian gender , t4t sexuality",
 
+        "ace",
+        "aro",
+        "asexual",
+        "demi",
     ]:
         if item in lower_str:
             result_bool = False
+    
+    if lower_str in [
+        "bisex",
+        "panfemme",
+    ]:
+        result_bool = False
 
     return result_bool
-#TODO
+
 def is_ace_aro(input_str:str):
     """
     takes a string
 
-    returns True if it denotes [...]
+    returns True if it denotes ace aro spec
 
     otherwise returns False
     """
@@ -616,10 +635,29 @@ def is_ace_aro(input_str:str):
     
     # excluding stuff
     for item in [
+        "a bit of both (both being female and non-binary)",
+        "lesbian (sexuality)",
+        "n.bi",
+        "nobi",
+        "panadox (pangender + agender in a paradoxical way)",
+        "tr*nssexual",
+        "bi-gender",
+        "bi-sex/bi-sexed",
+        "lesbian gender , t4t sexuality",
 
+        "bi",
+        "pan",
+        "duosexual",
+        "polysexual",
     ]:
         if item in lower_str:
             result_bool = False
+    
+    if lower_str in [
+        "bisex",
+        "panfemme",
+    ]:
+        result_bool = False
 
     return result_bool
 
