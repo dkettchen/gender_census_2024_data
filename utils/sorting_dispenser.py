@@ -11,7 +11,7 @@ from src.sort_crossdressers import is_crossdresser, is_femboy, is_sissy, is_trap
 from src.sort_neurodiversity import is_autistic, is_neurodivergent, is_plural
 from src.sort_other_listed_labels import is_genderfluid, is_genderflux, is_genderqueer, is_queer, is_gnc, is_nb
 from src.sort_person_human_non_human import is_person, is_human
-from src.sort_cis import is_cis
+from src.sort_cis_binary import is_cis, is_binary
 from src.sort_trans import is_trans, is_transfemme, is_transmasc, is_detrans
 from src.sort_intersex import is_intersex
 from src.sort_queer_words import (
@@ -96,6 +96,7 @@ def checking_func_dispenser(data_case:str):
         "detrans" : is_detrans,
         "cis" : is_cis,
         "intersex" : is_intersex,
+        "binary" : is_binary,
 
         "lesbian" : is_lesbian,
         "dyke" : is_dyke,

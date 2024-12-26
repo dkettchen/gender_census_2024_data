@@ -51,6 +51,33 @@ def is_cis(input_str:str):
 
     return result_bool
 
+def is_binary(input_str:str):
+    """
+    takes a string
+
+    returns True if it denotes binary gender
+    otherwise returns False
+    """
+
+    # making case insensitive
+    lower_str = input_str.lower()
+
+    # input checking
+    if "binary" not in lower_str:
+        return False
+
+    result_bool = True
+    
+    # excluding stuff
+    for item in [
+        
+    ]:
+        if item in lower_str:
+            result_bool = False
+
+    return result_bool
+
+
 # can't we just cross reference these with the male/female categories?
     # I saw some "cis femme" type mentions but idk what they mean by that clearly enough to use it decisively
 #TODO
