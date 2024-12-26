@@ -1,5 +1,5 @@
 from utils.read_txt import read_txt
-from src.collect_key_words import collect_key_words_from_q2
+from src.sorting_q2_write_ins.collect_key_words import collect_key_words_from_q2
 from src.find_case import find_case
 from utils.json_writer import write_json_files
 

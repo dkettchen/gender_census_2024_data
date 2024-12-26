@@ -1,20 +1,20 @@
-from src.sort_male_and_female_aligned import (
+from src.sorting_q2_write_ins.sort_male_and_female_aligned import (
     is_male_aligned, is_non_male_aligned, is_conflicted_male_aligned,
     is_female_aligned, is_non_female_aligned, is_conflicted_female_aligned,
 )
-from src.sort_presenting_passing import is_present_passing
-from src.sort_both_and_neither import is_both, is_neither
-from src.sort_birth_assignments import is_agab
-from src.sort_femme_and_masc import is_femme, is_masc, is_futch
-from src.sort_androgyny import is_androgyne, is_androgynous
-from src.sort_crossdressers import is_crossdresser, is_femboy, is_sissy, is_trap
-from src.sort_neurodiversity import is_autistic, is_neurodivergent, is_plural
-from src.sort_other_listed_labels import is_genderfluid, is_genderflux, is_genderqueer, is_queer, is_gnc, is_nb
-from src.sort_person_human_non_human import is_person, is_human
-from src.sort_cis_binary import is_cis, is_binary
-from src.sort_trans import is_trans, is_transfemme, is_transmasc, is_detrans
-from src.sort_intersex import is_intersex
-from src.sort_queer_words import (
+from src.sorting_q2_write_ins.sort_presenting_passing import is_present_passing
+from src.sorting_q2_write_ins.sort_both_and_neither import is_both, is_neither
+from src.sorting_q2_write_ins.sort_birth_assignments import is_agab
+from src.sorting_q2_write_ins.sort_femme_and_masc import is_femme, is_masc, is_futch
+from src.sorting_q2_write_ins.sort_androgyny import is_androgyne, is_androgynous
+from src.sorting_q2_write_ins.sort_crossdressers import is_crossdresser, is_femboy, is_sissy, is_trap
+from src.sorting_q2_write_ins.sort_neurodiversity import is_autistic, is_neurodivergent, is_plural
+from src.sorting_q2_write_ins.sort_other_listed_labels import is_genderfluid, is_genderflux, is_genderqueer, is_queer, is_gnc, is_nb
+from src.sorting_q2_write_ins.sort_person_human_non_human import is_person, is_human
+from src.sorting_q2_write_ins.sort_cis_binary import is_cis, is_binary
+from src.sorting_q2_write_ins.sort_trans import is_trans, is_transfemme, is_transmasc, is_detrans
+from src.sorting_q2_write_ins.sort_intersex import is_intersex
+from src.sorting_q2_write_ins.sort_queer_words import (
     is_conflicting_queer,
     is_lesbian, 
     is_achillean, 
@@ -32,9 +32,9 @@ from src.sort_queer_words import (
     is_lesbianism_for_men,
     is_faggotry_for_women,
 )
-from src.sort_agender_and_neutral import is_genderless, is_neutral, is_demi
-from src.sort_pronouns import is_he, is_she, is_they
-from src.sort_bigender import is_genderfull
+from src.sorting_q2_write_ins.sort_agender_and_neutral import is_genderless, is_neutral, is_demi
+from src.sorting_q2_write_ins.sort_pronouns import is_he, is_she, is_they
+from src.sorting_q2_write_ins.sort_bigender import is_genderfull
 
 # helper func to dispense the correct function based on data case! ✅
 def checking_func_dispenser(data_case:str):
