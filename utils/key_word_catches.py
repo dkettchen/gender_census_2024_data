@@ -578,6 +578,9 @@ words_catching = {
         "demivoid",
         "academic",
         "demiambonec",
+        "demicass",
+        "demimaverique",
+        "demifin",
     ],
 
     "agender/genderless" : [

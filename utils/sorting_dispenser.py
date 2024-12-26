@@ -32,7 +32,7 @@ from src.sort_queer_words import (
     is_lesbianism_for_men,
     is_faggotry_for_women,
 )
-from src.sort_agender_and_neutral import is_genderless, is_neutral
+from src.sort_agender_and_neutral import is_genderless, is_neutral, is_demi
 from src.sort_pronouns import is_he, is_she, is_they
 from src.sort_bigender import is_genderfull
 
@@ -85,6 +85,7 @@ def checking_func_dispenser(data_case:str):
         "agender" : is_genderless,
         "neutral" : is_neutral,
         "bigender" : is_genderfull,
+        "demi" : is_demi,
 
         "human" : is_human,
         "person" : is_person,

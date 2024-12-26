@@ -69,3 +69,31 @@ def is_neutral(input_str:str):
             result_bool = False
 
     return result_bool
+
+def is_demi(input_str:str):
+    """
+    takes a string
+
+    returns True if it denotes demi or grey gender
+
+    otherwise returns False
+    """
+
+    # making case insensitive
+    lower_str = input_str.lower()
+
+    result_bool = True
+    
+    # excluding stuff
+    for item in [
+        "demiromantic",
+        "demisexual",
+        "greyasexual",
+    ]:
+        if item in lower_str:
+            result_bool = False
+
+    if lower_str in ["grey", "gray"]: # too unspecific
+        result_bool = False
+
+    return result_bool
