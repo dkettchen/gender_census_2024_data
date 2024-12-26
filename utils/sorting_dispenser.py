@@ -34,6 +34,7 @@ from src.sort_queer_words import (
 )
 from src.sort_agender_and_neutral import is_genderless, is_neutral
 from src.sort_pronouns import is_he, is_she, is_they
+from src.sort_bigender import is_genderfull
 
 # helper func to dispense the correct function based on data case! ✅
 def checking_func_dispenser(data_case:str):
@@ -83,6 +84,7 @@ def checking_func_dispenser(data_case:str):
         "nb" : is_nb,
         "agender" : is_genderless,
         "neutral" : is_neutral,
+        "bigender" : is_genderfull,
 
         "human" : is_human,
         "person" : is_person,

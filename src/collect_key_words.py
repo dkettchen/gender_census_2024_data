@@ -52,7 +52,6 @@ def collect_key_words_from_q2(input_list):
         'name',
         "me",
         'agender',("gender", "less"),
-        'bigender',
         'binary',
         'butch',"tom","azur","masc","handsome",
         "fem","ros","pretty","cute","flamboyant","beautiful",
@@ -81,20 +80,20 @@ def collect_key_words_from_q2(input_list):
         "dysp",
         ("2","spirit"),("two","spirit"),
         "other",
-        "demi",
-        "sex",
+        "demi","grey","gray",
+        ("bi","gender"),("tri","gender"),("pan","gender"),("ful","gender"),
         "gender", # this gets us a solid 2k extra catches atm 
 
-        "black",("n","gga"), # I saw the n word in there somewhere
-        "sian", # to catch gaysian etc too
-        "brown", 
-        "of color", "of colour", "woc", "moc", "poc",
-        "white", # I've seen too many white mentions by now to not include it I guess
+        # "black",("n","gga"), # I saw the n word in there somewhere
+        # "sian", # to catch gaysian etc too
+        # "brown", 
+        # "of color", "of colour", "woc", "moc", "poc",
+        # "white", # I've seen too many white mentions by now to not include it I guess
 
-        "muslim", # I've seen a muslim mention!
-        "jew", # there was a jew mention too
-        'romani',
-        "eastern european", # why 
+        # "muslim", # I've seen a muslim mention!
+        # "jew", # there was a jew mention too
+        # 'romani',
+        # "eastern european", # why 
         
         "she","her",
         "he","him","his",
@@ -237,38 +236,37 @@ def collect_key_words_from_q2(input_list):
                 umbrella_word = "agender/genderless"
             elif key_word in ["neu","netr","netu",]:
                 umbrella_word = "neutral"
-
-            elif key_word in ["sexual","bi","pan","ace","aro","roman",]:
-                umbrella_word = "other_sexuality_mention"
             elif key_word in ["lez", "les","bian",]: 
                 umbrella_word = "lesbian"
             elif key_word == "sapph":
                 umbrella_word = "sapphic"
-            elif key_word == ("fag","dyke"):
-                umbrella_word = "fag_dyke"
-            elif key_word in [("2","spirit"),("two","spirit"),]:
-                umbrella_word = "two-spirit"
-            elif key_word in ["testo", "estro", "hrt", "horm",]:
-                umbrella_word = "hormones"
-
-            elif key_word == "question":
-                umbrella_word = "questioning"
             elif key_word in ["they", "them","their",]:
                 umbrella_word = "they/them"
             elif key_word in ["she","her"]:
                 umbrella_word = "she/her"
             elif key_word in ["he","him","his",]:
                 umbrella_word = "he/him"
-            elif key_word in [
-                "of color", "of colour", "woc", "moc", "poc",
-                "black",("n","gga"),
-                "sian",
-                "brown",
-            ]:
-                umbrella_word = "POC_mention"
-            elif key_word in ["jew", "muslim"]:
-                umbrella_word = "religion_mention"
 
+            elif key_word in ["sexual","bi","pan","ace","aro","roman",]:
+                umbrella_word = "other_sexuality_mention"
+            elif key_word in ["testo", "estro", "hrt", "horm",]:
+                umbrella_word = "hormones"
+            elif key_word == "question":
+                umbrella_word = "questioning"
+            elif key_word in [("bi","gender"),("tri","gender"),("pan","gender"),("ful","gender"),]:
+                umbrella_word = "bigender/genderfull"
+
+            # elif key_word in [("2","spirit"),("two","spirit"),]:
+            #     umbrella_word = "two-spirit"
+            # elif key_word in [
+            #     "of color", "of colour", "woc", "moc", "poc",
+            #     "black",("n","gga"),
+            #     "sian",
+            #     "brown",
+            # ]:
+            #     umbrella_word = "POC_mention"
+            # elif key_word in ["jew", "muslim"]:
+            #     umbrella_word = "religion_mention"
 
             else: umbrella_word = key_word # if it doesn't need to be different
 
