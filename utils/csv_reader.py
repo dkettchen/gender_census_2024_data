@@ -74,7 +74,3 @@ def df_from_csv(filepath:str):
     csv_data = read_data_from_csv(filepath)
     df = pd.DataFrame(csv_data[1:], columns=csv_data[0])
     return df
-
-def read_data_from_excel(filepath:str):
-    df = pd.read_excel(filepath, header=[0,1])
-    return df
