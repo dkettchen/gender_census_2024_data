@@ -1,12 +1,14 @@
-def is_he(input_str:str):
+def is_he(input_str:str, data_case=None):
     """
-    takes a string
+    takes a string and an optional data_case that can be "male-aligned"
 
     returns True if it involves he pronouns (as part of the label/phrase, 
     not just as part of the sentence in general)
     and does not claim she pronouns (ie we're excluding stuff like she/he)
-    but including female he users (ie he/him woman, he/him lesbian) and multi set users
-    as long as she is not involved (ie he/they, he/they/it)
+    but including multi set users as long as she is not involved (ie he/they, he/they/it)
+
+    if data_case="male-aligned", it also excludes any female- or conflicted aligned cases 
+    (ie he/him lesbian, he/him girl)
 
     otherwise returns False
     """
@@ -47,9 +49,24 @@ def is_he(input_str:str):
 
         "don't call me he/him",
         "anything but he",
+        
     ]:
         if item in lower_str:
             result_bool = False
+
+    # if it's only "his", bc that isn't abt one's own pronouns
+    if lower_str == "his":
+        result_bool = False
+
+    # if we want to exclude the conflicted/female ones
+    if data_case == "male_aligned": 
+        for item in [
+            "sbian",
+            "girl",
+            "woman",
+        ]:
+            if item in lower_str:
+                result_bool = False
 
     # reincluding
     for item in [
@@ -61,14 +78,16 @@ def is_he(input_str:str):
 
     return result_bool
 
-def is_she(input_str:str):
+def is_she(input_str:str, data_case=None):
     """
     takes a string
 
     returns True if it involves she pronouns (as part of the label/phrase, 
     not just as part of the sentence in general) excluding he users, but 
-    including non-female she users and multi set users as long as he is not 
-    included (ie she/they)
+    including multi set users as long as he is not included (ie she/they)
+
+    if data_case="female-aligned", it also excludes any male- or conflicted aligned cases 
+    (ie she/her twink)
 
     otherwise returns False
     """
@@ -103,8 +122,21 @@ def is_she(input_str:str):
         if item in lower_str:
             result_bool = False
 
+    # excluding just she/he to not catch she/her
     if lower_str == "she/he":
         result_bool = False
+
+    # if we want to exclude the conflicted/female ones
+    if data_case == "female_aligned": 
+        for item in [
+            "twink",
+            "boy",
+            "shemale",
+            "she's the man",
+            "bear",
+        ]:
+            if item in lower_str:
+                result_bool = False
 
     return result_bool
 
@@ -148,8 +180,3 @@ def is_they(input_str:str):
             result_bool = False
 
     return result_bool
-
-
-#TODO somehow add the useable he & she ones of these to their male/female alignment
-    # another function to separate them out? into male/female- aligned & conflicted aligned?
-    # or make these functions conflict excluding?
