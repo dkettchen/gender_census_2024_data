@@ -511,6 +511,7 @@ def is_agab(input_str:str, data_case:str):
             "pussy",
             "pussy van faggot",
             "pussy gender",
+            "cis t4t",
         ]:
             if item == lower_str: # if it needs to be exactly that 
                                     # bc there may be longer versions we wanna include

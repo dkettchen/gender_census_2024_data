@@ -27,6 +27,8 @@ def is_crossdresser(input_str:str):
         "everything is drag",
         "trans man in drag",
         "like a pantomime", # not a literal one then
+        "just impersonating it",
+        "full-time", # implies misgendered trans not actual crossdresser
     ]:
         if item in lower_str:
             result_bool = False

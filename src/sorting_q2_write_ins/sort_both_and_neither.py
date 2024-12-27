@@ -1,8 +1,8 @@
-from src.sort_male_and_female_aligned import (
+from src.sorting_q2_write_ins.sort_male_and_female_aligned import (
     is_male_aligned, is_non_male_aligned, is_conflicted_male_aligned,
     is_female_aligned, is_non_female_aligned, is_conflicted_female_aligned,
 )
-from src.sort_presenting_passing import is_present_passing
+from src.sorting_q2_write_ins.sort_presenting_passing import is_present_passing
 from utils.sorting_helpers import is_in_binaries_list
 from re import split
 
@@ -172,6 +172,9 @@ def is_both(input_str:str):
             "notboynotgirl",
             "notgirl/notboy",
             "no longer a woman, never a man",
+            "both feminine and masculine", # expression not gender
+            "both masc and femme",
+            "both masculine, feminine and neither",
         ]:
             if item in lower_str:
                 if item != "neither" \
@@ -276,6 +279,8 @@ def is_neither(input_str:str):
             "not really",
             "i'm both cisgender and nonbinary : i'm intersex.",
             "i'm not both binary genders.",
+            "neither masc nor fem",
+            "both masculine, feminine and neither",
         ]:
             if item in lower_str:
                 result_bool = False

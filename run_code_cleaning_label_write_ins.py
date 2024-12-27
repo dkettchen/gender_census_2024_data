@@ -105,6 +105,9 @@ she_list = find_case(key_word_dict["she/her"], "she")
 he_list = find_case(key_word_dict["he/him"], "he")
 they_list = find_case(key_word_dict["they/them"], "they")
 
+male_aligned_he_list = find_case(key_word_dict["he/him"], "he_male_aligned")
+female_aligned_she_list = find_case(key_word_dict["she/her"], "she_female_aligned")
+
 binary_list = find_case(key_word_dict["binary"], "binary")
 
 #TODO (maybe)
@@ -114,11 +117,11 @@ binary_list = find_case(key_word_dict["binary"], "binary")
 # third/other gender?
 
 data_dict = {
-    "male_aligned" : male_list,
+    "male_aligned" : sorted(male_list + male_aligned_he_list),
     "non_male_aligned" : non_male_list,
     "conflicted_male_aligned" : confl_male_list,
 
-    "female_aligned" : female_list,
+    "female_aligned" : sorted(female_list + female_aligned_she_list),
     "non_female_aligned" : non_female_list,
     "conflicted_female_aligned" : confl_female_list,
 
