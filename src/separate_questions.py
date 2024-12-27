@@ -2,10 +2,16 @@
 # take raw data
 # separate questions (relevant ones) into their own files
 # rename columns to be more useable (ie removing question name in favour of file name)
+
 import pandas as pd
 from data.raw_data.column_reference import all_columns as questions # columns to collect per question
 from utils.excel_reader import read_data_from_excel
 from utils.csv_writer import make_csv_file
+
+#TODO test these with a mock df?
+    # make a mock df excel file ✅
+        # can we make a excel to df to df.head to excel sitch? ✅
+        # save that as an excel file again to read from ✅
 
 # separate out question
 def separate_questions(input_df:pd.DataFrame, question_no:str):
@@ -14,6 +20,7 @@ def separate_questions(input_df:pd.DataFrame, question_no:str):
     and a question number
 
     valid question_nos: 
+    - "timestamp"
     - "q1" label (tick boxes)
     - "q2" label (write ins)
     - "q3" title (values)
@@ -34,15 +41,10 @@ def separate_questions(input_df:pd.DataFrame, question_no:str):
 
     # make sure we get the index from the user id
     index = questions["user_id"]
-    #TODO: check what the index sitch is atm
-    # if not user id yet -> make it that
-
-    # including timestamps as a means of sorting if need be idk
-    timestamps = questions["timestamp"]
-    columns_to_get = question_columns + timestamps
+    new_df = new_df.fillna(0).set_index(index) # gotta fillna to avoid nan in index
 
     # get columns
-    question_df = new_df.get(columns_to_get)
+    question_df = new_df.get(question_columns)
 
     # return new separated df
     return question_df
