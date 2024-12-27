@@ -13,7 +13,7 @@ from utils.csv_writer import make_csv_file
         # can we make a excel to df to df.head to excel sitch? ✅
         # save that as an excel file again to read from ✅
 
-# separate out question
+# separate out question - TESTED ✅
 def separate_questions(input_df:pd.DataFrame, question_no:str):
     """
     takes an input df as read from the raw excel file (currently only 2024)
@@ -52,13 +52,23 @@ def separate_questions(input_df:pd.DataFrame, question_no:str):
     # return new separated df
     return question_df
 
-#TODO rename columns to remove question name (or simplify it?)
-def rename_columns(input_df:pd.DataFrame):
+#TODO rename columns to remove question name (or simplify it?) #TODO: TDD
+def rename_columns(input_df:pd.DataFrame, question_no:str):
     new_df = input_df.copy()
 
     # remove q part of column name
+    dropped_df = new_df.droplevel(level=0, axis=1)
 
-    return new_df
+    renaming_dict = {}
+    for column_name in dropped_df.columns:
+        renaming_dict[column_name] = question_no + "_" + column_name
+
+    renamed_df = dropped_df.rename(columns=renaming_dict)
+
+    return renamed_df
+
+#TODO make sure we have actual none values in empty cells 
+# so we can save it as csv later without messing up column order
 
 #TODO turn into list of lists
 def make_list_of_lists(input_df:pd.DataFrame):
@@ -71,6 +81,7 @@ if __name__ == "__main__":
     raw_data_df = read_data_from_excel("data/raw_data/[GC2024] Unprocessed data.xlsx")
 
     for question in [
+        ("timestamps", "for_sorting"),
         ("q1", "label_tick_boxes"),
         ("q2", "label_write_ins"),
         ("q3", "title_values"),
