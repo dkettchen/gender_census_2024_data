@@ -86,6 +86,8 @@ def find_case(input_list:list, data_case:str):
         - data_case="she"
         - data_case="he"
         - data_case="they"
+        - data_case="she_female_aligned"
+        - data_case="he_male_aligned"
     """
 
     output_list = []
@@ -101,7 +103,9 @@ def find_case(input_list:list, data_case:str):
             "male_passing",
             "female_passing",
             "afab", 
-            "amab"
+            "amab",
+            "she_female_aligned",
+            "he_male_aligned",
         ] and checking_func(item))\
         or (data_case in [ # data case useable as is
             "afab",
@@ -110,7 +114,12 @@ def find_case(input_list:list, data_case:str):
         or (data_case in [ # removing "_passing" or other 8 last letters from data case
             "male_passing",
             "female_passing"
-        ] and checking_func(item, data_case[:-8])):
+        ] and checking_func(item, data_case[:-8])) \
+        or ( # removing "she_" from data_case
+            data_case == "she_female_aligned" and checking_func(item, data_case[4:])
+        ) or ( # removing "he_" from data_case
+            data_case == "he_male_aligned" and checking_func(item, data_case[3:])
+        ):
             
             # they are added to output list
             output_list.append(item)

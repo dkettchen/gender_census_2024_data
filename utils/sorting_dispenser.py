@@ -118,6 +118,9 @@ def checking_func_dispenser(data_case:str):
         "she" : is_she,
         "he" : is_he,
         "they" : is_they,
+
+        "she_female_aligned" : is_she,
+        "he_male_aligned" : is_he,
     }
 
     if data_case in func_dict:
