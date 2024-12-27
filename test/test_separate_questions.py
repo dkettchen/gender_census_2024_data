@@ -56,5 +56,5 @@ class TestSeparate:
                 assert list(
                     result.fillna(0)[column]
                 ) == list(
-                    data_head.dropna(how="all").fillna(0)[column]
+                    data_head.dropna(how="all").fillna("None")[column]
                 )

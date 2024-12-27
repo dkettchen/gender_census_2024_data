@@ -107,7 +107,7 @@ all_columns = {
         ('Q9. Supposing all pronouns were accepted by everyone without question and were easy to learn, which pronouns are you happy for people to use for you in English?', 'Avoid pronouns / use name as pronoun'),
         ('Q9. Supposing all pronouns were accepted by everyone without question and were easy to learn, which pronouns are you happy for people to use for you in English?', 'A pronoun set not listed here'),
         ('Q9. If there are any particular rules that you want people to observe when using your pronouns, please tell us about them here.You can leave this blank if there are none.', 'Answer'),
-        ('Q9. If there are any particular rules that you want people to observe when using your pronouns, please tell us about them here.You can leave this blank if there are none.', 'Comments:'),
+        #('Q9. If there are any particular rules that you want people to observe when using your pronouns, please tell us about them here.You can leave this blank if there are none.', 'Comments:'),
     ],
     # custom pronouns I WILL NOT TOUCH BC FUCK YOU PEOPLE
     "q10":[
