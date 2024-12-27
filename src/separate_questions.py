@@ -31,17 +31,20 @@ def separate_questions(input_df:pd.DataFrame, question_no:str):
     - "q36" age (values)
     - "q37" how did u find this survey (write ins)
 
-    returns a new df with only the columns of the question requested
+    returns a new df 
+    with the userID column as index, 
+    only the columns of the question requested, 
+    and any fully empty rows removed
     """
     # copy input df
-    new_df = input_df.copy()
+    new_df = input_df.copy().dropna(how="all") # removing empty rows
 
     # list of columns to get
     question_columns = questions[question_no]
 
     # make sure we get the index from the user id
     index = questions["user_id"]
-    new_df = new_df.fillna(0).set_index(index) # gotta fillna to avoid nan in index
+    new_df = new_df.set_index(index) # gotta fillna to avoid nan in index
 
     # get columns
     question_df = new_df.get(question_columns)

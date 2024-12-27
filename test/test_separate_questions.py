@@ -27,9 +27,9 @@ class TestSeparate:
         result = separate_questions(data_head, "q1")
         assert len(result) != 0
 
-    def test_df_same_length_as_input(self,data_head):
+    def test_df_same_length_as_input_minus_empty_rows(self,data_head):
         result = separate_questions(data_head, "q1")
-        assert len(result) == len(data_head)
+        assert len(result) == 20
 
     def test_df_less_columns_than_input(self,data_head):
         result = separate_questions(data_head, "q1")
@@ -38,7 +38,7 @@ class TestSeparate:
     def test_df_has_user_id_index(self,data_head):
         result = separate_questions(data_head, "q1")
         # (have to fill na to avoid nan != nan error smh)
-        assert list(result.index) == list(data_head.fillna(0)[("UserID","Unnamed: 0_level_1")])
+        assert list(result.index) == list(data_head.dropna(how="all")[("UserID","Unnamed: 0_level_1")])
 
     def test_df_contains_only_columns_of_requested_question(self,data_head):
         for item in [
@@ -53,4 +53,8 @@ class TestSeparate:
         ]:
             result = separate_questions(data_head, item)
             for column in result.columns:
-                assert list(result[column]) == list(data_head.fillna(0)[column])
+                assert list(
+                    result.fillna(0)[column]
+                ) == list(
+                    data_head.dropna(how="all").fillna(0)[column]
+                )
