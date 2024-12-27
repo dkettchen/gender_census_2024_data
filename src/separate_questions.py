@@ -1,17 +1,14 @@
-#TODO: (mission statement)
-# take raw data
-# separate questions (relevant ones) into their own files
-# rename columns to be more useable (ie removing question name in favour of file name)
+# (mission statement)
+    # take raw data ✅
+    # separate questions (relevant ones) into their own files ✅
+    # rename columns to be more useable (ie removing question name in favour of file name) ✅
 
 import pandas as pd
 from data.raw_data.column_reference import all_columns as questions # columns to collect per question
 from utils.excel_reader import read_data_from_excel
-from utils.csv_writer import make_csv_file
 
-#TODO test these with a mock df?
+# test these with a mock df ✅
     # make a mock df excel file ✅
-        # can we make a excel to df to df.head to excel sitch? ✅
-        # save that as an excel file again to read from ✅
 
 # separate out question - TESTED ✅
 def separate_questions(input_df:pd.DataFrame, question_no:str):
@@ -129,44 +126,29 @@ def rename_columns(input_df:pd.DataFrame, question_no:str):
 
     return renamed_df
 
-#TODO make sure we have actual none values in empty cells 
-# so we can save it as csv later without messing up column order
-
-#TODO turn into list of lists
-def make_list_of_lists(input_df:pd.DataFrame):
-    pass
-
-# write new file (ideally csv)
-
 if __name__ == "__main__":
     # read data from excel raw file to input_df
     raw_filepath = "data/raw_data/[GC2024] Unprocessed data.xlsx"
     test_filepath = "data/test_data/head_raw_data.xlsx"
 
-    raw_data_df = read_data_from_excel(test_filepath)
+    # raw_data_df = read_data_from_excel(test_filepath) # just first 20 rows
+    raw_data_df = read_data_from_excel(raw_filepath) # full file of 48k+ rows
 
-    for question in [
-        ("timestamp", "for_sorting"),
-        ("q1", "label_tick_boxes"),
-        ("q2", "label_write_ins"),
-        ("q3", "title_values"),
-        ("q7", "title_tick_boxes"),
-        ("q9", "pronouns"),
-        ("q34", "parent_words"),
-        ("q35", "location"),
-        ("q36", "age"),
-        ("q37", "how_did_you_find_survey"),
+    for question in [ 
+        ("timestamp", "for_sorting"), 
+        ("q1", "label_tick_boxes"), ("q2", "label_write_ins"),
+        ("q3", "title_values"), ("q7", "title_tick_boxes"),
+        ("q9", "pronouns"), 
+        ("q34", "parent_words"), 
+        ("q35", "location"), ("q36", "age"), ("q37", "how_did_you_find_survey"),
     ]:
+        
         # separate out correct columns
         separated_qs = separate_questions(raw_data_df, question[0])
 
         # rename
         renamed_df = rename_columns(separated_qs, question[0])
 
-        # list of lists
-        #q_list = make_list_of_lists(renamed_df)
-
         # write file
         filepath = f"data/separated_questions/{question[0]}_{question[1]}.csv"
         renamed_df.to_csv(path_or_buf=filepath, header=True)
-        #make_csv_file(q_list, filepath)
