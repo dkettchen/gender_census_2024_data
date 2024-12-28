@@ -45,6 +45,7 @@ androgynous_list = find_case(key_word_dict["androgynous"], "androgynous")
 androgyne_list = find_case(key_word_dict["androgynous"], "androgyne")
 
 crossdresser_list = find_case(key_word_dict["crossdresser"], "crossdresser")
+drag_list = find_case(key_word_dict["crossdresser"], "drag")
 femboy_list = find_case(key_word_dict["femboy"], "femboy")
 sissy_list = find_case(key_word_dict["sissy"], "sissy")
 trap_list = find_case(key_word_dict["trap"], "trap")
@@ -143,6 +144,7 @@ data_dict = {
     "androgyne": androgyne_list,
 
     "crossdresser": crossdresser_list,
+    "drag": drag_list,
     "femboy" : femboy_list,
     "sissy": sissy_list,
     "trap" : trap_list,
