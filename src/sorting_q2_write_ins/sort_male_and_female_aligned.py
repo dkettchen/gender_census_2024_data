@@ -68,6 +68,8 @@ def is_male_aligned(input_str:str):
         "a ship is a woman",
         "close to man, but not completely",
         "i'm like if there was a guy",
+
+        "faun", # for now to check all of em first
     ]:
         if item in lower_str \
         and "to female" not in lower_str \
@@ -97,6 +99,7 @@ def is_male_aligned(input_str:str):
         "gurl",
         "gxrl",
         "grl",
+        "fae",
         "mom",
         "not a man",
         'never a "man"',
@@ -517,6 +520,7 @@ def is_conflicted_male_aligned(input_str:str):
         "sometimes i feel more like a man sometimes not",
         "swarm of nanobots",
         "they/them femboy",
+        "fae",
     ]:
         if item in lower_str:
             result_bool = False
@@ -528,6 +532,7 @@ def is_conflicted_male_aligned(input_str:str):
         "boy (gender neutral)",
         "boy but in an ungendered way",
         "sometimes i feel more like a man sometimes not",
+        "fae boi",
     ]:
         if item in lower_str:
             result_bool = True
@@ -630,6 +635,9 @@ def is_female_aligned(input_str:str):
         "euphoric as trans female",
         "flamboyant girl",
         "in-between the middle of man and woman and a woman",
+
+        "fae", # for now to check all of them first
+        "femoid",
     ]:
         if item in lower_str \
         and "femboy" not in lower_str \

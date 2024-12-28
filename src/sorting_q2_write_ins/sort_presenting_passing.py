@@ -80,6 +80,7 @@ def is_present_passing(input_str:str, data_case:str):
             "see how it fits",
             "in a trans woman's body",  # neither trans man nor cis woman in a trans woman's body 
                                         # are valid under my label police rule smh
+            "shapeshifting", # you're not
 
             # implies not achieved presentation/passing
             "prefers to be perceived",

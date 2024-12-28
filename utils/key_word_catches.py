@@ -121,6 +121,10 @@ words_catching = {
         "brown",
         "fibromyalgia",
     ],
+    "faun": [
+        "fauna",
+        "faunet",
+    ],
 
     "lady": [
         "ladybug"
