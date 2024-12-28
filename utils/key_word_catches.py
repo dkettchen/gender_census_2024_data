@@ -125,6 +125,9 @@ words_catching = {
         "fauna",
         "faunet",
     ],
+    "papa": [
+        "apapan",
+    ],
 
     "lady": [
         "ladybug"
@@ -182,6 +185,11 @@ words_catching = {
         "i am",
         "mammal",
         "manic pixie dream",
+    ],
+    "fae": [
+        "faer",
+        "faen",
+        "faesari", # idk what this is
     ],
 
     "both": [

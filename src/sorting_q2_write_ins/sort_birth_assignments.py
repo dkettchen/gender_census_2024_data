@@ -437,6 +437,8 @@ def is_agab(input_str:str, data_case:str):
             "dickhead",
             "sex dysphoric",
             "shapeshifting chaos fae",
+            "your wife",
+            "your husband",
         ]:
             if item in lower_str:
                 result_bool = False

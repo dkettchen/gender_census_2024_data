@@ -234,6 +234,10 @@ def is_male_aligned(input_str:str):
         "swarm of nanobots",
         "they/them femboy", # implies non-aligned femboy similar to hrt femboy
         "practicing",
+        "your husband",
+        "boymoder",
+        "boymoding",
+        "husbandwife",
     ]:
         if item in lower_str:
             return False
@@ -350,7 +354,8 @@ def is_non_male_aligned(input_str:str):
             "(non-male) boy",
             "(wo)man",
             "sometimes i feel more like a man sometimes not",
-            "women liking non woman but very much not a guy"
+            "women liking non woman but very much not a guy",
+            "fae",
             
         ]:
             if item in lower_str:
@@ -521,6 +526,10 @@ def is_conflicted_male_aligned(input_str:str):
         "swarm of nanobots",
         "they/them femboy",
         "fae",
+        "your husband",
+        "husbandwife",
+        "boymoder",
+        "boymoding",
     ]:
         if item in lower_str:
             result_bool = False
@@ -533,6 +542,8 @@ def is_conflicted_male_aligned(input_str:str):
         "boy but in an ungendered way",
         "sometimes i feel more like a man sometimes not",
         "fae boi",
+        "genderfae demiboy",
+        "faehusband",
     ]:
         if item in lower_str:
             result_bool = True
@@ -635,8 +646,9 @@ def is_female_aligned(input_str:str):
         "euphoric as trans female",
         "flamboyant girl",
         "in-between the middle of man and woman and a woman",
+        "genderfae/",
 
-        "fae", # for now to check all of them first
+        "mama",
         "femoid",
     ]:
         if item in lower_str \
@@ -840,7 +852,20 @@ def is_female_aligned(input_str:str):
         "none girl",
         "occasionally ejected from womanhood",
         "kind of girl but not really",
-        "mamser"
+        "mamser",
+        "3d(masc,femme,fae) model that varies with time",
+        "fae changeling",
+        "fae creature",
+        "fae being",
+        "fae-like",
+        "fae like",
+        "neopronouns",
+        "fae rules",
+        "faekin",
+        "fae/",
+        "fae or fairy",
+        "fairy/fae",
+
     ]:
         if item in lower_str:
             return False
@@ -1178,6 +1203,7 @@ def is_conflicted_female_aligned(input_str:str):
         "mamser",
         "lady lover",
         "legally female",
+        "fae",
     ]:
         if item in lower_str:
             result_bool = False

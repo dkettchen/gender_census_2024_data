@@ -38,11 +38,11 @@ def collect_key_words_from_q2(input_list):
         
         "girl","woman","lady","gal","female","chic","maiden",
         ("ma","am"),"mom","mum","miss","ms","daughter","sister","gxrl","wxman","womxn",
-        "fae", "femoid",
+        "fae", "femoid","wife","mother","mama",
 
         "guy","dude","boy","boi","bot","man","male","sir","lad","lord",
         "dad","mr","mister","son","bro","bloke","bxy","bruv",
-        "faun",
+        "faun","husband","father","papa",
 
         "afab","dfab","uterus","womb","preg","pussy","cunt","menstr","bonus hole","birthi","vagi","clit",
         "amab","dmab","ball","testi","dick","penis",
@@ -180,6 +180,9 @@ def collect_key_words_from_q2(input_list):
                 "womxn",
                 "fae",
                 "femoid",
+                "wife",
+                "mother",
+                "mama",
             ]:
                 umbrella_word = "woman/girl/female"
             elif key_word in [
@@ -202,6 +205,9 @@ def collect_key_words_from_q2(input_list):
                 "bxy",
                 "bruv",
                 "faun",
+                "husband",
+                "father",
+                "papa",
             ]:
                 umbrella_word = "man/boy/male"
             elif key_word in ["tom","azur","masc","handsome",]:
