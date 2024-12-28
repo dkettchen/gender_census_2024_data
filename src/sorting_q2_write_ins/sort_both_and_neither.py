@@ -281,6 +281,7 @@ def is_neither(input_str:str):
             "i'm not both binary genders.",
             "neither masc nor fem",
             "both masculine, feminine and neither",
+            "i'm not a trans man",
         ]:
             if item in lower_str:
                 result_bool = False

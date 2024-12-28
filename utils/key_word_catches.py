@@ -31,6 +31,7 @@ words_catching = {
         "bottle",
         "lobotomy",
         "tombot",
+        "nanobot",
     ],
     "man": [
         "manic",
@@ -40,7 +41,6 @@ words_catching = {
         "romantic",
         "manidoog",
         "many",
-        "(wo)man",
         'neman',
         'talisman',
         'nymangi',
@@ -65,6 +65,8 @@ words_catching = {
         "mangle",
         "games and draw, man",
         "manner",
+        "manly",
+        "mandox",
     ],
     "male": [
         'nemale', 
@@ -169,27 +171,51 @@ words_catching = {
         "mamser",
         "mspec",
         "mushrooms",
+        "dreams",
     ],
     "woman/girl/female": [ # caught by ("ma","am") tuple
+        "flamboyant masculinity",
+        "amser \(filipino slang i guess\) \(lit\. maa",
+        "tampoco me siento tan mal",
+        "screaming mass",
+        "maamsir",
         "swamp man",
         "performance",
         "gender+man",
         "moss man",
-        "a man",
-        "ama", # in various words
         "am not defined as just masculine",
         "man, i just am",
         "i do not use human",
-        "mam",
-        "amser \(filipino slang i guess\) \(lit\. maa",
-        "i am",
-        "mammal",
         "manic pixie dream",
+        "machine",
+        "mammal",
+        "human",
+        "tomato",
+        "name",
+        "mam",
+        "a man",
+        "ama", # in various words
+        "i am",
+        
     ],
     "fae": [
         "faer",
         "faen",
         "faesari", # idk what this is
+    ],
+    "chic": [
+        "chicago",
+        "chico",
+        "anarch",
+        "angechic",
+    ],
+    "mother": [
+        "motherfucker",
+        "my mother",
+        "your mother",
+    ],
+    "wife": [
+        "wifestre",
     ],
 
     "both": [

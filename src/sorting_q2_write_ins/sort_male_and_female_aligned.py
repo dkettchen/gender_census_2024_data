@@ -77,7 +77,8 @@ def is_male_aligned(input_str:str):
         and "boyish woman" not in lower_str \
         and "80/20" not in lower_str \
         and "not actually ftm" not in lower_str\
-        and "just a girl/" not in lower_str:
+        and "just a girl/" not in lower_str\
+        and "ftmgirl" not in lower_str:
             return True
 
     # things we're excluding
@@ -235,11 +236,40 @@ def is_male_aligned(input_str:str):
         "they/them femboy", # implies non-aligned femboy similar to hrt femboy
         "practicing",
         "your husband",
+        "your wife",
         "boymoder",
         "boymoding",
         "husbandwife",
+
+        "damsel",
+        "nada masculino",
+        "mother",
+        "maiden",
+        "ma'am",
+        "maam",
+        "madam",
+        "mum",
+        "chica",
+        "twinkwife",
+        "fagwife",
+        "failwife",
+        "femoid",
+        "twink bride/wife",
+        "weird wife",
+        "wife (title)",
+        "wife :)",
+        "wife-gender",
+        "womxn",
     ]:
         if item in lower_str:
+            return False
+
+    for item in [
+        "ms",
+        "wife",
+        "ms."
+    ]:
+        if lower_str == item:
             return False
 
     # if none of these things are in the string => it qualifies
@@ -275,6 +305,7 @@ def is_non_male_aligned(input_str:str):
         "never a man",
         'not a guy, but "one of the guys"',
         "never a boy",
+        "nada masculino",
     ]:
         if item in lower_str \
         and "boy or guy (never a man tho)" not in lower_str \
@@ -356,6 +387,11 @@ def is_non_male_aligned(input_str:str):
             "sometimes i feel more like a man sometimes not",
             "women liking non woman but very much not a guy",
             "fae",
+            "tradwife",
+            "mother",
+            "not a lady",
+            "trans gal",
+            "gxrl",
             
         ]:
             if item in lower_str:
@@ -530,9 +566,34 @@ def is_conflicted_male_aligned(input_str:str):
         "husbandwife",
         "boymoder",
         "boymoding",
+        "tradwife",
+        "damsel",
+        "mother",
+        "ma'am",
+        "madam",
+        "mum",
+        "chica",
+        "your wife",
+        "failwife",
+        "femoid",
+        "fagwife",
+        "chic",
+        "weird wife",
+        "wife (title)",
+        "wife :)",
+        "wife-gender",
+        "womxn"
     ]:
         if item in lower_str:
             result_bool = False
+
+    if lower_str in [
+        "ms",
+        "ms.",
+        "wife",
+
+    ]:
+        result_bool = False
     
     # things to re-include
     for item in [
@@ -647,9 +708,9 @@ def is_female_aligned(input_str:str):
         "flamboyant girl",
         "in-between the middle of man and woman and a woman",
         "genderfae/",
-
         "mama",
         "femoid",
+        "she but the way an old man calls his truck she",
     ]:
         if item in lower_str \
         and "femboy" not in lower_str \
@@ -723,7 +784,7 @@ def is_female_aligned(input_str:str):
         'man-maiden', 
         'man-w', 
         'man/w',
-        "man?wo"
+        "man?wo",
         "manw",
         'masculine in a girly way', 
         'female puberty', 
@@ -818,7 +879,7 @@ def is_female_aligned(input_str:str):
         "shape",
         "man?woman?",
         "will not correct my mom",
-        "not 100% a woman"
+        "not 100% a woman",
         'not a "real" girl', 
         "piloting",
         "raised",
@@ -865,10 +926,38 @@ def is_female_aligned(input_str:str):
         "fae/",
         "fae or fairy",
         "fairy/fae",
-
+        "bird or bloke",
+        "bro i don't know",
+        "man and women",
+        "madam sir",
+        "male impersonater",
+        "instead of mr or mrs",
+        "mother in name only",
+        "mr/mrs",
+        "como ser una chica", # prompt was english sorry
+        "robot (+ bot)",
+        "robotgender/botgender",
+        "urmum",
+        "your wife",
+        "bro im just chilling",
+        "bro its just vibes",
+        "bromance",
+        "ftmgirl",
+        "ice bot",
+        "male dragoness",
+        "male is my government gender",
+        "male on paper",
+        "man, as well as women",
+        "manmoder",
+        "(wo)man",
     ]:
         if item in lower_str:
             return False
+    
+    if lower_str in [
+        "mannish",
+    ]:
+        return False
 
     # if none of these things are in the string => it qualifies
     return True
@@ -951,7 +1040,7 @@ def is_non_female_aligned(input_str:str):
             "a man",
             "man/woman",
             "if a girl was",
-            "usual girly girl",
+            "girly girl",
             "not *not*",
             "not not",
             'm "women"',
@@ -1018,6 +1107,20 @@ def is_non_female_aligned(input_str:str):
             "not a guy but even less a girl",
             "im just a girl (non gendered)",
             "not a man, but definetly not a woman",
+            "gay man",
+            "tradwife", # doesn't mean not female aligned just not tradwife
+            "bro I don't know",
+            "potheads",
+            "but normative cis man",
+            "i don't even know",
+            "i don't fuckin know",
+            "i don't know",
+            "not a trans man",
+            "mother in name only",
+            "not 100% a woman",
+            'not a "real" girl',
+            "she but the way",
+            "(wo)man",
         ]:
             if item in lower_str:
                 result_bool = False
@@ -1170,7 +1273,6 @@ def is_conflicted_female_aligned(input_str:str):
         "presents as female",
         "seen as",
         "girlish",
-        "miss my balls",
         "in vibes",
         "when it's funny",
         "when its funny",
@@ -1204,6 +1306,28 @@ def is_conflicted_female_aligned(input_str:str):
         "lady lover",
         "legally female",
         "fae",
+        "man and women",
+        "madam sir",
+        "male impersonater",
+        "mannish",
+        "mr or mrs",
+        "mr/mrs",
+        "como ser una chica",
+        "robot",
+        "urmum",
+        "your wife",
+        "bro",
+        "ice bot",
+        "male (sometimes/for legal identification)",
+        "male is my government gender",
+        "male on paper",
+        "man, as well as women",
+        "manmoder",
+        "(wo)man",
+        "bird or bloke",
+        "tradwife",
+        "ftmgirl",
+        "male dragoness",
     ]:
         if item in lower_str:
             result_bool = False

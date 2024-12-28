@@ -6,15 +6,16 @@ from utils.json_writer import write_json_files
 raw_data = read_txt("q2")
 key_word_dict = collect_key_words_from_q2(raw_data)
 
-male_list = find_case(key_word_dict["man/boy/male"], "male_aligned")
-non_male_list = find_case(key_word_dict["man/boy/male"], "non_male_aligned")
-confl_male_list = find_case(key_word_dict["man/boy/male"], "conflicted_male_aligned")
-
-female_list = find_case(key_word_dict["woman/girl/female"], "female_aligned")
-non_female_list = find_case(key_word_dict["woman/girl/female"], "non_female_aligned")
-confl_female_list = find_case(key_word_dict["woman/girl/female"], "conflicted_female_aligned")
 
 binaries_list = key_word_dict["man/boy/male"] + key_word_dict["woman/girl/female"]
+
+male_list = find_case(binaries_list, "male_aligned")
+non_male_list = find_case(binaries_list, "non_male_aligned")
+confl_male_list = find_case(binaries_list, "conflicted_male_aligned")
+
+female_list = find_case(binaries_list, "female_aligned")
+non_female_list = find_case(binaries_list, "non_female_aligned")
+confl_female_list = find_case(binaries_list, "conflicted_female_aligned")
 
 male_passing_list = find_case(binaries_list, "male_passing")
 female_passing_list = find_case(binaries_list, "female_passing")
