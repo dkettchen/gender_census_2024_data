@@ -16,7 +16,19 @@ Other files used:
 
 ## Survey origin
 
-TO BE IMPLEMENTED
+[src/run_survey_origin_cleaning_code.py](src/run_survey_origin_cleaning_code.py) runs cleaning for the "where did you find this survey" write ins and saves each collected and categorised list as a json file to [data/cleaned_q37_write_ins/](data/cleaned_q37_write_ins/)
+
+it runs similarly to the label one, including reusing:
+- [utils/read_txt.py](utils/read_txt.py) to read from [data/raw_data/unique_values/q37.txt](data/raw_data/unique_values/q37.txt)
+- [utils/key_word_catches.py](utils/key_word_catches.py)
+- [utils/sorting_helpers.py](utils/sorting_helpers.py)
+- [utils/sorting_dispenser.py](utils/sorting_dispenser.py)
+- [src/find_case.py](src/find_case.py)
+- [utils/json_writer.py](utils/json_writer.py)
+
+however it has its own collection and sorting file:
+- [src/sorting_q37_write_ins/collect_survey_origin_words.py](src/sorting_q37_write_ins/collect_survey_origin_words.py)
+- [src/sorting_q37_write_ins/sort_social_media.py](src/sorting_q37_write_ins/sort_social_media.py)
 
 # Normalising and formatting raw data
 
