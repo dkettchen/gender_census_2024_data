@@ -31,6 +31,7 @@ def is_social_media(input_str:str, data_case:str):
         "whatsapp",
         "pronouns page",
         "anime feminist",
+        "gender reveal",
     ]
     tuple_dict = {
         "bluesky": ("blue", "sky"),
@@ -42,6 +43,7 @@ def is_social_media(input_str:str, data_case:str):
         "linkedin": ("linked", "in"),
         "pronouns page": ("pronoun", "page"),
         "anime feminist": ("anime", "feminist"),
+        "gender reveal": ("gender","reveal"),
     }
     if data_case not in complex_cases:
         if data_case not in lower_str:

@@ -67,7 +67,7 @@ def collect_key_words_from_q37(input_list):
         "thing of things",
 
         "wiki", # there's some mispelled wikipedias in there and other wikis
-        "podcast","forum","video",
+        "forum","video",
         "search","look","find",
         "mail","newsletter","website",
 
