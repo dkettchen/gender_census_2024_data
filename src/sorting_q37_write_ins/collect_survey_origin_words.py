@@ -19,9 +19,8 @@ def collect_key_words_from_q37(input_list):
         "discord",
         "patreon",
         "twitter",
-        "pronouns",
         "mastodon","mastadon",
-        "whatsapp",
+        "whatsapp","watsapp",
         "facebook",
         "slack",
         "threads",
@@ -53,6 +52,7 @@ def collect_key_words_from_q37(input_list):
         "ao3",
         "matrix",
         "neocities",
+        "limonnur",
         ("linked","in",),
         ("chat","gpt",),"ai",
         ("blue","sky",),
@@ -61,15 +61,15 @@ def collect_key_words_from_q37(input_list):
         ("yik","yak",),
         ("anime","feminist",),
         ("gender", "reveal",),
-        ("gender","census",),
+        ("gender","census",),"you",
+        ("pronoun", "page",),
         "googl", # google, googling
         "thing of things",
 
         "wiki", # there's some mispelled wikipedias in there and other wikis
-        "podcast","forum","website","video","blog",
+        "podcast","forum","video",
         "search","look","find",
-        "mail","newsletter",
-        "app",
+        "mail","newsletter","website",
 
         "word of mouth",
         "peer","freind","friend",
@@ -130,7 +130,7 @@ def collect_key_words_from_q37(input_list):
                 umbrella_word = "ai"
             elif key_word == ("linked","in"):
                 umbrella_word = "linkedin"
-            elif key_word == ("gender","census"):
+            elif key_word in [("gender","census",),"you",]:
                 umbrella_word = "gender census"
             elif key_word == "googl":
                 umbrella_word = "google"
@@ -138,6 +138,10 @@ def collect_key_words_from_q37(input_list):
                 umbrella_word = "mastodon"
             elif key_word == "freind":
                 umbrella_word = "friend"
+            elif key_word == "watsapp":
+                umbrella_word = "whatsapp"
+            elif key_word == ("pronoun", "page",):
+                umbrella_word = "pronouns page"
             else: umbrella_word = key_word # if it doesn't need to be different
 
             # words we don't mean that might catch on our key words!

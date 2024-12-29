@@ -45,6 +45,10 @@ social_media_list = [
     "snapchat",
     "yikyak",
     "google",
+    "limonnur",
+    "pronouns page",
+    "anime feminist",
+    "gender census",
 ]
 
 other_social_media_words = [
@@ -52,21 +56,13 @@ other_social_media_words = [
     
     "podcast",
     "forum",
-    "website",
-    "video",
-    "blog",
 
     "search",
     "look",
     "find",
 
-    "mail",
     "newsletter",
-    "app",
 
-    "anime feminist",
     "gender reveal",
-    "gender census",
-    "thing of things",
-    "pronouns",
+    
 ]

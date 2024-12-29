@@ -1,5 +1,5 @@
 from utils.sorting_dispenser import checking_func_dispenser
-from utils.data_lists import social_media_list
+from utils.data_lists import social_media_list, other_social_media_words
 
 #TODO: continue adding new implemented data_cases to doc string
 def find_case(input_list:list, data_case:str):
@@ -90,6 +90,8 @@ def find_case(input_list:list, data_case:str):
         - data_case="they"
         - data_case="she_female_aligned"
         - data_case="he_male_aligned"
+
+        - data_case = any word from utils/data_lists' social_media_list
     """
 
     output_list = []
@@ -100,27 +102,38 @@ def find_case(input_list:list, data_case:str):
     for item in sorted(list(set(input_list))):
 
         # if they fit criteria for being counted 
-        if (data_case not in [ 
-            # cases that need a data_case
-            "male_passing",
-            "female_passing",
-            "afab", 
-            "amab",
-            "she_female_aligned",
-            "he_male_aligned",
-        ] + social_media_list and checking_func(item))\
-        or (data_case in [ # data case useable as is
-            "afab",
-            "amab",
-        ] + social_media_list and checking_func(item, data_case))\
-        or (data_case in [ # removing "_passing" or other 8 last letters from data case
-            "male_passing",
-            "female_passing"
-        ] and checking_func(item, data_case[:-8])) \
+        if (
+            data_case not in [ 
+                # cases that need a data_case
+                "male_passing",
+                "female_passing",
+                "afab", 
+                "amab",
+                "she_female_aligned",
+                "he_male_aligned",
+                "video", "thing of things"
+            ] + social_media_list \
+            + other_social_media_words \
+            and checking_func(item))\
+        or (
+            data_case in [ # data case useable as is
+                "afab",
+                "amab",
+                "video", "thing of things"
+            ] + social_media_list \
+            + other_social_media_words \
+            and checking_func(item, data_case))\
+        or (
+            data_case in [ # removing "_passing" or other 8 last letters from data case
+                "male_passing",
+                "female_passing"
+            ] and checking_func(item, data_case[:-8])) \
         or ( # removing "she_" from data_case
-            data_case == "she_female_aligned" and checking_func(item, data_case[4:])
+            data_case == "she_female_aligned" \
+            and checking_func(item, data_case[4:])
         ) or ( # removing "he_" from data_case
-            data_case == "he_male_aligned" and checking_func(item, data_case[3:])
+            data_case == "he_male_aligned" \
+            and checking_func(item, data_case[3:])
         ):
             
             # they are added to output list
