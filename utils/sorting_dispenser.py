@@ -35,6 +35,8 @@ from src.sorting_q2_write_ins.sort_queer_words import (
 from src.sorting_q2_write_ins.sort_agender_and_neutral import is_genderless, is_neutral, is_demi
 from src.sorting_q2_write_ins.sort_pronouns import is_he, is_she, is_they
 from src.sorting_q2_write_ins.sort_bigender import is_genderfull
+from utils.data_lists import social_media_list
+from src.sorting_q37_write_ins.sort_social_media import is_social_media
 
 # helper func to dispense the correct function based on data case! ✅
 def checking_func_dispenser(data_case:str):
@@ -123,6 +125,10 @@ def checking_func_dispenser(data_case:str):
         "she_female_aligned" : is_she,
         "he_male_aligned" : is_he,
     }
+
+    # any social media item will be run through the same function
+    for item in social_media_list:
+        func_dict[item] = is_social_media
 
     if data_case in func_dict:
         return func_dict[data_case]

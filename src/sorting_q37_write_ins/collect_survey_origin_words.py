@@ -29,28 +29,21 @@ def collect_key_words_from_q37(input_list):
         "t4t",
         "spacehey",
         "pillowfort",
-        "wiki", # there's some mispelled wikipedias in there and other wikis
         "substack",
         "cohost",
         "melonland",
         "eunuch",
-        "blog",
-        "youtube","video",
+        "youtube",
         "teams",
         "zoom",
         "pinterest",
         "lex",
         "twitch",
-        "podcast",
-        "search","look","find",
         "duckduckgo",
         "irc",
         "fetlife",
-        "forum",
         "goodreads",
-        ("gender","census",),
         "insta",
-        "website",
         "quotev",
         "scratch",
         "tiktok",
@@ -68,11 +61,17 @@ def collect_key_words_from_q37(input_list):
         ("yik","yak",),
         ("anime","feminist",),
         ("gender", "reveal",),
+        ("gender","census",),
         "googl", # google, googling
         "thing of things",
-        "word of mouth",
+
+        "wiki", # there's some mispelled wikipedias in there and other wikis
+        "podcast","forum","website","video","blog",
+        "search","look","find",
         "mail","newsletter",
         "app",
+
+        "word of mouth",
         "peer","freind","friend",
         "family","parent","offspring","mom",
         "partner","wife","husband","fianc","spouse",
@@ -80,6 +79,7 @@ def collect_key_words_from_q37(input_list):
         "school","uni","college","teacher",
         "group","lgbt","gsa","pride","queer",
         "ist","doctor",
+        
         "forg", # they forgor
         "remem",
     ]
@@ -134,6 +134,8 @@ def collect_key_words_from_q37(input_list):
                 umbrella_word = "gender census"
             elif key_word == "googl":
                 umbrella_word = "google"
+            elif key_word in ["mastodon","mastadon",]:
+                umbrella_word = "mastodon"
             else: umbrella_word = key_word # if it doesn't need to be different
 
             # words we don't mean that might catch on our key words!
