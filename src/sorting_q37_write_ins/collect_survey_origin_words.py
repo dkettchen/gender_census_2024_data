@@ -136,6 +136,8 @@ def collect_key_words_from_q37(input_list):
                 umbrella_word = "google"
             elif key_word in ["mastodon","mastadon",]:
                 umbrella_word = "mastodon"
+            elif key_word == "freind":
+                umbrella_word = "friend"
             else: umbrella_word = key_word # if it doesn't need to be different
 
             # words we don't mean that might catch on our key words!

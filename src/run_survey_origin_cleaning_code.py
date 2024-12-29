@@ -14,4 +14,11 @@ for social_media in social_media_list + other_social_media_words:
 
 all_collected_socials = sorted(list(set(all_collected_socials)))
 
+data_dict = {}
+
+for social_media in social_media_list:
+    sm_list = find_case(all_collected_socials, social_media)
+    data_dict[social_media] = sm_list
+
+write_json_files(data_dict, "data/cleaned_q37_write_ins/")
 

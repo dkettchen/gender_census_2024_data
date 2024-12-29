@@ -108,7 +108,7 @@ def find_case(input_list:list, data_case:str):
             "amab",
             "she_female_aligned",
             "he_male_aligned",
-        ] and checking_func(item))\
+        ] + social_media_list and checking_func(item))\
         or (data_case in [ # data case useable as is
             "afab",
             "amab",

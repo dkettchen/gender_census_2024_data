@@ -20,7 +20,7 @@ social_media_list = [
     "eunuch",
     "youtube",
     "teams",
-    "zoom",
+    #"zoom",
     "pinterest",
     "lex",
     "twitch",
