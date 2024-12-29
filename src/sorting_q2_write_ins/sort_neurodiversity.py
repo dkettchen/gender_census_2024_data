@@ -11,6 +11,9 @@ def is_autistic(input_str:str):
     # making case insensitive
     lower_str = input_str.lower()
 
+    if "au" not in lower_str:
+        return False
+
     result_bool = True
     
     # excluding stuff

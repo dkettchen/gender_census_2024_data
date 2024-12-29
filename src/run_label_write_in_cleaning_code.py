@@ -50,9 +50,9 @@ femboy_list = find_case(key_word_dict["femboy"], "femboy")
 sissy_list = find_case(key_word_dict["sissy"], "sissy")
 trap_list = find_case(key_word_dict["trap"], "trap")
 
-autism_list = find_case(key_word_dict["autism_related"], "autistic")
-neurodiversity = key_word_dict["other_neurodiversity_related"] #+ key_word_dict["autism_related"]
-neuro_list = find_case(neurodiversity, "neurodivergent")
+neurodiversity = key_word_dict["other_neurodiversity_related"] + key_word_dict["autism_related"]
+autism_list = find_case(neurodiversity, "autistic")
+neuro_list = find_case(key_word_dict["other_neurodiversity_related"], "neurodivergent")
 plural_list = find_case(key_word_dict["DID_related"], "plural")
 
 genderqueer_list = find_case(key_word_dict["genderqueer"], "genderqueer")
