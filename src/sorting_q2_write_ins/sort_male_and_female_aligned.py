@@ -260,6 +260,7 @@ def is_male_aligned(input_str:str):
         "wife :)",
         "wife-gender",
         "womxn",
+        "anti",
     ]:
         if item in lower_str:
             return False
@@ -582,7 +583,8 @@ def is_conflicted_male_aligned(input_str:str):
         "wife (title)",
         "wife :)",
         "wife-gender",
-        "womxn"
+        "womxn",
+        "anti",
     ]:
         if item in lower_str:
             result_bool = False
@@ -950,6 +952,7 @@ def is_female_aligned(input_str:str):
         "man, as well as women",
         "manmoder",
         "(wo)man",
+        "anti",
     ]:
         if item in lower_str:
             return False
@@ -1328,6 +1331,7 @@ def is_conflicted_female_aligned(input_str:str):
         "tradwife",
         "ftmgirl",
         "male dragoness",
+        "anti",
     ]:
         if item in lower_str:
             result_bool = False
