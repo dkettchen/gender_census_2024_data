@@ -866,12 +866,6 @@ survey_catching = {
     "linkedin": [
         "linked me",
     ],
-    "app" : [
-        "whatsapp",
-        "whats app",
-        "happen",
-        "watsapp",
-    ],
     "gender census": [
         "youtube",
     ]

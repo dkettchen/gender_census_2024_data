@@ -49,7 +49,6 @@ def collect_key_words_from_q37(input_list):
         "lemmy",
         "signal",
         "wattpad",
-        "ao3",
         "matrix",
         "neocities",
         "limonnur",
@@ -69,7 +68,7 @@ def collect_key_words_from_q37(input_list):
         "wiki", # there's some mispelled wikipedias in there and other wikis
         "forum","video",
         "search","look","find",
-        "mail","newsletter","website",
+        "mail","website",
 
         "word of mouth",
         "peer","freind","friend",
@@ -142,6 +141,8 @@ def collect_key_words_from_q37(input_list):
                 umbrella_word = "whatsapp"
             elif key_word == ("pronoun", "page",):
                 umbrella_word = "pronouns page"
+            elif key_word == "wiki":
+                umbrella_word = "wikipedia"
             else: umbrella_word = key_word # if it doesn't need to be different
 
             # words we don't mean that might catch on our key words!

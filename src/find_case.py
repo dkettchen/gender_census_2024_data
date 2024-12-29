@@ -111,7 +111,7 @@ def find_case(input_list:list, data_case:str):
                 "amab",
                 "she_female_aligned",
                 "he_male_aligned",
-                "video", "thing of things"
+                "video", "thing of things","forum",
             ] + social_media_list \
             + other_social_media_words \
             and checking_func(item))\
@@ -119,7 +119,7 @@ def find_case(input_list:list, data_case:str):
             data_case in [ # data case useable as is
                 "afab",
                 "amab",
-                "video", "thing of things"
+                "video", "thing of things","forum",
             ] + social_media_list \
             + other_social_media_words \
             and checking_func(item, data_case))\

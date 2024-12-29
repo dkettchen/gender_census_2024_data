@@ -35,7 +35,6 @@ social_media_list = [
     "lemmy",
     "signal",
     "wattpad",
-    "ao3",
     "matrix",
     "neocities",
     "linkedin",
@@ -49,20 +48,13 @@ social_media_list = [
     "pronouns page",
     "anime feminist",
     "gender census",
+    "gender reveal",
+    "wikipedia", # we only need this for wikipedia
 ]
 
 other_social_media_words = [
-    "wiki", # there's some mispelled wikipedias in there and other wikis
-    
-    "podcast",
-    "forum",
-
     "search",
     "look",
     "find",
 
-    "newsletter",
-
-    "gender reveal",
-    
 ]

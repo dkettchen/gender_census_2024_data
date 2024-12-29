@@ -127,6 +127,7 @@ def checking_func_dispenser(data_case:str):
 
         "video": is_other_online,
         "thing of things": is_other_online,
+        "forum": is_other_online,
     }
 
     # any social media item will be run through the same function
@@ -135,10 +136,7 @@ def checking_func_dispenser(data_case:str):
 
 
     for item in other_social_media_words:
-        if item in ["video", "thing of things"]:
-            continue
-        else:
-            func_dict[item] = is_other_online
+        func_dict[item] = is_other_online
 
     if data_case in func_dict:
         return func_dict[data_case]

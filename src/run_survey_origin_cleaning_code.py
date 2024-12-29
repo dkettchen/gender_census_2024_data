@@ -12,7 +12,7 @@ all_collected_socials = []
 for social_media in social_media_list + other_social_media_words:
     all_collected_socials += key_word_dict[social_media]
 
-all_collected_socials += key_word_dict["mail"] + key_word_dict["website"]
+all_collected_socials += key_word_dict["mail"] + key_word_dict["website"] + key_word_dict["forum"]
 
 all_collected_socials = sorted(list(set(all_collected_socials)))
 
@@ -21,7 +21,6 @@ data_dict = {}
 for social_media in social_media_list:
     sm_list = find_case(all_collected_socials, social_media)
     data_dict[social_media] = sm_list
-
 
 for item in [
     ("video","youtube"), # adding videos to youtube
@@ -33,6 +32,8 @@ for item in [
     addition_list = find_case(all_collected_socials, new_item)
     data_dict[old_item] += [item for item in addition_list if item not in data_dict[old_item]]
 
+forum_list = find_case(all_collected_socials, "forum")
+data_dict["forum"] = forum_list
 
 # temp for sorting
 for social_media in other_social_media_words:

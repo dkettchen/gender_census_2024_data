@@ -32,6 +32,7 @@ def is_social_media(input_str:str, data_case:str):
         "pronouns page",
         "anime feminist",
         "gender reveal",
+        "wikipedia",
     ]
     tuple_dict = {
         "bluesky": ("blue", "sky"),
@@ -72,6 +73,9 @@ def is_social_media(input_str:str, data_case:str):
         elif data_case == "gender census":
             if "you" not in lower_str and ("gender" not in lower_str or "census" not in lower_str)\
             and "mail" not in lower_str and "website" not in lower_str:
+                return False
+        elif data_case == "wikipedia":
+            if "wikip" not in lower_str:
                 return False
         else: # if it is one of the tuple ones
             tuple_case = tuple_dict[data_case]
@@ -137,44 +141,19 @@ def is_other_online(input_str:str, data_case:str):
 
     lower_str = input_str.lower()
 
-    # input checking
-    complex_cases = [
-    ]
-    tuple_dict = {
-    }
-
-    if data_case not in complex_cases:
-        if data_case not in lower_str:
-            return False
-        
-        if data_case in survey_catching:
-            for catch_word in survey_catching[data_case]:
-                if catch_word in lower_str and not caught_wrong_word(lower_str, data_case, catch_word):
-                    return False
-    else:        
-        # if data_case == "ai":
-        #     if "ai" not in lower_str and ("chat" not in lower_str or "gpt" not in lower_str):
-        #         return False
-        # else: # if it is one of the tuple ones
-        #     tuple_case = tuple_dict[data_case]
-        #     if tuple_case[0] not in lower_str or tuple_case[1] not in lower_str:
-        #         return False
-
-        if data_case in survey_catching:
-            for catch_word in survey_catching[data_case]:
-                if catch_word in lower_str and not caught_wrong_word(lower_str, data_case, catch_word):
-                    return False
+    # input checking (no complex cases here)
+    if data_case not in lower_str:
+        return False
+    if data_case in survey_catching:
+        for catch_word in survey_catching[data_case]:
+            if catch_word in lower_str and not caught_wrong_word(lower_str, data_case, catch_word):
+                return False
 
     # let it run through at first & print to files
     result_bool = True
 
     # make cases to exclude stuff
-    if data_case == "app":
-        exclusion_list = [
-            "t4t",
-            "lex",
-        ]
-    elif data_case == "forum":
+    if data_case == "forum":
         exclusion_list = [
             "melonland",
             "eunuch",
