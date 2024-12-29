@@ -465,6 +465,8 @@ def is_conflicting_queer(input_str:str):
         "where is dyke",
         "why is fag on the list but not dyke",
         "lesbian but in a yaoi way", # this just has no overlap, like- there are no lesbians in yaoi?? wym??
+        "t dyke", # t dyke might be tgirl dyke, not transmasc 🤔
+        "t-dyke",
     ]:
         if item in lower_str:
             result_bool = False
