@@ -20,5 +20,8 @@ for social_media in social_media_list:
     sm_list = find_case(all_collected_socials, social_media)
     data_dict[social_media] = sm_list
 
+# things of things is a substack thing
+# check what's been caught in videos but I am guessing it'll all be youtube innit
+
 write_json_files(data_dict, "data/cleaned_q37_write_ins/")
 

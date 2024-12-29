@@ -36,9 +36,7 @@ def caught_wrong_word(input_str:str, key_word, catch_word):
 
     checks if input string contains catch word
 
-    if so if the key word remains after removing the catch word
-
-    if so it returns True
+    if so if the key word remains after removing the catch word it returns True
 
     otherwise it returns False
     """

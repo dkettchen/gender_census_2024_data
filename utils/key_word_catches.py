@@ -852,5 +852,18 @@ words_catching = {
 }
 
 survey_catching = {
-    
+    "ai" : [
+        "rainbow mail",
+        "mai",
+        "rainbow",
+        "said",
+        "mogai",
+        "stain"
+    ],
+    "lex" : [
+        "alex",
+    ],
+    "linkedin": [
+        "linked me",
+    ]
 }
