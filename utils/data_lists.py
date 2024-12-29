@@ -51,10 +51,3 @@ social_media_list = [
     "gender reveal",
     "wikipedia", # we only need this for wikipedia
 ]
-
-other_social_media_words = [
-    "search",
-    "look",
-    "find",
-
-]

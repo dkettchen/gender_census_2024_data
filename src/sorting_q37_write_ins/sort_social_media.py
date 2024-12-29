@@ -72,7 +72,7 @@ def is_social_media(input_str:str, data_case:str):
                 return False
         elif data_case == "gender census":
             if "you" not in lower_str and ("gender" not in lower_str or "census" not in lower_str)\
-            and "mail" not in lower_str and "website" not in lower_str:
+            and "mail" not in lower_str and "website" not in lower_str and "look" not in lower_str:
                 return False
         elif data_case == "wikipedia":
             if "wikip" not in lower_str:
@@ -117,6 +117,9 @@ def is_social_media(input_str:str, data_case:str):
             "pronouns page",
             "university rainbow mailing list",
             "some lgbtqia+ website",
+            "eunuch",
+            "google",
+            "pronouns"
         ]
     else: 
         exclusion_list = []
