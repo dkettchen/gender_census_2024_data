@@ -50,4 +50,23 @@ social_media_list = [
     "gender census",
     "gender reveal",
     "wikipedia", # we only need this for wikipedia
+    "dreamwidth",
 ]
+
+
+offline_words = [
+    "word of mouth",
+
+    "peer","friend",
+    "family","parent","offspring","mom",
+    "partner","wife","fianc","spouse",#"husband",
+    "staff","work","lab",
+    "school","uni","college","teacher",
+    "group","lgbt","gsa","pride","queer",
+    "ist","doctor",
+    
+    "forg", # they forgor
+    "remem",
+]
+
+offline_categories = ["friend","family","partner","school","work","lgbt","clinician"]

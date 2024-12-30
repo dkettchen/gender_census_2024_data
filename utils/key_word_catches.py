@@ -868,5 +868,25 @@ survey_catching = {
     ],
     "gender census": [
         "youtube",
+    ],
+    "ist": [
+        "anime feminist weekly article list",
+        "feminist",
+        "listen",
+        " list",
+        "it existed",
+        "scientist",
+        "distr",
+    ],
+    "friend" : [
+        "boyfriend",
+        "girlfriend",
+    ],
+    "uni" : [
+        "community",
+    ],
+    "work": [
+        "worker",
+        "network",
     ]
 }

@@ -24,7 +24,7 @@ def collect_key_words_from_q37(input_list):
         "facebook",
         "slack",
         "threads",
-        "telegram",
+        "telegram","teloegram",
         "t4t",
         "spacehey",
         "pillowfort",
@@ -52,6 +52,7 @@ def collect_key_words_from_q37(input_list):
         "matrix",
         "neocities",
         "limonnur",
+        ("dream","width",),
         ("linked","in",),
         ("chat","gpt",),"ai",
         ("blue","sky",),
@@ -73,7 +74,7 @@ def collect_key_words_from_q37(input_list):
         "word of mouth",
         "peer","freind","friend",
         "family","parent","offspring","mom",
-        "partner","wife","husband","fianc","spouse",
+        "partner","wife","fianc","spouse",#"husband",
         "staff","work","lab",
         "school","uni","college","teacher",
         "group","lgbt","gsa","pride","queer",
@@ -143,6 +144,10 @@ def collect_key_words_from_q37(input_list):
                 umbrella_word = "pronouns page"
             elif key_word == "wiki":
                 umbrella_word = "wikipedia"
+            elif key_word == "teloegram":
+                umbrella_word = "telegram"
+            elif key_word == ("dream","width",):
+                umbrella_word = "dreamwidth"
             else: umbrella_word = key_word # if it doesn't need to be different
 
             # words we don't mean that might catch on our key words!

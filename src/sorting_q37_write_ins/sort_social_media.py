@@ -33,6 +33,7 @@ def is_social_media(input_str:str, data_case:str):
         "anime feminist",
         "gender reveal",
         "wikipedia",
+        "telegram",
     ]
     tuple_dict = {
         "bluesky": ("blue", "sky"),
@@ -77,6 +78,10 @@ def is_social_media(input_str:str, data_case:str):
         elif data_case == "wikipedia":
             if "wikip" not in lower_str:
                 return False
+        elif data_case == "telegram":
+            if "telegram" not in lower_str and "teloegram" not in lower_str:
+                return False
+
         else: # if it is one of the tuple ones
             tuple_case = tuple_dict[data_case]
             if tuple_case[0] not in lower_str or tuple_case[1] not in lower_str:

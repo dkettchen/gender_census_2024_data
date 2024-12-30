@@ -1,5 +1,5 @@
 from utils.sorting_dispenser import checking_func_dispenser
-from utils.data_lists import social_media_list
+from utils.data_lists import social_media_list, offline_categories
 
 #TODO: continue adding new implemented data_cases to doc string
 def find_case(input_list:list, data_case:str):
@@ -112,14 +112,14 @@ def find_case(input_list:list, data_case:str):
                 "she_female_aligned",
                 "he_male_aligned",
                 "video", "thing of things","forum",
-            ] + social_media_list \
+            ] + social_media_list + offline_categories \
             and checking_func(item))\
         or (
             data_case in [ # data case useable as is
                 "afab",
                 "amab",
                 "video", "thing of things","forum",
-            ] + social_media_list \
+            ] + social_media_list + offline_categories \
             and checking_func(item, data_case))\
         or (
             data_case in [ # removing "_passing" or other 8 last letters from data case
