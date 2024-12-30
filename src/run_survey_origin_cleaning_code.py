@@ -14,7 +14,8 @@ for social_media in social_media_list:
     all_collected_socials += key_word_dict[social_media]
 
 all_collected_socials += key_word_dict["mail"] + key_word_dict["website"] \
-    + key_word_dict["forum"] + key_word_dict["look"]
+    + key_word_dict["forum"] + key_word_dict["look"] \
+    + key_word_dict["video"] + key_word_dict["thing of things"]
 
 all_collected_socials = sorted(list(set(all_collected_socials)))
 
