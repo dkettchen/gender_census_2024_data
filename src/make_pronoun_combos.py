@@ -31,7 +31,8 @@ def make_pronoun_combos(input_df:pd.DataFrame):
     - uses he, she, or they, with neopronouns (ie they/ze) 
     (we do not specify which neopronouns tho)
 
-    - uses (at least) she, he, and they (ie she/he/they)
+    - uses (at least) she, he, and they (ie she/he/they) 
+    or ticked "any" with no other specified sets (ie excluding he/any)
     """
 
     renaming_dict = {
@@ -145,9 +146,12 @@ def make_pronoun_combos(input_df:pd.DataFrame):
         )
 
     # make a new column for anyone who uses all 3 big three
-    new_df["she/he/they"] = "Yes"
-    new_df["she/he/they"] = new_df["any_user"].where(
-        (new_df["number_of_big_three"] == 3), 
+    new_df["she/he/they_any"] = "Yes"
+    new_df["she/he/they_any"] = new_df["she/he/they_any"].where(
+        (
+            new_df["number_of_big_three"] == 3) | (
+            (new_df["any_user"] == "Yes") & (new_df["number_of_sets"] == 0)
+        ), 
         other="None"
     )
 
@@ -164,12 +168,16 @@ def make_pronoun_combos(input_df:pd.DataFrame):
     ]:
         new_df.pop(neo_pronoun_column)
 
+    # idk where but somewhere index got messed up so we're putting it back 🤔
+    new_df = new_df.set_index("UserID")
+
     return new_df
 
 # test with only small sample for faster running
 if __name__ == "__main__":
     read_data = df_from_csv("data/separated_questions/q9_pronouns.csv")
 
-    new_df = make_pronoun_combos(read_data.head(100))
+    # running full file
+    new_df = make_pronoun_combos(read_data)
 
     new_df.to_csv(path_or_buf="data/cleaned_q9_with_new_columns/q9_clean_01.csv")
