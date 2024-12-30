@@ -45,10 +45,14 @@ for item in [("video","youtube"),("thing of things","substack"),]:
 forum_list = find_case(all_collected_socials, "forum")
 data_dict["forum"] = forum_list
 
+remember_list = find_case(all_collected_offline, "remem")
+data_dict["gender census"] += [item for item in remember_list if item not in data_dict["gender census"]]
+
 #TODO: sort non-online terms (ie friends & family/word of mouth, school, work, groups, etc)
-for item in offline_categories:
+for item in offline_categories + ["word of mouth"]:
     offline_list = find_case(all_collected_offline, item)
     data_dict[item] = offline_list
+
 
 # word of mouth
 # forgot & remembered

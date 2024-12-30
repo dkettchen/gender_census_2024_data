@@ -110,6 +110,11 @@ def is_offline(input_str:str, data_case:str):
         exclusion_list = [
             "dreamwidth",
         ]
+    elif data_case == "remem":
+        exclusion_list = [
+            "don't rem",
+            "can't rem",
+        ]
 
     # excluding whatever is in the excl list
     for item in exclusion_list:
@@ -120,7 +125,6 @@ def is_offline(input_str:str, data_case:str):
     for item in reinclusion_list:
         if item in lower_str and "lex" not in lower_str:
             result_bool = True
-
 
     # return result bool
     return result_bool
