@@ -108,8 +108,9 @@ def is_social_media(input_str:str, data_case:str):
         # but including "and tumblr"/"tumblr and" ones
         exclusion_list = [ 
             "reddit",
-            "r/"
+            "r/",
             "tumblr link",
+            "probs from tumblr",
             "last year",
         ] # this will have many things
     elif data_case == "gender census":
