@@ -18,7 +18,10 @@ def count_df(input_df:pd.DataFrame, data_case:str):
             "they_user",
             "it_user",
             "neopronoun_user",
-            "any_user"
+            "any_user",
+
+            "questioning",
+            "avoid_pronouns/name_as_pronoun",
         ]
     elif data_case == "only_one_set":
         get_list = [

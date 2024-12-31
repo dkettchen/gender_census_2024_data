@@ -6,6 +6,12 @@ pronoun_colours = {
     "neopronoun_user":"yellow",
     "any_user":"black",
 
+    "questioning":"silver",
+    "avoid_pronouns/name_as_pronoun":"grey",
+
+    "questioning_only":"silver",
+    "avoid_pronouns/use_name_only":"grey",
+
     "she_only":"deeppink",
     "he_only":"royalblue",
     "they_only":"purple",

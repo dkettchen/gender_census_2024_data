@@ -155,6 +155,25 @@ def make_pronoun_combos(input_df:pd.DataFrame):
         other="None"
     )
 
+    # make a new column for anyone who only ticked questioning or avoid pronouns/use name
+    new_df["questioning_only"] = "Yes"
+    new_df["questioning_only"] = new_df["questioning_only"].where(
+        (
+            (new_df["questioning"] == "Yes") & (new_df["any_user"] != "Yes") & (new_df["number_of_sets"] == 0)
+        ), 
+        other="None"
+    )
+    new_df["avoid_pronouns/use_name_only"] = "Yes"
+    new_df["avoid_pronouns/use_name_only"] = new_df["avoid_pronouns/use_name_only"].where(
+        (
+            (new_df["avoid_pronouns/name_as_pronoun"] == "Yes") & (
+            new_df["questioning"] != "Yes") & (
+            new_df["any_user"] != "Yes") & (
+            new_df["number_of_sets"] == 0)
+        ), 
+        other="None"
+    )
+
     # remove neo pronoun columns?
     for neo_pronoun_column in [
         "q9_Spivak_e/em",
