@@ -53,28 +53,6 @@ def make_pronoun_combos(input_df:pd.DataFrame):
     for column in new_df:
         new_df[column] = new_df[column].mask(new_df[column] == "No", other="None").fillna("None")
 
-    # make new column with count of how many pronoun sets someone uses (total & of big three)
-    for set_case in ["number_of_sets", "number_of_big_three"]:
-
-        # setting up dfs
-        new_df[set_case] = 0
-        temp_df = new_df.copy()
-        if set_case == "number_of_sets":
-            temp_df.pop("any_user")
-            temp_df.pop("questioning")
-            temp_df.pop("avoid_pronouns/name_as_pronoun")
-        elif set_case == "number_of_big_three":
-            temp_df = temp_df.get(["she_user","he_user","they_user"])
-
-        # counting
-        number_of_sets = pd.Series(index=temp_df.index)
-        for row in temp_df.index:
-            current_row = [item for item in temp_df.iloc[row] if item == "Yes"]
-            number_of_sets[row] = len(current_row)
-        
-        # inserting
-        new_df[set_case] = number_of_sets
-
     # make new column for anyone who uses neo pronouns
     new_df["neopronoun_user"] = "Yes"
     new_df["neopronoun_user"] = new_df["neopronoun_user"].where(
@@ -87,8 +65,34 @@ def make_pronoun_combos(input_df:pd.DataFrame):
             new_df["q9_ze/hir"] == "Yes") | (
             new_df["q9_ze/zir"] == "Yes") | (
             new_df["q9_A pronoun set not listed here"] == "Yes"
-        ), other="None"
+        ),
     )
+
+    # make new column with count of how many pronoun sets someone uses 
+    # (total, of 5 categories, & of big three)
+    for set_case in ["number_of_sets", "number_of_categories", "number_of_big_three"]:
+
+        # setting up dfs
+        new_df[set_case] = 0
+        temp_df = new_df.copy()
+        if set_case == "number_of_sets":
+            temp_df.pop("any_user")
+            temp_df.pop("questioning")
+            temp_df.pop("avoid_pronouns/name_as_pronoun")
+            temp_df.pop("neopronoun_user")
+        elif set_case == "number_of_categories":
+            temp_df = temp_df.get(["she_user","he_user","they_user", "it_user", "neopronoun_user"])
+        elif set_case == "number_of_big_three":
+            temp_df = temp_df.get(["she_user","he_user","they_user"])
+
+        # counting
+        number_of_sets = pd.Series(index=temp_df.index)
+        for row in temp_df.index:
+            current_row = [item for item in temp_df.iloc[row] if item == "Yes"]
+            number_of_sets[row] = len(current_row)
+        
+        # inserting
+        new_df[set_case] = number_of_sets
 
     # of ppl who uses one set only: make a column for each of the five options
     for set_case in [
@@ -101,8 +105,7 @@ def make_pronoun_combos(input_df:pd.DataFrame):
         new_column_name = set_case[:-4] + "only"
         new_df[new_column_name] = "Yes"
         new_df[new_column_name] = new_df[new_column_name].where(
-            (new_df[set_case] == "Yes") & (new_df["number_of_sets"] == 1),
-            other="None"
+            (new_df[set_case] == "Yes") & (new_df["number_of_categories"] == 1),
         )
     
     # of ppl who use 2 sets: make a column for he/they, she/they, and she/he
@@ -120,6 +123,8 @@ def make_pronoun_combos(input_df:pd.DataFrame):
         ("she","[neo]"),
         ("he","[neo]"),
         ("they","[neo]"),
+
+        ("it","[neo]"), # for any only it/neo ppl
     ]:
         first_column = set_case[0] + "_user"
         if set_case[1] == "[neo]":
@@ -134,7 +139,7 @@ def make_pronoun_combos(input_df:pd.DataFrame):
         ]:
             # we want to be able to cross reference with neo pronouns later
             number_column = "number_of_big_three" 
-        else: number_column = "number_of_sets"
+        else: number_column = "number_of_categories"
 
         new_df[set_name] = "Yes"
         new_df[set_name] = new_df[set_name].where(
@@ -142,7 +147,27 @@ def make_pronoun_combos(input_df:pd.DataFrame):
                 new_df[first_column] == "Yes") & (
                 new_df[second_column] == "Yes") & (
                 new_df[number_column] == 2
-            ), other="None"
+            ),
+        )
+
+    # new columns for anyone who uses it/neo pronouns 
+    # or it/neo pronouns in combo with one other pronoun
+    for pronoun_set in ["she", "he", "they"]: # cause all of them will have it/neo in there
+        first_column = pronoun_set + "_user"
+        second_column = "it_user"
+        third_column = "neopronoun_user"
+        set_name = pronoun_set + "/it/[neo]"
+
+        number_column = "number_of_categories"
+
+        new_df[set_name] = "Yes"
+        new_df[set_name] = new_df[set_name].where(
+            (
+                new_df[first_column] == "Yes") & (
+                new_df[second_column] == "Yes") & (
+                new_df[third_column] == "Yes") & (
+                new_df[number_column] == 3
+            ),
         )
 
     # make a new column for anyone who uses all 3 big three
@@ -152,7 +177,6 @@ def make_pronoun_combos(input_df:pd.DataFrame):
             new_df["number_of_big_three"] == 3) | (
             (new_df["any_user"] == "Yes") & (new_df["number_of_sets"] == 0)
         ), 
-        other="None"
     )
 
     # make a new column for anyone who only ticked questioning or avoid pronouns/use name
@@ -161,7 +185,6 @@ def make_pronoun_combos(input_df:pd.DataFrame):
         (
             (new_df["questioning"] == "Yes") & (new_df["any_user"] != "Yes") & (new_df["number_of_sets"] == 0)
         ), 
-        other="None"
     )
     new_df["avoid_pronouns/use_name_only"] = "Yes"
     new_df["avoid_pronouns/use_name_only"] = new_df["avoid_pronouns/use_name_only"].where(
@@ -171,7 +194,6 @@ def make_pronoun_combos(input_df:pd.DataFrame):
             new_df["any_user"] != "Yes") & (
             new_df["number_of_sets"] == 0)
         ), 
-        other="None"
     )
 
     # remove neo pronoun columns?
@@ -188,7 +210,7 @@ def make_pronoun_combos(input_df:pd.DataFrame):
         new_df.pop(neo_pronoun_column)
 
     # idk where but somewhere index got messed up so we're putting it back 🤔
-    new_df = new_df.set_index("UserID")
+    new_df = new_df.set_index("UserID").fillna("None")
 
     return new_df
 

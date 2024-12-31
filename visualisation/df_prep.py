@@ -47,7 +47,11 @@ def count_df(input_df:pd.DataFrame, data_case:str):
             "they/it",
             "he/[neo]",
             "she/[neo]",
-            "they/[neo]"
+            "they/[neo]",
+            "she/it/[neo]",
+            "he/it/[neo]",
+            "they/it/[neo]",
+            "it/[neo]",
         ]
     elif data_case in ["pronoun_pie","aligned_pronoun_pie"]:
         get_list = [
@@ -66,6 +70,10 @@ def count_df(input_df:pd.DataFrame, data_case:str):
             "he/[neo]",
             "she/[neo]",
             "they/[neo]",
+            "she/it/[neo]",
+            "he/it/[neo]",
+            "they/it/[neo]",
+            "it/[neo]",
             "avoid_pronouns/use_name_only",
             "questioning_only",
         ]
@@ -78,12 +86,14 @@ def count_df(input_df:pd.DataFrame, data_case:str):
             "she/they",
             "she/it",
             "she/[neo]",
+            "she/it/[neo]",
         ]
         male_aligned = [
             "he_only",
             "he/they",
             "he/it",
             "he/[neo]",
+            "he/it/[neo]",
         ]
         unaligned = [
             "they_only",
@@ -95,6 +105,8 @@ def count_df(input_df:pd.DataFrame, data_case:str):
             "they/[neo]",
             "avoid_pronouns/use_name_only",
             "questioning_only",
+            "they/it/[neo]",
+            "it/[neo]",
         ]
 
         new_series["female_aligned"] = new_series.get(female_aligned).agg("sum")

@@ -30,6 +30,11 @@ pronoun_colours = {
     "she/[neo]":"orange",
     "he/[neo]":"limegreen",
     "they/[neo]":"chocolate",
+
+    "she/it/[neo]":"tan",
+    "he/it/[neo]":"darkseagreen",
+    "they/it/[neo]":"darkgoldenrod",
+    "it/[neo]":"greenyellow",
 }
 
 alignment_colours = {
