@@ -1,0 +1,17 @@
+pronoun_colours = {
+    "she_only":"deeppink",
+    "he_only":"royalblue",
+    "they_only":"purple",
+    "it_only":"green",
+    "neopronoun_only":"yellow",
+    "she/they":"mediumvioletred",
+    "he/they":"slateblue",
+    "she/he":"violet",
+    "she/he/they_any":"black",
+    "she/it":"olive",
+    "he/it":"lightseagreen ",
+    "they/it":"saddlebrown",
+    "she/[neo]":"orange",
+    "he/[neo]":"limegreen",
+    "they/[neo]":"chocolate",
+}
