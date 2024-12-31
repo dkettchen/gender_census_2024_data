@@ -1,8 +1,8 @@
 
 from utils.csv_reader import df_from_csv
-from visualisation.bar_charts import make_simple_bar, make_grouped_bar
-from visualisation.df_prep import count_df
-from visualisation.pie_charts import make_pie
+from visualisation.make_bar_charts import make_simple_bar, make_grouped_bar
+from visualisation.make_prepped_df import count_df
+from visualisation.make_pie_charts import make_pie
 
 # pronouns
 # read from file
