@@ -1,4 +1,3 @@
-
 from utils.csv_reader import df_from_csv
 from visualisation.make_bar_charts import make_simple_bar, make_grouped_bar
 from visualisation.make_prepped_df import count_df
