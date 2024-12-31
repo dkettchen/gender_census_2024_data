@@ -25,3 +25,9 @@ pronoun_colours = {
     "he/[neo]":"limegreen",
     "they/[neo]":"chocolate",
 }
+
+alignment_colours = {
+    "female_aligned":"mediumvioletred",
+    "male_aligned":"slateblue",
+    "unaligned":"purple",
+}

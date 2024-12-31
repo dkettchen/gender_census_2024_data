@@ -10,6 +10,7 @@ def count_df(input_df:pd.DataFrame, data_case:str):
     """
     new_series = input_df.copy().count() # this becomes a series
 
+    # get columns!
     if data_case == "total_users":
         get_list = [
             "she_user",
@@ -43,7 +44,7 @@ def count_df(input_df:pd.DataFrame, data_case:str):
             "she/[neo]",
             "they/[neo]"
         ]
-    elif data_case == "pronoun_pie":
+    elif data_case in ["pronoun_pie","aligned_pronoun_pie"]:
         get_list = [
             "she_only",
             "he_only",
@@ -61,8 +62,37 @@ def count_df(input_df:pd.DataFrame, data_case:str):
             "she/[neo]",
             "they/[neo]"
         ]
-
     new_series = new_series.get(get_list)
+
+    # special adjustments
+    if data_case == "aligned_pronoun_pie":
+        female_aligned = [
+            "she_only",
+            "she/they",
+            "she/it",
+            "she/[neo]",
+        ]
+        male_aligned = [
+            "he_only",
+            "he/they",
+            "he/it",
+            "he/[neo]",
+        ]
+        unaligned = [
+            "they_only",
+            "it_only",
+            "neopronoun_only",
+            "she/he",
+            "she/he/they_any",
+            "they/it",
+            "they/[neo]"
+        ]
+
+        new_series["female_aligned"] = new_series.get(female_aligned).agg("sum")
+        new_series["male_aligned"] = new_series.get(male_aligned).agg("sum")
+        new_series["unaligned"] = new_series.get(unaligned).agg("sum")
+
+        new_series = new_series.get(["female_aligned", "male_aligned", "unaligned"])
 
     new_series = new_series.apply(lambda x: round((x/len(input_df))*100, 2))
 

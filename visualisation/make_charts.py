@@ -53,3 +53,14 @@ pie_fig.write_image(
     height=800,
     width=800,
 )
+
+
+# pie chart by alignment
+pie_df = count_df(pronoun_df, "aligned_pronoun_pie")
+pie_fig = make_pie(pie_df, "aligned_pronoun_pie")
+pie_fig.write_image(
+    "visualisation/charts/pronoun_alignment_pie.png",
+    height=800,
+    width=800,
+)
+
