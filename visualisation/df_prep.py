@@ -64,7 +64,6 @@ def count_df(input_df:pd.DataFrame, data_case:str):
 
     new_series = new_series.get(get_list)
 
-
     new_series = new_series.apply(lambda x: round((x/len(input_df))*100, 2))
 
     new_series = new_series.sort_values(ascending=False)
