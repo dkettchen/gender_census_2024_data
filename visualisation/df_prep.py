@@ -29,7 +29,9 @@ def count_df(input_df:pd.DataFrame, data_case:str):
             "he_only",
             "they_only",
             "it_only",
-            "neopronoun_only"
+            "neopronoun_only",
+            "avoid_pronouns/use_name_only",
+            "questioning_only",
         ]
     elif data_case == "big_three_combos":
         get_list = [
@@ -63,7 +65,9 @@ def count_df(input_df:pd.DataFrame, data_case:str):
             "they/it",
             "he/[neo]",
             "she/[neo]",
-            "they/[neo]"
+            "they/[neo]",
+            "avoid_pronouns/use_name_only",
+            "questioning_only",
         ]
     new_series = new_series.get(get_list)
 
@@ -88,7 +92,9 @@ def count_df(input_df:pd.DataFrame, data_case:str):
             "she/he",
             "she/he/they_any",
             "they/it",
-            "they/[neo]"
+            "they/[neo]",
+            "avoid_pronouns/use_name_only",
+            "questioning_only",
         ]
 
         new_series["female_aligned"] = new_series.get(female_aligned).agg("sum")
