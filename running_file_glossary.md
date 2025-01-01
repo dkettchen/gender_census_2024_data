@@ -42,8 +42,23 @@ Other files used:
 - [test/make_test_files.py](test/make_test_files.py) makes smaller test data files of the head(20) and tail(20) of the raw data [data/test_data/](data/test_data/) to use in the testing files
 - [test/test_rename_columns.py](test/test_rename_columns.py) and [test/test_separate_questions.py](test/test_separate_questions.py) contain tests for the functions in [src/separate_questions.py](src/separate_questions.py)
 
+## Making pronoun combos
+
+(WIP)
+
+# Visualisation
+
+[visualisation/run_and_make_charts.py](visualisation/run_and_make_charts.py) runs all the current chart code and writes pronoun set chart files in [visualisation/charts/](visualisation/charts) using plotly's kaleido
+
+Other files used:
+- [utils/csv_reader.py](utils/csv_reader.py) reads from [data/cleaned_q9_with_new_columns/q9_clean_01.csv](data/cleaned_q9_with_new_columns/q9_clean_01.csv)
+- [visualisation/make_prepped_df.py](visualisation/make_prepped_df.py) preps the data for the relevant data_case
+- [visualisation/make_bar_charts.py](visualisation/make_bar_charts.py) creates bar charts using plotly
+- [visualisation/make_pie_charts.py](visualisation/make_pie_charts.py) creates pie charts using plotly
+
 # Other relevant files
 
 - Methodology document: [methodology.md](methodology.md)
 - Reference for the original questions and their tick box answers: [questions.md](questions.md)
 - Raw data excel file: data/raw_data/[GC2024] Unprocessed data.xlsx <!-- won't let me link it -->
+- Repo "read me" file: [README.md](README.md)
