@@ -183,7 +183,9 @@ def make_pronoun_combos(input_df:pd.DataFrame):
     new_df["questioning_only"] = "Yes"
     new_df["questioning_only"] = new_df["questioning_only"].where(
         (
-            (new_df["questioning"] == "Yes") & (new_df["any_user"] != "Yes") & (new_df["number_of_sets"] == 0)
+            (new_df["questioning"] == "Yes") & (
+            new_df["any_user"] != "Yes") & (
+            new_df["number_of_sets"] == 0)
         ), 
     )
     new_df["avoid_pronouns/use_name_only"] = "Yes"
