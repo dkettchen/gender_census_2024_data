@@ -298,10 +298,10 @@ def combine_info(tick_box_df, write_in_df):
 if __name__ == "__main__":
     read_tickbox_data = df_from_csv("data/separated_questions/q1_label_tick_boxes.csv")
 
-    # # running full file
-    # new_df = make_tickbox_columns(read_tickbox_data)
+    # running full file
+    new_df = make_tickbox_columns(read_tickbox_data)
 
-    # running partial file
-    new_df = make_tickbox_columns(read_tickbox_data.head(100))
+    # # running partial file
+    # new_df = make_tickbox_columns(read_tickbox_data.head(100))
 
     new_df.to_csv(path_or_buf="data/cleaned_q1_with_new_columns/q1_clean_01.csv")
