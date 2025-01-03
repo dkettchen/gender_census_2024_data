@@ -108,15 +108,19 @@ I added new columns for any words that are synonymous
 ### Mutually exclusive and conflicted categories
 
 I also added columns to mutually exclusively tag certain labels, including their (conflicting) combination
-- ex. cis and trans are opposites, so I've made a column of anyone who only indicated trans labels, but didn't tick cis; anyone who did not tick any trans labels but did tick cis; and anyone who ticked both at least one trans label and cis -> conflict
+- ex. cis and trans are opposites, so I've made a column of anyone who only indicated trans labels, but didn't tick cis ("is_trans_tickbox"); anyone who did not tick any trans labels but did tick cis ("is_cis_tickbox"); and anyone who ticked both at least one trans label and cis -> conflict ("conflicted_cis/trans_tickbox")
 
-Other mutually exclusive/conflicting labels covered include: transmasc/transfemme, demigirl/demiboy, fag/butch
+Other mutually exclusive/conflicting labels covered include: transmasc/transfem, demigirl/demiboy, fag/butch
 
 I also added nb and nb_umbrella columns for binary nonbinaries, which is not treated as conflicting, as it usually means someone who is a male- or female-aligned nonbinary.
 
+### Unspecified columns
+
+I added columns for people who did not indicate whether they're cis or trans ("unspecified_cis/trans_tickbox"), and for people who are trans but did not indicate a direction ("unspecified_transmasc/transfem_tickbox")
+
 ### Birthsex info
 
-I have assumed the mutually exclusive/unconflicting versions of following labels and combos to indicate birthsex among the tick box labels:
+I have assumed the mutually exclusive/unconflicting versions of the following labels and combos to indicate birthsex among the tick box labels:
 
 - If one is 
     - transmasc
