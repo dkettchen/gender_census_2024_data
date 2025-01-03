@@ -42,3 +42,6 @@ alignment_colours = {
     "male_aligned":"slateblue",
     "unaligned":"purple",
 }
+
+label_colours = {
+}

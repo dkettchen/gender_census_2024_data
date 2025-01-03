@@ -1,4 +1,4 @@
-from visualisation.chart_colours import pronoun_colours, alignment_colours
+from visualisation.chart_colours import pronoun_colours, alignment_colours, label_colours
 
 def make_colour_list(input_list:list, data_case:str):
     """
@@ -14,7 +14,11 @@ def make_colour_list(input_list:list, data_case:str):
         colour_ref = pronoun_colours
     elif data_case == "alignments":
         colour_ref = alignment_colours
+    elif data_case == "labels":
+        colour_ref = label_colours
     
-    colour_list = [colour_ref[item] for item in input_list]
+    if len(colour_ref) > 0:
+        colour_list = [colour_ref[item] for item in input_list]
+    else: colour_list = []
 
     return colour_list

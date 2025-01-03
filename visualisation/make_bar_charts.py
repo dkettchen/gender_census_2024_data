@@ -12,17 +12,43 @@ def make_simple_bar(input_srs:pd.Series, data_case:str):
     - "only_one_set"
     - "big_three_combos"
     - "it_and_neo_combos"
-    """
-    colours = make_colour_list(input_srs.index, "pronouns")
 
-    labels = input_srs.index
+    - "tickbox_label_total"
+    - "tickbox_nb_labels"
+    """
+
+    # making colours
+    if data_case in ["total_users","only_one_set","big_three_combos","it_and_neo_combos"]:
+        colours = make_colour_list(input_srs.index, "pronouns")
+    elif data_case in ["tickbox_label_total", "tickbox_nb_labels"]:
+        colours = make_colour_list(input_srs.index, "labels")
+
+    # making labels
+    if data_case in ["tickbox_nb_labels"]: # removing _tickbox & is_ & add _total to nb/nb_umbrella
+        labels = []
+        for column in input_srs.index:
+            if "is_" not in column:
+                new_column = column[:-8]
+            else:
+                new_column = column[3:-8]
+
+            if new_column in ["nb", "nb_umbrella"]:
+                new_column += "_total"
+            
+            labels.append(new_column)
+    elif data_case == "tickbox_label_total": # removing _tickbox ending
+        labels = [column[:-8] for column in input_srs.index]
+    else:
+        labels = input_srs.index
+    
+    # making values
     values = input_srs.values
 
     fig = go.Figure(data=[
         go.Bar(x=labels, y=values, marker_color=colours)
     ])
 
-    if data_case != "total_users":
+    if data_case not in ["total_users", "tickbox_label_total", "tickbox_nb_labels",]:
         range = [0, 50]
     else:
         range = [0, 100]
@@ -37,6 +63,10 @@ def make_simple_bar(input_srs:pd.Series, data_case:str):
         title = f"% of respondants who use a combo of she, he, and they (order insensitive) <br>{suffix}"
     elif data_case == "it_and_neo_combos":
         title = f"% of respondants who use she, he, or they w/ it or neopronouns (order insensitive) <br>{suffix}"
+    elif data_case == "tickbox_label_total":
+        title = f"% of respondants who use this label {suffix}"
+    elif data_case == "tickbox_nb_labels":
+        title = f"% of respondants who use nonbinary labels {suffix}"
 
     fig.update_yaxes(range=range)
     fig.update_layout(

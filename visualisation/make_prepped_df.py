@@ -9,6 +9,8 @@ def count_df(input_df:pd.DataFrame, data_case:str):
     and percentage numbers
     """
     new_series = input_df.copy().count() # this becomes a series
+    if "UserID" in new_series.index:
+        new_series.pop("UserID")
 
     # get columns!
     if data_case == "total_users":
@@ -77,6 +79,18 @@ def count_df(input_df:pd.DataFrame, data_case:str):
             "avoid_pronouns/use_name_only",
             "questioning_only",
         ]
+    elif data_case == "tickbox_label_total":
+        get_list = new_series.index
+    elif data_case == "tickbox_nb_labels":
+        get_list = []
+        for column in new_series.index:
+            for key_word in [
+                "nonbinary","enby","nb_",
+                "fluid","bigender","agender",
+            ]: 
+                if key_word in column:
+                    get_list.append(column)
+
     new_series = new_series.get(get_list)
 
     # special adjustments
