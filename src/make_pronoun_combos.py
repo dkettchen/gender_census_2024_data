@@ -51,7 +51,7 @@ def make_pronoun_combos(input_df:pd.DataFrame):
 
     # making useable none values for later
     for column in new_df:
-        new_df[column] = new_df[column].mask(new_df[column] == "No", other="None").fillna("None")
+        new_df[column] = new_df[column].mask(new_df[column] == "No")
 
     # make new column for anyone who uses neo pronouns
     new_df["neopronoun_user"] = "Yes"
