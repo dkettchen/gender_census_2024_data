@@ -39,6 +39,10 @@ def make_tickbox_columns(input_df:pd.DataFrame):
     # renaming new df
     new_df = input_df.copy().reset_index().rename(columns=renaming_dict)
 
+    # making useable none values for later
+    for column in new_df:
+        new_df[column] = new_df[column].mask(new_df[column] == "No")
+
 
     # adding mutually exclusive, conflicted & unspecified columns
 
