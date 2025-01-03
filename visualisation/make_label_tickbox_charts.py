@@ -32,6 +32,22 @@ def make_label_tickbox_charts(input_df:pd.DataFrame):
         width=1500,
     )
     
+    trans_cis_df = count_df(tickbox_df, "tickbox_trans_cis_labels")
+    trans_cis_fig = make_pie(trans_cis_df, "tickbox_trans_cis_labels")
+    trans_cis_fig.write_image(
+        f"{folder}trans_cis_pie.png",
+        height=800,
+        width=800,
+    )
+
+    trans_direction_df = count_df(tickbox_df, "tickbox_trans_direction_labels")
+    trans_direction_fig = make_pie(trans_direction_df, "tickbox_trans_direction_labels")
+    trans_direction_fig.write_image(
+        f"{folder}trans_direction_pie.png",
+        height=800,
+        width=800,
+    )
+
 
     # total users per new columns
         # trans, cis, conflicted, unspecified (pie)

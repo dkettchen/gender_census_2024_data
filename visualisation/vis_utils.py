@@ -22,8 +22,17 @@ def make_colour_list(input_list:list, data_case:str):
     elif data_case == "tickbox_labels": # getting colours based on whether they're tickbox or added columns
         colour_list = []
         for item in input_list:
-            if item in colour_ref:
+            # colour coding all straight up tickbox labels the same for now
+            if item in tickbox_labels:
                 colour = "indigo"
+
+            # colour coding all conflicted & unspecified items the same
+            elif "conflicted" in item:
+                colour = "firebrick"
+            elif "unspecified" in item:
+                colour = "slategrey"
+
+            # any other columns
             else: 
                 for category in other_tickbox_labels:
                     current_collection = other_tickbox_labels[category]

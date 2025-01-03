@@ -68,23 +68,23 @@ tickbox_labels = [
     "no self-description_tickbox",
 ]
 other_tickbox_labels = {
-    "cis_trans" : [
-        "is_trans_tickbox",
-        "is_cis_tickbox",
-        "conflicted_cis/trans_tickbox",
-        "unspecified_cis/trans_tickbox",
-    ],
+    "cis_trans" : {
+        "is_trans_tickbox":"lightblue",
+        "is_cis_tickbox":"black",
+        "conflicted_cis/trans_tickbox":"red",
+        "unspecified_cis/trans_tickbox":"silver",
+    },
     "demiboy_demigirl": {
         "is_only_demigirl_tickbox":"mediumvioletred",
         "is_only_demiboy_tickbox":"slateblue",
         "conflicted_demigirl/demiboy_tickbox":"violet",
     },
-    "transmasc_transfem": [
-        "is_transmasc_tickbox",
-        "is_transfemme_tickbox",
-        "conflicted_transmasc/transfem_tickbox",
-        "unspecified_transmasc/transfem_tickbox",
-    ],
+    "transmasc_transfem": {
+        "is_transmasc_tickbox":"skyblue",
+        "is_transfemme_tickbox":"hotpink",
+        "conflicted_transmasc/transfem_tickbox":"red",
+        "unspecified_transmasc/transfem_tickbox":"silver",
+    },
     "butch_fag": [
         "is_only_butch_tickbox",
         "is_only_fag_tickbox",

@@ -115,6 +115,21 @@ def count_df(input_df:pd.DataFrame, data_case:str):
             "is_nb_tickbox",
             "is_nb_umbrella_tickbox",
         ]
+    elif data_case == "tickbox_trans_cis_labels":
+        get_list = [
+            "is_trans_tickbox",
+            "is_cis_tickbox",
+            "conflicted_cis/trans_tickbox",
+            "unspecified_cis/trans_tickbox",
+        ]
+    elif data_case == "tickbox_trans_direction_labels":
+        get_list = [
+            "is_trans_tickbox", # to have the total in there
+            "is_transmasc_tickbox",
+            "is_transfemme_tickbox",
+            "conflicted_transmasc/transfem_tickbox",
+            "unspecified_transmasc/transfem_tickbox",
+        ]
 
     new_series = new_series.get(get_list)
 
@@ -154,7 +169,16 @@ def count_df(input_df:pd.DataFrame, data_case:str):
 
         new_series = new_series.get(["female_aligned", "male_aligned", "unaligned"])
 
-    new_series = new_series.apply(lambda x: round((x/len(input_df))*100, 2))
+    if data_case == "tickbox_trans_direction_labels":
+        total_no = new_series["is_trans_tickbox"] # total number of trans people only
+    else:
+        total_no = len(input_df) # total length of input df
+
+    new_series = new_series.apply(lambda x: round((x/total_no)*100, 2))
+
+    # removing total column again after calculating %
+    if data_case == "tickbox_trans_direction_labels":
+        new_series.pop("is_trans_tickbox")
 
     new_series = new_series.sort_values(ascending=False)
 
