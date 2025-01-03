@@ -20,7 +20,6 @@ I am trying to extract useable data from write ins to complement the limited tic
 
     - ex. survey doesn't collect info about birth assignments (* shakes fist at op *), but there is info implying or explicitly stating birthsex in the write ins (ie "afab", "male to female", "transmasc", "cis woman", "pussyboy", etc) or info that can be combined with tick box labels to conclude on birthsex (ie someone who ticked "trans" and wrote in "boy" -> presumably transmasc -> afab) -> this info, while limited can give us insight into what birthsex distribution may be/if certain groups are more likely to write in info on birthsex than others
 
-
 ## Who made me the label police / how am I categorising the labels
 
 Our People (the gender questionable and -queer community at large) are too dang particular about language. Mogai was a mistake. You need to go outside and touch grass, everyone. (And most of you need to learn a language other than english before @ ing me.)
@@ -90,6 +89,52 @@ I am taking the liberty to disregard replies that cannot provide useful info, ar
 ### Margin of error, due to other omitted/uncaught answers
 
 Some answers that mean the same thing as my categories may be omitted due to different languages or otherwise not being caught in my relevant word collection. This means that any numbers gained from the write ins are still mere estimates with variation within a small range (ex maybe a handful of answers fell through the cracks and was not counted but most of them (we're talking tens of thousands of total participants after all) will have been counted, so it should still be generally accurate)
+
+
+
+## Label columns (tickboxes)
+
+### Renaming columns
+
+I renamed all tickbox columns to end in "_tickbox" (which is continued for newly added columns too, to later more easily differentiate between tickbox and write ins columns of the same label/category name) and simplified some of them (eg "queer", "genderfluid" "questioning/unknown", etc)
+
+### Synonymous words
+
+I added new columns for any words that are synonymous
+- ex. trans/transgender/transmasc/transfemme all denote trans status -> I've added an "is_trans_tickbox" column
+- ex. nonbinary/enby are synonyms -> I've added an "is_nb_tickbox" column
+- ex. agender, bigender, genderfluid are all roughly synonymous labels under the nonbinary umbrella -> I've added an "is_nb_umbrella_tickbox" column that includes them as well as the is_nb labels
+
+### Mutually exclusive and conflicted categories
+
+I also added columns to mutually exclusively tag certain labels, including their (conflicting) combination
+- ex. cis and trans are opposites, so I've made a column of anyone who only indicated trans labels, but didn't tick cis; anyone who did not tick any trans labels but did tick cis; and anyone who ticked both at least one trans label and cis -> conflict
+
+Other mutually exclusive/conflicting labels covered include: transmasc/transfemme, demigirl/demiboy, fag/butch
+
+I also added nb and nb_umbrella columns for binary nonbinaries, which is not treated as conflicting, as it usually means someone who is a male- or female-aligned nonbinary.
+
+### Birthsex info
+
+I have assumed the mutually exclusive/unconflicting versions of following labels and combos to indicate birthsex among the tick box labels:
+
+- If one is 
+    - transmasc
+    - trans (unspecified direction, as labeled transmascs are already covered) demiboy
+    - cis demigirl
+    - cis butch
+
+    one is assumed afab for tickbox-only purposes
+
+- If one is
+    - transfemme
+    - trans (unspecified direction, as labeled transfemmes are already covered) demigirl
+    - cis demiboy
+    - cis fag
+
+    one is assumed amab for tickbox-only purposes
+
+Obviously this info is limited due to lack of other labels represented (ie what if someone is intersex? what if someone is a cis binary but doesn't identify as a demiboy/demigirl specifically? etc). We will get more indepth info once we add write ins to make up for those missing labels, but for now this is the best indication we can gather from the tickboxes by themselves.
 
 ## Blue hair AND pronouns?? (and I'm all out of blue hair) ~~(dude idk)~~
 
