@@ -8,7 +8,9 @@ def count_df(input_df:pd.DataFrame, data_case:str):
     sorted in descending value order, 
     and percentage numbers
     """
+    
     new_series = input_df.copy().count() # this becomes a series
+    
     if "UserID" in new_series.index:
         new_series.pop("UserID")
 
@@ -80,16 +82,39 @@ def count_df(input_df:pd.DataFrame, data_case:str):
             "questioning_only",
         ]
     elif data_case == "tickbox_label_total":
-        get_list = new_series.index
+        get_list = [
+            "a person/human/[my name]/just me_tickbox",
+            "agender_tickbox",
+            "bigender_tickbox",
+            "binary_tickbox",
+            "butch_tickbox",
+            "cisgender_tickbox",
+            "demiboy_tickbox",
+            "demigirl_tickbox",
+            "enby_tickbox",
+            "fag_tickbox",
+            "gender non-conforming_tickbox",
+            "genderfluid_tickbox",
+            "genderqueer_tickbox",
+            "nonbinary_tickbox",
+            "queer_tickbox",
+            "questioning/unknown_tickbox",
+            "trans_tickbox",
+            "transfeminine_tickbox",
+            "transgender_tickbox",
+            "transmasculine_tickbox",
+            "no self-description_tickbox",
+        ]
     elif data_case == "tickbox_nb_labels":
-        get_list = []
-        for column in new_series.index:
-            for key_word in [
-                "nonbinary","enby","nb_",
-                "fluid","bigender","agender",
-            ]: 
-                if key_word in column:
-                    get_list.append(column)
+        get_list = [
+            "agender_tickbox",
+            "bigender_tickbox",
+            "enby_tickbox",
+            "genderfluid_tickbox",
+            "nonbinary_tickbox",
+            "is_nb_tickbox",
+            "is_nb_umbrella_tickbox",
+        ]
 
     new_series = new_series.get(get_list)
 

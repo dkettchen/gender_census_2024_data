@@ -21,7 +21,7 @@ def make_simple_bar(input_srs:pd.Series, data_case:str):
     if data_case in ["total_users","only_one_set","big_three_combos","it_and_neo_combos"]:
         colours = make_colour_list(input_srs.index, "pronouns")
     elif data_case in ["tickbox_label_total", "tickbox_nb_labels"]:
-        colours = make_colour_list(input_srs.index, "labels")
+        colours = make_colour_list(input_srs.index, "tickbox_labels")
 
     # making labels
     if data_case in ["tickbox_nb_labels"]: # removing _tickbox & is_ & add _total to nb/nb_umbrella
@@ -64,7 +64,7 @@ def make_simple_bar(input_srs:pd.Series, data_case:str):
     elif data_case == "it_and_neo_combos":
         title = f"% of respondants who use she, he, or they w/ it or neopronouns (order insensitive) <br>{suffix}"
     elif data_case == "tickbox_label_total":
-        title = f"% of respondants who use this label {suffix}"
+        title = f"% of respondants who ticked this label {suffix}"
     elif data_case == "tickbox_nb_labels":
         title = f"% of respondants who use nonbinary labels {suffix}"
 
