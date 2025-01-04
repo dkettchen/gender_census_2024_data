@@ -24,6 +24,8 @@ def make_label_tickbox_charts(input_df:pd.DataFrame):
         width=1500,
     )
 
+    # nb label users vs total nb umbrella label users (2 bars)
+    # nb labels vs other nb umbrella labels (comparison in each label's numbers) (bars)
     nb_users_df = count_df(tickbox_df, "tickbox_nb_labels")
     nb_users_fig = make_simple_bar(nb_users_df, "tickbox_nb_labels")
     nb_users_fig.write_image(
@@ -32,6 +34,7 @@ def make_label_tickbox_charts(input_df:pd.DataFrame):
         width=1500,
     )
     
+    # trans, cis, conflicted, unspecified (pie)
     trans_cis_df = count_df(tickbox_df, "tickbox_trans_cis_labels")
     trans_cis_fig = make_pie(trans_cis_df, "tickbox_trans_cis_labels")
     trans_cis_fig.write_image(
@@ -40,6 +43,7 @@ def make_label_tickbox_charts(input_df:pd.DataFrame):
         width=800,
     )
 
+    # transmasc, transfemme, unspecified trans (pie)
     trans_direction_df = count_df(tickbox_df, "tickbox_trans_direction_labels")
     trans_direction_fig = make_pie(trans_direction_df, "tickbox_trans_direction_labels")
     trans_direction_fig.write_image(
@@ -50,12 +54,8 @@ def make_label_tickbox_charts(input_df:pd.DataFrame):
 
 
     # total users per new columns
-        # trans, cis, conflicted, unspecified (pie)
-        # transmasc, transfemme, unspecified trans (pie)
         # nb vs not nb (pie)
         # nb umbrella vs not nb umbrella (pie)
-        # nb label users vs total nb umbrella label users (2 bars)
-        # nb labels vs other nb umbrella labels (comparison in each label's numbers) (bars)
 
     # cross overs
         # top 5-10 labels per each label/category

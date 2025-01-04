@@ -44,29 +44,29 @@ alignment_colours = {
 }
 
 # for reference of what they ended up being called
-tickbox_labels = [
-    "a person/human/[my name]/just me_tickbox",
-    "agender_tickbox",
-    "bigender_tickbox",
-    "binary_tickbox",
-    "butch_tickbox",
-    "cisgender_tickbox",
-    "demiboy_tickbox",
-    "demigirl_tickbox",
-    "enby_tickbox",
-    "fag_tickbox",
-    "gender non-conforming_tickbox",
-    "genderfluid_tickbox",
-    "genderqueer_tickbox",
-    "nonbinary_tickbox",
-    "queer_tickbox",
-    "questioning/unknown_tickbox",
-    "trans_tickbox",
-    "transfeminine_tickbox",
-    "transgender_tickbox",
-    "transmasculine_tickbox",
-    "no self-description_tickbox",
-]
+tickbox_labels = {
+    "a person/human/[my name]/just me_tickbox":"coral",
+    "agender_tickbox":"lightgreen",
+    "bigender_tickbox":"mediumorchid",
+    "binary_tickbox":"black", 
+    "butch_tickbox":"orange",
+    "cisgender_tickbox":"black",
+    "demiboy_tickbox":"slateblue",
+    "demigirl_tickbox":"mediumvioletred",
+    "enby_tickbox":"gold",
+    "fag_tickbox":"darkturquoise",
+    "gender non-conforming_tickbox":"indigo",
+    "genderfluid_tickbox":"fuchsia",
+    "genderqueer_tickbox":"mediumseagreen",
+    "nonbinary_tickbox":"mediumpurple",
+    "queer_tickbox":"red", # for first stripe of rainbow idk
+    "questioning/unknown_tickbox":"slategrey",
+    "trans_tickbox":"deepskyblue",
+    "transfeminine_tickbox":"hotpink",
+    "transgender_tickbox":"dodgerblue",
+    "transmasculine_tickbox":"skyblue",
+    "no self-description_tickbox":"slategrey",
+}
 other_tickbox_labels = {
     "cis_trans" : {
         "is_trans_tickbox":"lightblue",
