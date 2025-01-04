@@ -40,7 +40,7 @@ def make_label_tickbox_charts(input_df:pd.DataFrame):
     trans_cis_fig.write_image(
         f"{folder}trans_cis_pie.png",
         height=800,
-        width=1000,
+        width=800,
     )
 
     # transmasc, transfemme, unspecified trans (pie)
@@ -49,13 +49,26 @@ def make_label_tickbox_charts(input_df:pd.DataFrame):
     trans_direction_fig.write_image(
         f"{folder}trans_direction_pie.png",
         height=800,
-        width=1000,
+        width=800,
     )
 
-
-    # total users per new columns
-        # nb vs not nb (pie)
-        # nb umbrella vs not nb umbrella (pie)
+    # nb vs not nb (pie)
+    nb_no_nb_df = count_df(tickbox_df, "tickbox_nb_no_nb")
+    nb_no_nb_fig = make_pie(nb_no_nb_df, "tickbox_nb_no_nb")
+    nb_no_nb_fig.write_image(
+        f"{folder}nb_vs_no_nb_pie.png",
+        height=800,
+        width=800,
+    )
+    
+    # nb umbrella vs not nb umbrella (pie)
+    nb_no_nb_umbrella_df = count_df(tickbox_df, "tickbox_nb_no_nb_umbrella")
+    nb_no_nb_umbrella_fig = make_pie(nb_no_nb_umbrella_df, "tickbox_nb_no_nb_umbrella")
+    nb_no_nb_umbrella_fig.write_image(
+        f"{folder}nb_vs_no_nb_umbrella_pie.png",
+        height=800,
+        width=800,
+    )
 
     # cross overs
         # top 5-10 labels per each label/category
