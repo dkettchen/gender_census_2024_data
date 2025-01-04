@@ -15,12 +15,14 @@ def make_simple_bar(input_srs:pd.Series, data_case:str):
 
     - "tickbox_label_total"
     - "tickbox_nb_labels"
+    - "tickbox_non_trans"
+    - "tickbox_non_nb"
     """
 
     # making colours
     if data_case in ["total_users","only_one_set","big_three_combos","it_and_neo_combos"]:
         colours = make_colour_list(input_srs.index, "pronouns")
-    elif data_case in ["tickbox_label_total", "tickbox_nb_labels"]:
+    elif "tickbox" in data_case:
         colours = make_colour_list(input_srs.index, "tickbox_labels")
 
     # making labels
@@ -36,7 +38,11 @@ def make_simple_bar(input_srs:pd.Series, data_case:str):
                 new_column += "_total"
             
             labels.append(new_column)
-    elif data_case == "tickbox_label_total": # removing _tickbox ending
+    elif data_case in [ # removing _tickbox ending
+        "tickbox_label_total", 
+        "tickbox_non_trans", 
+        "tickbox_non_nb"
+    ]:
         labels = [column[:-8] for column in input_srs.index]
     else:
         labels = input_srs.index
@@ -48,7 +54,11 @@ def make_simple_bar(input_srs:pd.Series, data_case:str):
         go.Bar(x=labels, y=values, marker_color=colours)
     ])
 
-    if data_case not in ["total_users", "tickbox_label_total", "tickbox_nb_labels",]:
+    if data_case not in [
+        "total_users", 
+        "tickbox_label_total", 
+        "tickbox_nb_labels",
+    ]:
         range = [0, 50]
     else:
         range = [0, 100]
@@ -67,6 +77,10 @@ def make_simple_bar(input_srs:pd.Series, data_case:str):
         title = f"% of respondants who ticked this label {suffix}"
     elif data_case == "tickbox_nb_labels":
         title = f"% of respondants who ticked nonbinary umbrella labels {suffix}"
+    elif data_case == "tickbox_non_trans":
+        title = f"Most popular tickbox labels of non-trans respondants {suffix}"
+    elif data_case == "tickbox_non_nb":
+        title = f"Most popular tickbox labels of respondants who don't use nonbinary umbrella labels <br>{suffix}"
 
     fig.update_yaxes(range=range)
     fig.update_layout(

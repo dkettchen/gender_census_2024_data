@@ -22,6 +22,7 @@ def make_colour_list(input_list:list, data_case:str):
     elif data_case == "tickbox_labels": # getting colours based on whether they're tickbox or added columns
         colour_list = []
         for item in input_list:
+            colour = None
             # colour coding all straight up tickbox labels
             if item in tickbox_labels:
                 #colour = "indigo"
@@ -42,6 +43,12 @@ def make_colour_list(input_list:list, data_case:str):
                             colour = current_collection[item]
                         else: # default colour
                             colour = "purple"
+            if not colour: # if we haven't got a colour yet
+                if "non_trans" in item:
+                    colour = "black"
+                elif "non_nb" in item:
+                    colour = "black"
+                else: colour = "slategrey"
             colour_list.append(colour)
 
     return colour_list

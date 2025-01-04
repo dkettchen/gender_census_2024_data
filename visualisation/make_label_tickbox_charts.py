@@ -70,9 +70,20 @@ def make_label_tickbox_charts(input_df:pd.DataFrame):
         width=800,
     )
 
-    # cross overs
-        # top 5-10 labels per each label/category
-        # 
+    # of non-trans users what are their top used labels?
+    non_trans_df = count_df(tickbox_df, "tickbox_non_trans")
+    non_trans_fig = make_simple_bar(non_trans_df, "tickbox_non_trans")
+    non_trans_fig.write_image(
+        f"{folder}non_trans_users.png",
+        height=800,
+        width=800,
+    )
 
-    #
-    
+    # of non-nb umbrella users what are their top used labels?
+    non_nb_df = count_df(tickbox_df, "tickbox_non_nb")
+    non_nb_fig = make_simple_bar(non_nb_df, "tickbox_non_nb")
+    non_nb_fig.write_image(
+        f"{folder}non_nb_users.png",
+        height=800,
+        width=800,
+    )

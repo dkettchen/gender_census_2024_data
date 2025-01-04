@@ -9,7 +9,15 @@ def count_df(input_df:pd.DataFrame, data_case:str):
     and percentage numbers
     """
     
-    new_series = input_df.copy().count() # this becomes a series
+    new_df = input_df.copy()
+
+    # conditionally shortening df for certain cases
+    if data_case == "tickbox_non_trans": # isolating only non-trans respondants
+        new_df = new_df.where(new_df["is_trans_tickbox"] != "Yes").dropna(how="all")
+    elif data_case == "tickbox_non_nb": # isolating only non-nb-umbrella respondants
+        new_df = new_df.where(new_df["is_nb_umbrella_tickbox"] != "Yes").dropna(how="all")
+    
+    new_series = new_df.count() # this becomes a series
     
     if "UserID" in new_series.index:
         new_series.pop("UserID")
@@ -81,6 +89,7 @@ def count_df(input_df:pd.DataFrame, data_case:str):
             "avoid_pronouns/use_name_only",
             "questioning_only",
         ]
+    
     elif data_case == "tickbox_label_total":
         get_list = [
             "a person/human/[my name]/just me_tickbox",
@@ -138,6 +147,49 @@ def count_df(input_df:pd.DataFrame, data_case:str):
         get_list = [
             "is_nb_umbrella_tickbox"
         ]
+    elif data_case == "tickbox_non_trans":
+        get_list = [ # everything other than trans labels we've excluded already + nb_umbrella total
+            "a person/human/[my name]/just me_tickbox",
+            "agender_tickbox",
+            "bigender_tickbox",
+            "binary_tickbox",
+            "butch_tickbox",
+            "cisgender_tickbox",
+            "demiboy_tickbox",
+            "demigirl_tickbox",
+            "enby_tickbox",
+            "fag_tickbox",
+            "gender non-conforming_tickbox",
+            "genderfluid_tickbox",
+            "genderqueer_tickbox",
+            "nonbinary_tickbox",
+            "queer_tickbox",
+            "questioning/unknown_tickbox",
+            "no self-description_tickbox",
+
+            "is_nb_umbrella_tickbox",
+        ]
+    elif data_case == "tickbox_non_nb":
+        get_list = [ # everything other than nb umbrella labels we've excluded already
+            "a person/human/[my name]/just me_tickbox",
+            "binary_tickbox",
+            "butch_tickbox",
+            "cisgender_tickbox",
+            "demiboy_tickbox",
+            "demigirl_tickbox",
+            "fag_tickbox",
+            "gender non-conforming_tickbox",
+            "genderqueer_tickbox",
+            "queer_tickbox",
+            "questioning/unknown_tickbox",
+            "trans_tickbox",
+            "transfeminine_tickbox",
+            "transgender_tickbox",
+            "transmasculine_tickbox",
+            "no self-description_tickbox",
+
+            "is_trans_tickbox",
+        ]
 
     new_series = new_series.get(get_list)
 
@@ -177,14 +229,19 @@ def count_df(input_df:pd.DataFrame, data_case:str):
 
         new_series = new_series.get(["female_aligned", "male_aligned", "unaligned"])
     elif data_case == "tickbox_nb_no_nb": # making "is_not_nb" value
-        new_series["is_not_nb_tickbox"] = len(input_df) - new_series["is_nb_tickbox"]
+        new_series["is_not_nb_tickbox"] = len(new_df) - new_series["is_nb_tickbox"]
     elif data_case == "tickbox_nb_no_nb_umbrella": # making "is_not_nb_umbrella" value
-        new_series["is_not_nb_umbrella_tickbox"] = len(input_df) - new_series["is_nb_umbrella_tickbox"]
+        new_series["is_not_nb_umbrella_tickbox"] = len(new_df) - new_series["is_nb_umbrella_tickbox"]
+    elif data_case == "tickbox_non_trans": # making "total_non_trans" value
+        new_series["total_non_trans_tickbox"] = len(new_df)
+    elif data_case == "tickbox_non_nb": # making "total_non_nb_umbrella" value
+        new_series["total_non_nb_umbrella_tickbox"] = len(new_df)
+
 
     if data_case == "tickbox_trans_direction_labels":
         total_no = new_series["is_trans_tickbox"] # total number of trans people only
     else:
-        total_no = len(input_df) # total length of input df
+        total_no = len(input_df) # total length of original df (shortened where relevant, otherwise same as input)
 
     new_series = new_series.apply(lambda x: round((x/total_no)*100, 2))
 
