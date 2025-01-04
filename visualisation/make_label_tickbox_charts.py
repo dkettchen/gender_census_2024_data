@@ -87,3 +87,14 @@ def make_label_tickbox_charts(input_df:pd.DataFrame):
         height=800,
         width=800,
     )
+
+    # of non-nb & non-trans users what are their remaining top labels? (bars)
+    non_nb_trans_df = count_df(tickbox_df, "tickbox_non_nb_trans")
+    non_nb_trans_fig = make_simple_bar(non_nb_trans_df, "tickbox_non_nb_trans")
+    non_nb_trans_fig.write_image(
+        f"{folder}non_nb_non_trans_users.png",
+        height=800,
+        width=800,
+    )
+
+    # how many respondants are trans/not nb, nb/not trans, trans & nb, neither? (pie)

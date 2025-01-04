@@ -17,6 +17,7 @@ def make_simple_bar(input_srs:pd.Series, data_case:str):
     - "tickbox_nb_labels"
     - "tickbox_non_trans"
     - "tickbox_non_nb"
+    - "tickbox_non_nb_trans"
     """
 
     # making colours
@@ -41,9 +42,10 @@ def make_simple_bar(input_srs:pd.Series, data_case:str):
     elif data_case in [ # removing _tickbox ending
         "tickbox_label_total", 
         "tickbox_non_trans", 
-        "tickbox_non_nb"
+        "tickbox_non_nb",
+        "tickbox_non_nb_trans",
     ]:
-        labels = [column[:-8] for column in input_srs.index]
+        labels = [column[:-8] if "tickbox" in column else column for column in input_srs.index]
     else:
         labels = input_srs.index
     
@@ -81,6 +83,9 @@ def make_simple_bar(input_srs:pd.Series, data_case:str):
         title = f"Most popular tickbox labels of non-trans respondants {suffix}"
     elif data_case == "tickbox_non_nb":
         title = f"Most popular tickbox labels of respondants who don't use nonbinary umbrella labels <br>{suffix}"
+    elif data_case == "tickbox_non_nb_trans":
+        title = f"Most popular tickbox labels of respondants who use neither trans nor nonbinary labels <br>{suffix}"
+
 
     fig.update_yaxes(range=range)
     fig.update_layout(
