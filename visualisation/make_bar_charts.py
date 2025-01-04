@@ -66,7 +66,7 @@ def make_simple_bar(input_srs:pd.Series, data_case:str):
     elif data_case == "tickbox_label_total":
         title = f"% of respondants who ticked this label {suffix}"
     elif data_case == "tickbox_nb_labels":
-        title = f"% of respondants who use nonbinary labels {suffix}"
+        title = f"% of respondants who ticked nonbinary umbrella labels {suffix}"
 
     fig.update_yaxes(range=range)
     fig.update_layout(

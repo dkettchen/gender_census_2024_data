@@ -40,7 +40,7 @@ def make_label_tickbox_charts(input_df:pd.DataFrame):
     trans_cis_fig.write_image(
         f"{folder}trans_cis_pie.png",
         height=800,
-        width=800,
+        width=1000,
     )
 
     # transmasc, transfemme, unspecified trans (pie)
@@ -49,7 +49,7 @@ def make_label_tickbox_charts(input_df:pd.DataFrame):
     trans_direction_fig.write_image(
         f"{folder}trans_direction_pie.png",
         height=800,
-        width=800,
+        width=1000,
     )
 
 

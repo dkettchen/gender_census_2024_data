@@ -42,9 +42,9 @@ def make_pie(input_srs:pd.Series, data_case:str):
     elif data_case == "aligned_pronoun_pie":
         title = f"% of respondants using aligned/unaligned pronoun sets {suffix}"
     elif data_case == "tickbox_trans_cis_labels":
-        title = f"% of respondants who did/did not indicate cis or trans status {suffix}"
+        title = f"% of respondants who did/did not indicate cis or trans status via tickboxes {suffix}"
     elif data_case == "tickbox_trans_direction_labels":
-        title = f"% of trans respondants who did/did not specify their direction {suffix}"
+        title = f"% of trans respondants who did/did not specify their direction via tickboxes {suffix}"
 
     fig = go.Figure(data=[
         go.Pie(labels=labels, values=values, text=text, marker_colors=colours, 
