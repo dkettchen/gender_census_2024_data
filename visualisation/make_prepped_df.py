@@ -130,11 +130,19 @@ def count_df(input_df:pd.DataFrame, data_case:str):
             "conflicted_transmasc/transfem_tickbox",
             "unspecified_transmasc/transfem_tickbox",
         ]
+    elif data_case == "tickbox_nb_no_nb":
+        get_list = [
+            "is_nb_tickbox"
+        ]
+    elif data_case == "tickbox_nb_no_nb_umbrella":
+        get_list = [
+            "is_nb_umbrella_tickbox"
+        ]
 
     new_series = new_series.get(get_list)
 
     # special adjustments
-    if data_case == "aligned_pronoun_pie":
+    if data_case == "aligned_pronoun_pie": # adding alignments up
         female_aligned = [
             "she_only",
             "she/they",
@@ -168,6 +176,10 @@ def count_df(input_df:pd.DataFrame, data_case:str):
         new_series["unaligned"] = new_series.get(unaligned).agg("sum")
 
         new_series = new_series.get(["female_aligned", "male_aligned", "unaligned"])
+    elif data_case == "tickbox_nb_no_nb": # making "is_not_nb" value
+        new_series["is_not_nb_tickbox"] = len(input_df) - new_series["is_nb_tickbox"]
+    elif data_case == "tickbox_nb_no_nb_umbrella": # making "is_not_nb_umbrella" value
+        new_series["is_not_nb_umbrella_tickbox"] = len(input_df) - new_series["is_nb_umbrella_tickbox"]
 
     if data_case == "tickbox_trans_direction_labels":
         total_no = new_series["is_trans_tickbox"] # total number of trans people only

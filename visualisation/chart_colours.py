@@ -90,10 +90,12 @@ other_tickbox_labels = {
         "is_only_fag_tickbox",
         "conflicted_fag/butch_tickbox",
     ],
-    "nb": [
-        "is_nb_tickbox",
-        "is_nb_umbrella_tickbox",
-    ],
+    "nb": {
+        "is_nb_tickbox":"purple",
+        "is_nb_umbrella_tickbox":"purple",
+        "is_not_nb_tickbox":"mediumaquamarine",
+        "is_not_nb_umbrella_tickbox":"mediumaquamarine",
+    },
     "birthsexes": [
         "is_afab_tickbox",
         "is_amab_tickbox",

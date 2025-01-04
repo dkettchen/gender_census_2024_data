@@ -42,9 +42,13 @@ def make_pie(input_srs:pd.Series, data_case:str):
     elif data_case == "aligned_pronoun_pie":
         title = f"% of respondants using aligned/unaligned pronoun sets {suffix}"
     elif data_case == "tickbox_trans_cis_labels":
-        title = f"% of respondants who did/did not indicate cis or trans status via tickboxes {suffix}"
+        title = f"% of respondants who did/did not indicate cis or trans status via tickboxes <br>{suffix}"
     elif data_case == "tickbox_trans_direction_labels":
-        title = f"% of trans respondants who did/did not specify their direction via tickboxes {suffix}"
+        title = f"% of trans respondants who did/did not specify their direction via tickboxes <br>{suffix}"
+    elif data_case == "tickbox_nb_no_nb":
+        title = f"% of respondants who did/did not tick nonbinary/enby {suffix}"
+    elif data_case == "tickbox_nb_no_nb_umbrella":
+        title = f"% of respondants who did/did not tick nonbinary, enby, genderfluid, agender, <br>or bigender {suffix}"
 
     fig = go.Figure(data=[
         go.Pie(labels=labels, values=values, text=text, marker_colors=colours, 
@@ -56,5 +60,13 @@ def make_pie(input_srs:pd.Series, data_case:str):
         uniformtext_mode="hide",
         title = title
     )
+
+    if data_case in [
+        "tickbox_nb_no_nb",
+        "tickbox_nb_no_nb_umbrella"
+    ]:
+        fig.update_layout(
+            showlegend=False
+        )
 
     return fig
