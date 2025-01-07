@@ -97,4 +97,27 @@ def make_label_tickbox_charts(input_df:pd.DataFrame):
         width=800,
     )
 
+# TODO:
+
     # how many respondants are trans/not nb, nb/not trans, trans & nb, neither? (pie)
+
+    # possibly repeat for each of "queer", "genderqueer", "gnc" 
+    # (and possibly human/person + no self-descr) user subsets
+
+    # possibly check what labels our very few cis-claiming respondants use
+
+    # how many respondants use ONLY nb/nb umbrella labels, vs how many use multiple/only other labels
+        # bc that number is relevant to compare to our total nb/nb umbrella users
+        # cause I wanna be able to point out that nb labels are inextricably linked to transness & queerness, 
+        # they are not a separate concept, you rarely can be identifying as nb without identifying as some 
+        # other variety of gender queer, unlike straight trans & cis gc queer ppl who can ID as those things 
+        # without the additional queerness
+            # -> to my point re nb is just the gay version of being trans/
+            # some of the gnc gays you already don't pay attention to
+    # maybe we can have one chart be just how many ppl use any of the tickboxes only / didn't tick any
+    # and one abt how many ppl of the ones under nb umbrella only use one label
+        # to demonstrate these are still generally synonymous, they are not individual IDs
+
+# I want to do a buncha refactoring to make this more stream lined already please
+
+# then move on to write ins & pronoun crossovers!
