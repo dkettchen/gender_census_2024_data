@@ -1,4 +1,5 @@
 from visualisation.chart_colours import pronoun_colours, alignment_colours, tickbox_labels, other_tickbox_labels
+import pandas as pd
 
 def make_colour_list(input_list:list, data_case:str):
     """
@@ -53,7 +54,7 @@ def make_colour_list(input_list:list, data_case:str):
 
     return colour_list
 
-def make_alignment_srs(input_srs:pd.DataFrame, data_case:str):
+def make_alignment_srs(input_srs:pd.Series, data_case:str):
     """
     takes an input series with relevant mutually exclusive columns, 
     and a data_case ("pronouns"|"tickbox_labels")
@@ -101,3 +102,27 @@ def make_alignment_srs(input_srs:pd.DataFrame, data_case:str):
     new_series = new_series.get(["female_aligned", "male_aligned", "unaligned"])
 
     return new_series
+
+def make_labels(input_list:list, data_case:str):
+    """
+    takes an input series and a data case
+
+    returns formatted labels to be used in the relevant diagram
+    """
+
+    labels = []
+    for column in input_list:
+        new_column = column
+
+        if "_tickbox" in column: # removing _tickbox
+            new_column = new_column[:-8]
+        
+        if data_case in ["tickbox_nb_labels"]:
+            if "is_" in column: # removing is_
+                new_column = new_column[3:]
+            if new_column in ["nb", "nb_umbrella"]: # adding "_total"
+                new_column += "_total"
+
+        labels.append(new_column)
+
+    return labels

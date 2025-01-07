@@ -1,7 +1,19 @@
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
-from visualisation.vis_utils import make_colour_list
+from visualisation.vis_utils import make_colour_list, make_labels
+
+bar_titles = {
+    "total_users":"Total % of respondants who use this pronoun set ",
+    "only_one_set":"% of respondants who use only this pronoun set ",
+    "big_three_combos":"% of respondants who use a combo of she, he, and they (order insensitive) <br>",
+    "it_and_neo_combos":"% of respondants who use she, he, or they w/ it or neopronouns (order insensitive) <br>",
+    "tickbox_label_total":"% of respondants who ticked this label ",
+    "tickbox_nb_labels":"% of respondants who ticked nonbinary umbrella labels ",
+    "tickbox_non_trans":"Most popular tickbox labels of non-trans respondants ",
+    "tickbox_non_nb":"Most popular tickbox labels of respondants who don't use nonbinary umbrella labels <br>",
+    "tickbox_non_nb_trans":"Most popular tickbox labels of respondants who use neither trans nor nonbinary labels <br>"
+}
 
 def make_simple_bar(input_srs:pd.Series, data_case:str):
     """
@@ -22,71 +34,38 @@ def make_simple_bar(input_srs:pd.Series, data_case:str):
 
     # making colours
     if data_case in ["total_users","only_one_set","big_three_combos","it_and_neo_combos"]:
-        colours = make_colour_list(input_srs.index, "pronouns")
+        colour_case = "pronouns"
     elif "tickbox" in data_case:
-        colours = make_colour_list(input_srs.index, "tickbox_labels")
+        colour_case = "tickbox_labels"
+    colours = make_colour_list(input_srs.index, colour_case)
 
     # making labels
-    if data_case in ["tickbox_nb_labels"]: # removing _tickbox & is_ & add _total to nb/nb_umbrella
-        labels = []
-        for column in input_srs.index:
-            if "is_" not in column:
-                new_column = column[:-8]
-            else:
-                new_column = column[3:-8]
+    labels = make_labels(input_srs.index, data_case)
 
-            if new_column in ["nb", "nb_umbrella"]:
-                new_column += "_total"
-            
-            labels.append(new_column)
-    elif data_case in [ # removing _tickbox ending
-        "tickbox_label_total", 
-        "tickbox_non_trans", 
-        "tickbox_non_nb",
-        "tickbox_non_nb_trans",
-    ]:
-        labels = [column[:-8] if "tickbox" in column else column for column in input_srs.index]
-    else:
-        labels = input_srs.index
-    
     # making values
     values = input_srs.values
 
+    # making fig
     fig = go.Figure(data=[
         go.Bar(x=labels, y=values, marker_color=colours)
     ])
 
-    if data_case not in [
+    # setting range
+    if data_case in [ # full range
         "total_users", 
         "tickbox_label_total", 
         "tickbox_nb_labels",
     ]:
-        range = [0, 50]
-    else:
         range = [0, 100]
+    else: # default to 50% range
+        range = [0, 50]
 
-    suffix = "(Gender Census 2024)"
+    # make title
+    suffix = "(Gender Census 2024)" # make this variable once we implement multiple year options
+    title_portion = bar_titles[data_case]
+    title = f"{title_portion}{suffix}"
 
-    if data_case == "total_users":
-        title = f"Total % of respondants who use this pronoun set {suffix}"
-    elif data_case == "only_one_set":
-        title = f"% of respondants who use only this pronoun set {suffix}"
-    elif data_case == "big_three_combos":
-        title = f"% of respondants who use a combo of she, he, and they (order insensitive) <br>{suffix}"
-    elif data_case == "it_and_neo_combos":
-        title = f"% of respondants who use she, he, or they w/ it or neopronouns (order insensitive) <br>{suffix}"
-    elif data_case == "tickbox_label_total":
-        title = f"% of respondants who ticked this label {suffix}"
-    elif data_case == "tickbox_nb_labels":
-        title = f"% of respondants who ticked nonbinary umbrella labels {suffix}"
-    elif data_case == "tickbox_non_trans":
-        title = f"Most popular tickbox labels of non-trans respondants {suffix}"
-    elif data_case == "tickbox_non_nb":
-        title = f"Most popular tickbox labels of respondants who don't use nonbinary umbrella labels <br>{suffix}"
-    elif data_case == "tickbox_non_nb_trans":
-        title = f"Most popular tickbox labels of respondants who use neither trans nor nonbinary labels <br>{suffix}"
-
-
+    # updating stuff
     fig.update_yaxes(range=range)
     fig.update_layout(
         showlegend=False,
