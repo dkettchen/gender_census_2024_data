@@ -52,3 +52,52 @@ def make_colour_list(input_list:list, data_case:str):
             colour_list.append(colour)
 
     return colour_list
+
+def make_alignment_srs(input_srs:pd.DataFrame, data_case:str):
+    """
+    takes an input series with relevant mutually exclusive columns, 
+    and a data_case ("pronouns"|"tickbox_labels")
+
+    returns a new series that has 3 columns: ["female_aligned", "male_aligned", "unaligned"] 
+    which contain the sum of the values in each of the relevant (aligned/unaligned) columns 
+    from the input series
+    """
+
+    if data_case == "pronouns":
+        female_aligned = [
+            "she_only",
+            "she/they",
+            "she/it",
+            "she/[neo]",
+            "she/it/[neo]",
+        ]
+        male_aligned = [
+            "he_only",
+            "he/they",
+            "he/it",
+            "he/[neo]",
+            "he/it/[neo]",
+        ]
+        unaligned = [
+            "they_only",
+            "it_only",
+            "neopronoun_only",
+            "she/he",
+            "she/he/they_any",
+            "they/it",
+            "they/[neo]",
+            "avoid_pronouns/use_name_only",
+            "questioning_only",
+            "they/it/[neo]",
+            "it/[neo]",
+        ]
+
+    new_series = input_srs.copy()
+
+    new_series["female_aligned"] = new_series.get(female_aligned).agg("sum")
+    new_series["male_aligned"] = new_series.get(male_aligned).agg("sum")
+    new_series["unaligned"] = new_series.get(unaligned).agg("sum")
+
+    new_series = new_series.get(["female_aligned", "male_aligned", "unaligned"])
+
+    return new_series
