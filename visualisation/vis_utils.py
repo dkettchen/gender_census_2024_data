@@ -103,7 +103,7 @@ def make_alignment_srs(input_srs:pd.Series, data_case:str):
 
     return new_series
 
-def make_labels(input_list:list, data_case:str):
+def make_labels(input_list:list, data_case:str, chart_type:str="bar"):
     """
     takes an input series and a data case
 
@@ -114,13 +114,23 @@ def make_labels(input_list:list, data_case:str):
     for column in input_list:
         new_column = column
 
-        if "_tickbox" in column: # removing _tickbox
+        if chart_type == "pie":
+            # simplifying any "unspecified" & "conflicted" columns
+            for item in ["unspecified", "conflicted"]:
+                if item in column:
+                    new_column = item
+                    break # we don't need to check the second one if we found the first
+
+        if "_tickbox" in new_column: # removing "_tickbox"
             new_column = new_column[:-8]
         
-        if data_case in ["tickbox_nb_labels"]:
-            if "is_" in column: # removing is_
+        if data_case in ["tickbox_nb_labels"] or chart_type == "pie" and "tickbox" in data_case:
+            if "is_" in new_column: # removing "is_"
                 new_column = new_column[3:]
-            if new_column in ["nb", "nb_umbrella"]: # adding "_total"
+
+            if new_column in ["nb", "nb_umbrella"] \
+            and data_case in ["tickbox_nb_labels"] \
+            and chart_type == "bar": # adding "_total"
                 new_column += "_total"
 
         labels.append(new_column)
