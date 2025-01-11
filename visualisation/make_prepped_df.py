@@ -47,7 +47,10 @@ def count_df(input_df:pd.DataFrame, data_case:str):
         new_series["total"] = len(new_df)
 
     # total length of original df (shortened where relevant, otherwise same as input)
-    total_no = len(input_df) 
+    if data_case == "tickbox_trans_direction_labels":
+        total_no = len(new_df) 
+    else:
+        total_no = len(input_df) 
     # making percent values & rounding em
     new_series = new_series.apply(lambda x: round((x/total_no)*100, 2))
 
