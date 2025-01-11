@@ -1,5 +1,6 @@
 import pandas as pd
 from utils.csv_reader import df_from_csv
+from visualisation.chart_import_data import case_get_lists as get_lists
 
 # check just tick boxes first?
 def make_tickbox_columns(input_df:pd.DataFrame):
@@ -42,7 +43,6 @@ def make_tickbox_columns(input_df:pd.DataFrame):
     # making useable none values for later
     for column in new_df:
         new_df[column] = new_df[column].mask(new_df[column] == "No")
-
 
     # adding mutually exclusive, conflicted & unspecified columns
 
@@ -238,6 +238,40 @@ def make_tickbox_columns(input_df:pd.DataFrame):
         )
     )
 
+    # adding count columns
+    for count_case in ["total_tickboxes", "total_non_synonymous_tickboxes", "total_nb_umbrella_tickboxes"]:
+
+        # setting up dfs
+        new_df[count_case] = 0
+        temp_df = new_df.copy()
+
+        if count_case == "total_tickboxes": # max number is 21
+            # get all tickboxes, excluding all our new columns
+            temp_df = temp_df.get(get_lists["tickbox_label_total"])
+            
+        elif count_case == "total_non_synonymous_tickboxes": # max number is 19
+            # get all tickboxes + trans & nb synonym collectors
+            get_list = get_lists["tickbox_label_total"] + ["is_trans_tickbox", "is_nb_tickbox"]
+            temp_df = temp_df.get(get_list)
+            # remove synonym columns themselves
+            temp_df.pop("enby_tickbox")
+            temp_df.pop("nonbinary_tickbox")
+            temp_df.pop("trans_tickbox")
+            temp_df.pop("transgender_tickbox")
+
+        elif count_case == "total_nb_umbrella_tickboxes": # max number is 5
+            # get all nb umbrella tickboxes (minus custom columns)
+            temp_df = temp_df.get(get_lists["tickbox_nb_labels"][:-2])
+
+        # counting
+        number_of_labels = pd.Series(index=temp_df.index)
+        for row in temp_df.index:
+            current_row = [item for item in temp_df.iloc[row] if item == "Yes"]
+            number_of_labels[row] = len(current_row)
+        
+        # inserting
+        new_df[count_case] = number_of_labels
+
     new_df = new_df.set_index("UserID").fillna("None")
     new_df.pop("index")
     
@@ -305,7 +339,7 @@ if __name__ == "__main__":
     # running full file
     new_df = make_tickbox_columns(read_tickbox_data)
 
-    # # running partial file
+    # running partial file
     # new_df = make_tickbox_columns(read_tickbox_data.head(100))
 
     new_df.to_csv(path_or_buf="data/cleaned_q1_with_new_columns/q1_clean_01.csv")
