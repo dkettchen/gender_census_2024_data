@@ -204,7 +204,7 @@ pronoun_cases = [
 ]
 # alignment colours for alignment cases!
 alignment_cases = [
-    "alignment_pronoun_pie", # exception for pronouns bc alignment colours
+    "aligned_pronoun_pie", # exception for pronouns bc alignment colours
 ]
 # tickbox label data cases
 tickbox_label_cases = [
