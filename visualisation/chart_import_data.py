@@ -19,7 +19,7 @@ pie_titles = {
     "tickbox_trans_direction_labels":"% of trans respondants who did/did not specify their direction via tickboxes <br>",
     "tickbox_nb_no_nb":"% of respondants who did/did not tick nonbinary/enby ",
     "tickbox_nb_no_nb_umbrella":"% of respondants who did/did not tick nonbinary, enby, genderfluid, agender, <br>or bigender ",
-    "tickbox_trans_nb": "% of respondants who did/did not identify as trans and/or nonbinary <br>"
+    "tickbox_trans_nb": "% of respondants who did/did not identify as trans and/or nonbinary "
 }
 
 # get lists for count df based on data cases

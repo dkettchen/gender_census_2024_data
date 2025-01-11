@@ -103,7 +103,7 @@ def make_label_tickbox_charts(input_df:pd.DataFrame):
     trans_nb_fig.write_image(
         f"{folder}trans_nb_intersection.png",
         height=800,
-        width=800,
+        width=900,
     )
 
 
