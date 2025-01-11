@@ -12,7 +12,7 @@ def count_df(input_df:pd.DataFrame, data_case:str):
     """
     new_df = input_df.copy()
 
-    # shortening df for certain cases
+    # shortening & editing starter df for certain cases
     if data_case == "tickbox_trans_direction_labels": # isolating only trans respondants
         new_df = new_df.where(new_df["is_trans_tickbox"] == "Yes").dropna(how="all")
     elif data_case == "tickbox_non_trans": # isolating only non-trans respondants
@@ -23,7 +23,23 @@ def count_df(input_df:pd.DataFrame, data_case:str):
         new_df = new_df.where(
             (new_df["is_nb_umbrella_tickbox"] != "Yes") & (new_df["is_trans_tickbox"] != "Yes")
         ).dropna(how="all")
-    
+    elif data_case == "tickbox_trans_nb": # adding new categories we need
+        # only using nb not umbrella for now
+        for category in case_get_lists[data_case]:
+            new_df[category] = "Yes"
+        new_df["only_trans"] = new_df["only_trans"].where(
+            (new_df["is_trans_tickbox"] == "Yes") & (new_df["is_nb_tickbox"] != "Yes")
+        )
+        new_df["only_nb"] = new_df["only_nb"].where(
+            (new_df["is_trans_tickbox"] != "Yes") & (new_df["is_nb_tickbox"] == "Yes")
+        )
+        new_df["trans_and_nb"] = new_df["trans_and_nb"].where(
+            (new_df["is_trans_tickbox"] == "Yes") & (new_df["is_nb_tickbox"] == "Yes")
+        )
+        new_df["neither_trans_nor_nb"] = new_df["neither_trans_nor_nb"].where(
+            (new_df["is_trans_tickbox"] != "Yes") & (new_df["is_nb_tickbox"] != "Yes")
+        )
+
     new_series = new_df.count() # this becomes a series
     
     # removing index if it is left over

@@ -97,27 +97,47 @@ def make_label_tickbox_charts(input_df:pd.DataFrame):
         width=800,
     )
 
+    # how many respondants are trans/not nb, nb/not trans, trans+nb, neither (pie)
+    trans_nb_df = count_df(tickbox_df, "tickbox_trans_nb")
+    trans_nb_fig = make_pie(trans_nb_df, "tickbox_trans_nb")
+    trans_nb_fig.write_image(
+        f"{folder}trans_nb_intersection.png",
+        height=800,
+        width=800,
+    )
+
+
 # TODO:
+    # refactor & stream line stuff a bit better ✅
+    # add label counts to column editing file ✅
 
-    # how many respondants are trans/not nb, nb/not trans, trans & nb, neither? (pie)
+    
 
-    # possibly repeat for each of "queer", "genderqueer", "gnc" 
+    # how many respondants use only nb/nb umbrella labels, vs only other labels, vs multiple labels
+        # -> to demonstrate that nb does not exist away from other queerness/transness 
+        # unlike queerness & transness themself who can very much exist apart from each other/other labels
+        # re nb is just like trans + gay n you don't need to pay us any mind 
+        # just like you don't to the gnc gays or the gc trans
+
+            # only uses 1 tickbox label total
+            #   for each tickbox label
+            # uses multiple labels:
+            #   nb umbrella only (ie agender + nb + genderfluid etc)
+            #   multi incl but not exclve nb umbrella (ie trans + nb + fag etc)
+            #   multi - nb umbrella (ie trans + fag + queer but no nb labels involved)
+            # didn't tick any labels
+            # -> pie of these mutually exclusive categories
+
+        # -> possibly other charts w smaller groups
+
+            # of nb umbrella users who uses only 1 nb umbrella label (each label)
+                # -> to show labels are still largely synonymous, not individual IDs
+
+            # how many respondants only use 1 tickbox/don't use any of the provided labels
+
+    # possibly repeat (mutually exclusive categories combo/not combo w nb) for each of "queer", "genderqueer", "gnc" 
     # (and possibly human/person + no self-descr) user subsets
-
     # possibly check what labels our very few cis-claiming respondants use
 
-    # how many respondants use ONLY nb/nb umbrella labels, vs how many use multiple/only other labels
-        # bc that number is relevant to compare to our total nb/nb umbrella users
-        # cause I wanna be able to point out that nb labels are inextricably linked to transness & queerness, 
-        # they are not a separate concept, you rarely can be identifying as nb without identifying as some 
-        # other variety of gender queer, unlike straight trans & cis gc queer ppl who can ID as those things 
-        # without the additional queerness
-            # -> to my point re nb is just the gay version of being trans/
-            # some of the gnc gays you already don't pay attention to
-    # maybe we can have one chart be just how many ppl use any of the tickboxes only / didn't tick any
-    # and one abt how many ppl of the ones under nb umbrella only use one label
-        # to demonstrate these are still generally synonymous, they are not individual IDs
-
-# I want to do a buncha refactoring to make this more stream lined already please
 
 # then move on to write ins & pronoun crossovers!

@@ -1,4 +1,8 @@
-from visualisation.chart_colours import pronoun_colours, alignment_colours, tickbox_labels, other_tickbox_labels
+from visualisation.chart_colours import (
+    pronoun_colours, alignment_colours, tickbox_labels, other_tickbox_labels,
+    other_colours
+
+)
 import pandas as pd
 
 def make_colour_list(input_list:list, data_case:str):
@@ -17,10 +21,10 @@ def make_colour_list(input_list:list, data_case:str):
         colour_ref = alignment_colours
     elif data_case == "tickbox_labels":
         colour_ref = tickbox_labels
+    else: 
+        colour_ref = other_colours
     
-    if data_case in ["pronouns","alignments"]: # getting specific colours for each item
-        colour_list = [colour_ref[item] for item in input_list]
-    elif data_case == "tickbox_labels": # getting colours based on whether they're tickbox or added columns
+    if data_case == "tickbox_labels": # getting colours based on whether they're tickbox or added columns
         colour_list = []
         for item in input_list:
             colour = None
@@ -51,6 +55,8 @@ def make_colour_list(input_list:list, data_case:str):
                     colour = "black"
                 else: colour = "slategrey"
             colour_list.append(colour)
+    else: # getting specific colours for each item
+        colour_list = [colour_ref[item] for item in input_list]
 
     return colour_list
 

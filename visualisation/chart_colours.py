@@ -109,3 +109,10 @@ other_tickbox_labels = {
     ]
 
 }
+
+other_colours = {
+    "only_trans" : "lightblue",
+    "only_nb" : "purple",
+    "trans_and_nb" : "slateblue",
+    "neither_trans_nor_nb" : "slategrey",
+}

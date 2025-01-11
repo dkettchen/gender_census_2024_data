@@ -16,6 +16,8 @@ def make_pie(input_srs:pd.Series, data_case:str):
         colour_case = "alignments"
     elif data_case in tickbox_label_cases:
         colour_case = "tickbox_labels"
+    else:
+        colour_case = "other_stuff"
     colours = make_colour_list(input_srs.index, colour_case)
 
     # making labels
