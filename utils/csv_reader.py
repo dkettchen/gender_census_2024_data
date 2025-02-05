@@ -52,10 +52,12 @@ def read_data_from_csv(filepath: str):
             else:
                 is_integer = True
                 for char in item:
-                    if char not in digits: # if any character is not a number
+                    if char not in digits and char != ".": # if any character is not a number or a decimal point
                         is_integer = False # it's not a useable number
                         break
                 if is_integer:
+                    if item[-2:] == ".0":
+                        item = item[:-2]
                     new_item = int(item) # if it's a useable number, we turn it into one
                 else: new_item = item # otherwise the string is fine
 
