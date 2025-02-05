@@ -115,4 +115,9 @@ other_colours = {
     "only_nb" : "purple",
     "trans_and_nb" : "slateblue",
     "neither_trans_nor_nb" : "slategrey",
+
+    "trans_nb_and_nb_umbrella": "mediumslateblue",
+    "trans_and_other_nb_umbrella": "mediumpurple",
+    "nb_and_nb_umbrella": "mediumorchid",
+    "only_other_nb_umbrella": "violet",
 }

@@ -97,7 +97,7 @@ def make_label_tickbox_charts(input_df:pd.DataFrame):
         width=800,
     )
 
-    # how many respondants are trans/not nb, nb/not trans, trans+nb, neither (pie)
+    # how many respondants are trans/not nb, nb/not trans, trans+nb, neither (without umbrella) (pie)
     trans_nb_df = count_df(tickbox_df, "tickbox_trans_nb")
     trans_nb_fig = make_pie(trans_nb_df, "tickbox_trans_nb")
     trans_nb_fig.write_image(
@@ -106,12 +106,18 @@ def make_label_tickbox_charts(input_df:pd.DataFrame):
         width=900,
     )
 
+    # how many respondants are trans/not nb, nb/not trans, trans+nb, neither (with umbrella) (pie)
+    trans_nb_umb_df = count_df(tickbox_df, "tickbox_trans_nb_umbrella")
+    trans_nb_umb_fig = make_pie(trans_nb_umb_df, "tickbox_trans_nb_umbrella")
+    trans_nb_umb_fig.write_image(
+        f"{folder}trans_nb_umbrella_intersection.png",
+        height=800,
+        width=900,
+    )
 
 # TODO:
     # refactor & stream line stuff a bit better ✅
     # add label counts to column editing file ✅
-
-    
 
     # how many respondants use only nb/nb umbrella labels, vs only other labels, vs multiple labels
         # -> to demonstrate that nb does not exist away from other queerness/transness 
