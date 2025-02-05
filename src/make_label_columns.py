@@ -173,13 +173,18 @@ def make_tickbox_columns(input_df:pd.DataFrame):
         new_df["enby_tickbox"] == "Yes")
     )
     # adding is_nb_umbrella tickbox column
+    # if agender, bigender, gender fluid -> is nb umbrella (excl nb itself)
+    new_df["is_a_bi_fluid_gender_tickbox"] = "Yes"
+    new_df["is_a_bi_fluid_gender_tickbox"] = new_df["is_a_bi_fluid_gender_tickbox"].where(
+        (new_df["agender_tickbox"] == "Yes") | (
+        new_df["bigender_tickbox"] == "Yes") | (
+        new_df["genderfluid_tickbox"] == "Yes")
+    )
     # if nb, agender, bigender, gender fluid -> is nb umbrella
     new_df["is_nb_umbrella_tickbox"] = "Yes"
     new_df["is_nb_umbrella_tickbox"] = new_df["is_nb_umbrella_tickbox"].where(
         (new_df["is_nb_tickbox"] == "Yes") | (
-        new_df["agender_tickbox"] == "Yes") | (
-        new_df["bigender_tickbox"] == "Yes") | (
-        new_df["genderfluid_tickbox"] == "Yes")
+        new_df["is_a_bi_fluid_gender_tickbox"] == "Yes")
     )
     # adding binary nbs columns
     # if nb/enby + binary -> nb binary
