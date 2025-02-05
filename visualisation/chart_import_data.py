@@ -8,7 +8,9 @@ bar_titles = {
     "tickbox_nb_labels":"% of respondants who ticked nonbinary umbrella labels ",
     "tickbox_non_trans":"Most popular tickbox labels of non-trans respondants ",
     "tickbox_non_nb":"Most popular tickbox labels of respondants who don't use nonbinary umbrella labels <br>",
-    "tickbox_non_nb_trans":"Most popular tickbox labels of respondants who use neither trans nor nonbinary labels <br>"
+    "tickbox_non_nb_trans":"Most popular tickbox labels of respondants who use neither trans nor nonbinary labels <br>",
+    "tickbox_only_one_label":"Respondants who ticked only this label (synonyms counted separately) <br>",
+    "tickbox_only_one_label_syn":"Respondants who ticked only this label (synonyms counted as one, not actual number) <br>",
 }
 
 # titles for pie charts based on data cases
@@ -207,7 +209,49 @@ case_get_lists = {
         "trans_and_other_nb_umbrella",
         "trans_nb_and_nb_umbrella",
         "neither_trans_nor_nb",
-    ]
+    ],
+
+    "tickbox_only_one_label":[
+        "a person/human/[my name]/just me_tickbox",
+        "agender_tickbox",
+        "bigender_tickbox",
+        "binary_tickbox",
+        "butch_tickbox",
+        "cisgender_tickbox",
+        "demiboy_tickbox",
+        "demigirl_tickbox",
+        "enby_tickbox",
+        "fag_tickbox",
+        "gender non-conforming_tickbox",
+        "genderfluid_tickbox",
+        "genderqueer_tickbox",
+        "nonbinary_tickbox",
+        "queer_tickbox",
+        "questioning/unknown_tickbox",
+        "trans_tickbox",
+        "transfeminine_tickbox",
+        "transgender_tickbox",
+        "transmasculine_tickbox",
+        "no self-description_tickbox",
+    ],
+    "tickbox_only_one_label_syn":[
+        "a person/human/[my name]/just me_tickbox",
+        "binary_tickbox",
+        "butch_tickbox",
+        "cisgender_tickbox",
+        "demiboy_tickbox",
+        "demigirl_tickbox",
+        "fag_tickbox",
+        "gender non-conforming_tickbox",
+        "genderqueer_tickbox",
+        "queer_tickbox",
+        "questioning/unknown_tickbox",
+        "no self-description_tickbox",
+
+        # synonym ones
+        "is_trans_tickbox",
+        "is_nb_umbrella_tickbox",
+    ],
 
 }
 
@@ -235,4 +279,6 @@ tickbox_label_cases = [
     "tickbox_non_trans",
     "tickbox_non_nb",
     "tickbox_non_nb_trans",
+    "tickbox_only_one_label",
+    "tickbox_only_one_label_syn",
 ]

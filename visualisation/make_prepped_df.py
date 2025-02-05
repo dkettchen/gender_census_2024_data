@@ -91,7 +91,14 @@ def count_df(input_df:pd.DataFrame, data_case:str):
         new_df["only_other_nb_umbrella"] = new_df["only_other_nb_umbrella"].where( # nb no, nb umb yes
             (new_df["is_nb_tickbox"] != "Yes") & (new_df["is_a_bi_fluid_gender_tickbox"] == "Yes")
         )
-        
+    elif data_case == "tickbox_only_one_label": # isolating (strict) single label users
+        new_df = new_df.where(
+            new_df["total_tickboxes"] == 1
+        ).dropna(how="all")
+    elif data_case == "tickbox_only_one_label_syn": # isolating single label users (synonyms)
+        new_df = new_df.where(
+            new_df["total_non_synonymous_tickboxes"] == 1
+        ).dropna(how="all")
 
     new_series = new_df.count() # this becomes a series
     
