@@ -18,7 +18,7 @@ pie_titles = {
     "tickbox_trans_cis_labels":"% of respondants who did/did not indicate cis or trans status via tickboxes <br>",
     "tickbox_trans_direction_labels":"% of trans respondants who did/did not specify their direction via tickboxes <br>",
     "tickbox_nb_no_nb":"% of respondants who did/did not tick nonbinary/enby ",
-    "tickbox_nb_no_nb_umbrella":"% of respondants who did/did not tick nonbinary, enby, genderfluid, agender, <br>or bigender ",
+    "tickbox_nb_no_nb_umbrella":"% of respondants who did/did not tick nonbinary/enby and/or genderfluid/<br>agender/bigender ",
     "tickbox_trans_nb": "% of respondants who did/did not tick trans and/or nonbinary labels <br>",
     "tickbox_trans_nb_umbrella": "% of respondants who did/did not tick trans, nb, and/or nb umbrella labels <br>"
 }
@@ -136,7 +136,11 @@ case_get_lists = {
         "is_nb_tickbox"
     ],
     "tickbox_nb_no_nb_umbrella":[
-        "is_nb_umbrella_tickbox"
+        "is_nb_umbrella_tickbox", # we're excluding this when getting for making the others
+
+        "nb_and_nb_umbrella",
+        "only_nb",
+        "only_other_nb_umbrella",
     ],
     "tickbox_non_trans":[ # everything other than trans labels we've excluded already + nb_umbrella total
         "a person/human/[my name]/just me_tickbox",
@@ -227,7 +231,7 @@ tickbox_label_cases = [
     "tickbox_trans_cis_labels",
     "tickbox_trans_direction_labels",
     "tickbox_nb_no_nb",
-    "tickbox_nb_no_nb_umbrella",
+    #"tickbox_nb_no_nb_umbrella",
     "tickbox_non_trans",
     "tickbox_non_nb",
     "tickbox_non_nb_trans",

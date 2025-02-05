@@ -76,6 +76,22 @@ def count_df(input_df:pd.DataFrame, data_case:str):
         new_df["neither_trans_nor_nb"] = new_df["neither_trans_nor_nb"].where( # trans no, nb no, nb umb no
             (new_df["is_trans_tickbox"] != "Yes") & (new_df["is_nb_tickbox"] != "Yes") & (new_df["is_a_bi_fluid_gender_tickbox"] != "Yes")
         )
+    elif data_case == "tickbox_nb_no_nb_umbrella": # adding new categories we need
+        
+        for category in case_get_lists[data_case][1:]:
+            # excluding is_nb_umbrella from getting overwritten
+            new_df[category] = "Yes"
+        
+        new_df["nb_and_nb_umbrella"] = new_df["nb_and_nb_umbrella"].where( # nb yes, nb umb yes
+            (new_df["is_nb_tickbox"] == "Yes") & (new_df["is_a_bi_fluid_gender_tickbox"] == "Yes")
+        )
+        new_df["only_nb"] = new_df["only_nb"].where( # nb yes, nb umb no
+            (new_df["is_nb_tickbox"] == "Yes") & (new_df["is_a_bi_fluid_gender_tickbox"] != "Yes")
+        )
+        new_df["only_other_nb_umbrella"] = new_df["only_other_nb_umbrella"].where( # nb no, nb umb yes
+            (new_df["is_nb_tickbox"] != "Yes") & (new_df["is_a_bi_fluid_gender_tickbox"] == "Yes")
+        )
+        
 
     new_series = new_df.count() # this becomes a series
     
@@ -95,7 +111,8 @@ def count_df(input_df:pd.DataFrame, data_case:str):
     elif data_case == "tickbox_nb_no_nb": # making "is_not_nb" value
         new_series["is_not_nb_tickbox"] = len(new_df) - new_series["is_nb_tickbox"]
     elif data_case == "tickbox_nb_no_nb_umbrella": # making "is_not_nb_umbrella" value
-        new_series["is_not_nb_umbrella_tickbox"] = len(new_df) - new_series["is_nb_umbrella_tickbox"]
+        new_series["not_nb_umbrella"] = len(new_df) - new_series["is_nb_umbrella_tickbox"]
+        new_series.pop("is_nb_umbrella_tickbox")
     elif data_case in ["tickbox_non_trans","tickbox_non_nb","tickbox_non_nb_trans"]: # making "total" value
         new_series["total"] = len(new_df)
 

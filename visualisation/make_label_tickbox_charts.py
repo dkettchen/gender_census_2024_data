@@ -118,6 +118,8 @@ def make_label_tickbox_charts(input_df:pd.DataFrame):
 # TODO:
     # refactor & stream line stuff a bit better ✅
     # add label counts to column editing file ✅
+    # add a- bi- and fluid gender column separate from nb umbrella one ✅
+    # refactor tickbox_nb_no_nb_umbrella pie to differentiate between nb, other umbrella labels, & both ✅
 
     # how many respondants use only nb/nb umbrella labels, vs only other labels, vs multiple labels
         # -> to demonstrate that nb does not exist away from other queerness/transness 
