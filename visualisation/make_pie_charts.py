@@ -18,7 +18,10 @@ def make_pie(input_srs:pd.Series, data_case:str):
         colour_case = "tickbox_labels"
     else:
         colour_case = "other_stuff"
-    colours = make_colour_list(input_srs.index, colour_case)
+    
+    if data_case == "tickbox_insanity":
+        colours = None
+    else: colours = make_colour_list(input_srs.index, colour_case)
 
     # making labels
     labels = make_labels(input_srs.index, data_case, "pie")
@@ -48,7 +51,8 @@ def make_pie(input_srs:pd.Series, data_case:str):
     # hiding legend
     if data_case in [
         "tickbox_nb_no_nb",
-        "tickbox_nb_no_nb_umbrella"
+        "tickbox_nb_no_nb_umbrella",
+        "tickbox_insanity"
     ]:
         fig.update_layout(
             showlegend=False

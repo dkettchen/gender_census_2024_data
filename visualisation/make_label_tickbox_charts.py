@@ -160,7 +160,6 @@ def make_label_tickbox_charts(input_df:pd.DataFrame):
         width=900,
     )
 
-
     # what other labels do our queer respondants use?
     gnc_labels_df = count_df(tickbox_df, "tickbox_gnc_labels")
     gnc_labels_fig = make_simple_bar(gnc_labels_df, "tickbox_gnc_labels")
@@ -170,6 +169,15 @@ def make_label_tickbox_charts(input_df:pd.DataFrame):
         width=800,
     )
 
+    # # let's just check all the combos of tickbox labels ppl have ticked???
+    # all_label_insanity_df = count_df(tickbox_df, "tickbox_insanity")
+    # all_label_insanity_fig = make_pie(all_label_insanity_df, "tickbox_insanity")
+    # all_label_insanity_fig.write_image(
+    #     f"{folder}all_label_combos.png",
+    #     height=800,
+    #     width=800,
+    # )
+    # # update it wasn't worth it lmao too few same ticked answers rip
 
 # TODO:
     # refactor & stream line stuff a bit better ✅
@@ -189,6 +197,9 @@ def make_label_tickbox_charts(input_df:pd.DataFrame):
     # possibly repeat (mutually exclusive categories combo/not combo w nb) for each of "queer", "genderqueer", "gnc" 
     # (and possibly human/person + no self-descr) user subsets
     # possibly check what labels our very few cis-claiming respondants use
+
+    # if we wanna be crazy: make a pie chart of all the combos of tickbox labels ppl have used, 
+    # just to see what's most popular lmao
 
 
 # then move on to write ins & pronoun crossovers!
