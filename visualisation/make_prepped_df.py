@@ -185,5 +185,8 @@ def count_df(input_df:pd.DataFrame, data_case:str):
 
     # sorting descending
     new_series = new_series.sort_values(ascending=False)
+    
+    # remove any 0 values bc we have no respondants of that label/combo/etc
+    new_series = new_series.where(new_series != 0).dropna(how="all")
 
     return new_series
