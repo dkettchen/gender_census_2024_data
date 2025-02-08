@@ -30,6 +30,9 @@ def make_simple_bar(input_srs:pd.Series, data_case:str):
         "total_users", 
         "tickbox_label_total", 
         "tickbox_nb_labels",
+        "tickbox_non_trans",
+        "tickbox_non_nb",
+        "tickbox_non_nb_trans",
         "tickbox_trans_labels",
         "tickbox_queer_labels",
     ]:
