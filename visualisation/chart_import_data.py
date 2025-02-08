@@ -24,7 +24,8 @@ pie_titles = {
     "tickbox_nb_no_nb":"% of respondants who did/did not tick nonbinary/enby ",
     "tickbox_nb_no_nb_umbrella":"% of respondants who did/did not tick nonbinary/enby and/or genderfluid/<br>agender/bigender ",
     "tickbox_trans_nb": "% of respondants who did/did not tick trans and/or nonbinary labels <br>",
-    "tickbox_trans_nb_umbrella": "% of respondants who did/did not tick trans, nb, and/or nb umbrella labels <br>"
+    "tickbox_trans_nb_umbrella": "% of respondants who did/did not tick trans, nb, and/or nb umbrella labels <br>",
+    "tickbox_trans_nb_queer": "% of respondants who did/did not tick trans, nb umbrella, and/or queer labels <br>"
 }
 
 # get lists for count df based on data cases
@@ -298,6 +299,16 @@ case_get_lists = {
         # "is_trans_tickbox",
     ],
 
+    "tickbox_trans_nb_queer":[
+        "trans_nb_and_queer",
+        "trans_and_nb",
+        "trans_and_queer",
+        "nb_and_queer",
+        "only_trans",
+        "only_nb",
+        "only_queer",
+        "neither_trans_nb_nor_queer",
+    ]
 
 }
 

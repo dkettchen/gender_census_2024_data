@@ -104,6 +104,42 @@ def count_df(input_df:pd.DataFrame, data_case:str):
         new_df = new_df.where(
             new_df["total_non_synonymous_tickboxes"] == 1
         ).dropna(how="all")
+    elif data_case == "tickbox_trans_nb_queer": # adding new categories we need
+
+        for category in case_get_lists[data_case]:
+            new_df[category] = "Yes"
+        
+        # 3 yes
+        new_df["trans_nb_and_queer"] = new_df["trans_nb_and_queer"].where( # trans yes, nb yes, queer yes
+            (new_df["is_trans_tickbox"] == "Yes") & (new_df["is_nb_umbrella_tickbox"] == "Yes") & (new_df["queer_tickbox"] == "Yes")
+        )
+
+        # 2 yes 1 no
+        new_df["trans_and_nb"] = new_df["trans_and_nb"].where( # trans yes, nb yes, queer no
+            (new_df["is_trans_tickbox"] == "Yes") & (new_df["is_nb_umbrella_tickbox"] == "Yes") & (new_df["queer_tickbox"] != "Yes")
+        )
+        new_df["trans_and_queer"] = new_df["trans_and_queer"].where( # trans yes, nb no, queer yes
+            (new_df["is_trans_tickbox"] == "Yes") & (new_df["is_nb_umbrella_tickbox"] != "Yes") & (new_df["queer_tickbox"] == "Yes")
+        )
+        new_df["nb_and_queer"] = new_df["nb_and_queer"].where( # trans no, nb yes, queer yes
+            (new_df["is_trans_tickbox"] != "Yes") & (new_df["is_nb_umbrella_tickbox"] == "Yes") & (new_df["queer_tickbox"] == "Yes")
+        )
+
+        # 2 no 1 yes
+        new_df["only_trans"] = new_df["only_trans"].where( # trans yes, nb no, queer no
+            (new_df["is_trans_tickbox"] == "Yes") & (new_df["is_nb_umbrella_tickbox"] != "Yes") & (new_df["queer_tickbox"] != "Yes")
+        )
+        new_df["only_nb"] = new_df["only_nb"].where( # trans no, nb yes, queer no
+            (new_df["is_trans_tickbox"] != "Yes") & (new_df["is_nb_umbrella_tickbox"] == "Yes") & (new_df["queer_tickbox"] != "Yes")
+        )
+        new_df["only_queer"] = new_df["only_queer"].where( # trans no, nb no, queer yes
+            (new_df["is_trans_tickbox"] != "Yes") & (new_df["is_nb_umbrella_tickbox"] != "Yes") & (new_df["queer_tickbox"] == "Yes")
+        )
+        
+        # 3 no
+        new_df["neither_trans_nb_nor_queer"] = new_df["neither_trans_nb_nor_queer"].where( # trans no, nb no, queer no
+            (new_df["is_trans_tickbox"] != "Yes") & (new_df["is_nb_umbrella_tickbox"] != "Yes") & (new_df["queer_tickbox"] != "Yes")
+        )
 
     new_series = new_df.count() # this becomes a series
     

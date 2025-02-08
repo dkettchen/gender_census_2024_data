@@ -151,6 +151,15 @@ def make_label_tickbox_charts(input_df:pd.DataFrame):
         width=800,
     )
 
+    # how many respondants are trans/nb/queer (all intersections) (pie)
+    trans_nb_umb_df = count_df(tickbox_df, "tickbox_trans_nb_queer")
+    trans_nb_umb_fig = make_pie(trans_nb_umb_df, "tickbox_trans_nb_queer")
+    trans_nb_umb_fig.write_image(
+        f"{folder}trans_nb_queer_intersection.png",
+        height=800,
+        width=900,
+    )
+
 
 # TODO:
     # refactor & stream line stuff a bit better ✅
@@ -158,11 +167,14 @@ def make_label_tickbox_charts(input_df:pd.DataFrame):
     # add a- bi- and fluid gender column separate from nb umbrella one ✅
     # refactor tickbox_nb_no_nb_umbrella pie to differentiate between nb, other umbrella labels, & both ✅
     # how many respondants use only one label (synonyms in & excluded) ✅
+    # what other labels do our trans respondants use? ✅
+    # what other labels do our queer respondants use? ✅
+    # make pie chart abt intersections between trans, nb, & queer respondants ✅
 
-    # what other labels do our trans respondants use?
-    # what other labels do our queer respondants use?
+    # most popular labels among gnc + genderqueer respondants?
     # what is the percentage of gnc respondants among various label groups?
         # maybe as a multi-pie plot?
+        # -> trans, nb, queer
 
     # possibly repeat (mutually exclusive categories combo/not combo w nb) for each of "queer", "genderqueer", "gnc" 
     # (and possibly human/person + no self-descr) user subsets

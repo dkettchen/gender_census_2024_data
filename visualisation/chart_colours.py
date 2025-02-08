@@ -122,4 +122,10 @@ other_colours = {
     "only_other_nb_umbrella": "violet",
     
     "not_nb_umbrella": "mediumaquamarine",
+
+    "trans_nb_and_queer":"black",
+    "trans_and_queer":"lightseagreen",
+    "nb_and_queer":"olive",
+    "only_queer":"seagreen",
+    "neither_trans_nb_nor_queer": "slategrey",
 }
