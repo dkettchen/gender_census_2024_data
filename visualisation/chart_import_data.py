@@ -11,6 +11,7 @@ bar_titles = {
     "tickbox_trans_labels":"Most popular tickbox labels of trans respondants ",
     "tickbox_queer_labels":"Most popular tickbox labels of queer respondants ",
     "tickbox_non_nb_trans":"Most popular tickbox labels of respondants who use neither trans nor nonbinary labels <br>",
+    "tickbox_gnc_labels":"Most popular tickbox labels of gnc & genderqueer respondants ",
     "tickbox_only_one_label":"Respondants who ticked only this label (synonyms counted separately) <br>",
     "tickbox_only_one_label_syn":"Respondants who ticked only this label (synonyms counted as one, not actual number) <br>",
 }
@@ -298,6 +299,27 @@ case_get_lists = {
         "no self-description_tickbox",
         # "is_trans_tickbox",
     ],
+    "tickbox_gnc_labels":[ # everything other than gnc & genderqueer
+        "a person/human/[my name]/just me_tickbox",
+        "agender_tickbox",
+        "bigender_tickbox",
+        "binary_tickbox",
+        "butch_tickbox",
+        "cisgender_tickbox",
+        "demiboy_tickbox",
+        "demigirl_tickbox",
+        "enby_tickbox",
+        "fag_tickbox",
+        "genderfluid_tickbox",
+        "nonbinary_tickbox",
+        "queer_tickbox",
+        "questioning/unknown_tickbox",
+        "trans_tickbox",
+        "transfeminine_tickbox",
+        "transgender_tickbox",
+        "transmasculine_tickbox",
+        "no self-description_tickbox",
+    ],
 
     "tickbox_trans_nb_queer":[
         "trans_nb_and_queer",
@@ -308,7 +330,7 @@ case_get_lists = {
         "only_nb",
         "only_queer",
         "neither_trans_nb_nor_queer",
-    ]
+    ],
 
 }
 
@@ -340,4 +362,5 @@ tickbox_label_cases = [
     "tickbox_only_one_label_syn",
     "tickbox_trans_labels",
     "tickbox_queer_labels",
+    "tickbox_gnc_labels",
 ]

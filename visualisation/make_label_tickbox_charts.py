@@ -161,6 +161,16 @@ def make_label_tickbox_charts(input_df:pd.DataFrame):
     )
 
 
+    # what other labels do our queer respondants use?
+    gnc_labels_df = count_df(tickbox_df, "tickbox_gnc_labels")
+    gnc_labels_fig = make_simple_bar(gnc_labels_df, "tickbox_gnc_labels")
+    gnc_labels_fig.write_image(
+        f"{folder}gnc_users.png",
+        height=800,
+        width=800,
+    )
+
+
 # TODO:
     # refactor & stream line stuff a bit better ✅
     # add label counts to column editing file ✅
@@ -170,8 +180,8 @@ def make_label_tickbox_charts(input_df:pd.DataFrame):
     # what other labels do our trans respondants use? ✅
     # what other labels do our queer respondants use? ✅
     # make pie chart abt intersections between trans, nb, & queer respondants ✅
+    # most popular labels among gnc + genderqueer respondants? ✅
 
-    # most popular labels among gnc + genderqueer respondants?
     # what is the percentage of gnc respondants among various label groups?
         # maybe as a multi-pie plot?
         # -> trans, nb, queer

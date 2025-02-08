@@ -18,6 +18,10 @@ def count_df(input_df:pd.DataFrame, data_case:str):
         "tickbox_trans_labels"
     ]:
         new_df = new_df.where(new_df["is_trans_tickbox"] == "Yes").dropna(how="all")
+    elif data_case == "tickbox_gnc_labels": # isolating only gnc & genderqueer respondants
+        new_df = new_df.where(
+            (new_df["gender non-conforming_tickbox"] == "Yes") | (new_df["genderqueer_tickbox"] == "Yes")
+        ).dropna(how="all")
     elif data_case == "tickbox_queer_labels": # isolating only queer-IDed respondants
         new_df = new_df.where(new_df["queer_tickbox"] == "Yes").dropna(how="all")
     elif data_case == "tickbox_non_trans": # isolating only non-trans respondants
@@ -167,6 +171,7 @@ def count_df(input_df:pd.DataFrame, data_case:str):
         "tickbox_non_nb_trans",
         "tickbox_trans_labels",
         "tickbox_queer_labels",
+        "tickbox_gnc_labels",
     ]:
         new_series["total"] = len(new_df)
 
