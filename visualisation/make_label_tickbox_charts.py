@@ -133,6 +133,25 @@ def make_label_tickbox_charts(input_df:pd.DataFrame):
         width=800,
     )
 
+    # what other labels do our trans respondants use?
+    trans_labels_df = count_df(tickbox_df, "tickbox_trans_labels")
+    trans_labels_fig = make_simple_bar(trans_labels_df, "tickbox_trans_labels")
+    trans_labels_fig.write_image(
+        f"{folder}trans_users.png",
+        height=800,
+        width=800,
+    )
+
+    # what other labels do our queer respondants use?
+    queer_labels_df = count_df(tickbox_df, "tickbox_queer_labels")
+    queer_labels_fig = make_simple_bar(queer_labels_df, "tickbox_queer_labels")
+    queer_labels_fig.write_image(
+        f"{folder}queer_users.png",
+        height=800,
+        width=800,
+    )
+
+
 # TODO:
     # refactor & stream line stuff a bit better ✅
     # add label counts to column editing file ✅

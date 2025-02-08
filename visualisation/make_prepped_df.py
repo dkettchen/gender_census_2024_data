@@ -13,8 +13,13 @@ def count_df(input_df:pd.DataFrame, data_case:str):
     new_df = input_df.copy()
 
     # shortening & editing starter df for certain cases
-    if data_case == "tickbox_trans_direction_labels": # isolating only trans respondants
+    if data_case in [ # isolating only trans respondants
+        "tickbox_trans_direction_labels", 
+        "tickbox_trans_labels"
+    ]:
         new_df = new_df.where(new_df["is_trans_tickbox"] == "Yes").dropna(how="all")
+    elif data_case == "tickbox_queer_labels": # isolating only queer-IDed respondants
+        new_df = new_df.where(new_df["queer_tickbox"] == "Yes").dropna(how="all")
     elif data_case == "tickbox_non_trans": # isolating only non-trans respondants
         new_df = new_df.where(new_df["is_trans_tickbox"] != "Yes").dropna(how="all")
     elif data_case == "tickbox_non_nb": # isolating only non-nb-umbrella respondants
@@ -120,7 +125,13 @@ def count_df(input_df:pd.DataFrame, data_case:str):
     elif data_case == "tickbox_nb_no_nb_umbrella": # making "is_not_nb_umbrella" value
         new_series["not_nb_umbrella"] = len(new_df) - new_series["is_nb_umbrella_tickbox"]
         new_series.pop("is_nb_umbrella_tickbox")
-    elif data_case in ["tickbox_non_trans","tickbox_non_nb","tickbox_non_nb_trans"]: # making "total" value
+    elif data_case in [ # making "total" value
+        "tickbox_non_trans",
+        "tickbox_non_nb",
+        "tickbox_non_nb_trans",
+        "tickbox_trans_labels",
+        "tickbox_queer_labels",
+    ]:
         new_series["total"] = len(new_df)
 
     # total length of original df (shortened where relevant, otherwise same as input)

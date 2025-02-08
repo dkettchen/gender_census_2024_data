@@ -30,6 +30,8 @@ def make_simple_bar(input_srs:pd.Series, data_case:str):
         "total_users", 
         "tickbox_label_total", 
         "tickbox_nb_labels",
+        "tickbox_trans_labels",
+        "tickbox_queer_labels",
     ]:
         range = [0, 100]
     elif data_case in [ # for minuscule values sub-10%
