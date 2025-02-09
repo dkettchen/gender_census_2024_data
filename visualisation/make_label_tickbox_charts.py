@@ -189,6 +189,8 @@ def make_label_tickbox_charts(input_df:pd.DataFrame):
     # what other labels do our queer respondants use? ✅
     # make pie chart abt intersections between trans, nb, & queer respondants ✅
     # most popular labels among gnc + genderqueer respondants? ✅
+    # if we wanna be crazy: make a pie chart of all the combos of tickbox labels ppl have used, 
+    # just to see what's most popular lmao (rip lmao) ✅
 
     # what is the percentage of gnc respondants among various label groups?
         # maybe as a multi-pie plot?
@@ -197,9 +199,3 @@ def make_label_tickbox_charts(input_df:pd.DataFrame):
     # possibly repeat (mutually exclusive categories combo/not combo w nb) for each of "queer", "genderqueer", "gnc" 
     # (and possibly human/person + no self-descr) user subsets
     # possibly check what labels our very few cis-claiming respondants use
-
-    # if we wanna be crazy: make a pie chart of all the combos of tickbox labels ppl have used, 
-    # just to see what's most popular lmao
-
-
-# then move on to write ins & pronoun crossovers!
