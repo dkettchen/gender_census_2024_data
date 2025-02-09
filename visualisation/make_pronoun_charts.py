@@ -1,7 +1,7 @@
 import pandas as pd
-from visualisation.make_bar_charts import make_simple_bar, make_grouped_bar
-from visualisation.make_prepped_df import count_df
-from visualisation.make_pie_charts import make_pie
+from visualisation.chart_bar import make_simple_bar, make_grouped_bar
+from visualisation.chart_prep_dfs import count_df
+from visualisation.chart_pie import make_pie
 
 def make_pronoun_charts(input_df:pd.DataFrame):
     """

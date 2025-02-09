@@ -1,7 +1,7 @@
 import pandas as pd
-from visualisation.make_bar_charts import make_simple_bar, make_grouped_bar
-from visualisation.make_prepped_df import count_df
-from visualisation.make_pie_charts import make_pie
+from visualisation.chart_bar import make_simple_bar, make_grouped_bar
+from visualisation.chart_prep_dfs import count_df
+from visualisation.chart_pie import make_pie
 
 def make_label_tickbox_charts(input_df:pd.DataFrame):
     """
@@ -180,22 +180,7 @@ def make_label_tickbox_charts(input_df:pd.DataFrame):
     # # update it wasn't worth it lmao too few same ticked answers rip
 
 # TODO:
-    # refactor & stream line stuff a bit better ✅
-    # add label counts to column editing file ✅
-    # add a- bi- and fluid gender column separate from nb umbrella one ✅
-    # refactor tickbox_nb_no_nb_umbrella pie to differentiate between nb, other umbrella labels, & both ✅
-    # how many respondants use only one label (synonyms in & excluded) ✅
-    # what other labels do our trans respondants use? ✅
-    # what other labels do our queer respondants use? ✅
-    # make pie chart abt intersections between trans, nb, & queer respondants ✅
-    # most popular labels among gnc + genderqueer respondants? ✅
-    # if we wanna be crazy: make a pie chart of all the combos of tickbox labels ppl have used, 
-    # just to see what's most popular lmao (rip lmao) ✅
-
     # what is the percentage of gnc respondants among various label groups?
         # maybe as a multi-pie plot?
         # -> trans, nb, queer
-
-    # possibly repeat (mutually exclusive categories combo/not combo w nb) for each of "queer", "genderqueer", "gnc" 
-    # (and possibly human/person + no self-descr) user subsets
     # possibly check what labels our very few cis-claiming respondants use
