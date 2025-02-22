@@ -146,28 +146,7 @@ def count_df(input_df:pd.DataFrame, data_case:str):
         )
 
     # counting
-    if data_case == "tickbox_insanity":
-        # grouping by literally all tickbox labels
-        # counting
-        new_df = new_df.get(case_get_lists["tickbox_label_total"]+["UserID"]).fillna("No")
-        for column in new_df.columns:
-            new_df[column] = new_df[column].mask(new_df[column] == "Yes", other=column[:-8])
-            new_df[column] = new_df[column].mask(new_df[column] == "No", other=f"def not {column[:-8]}")
-        new_series = new_df.groupby(case_get_lists["tickbox_label_total"]).count() # this is still a df
-
-        # fix index
-        new_total_index = []
-        for multi_index in new_series.index:
-            new_index = ""
-            for item in multi_index:
-                if "def not " in item:
-                    continue
-                new_index += "/" + item
-            new_total_index.append(new_index[1:])
-        new_series.index = new_total_index
-
-    else:
-        new_series = new_df.count() # this becomes a series
+    new_series = new_df.count() # this becomes a series
     
     # removing index if it is left over
     if "UserID" in new_series.index:
@@ -176,12 +155,8 @@ def count_df(input_df:pd.DataFrame, data_case:str):
     # get columns!
     if "pronoun_pie" in data_case:
         get_list = case_get_lists["pronoun_pie"]
-    elif data_case == "tickbox_insanity":
-        get_list = ["UserID"]
     else: get_list = case_get_lists[data_case]
     new_series = new_series.get(get_list)
-    if data_case == "tickbox_insanity":
-        new_series = new_series["UserID"]
 
     # special adjustments
     if data_case == "aligned_pronoun_pie": # adding alignments up using helper func
