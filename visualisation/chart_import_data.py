@@ -19,6 +19,7 @@ bar_titles = {
 # titles for pie charts based on data cases
 pie_titles = {
     "pronoun_pie":"Pronoun sets used by respondants (order insensitive) ",
+    "pronoun_pie_non_en":"Pronoun sets used by respondants from non-english-speaking countries (order insensitive) ",
     "aligned_pronoun_pie":"% of respondants using aligned/unaligned pronoun sets ",
     "tickbox_trans_cis_labels":"% of respondants who did/did not indicate cis or trans status via tickboxes <br>",
     "tickbox_trans_direction_labels":"% of trans respondants who did/did not specify their direction via tickboxes <br>",
@@ -343,6 +344,7 @@ pronoun_cases = [
     "big_three_combos",
     "it_and_neo_combos",
     "pronoun_pie",
+    "pronoun_pie_non_en",
 ]
 # alignment colours for alignment cases!
 alignment_cases = [

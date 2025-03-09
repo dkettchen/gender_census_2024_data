@@ -1,11 +1,11 @@
 from utils.csv_reader import df_from_csv
 from visualisation.make_pronoun_charts import make_pronoun_charts
 from visualisation.make_label_tickbox_charts import make_label_tickbox_charts
-from visualisation.make_crossover_charts import make_pronouns_by_labels
+from visualisation.make_crossover_charts import make_pronouns_by_labels, make_non_english_pronouns
 from visualisation.make_geo_charts import make_geo_charts
 
 # # pronouns
-# pronoun_df = df_from_csv("data/cleaned_q9_with_new_columns/q9_clean_01.csv")
+pronoun_df = df_from_csv("data/cleaned_q9_with_new_columns/q9_clean_01.csv")
 # make_pronoun_charts(pronoun_df)
 
 # # tickbox labels
@@ -21,3 +21,4 @@ from visualisation.make_geo_charts import make_geo_charts
 geo_df = df_from_csv("data/separated_questions/q35_location.csv")
 make_geo_charts(geo_df, "total")
 make_geo_charts(geo_df, "english_speaking_countries")
+make_non_english_pronouns(pronoun_df, geo_df)

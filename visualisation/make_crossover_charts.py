@@ -3,6 +3,8 @@ from visualisation.chart_import_data import case_get_lists
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 from visualisation.vis_utils import make_colour_list, make_alignment_srs
+from visualisation.make_geo_charts import english_speaking_or_no
+from visualisation.chart_pie import make_pie
 from re import sub
 
 # pronouns for transmascs, transfemmes, unspecified trans, unspecified cis-trans, & cis respondants
@@ -115,8 +117,36 @@ def make_pronouns_by_labels(input_df:pd.DataFrame, data_case:str):
         width=1300,
     )
 
+
 # labels per survey origin - ie one for tumblr, one for reddit, etc 
 # -> to demonstrate birthsex bias among other things
 
+
 # identities per country
     # english speaking countries vs non-english speaking countries, bc we're asking abt english language
+
+# pronouns -> apparently not significantly different, 
+# cause ppl were good & followed the brief of "in english" huh
+def make_non_english_pronouns(pronoun_df:pd.DataFrame, country_df:pd.DataFrame):
+
+    language_df = english_speaking_or_no(country_df)
+
+    english_pronoun_df = pronoun_df.set_index("UserID").join(language_df, lsuffix="left", rsuffix="right")
+
+    get_list = ["english_or_no"] + case_get_lists["pronoun_pie"]
+    new_df = english_pronoun_df.get(get_list).groupby(by="english_or_no").count().transpose()
+    
+    for column in new_df.columns:
+        total_len = new_df[column].agg("sum")
+        new_df[column] = new_df[column].apply(lambda x: round((x/total_len)*100, 2))
+
+    fig = make_pie(new_df["non_english_speaking"], "pronoun_pie_non_en")
+
+    folder = "visualisation/charts/"
+    file_title = "pronoun_pie_non_en"
+
+    fig.write_image(
+        f"{folder}{file_title}.png",
+        height=900,
+        width=1300,
+    )

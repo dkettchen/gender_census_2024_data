@@ -19,9 +19,7 @@ def make_pie(input_srs:pd.Series, data_case:str):
     else:
         colour_case = "other_stuff"
     
-    if data_case == "tickbox_insanity":
-        colours = None
-    else: colours = make_colour_list(input_srs.index, colour_case)
+    colours = make_colour_list(input_srs.index, colour_case)
 
     # making labels
     labels = make_labels(input_srs.index, data_case, "pie")
