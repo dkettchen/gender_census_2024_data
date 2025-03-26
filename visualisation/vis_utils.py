@@ -4,6 +4,7 @@ from visualisation.chart_colours import (
 
 )
 import pandas as pd
+import plotly.express as px
 
 def make_colour_list(input_list:list, data_case:str):
     """
@@ -21,6 +22,8 @@ def make_colour_list(input_list:list, data_case:str):
         colour_ref = alignment_colours
     elif data_case == "tickbox_labels":
         colour_ref = tickbox_labels
+    elif data_case == "sources":
+        colour_ref = px.colors.qualitative.Prism + px.colors.qualitative.Prism + px.colors.qualitative.Prism
     else: 
         colour_ref = other_colours
     
@@ -55,6 +58,8 @@ def make_colour_list(input_list:list, data_case:str):
                     colour = "black"
                 else: colour = "slategrey"
             colour_list.append(colour)
+    elif data_case == "sources":
+        colour_list = colour_ref
     else: # getting specific colours for each item
         colour_list = [colour_ref[item] for item in input_list]
 

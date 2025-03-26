@@ -6,6 +6,7 @@ from visualisation.make_crossover_charts import (
     make_non_english_pronouns,
 )
 from visualisation.make_geo_charts import make_geo_charts
+from visualisation.make_survey_source_charts import make_source_charts
 
 # # pronouns
 # pronoun_df = df_from_csv("data/cleaned_q9_with_new_columns/q9_clean_01.csv")
@@ -25,3 +26,9 @@ from visualisation.make_geo_charts import make_geo_charts
 # make_geo_charts(geo_df, "total")
 # make_geo_charts(geo_df, "english_speaking_countries")
 # make_non_english_pronouns(pronoun_df, geo_df)
+
+# survey origin
+source_df = df_from_csv("data/cleaned_q37_with_new_columns/q37_clean_01.csv").set_index("UserID")
+timestamp_df = df_from_csv("data/separated_questions/timestamp_for_sorting.csv").set_index("UserID")
+source_with_timestamp_df = source_df.join(timestamp_df, lsuffix="left", rsuffix="right")
+make_source_charts(source_with_timestamp_df)

@@ -14,10 +14,15 @@ def make_simple_bar(input_srs:pd.Series, data_case:str):
         colour_case = "pronouns"
     elif data_case in tickbox_label_cases:
         colour_case = "tickbox_labels"
+    elif data_case == "sources":
+        colour_case = data_case
     colours = make_colour_list(input_srs.index, colour_case)
 
     # making labels
-    labels = make_labels(input_srs.index, data_case)
+    if data_case == "sources":
+        labels = input_srs.index
+    else:
+        labels = make_labels(input_srs.index, data_case)
 
     # making values
     values = input_srs.values

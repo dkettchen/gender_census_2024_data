@@ -14,6 +14,7 @@ bar_titles = {
     "tickbox_gnc_labels":"Most popular tickbox labels of gnc & genderqueer respondants ",
     "tickbox_only_one_label":"Respondants who ticked only this label (synonyms counted separately) <br>",
     "tickbox_only_one_label_syn":"Respondants who ticked only this label (synonyms counted as one, not actual number) <br>",
+    "sources": "Where did you find this survey? (> 1% of respondants) ",
 }
 
 # titles for pie charts based on data cases
