@@ -1,6 +1,7 @@
 import pandas as pd
 from json import load
 from utils.csv_reader import df_from_csv
+from utils.read_all_categories import read_all_categories
 
 # TODO:
     # lgbt category (and several others) currently contain items that are already covered 
@@ -77,31 +78,10 @@ file_names_locations = {
     "work": "Work",
 }
 
-# util
-def read_all_source_write_ins():
-    """
-    reads from all json files in data/cleaned_q37_write_ins/ folder
-
-    returns a dict with the file names as the keys and the contents as the list value
-    """
-
-    data_dict = {}
-
-    all_file_names = list(file_names_websites.keys()) + list(file_names_locations.keys()) + file_names_word_of_mouth
-
-    for item in all_file_names:
-        filepath = f"data/cleaned_q37_write_ins/{item}.json"
-        with open(filepath, "r") as json_file:
-            read_file = load(json_file)
-        
-        data_dict[item] = read_file
-
-    return data_dict
-
 def make_survey_source_charts(input_df:pd.DataFrame):
 
     # get sorted bits from files
-    data_dict = read_all_source_write_ins()
+    data_dict = read_all_categories("data/cleaned_q37_write_ins/")
 
     # copying input df
     source_df = input_df.copy().set_index("UserID")#["q37_Survey_Origin"]
