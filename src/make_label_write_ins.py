@@ -112,20 +112,6 @@ def assign_categories(input_df:pd.DataFrame):
 
     return new_df
 
-def cross_reference(input_df:pd.DataFrame): #TODO
-
-    # cross reference categories (conflicting responses, combo responses (ex "trans" + "woman"), etc)
-        # make columns of mutually exclusive categories
-    
-    # Q. do we cross reference tickbox labels here (= would need to join) or later?
-        # -> make a third file combining write ins with tickbox labels 
-        # to update tickbox categories in there?
-
-        # but write ins themselves may not contain conflicts with tickbox labels, 
-        # so we should join it for making mutually exclusive categories properly
-
-    pass
-
 if __name__ == "__main__":
     read_write_ins_data = df_from_csv("data/separated_questions/q2_label_write_ins.csv")
 
