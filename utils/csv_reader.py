@@ -36,7 +36,7 @@ def read_data_from_csv(filepath: str):
                         new_bit = None
                     elif bit == "":
                         continue
-                    elif bit[0] in digits:
+                    elif bit.isdigit():
                         new_bit = int(bit)
                     else: new_bit = bit
                     new_item.append(new_bit)
