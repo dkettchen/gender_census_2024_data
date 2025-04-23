@@ -1,5 +1,6 @@
 import pandas as pd
 from utils.csv_reader import df_from_csv
+from utils.read_all_categories import read_all_categories
 
 def make_write_in_columns(input_df:pd.DataFrame):
     new_df = collect_write_in_columns(input_df)
@@ -7,7 +8,7 @@ def make_write_in_columns(input_df:pd.DataFrame):
 
 def collect_write_in_columns(input_df:pd.DataFrame):
     """
-    collects all write ins form the 20 available columns
+    collects all write ins from the 20 available columns
 
     returns a new df with the following columns
     - all_write_ins (a list of all the write in items)
@@ -68,15 +69,48 @@ def collect_write_in_columns(input_df:pd.DataFrame):
 
     return new_df
 
-def assign_categories(input_df:pd.DataFrame): #TODO
+def assign_categories(input_df:pd.DataFrame):
+    """
+    takes an input_df with the following columns: ["UserID", "all_write_ins", "no_of_write_ins", "wrote_in"] 
+    (an index column and all_write_ins:list are required)
+
+    reads all label category json files from "data/cleaned_q2_write_ins/" and adds [category]_user column,
+    denoting whether a label from that category is among the participant's label list
+    
+    ex ["probably male"] -> is in male_aligned category -> will have a "Yes" in "male_aligned_user" column
+
+    it also adds a column named "useable_write_ins" to track whether any of the participant's write-ins 
+    were found in the categories or if they only wrote in uncategorised (ie not particularly useful) labels
+    (we're using a very broad definition of "useful" here 🤦‍♂️)
+
+    returns a new df with the input and added columns
+    """
+
+    all_categories_dict = read_all_categories("data/cleaned_q2_write_ins/")
+
+    new_df = input_df.copy()
+
+    # getting all label lists
+    label_list_column = new_df["all_write_ins"]
+
+    # did they write in smth useable?
+    new_df["useable_write_ins"] = "No" # default value
 
     # check all categories represented & add columns for em 
     # (face value, not accounting for overlap & conflict yet)
+    for key in sorted(list(all_categories_dict.keys())): # going through all categories
+        column_name = key + "_user" # making new column name
+        new_df[column_name] = "No" # making blank default column
 
-    # possibly a bool for ppl who wrote in stuff that fits any of these categories, 
-    # vs ppl who wrote in only other stuff
+        for i in label_list_column.index: # going through all rows
+            current_label_list = label_list_column.loc[i]
+            for label in current_label_list: # checking all labels this participant uses
+                if label in all_categories_dict[key]: # if they use a label from this category
+                    new_df.loc[i, column_name] = "Yes"
+                    if new_df.loc[i, "useable_write_ins"] == "No": 
+                        new_df.loc[i, "useable_write_ins"] = "Yes" # they wrote in smth useable!
 
-    pass
+    return new_df
 
 def cross_reference(input_df:pd.DataFrame): #TODO
 
@@ -96,9 +130,12 @@ if __name__ == "__main__":
     read_write_ins_data = df_from_csv("data/separated_questions/q2_label_write_ins.csv")
 
     # running full file
-    # new_df = make_write_in_columns(read_write_ins_data)
+    new_df = make_write_in_columns(read_write_ins_data)
 
     # running partial file
-    new_df = make_write_in_columns(read_write_ins_data.head(100))
+    # new_df = make_write_in_columns(read_write_ins_data.head(100))
+
+    # making plain columns
+    new_df = assign_categories(new_df)
 
     new_df.to_csv(path_or_buf="data/cleaned_q2_with_new_columns/q2_clean_01.csv")
