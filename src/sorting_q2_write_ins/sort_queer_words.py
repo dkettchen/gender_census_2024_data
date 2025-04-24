@@ -617,6 +617,7 @@ def is_bi_pan(input_str:str):
         "boygray",
         "gray agender",
         "grey agender",
+        "pan gender",
 
         "ace",
         "aro",
