@@ -440,10 +440,10 @@ def mutually_exclusive(input_df:pd.DataFrame): #TODO
             new_df["male_aligned_unified"] == "Yes") & ( # can't only be conflicted aligned
             new_df["non_male_aligned_user"] != "Yes"
         ) & ( # must not be female aligned
-            new_df["any_female_aligned_unified"] != "No") & (
-            new_df["wlw_labels_unified"] != "No") & (
-            new_df["transfemme_unified"] != "No") & (
-            new_df["she_user"] != "No"
+            new_df["any_female_aligned_unified"] != "Yes") & (
+            new_df["wlw_labels_unified"] != "Yes") & (
+            new_df["transfemme_unified"] != "Yes") & (
+            new_df["she_user"] != "Yes"
         ) & ( # must not be both/neither/conflicted
             new_df["both_user"] != "Yes") & (
             new_df["neither_user"] != "Yes") & (
@@ -482,10 +482,10 @@ def mutually_exclusive(input_df:pd.DataFrame): #TODO
             new_df["conflicted_male_aligned_user"] == "Yes") & ( # must only be conflicted aligned
             new_df["non_male_aligned_user"] != "Yes"
         ) & ( # must not be female aligned
-            new_df["any_female_aligned_unified"] != "No") & (
-            new_df["wlw_labels_unified"] != "No") & (
-            new_df["transfemme_unified"] != "No") & (
-            new_df["she_user"] != "No"
+            new_df["any_female_aligned_unified"] != "Yes") & (
+            new_df["wlw_labels_unified"] != "Yes") & (
+            new_df["transfemme_unified"] != "Yes") & (
+            new_df["she_user"] != "Yes"
         ) & ( # must not be both/neither/conflicted
             new_df["both_user"] != "Yes") & (
             new_df["neither_user"] != "Yes") & (
@@ -526,10 +526,10 @@ def mutually_exclusive(input_df:pd.DataFrame): #TODO
         ) & (
             new_df["non_male_aligned_user"] != "Yes"
         ) & ( # must not be female aligned
-            new_df["any_female_aligned_unified"] != "No") & (
-            new_df["wlw_labels_unified"] != "No") & (
-            new_df["transfemme_unified"] != "No") & (
-            new_df["she_user"] != "No"
+            new_df["any_female_aligned_unified"] != "Yes") & (
+            new_df["wlw_labels_unified"] != "Yes") & (
+            new_df["transfemme_unified"] != "Yes") & (
+            new_df["she_user"] != "Yes"
         ) & ( # must not be both/neither/conflicted
             new_df["both_user"] != "Yes") & (
             new_df["neither_user"] != "Yes") & (
