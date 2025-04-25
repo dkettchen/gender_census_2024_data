@@ -427,9 +427,6 @@ def mutually_exclusive(input_df:pd.DataFrame): #TODO
         ) & ( # must not be both/neither/conflicted
             new_df["both_user"] != "Yes") & (
             new_df["neither_user"] != "Yes") & (
-            new_df["dykefag_user"] != "Yes") & (
-            new_df["faggotry_for_women_user"] != "Yes") & (
-            new_df["lesbianism_for_men_user"] != "Yes") & (
             new_df["conflicted_queer_user"] != "Yes"
         )
     )
@@ -447,9 +444,6 @@ def mutually_exclusive(input_df:pd.DataFrame): #TODO
         ) & ( # must not be both/neither/conflicted
             new_df["both_user"] != "Yes") & (
             new_df["neither_user"] != "Yes") & (
-            new_df["dykefag_user"] != "Yes") & (
-            new_df["faggotry_for_women_user"] != "Yes") & (
-            new_df["lesbianism_for_men_user"] != "Yes") & (
             new_df["conflicted_queer_user"] != "Yes"
         )
     )
@@ -457,43 +451,56 @@ def mutually_exclusive(input_df:pd.DataFrame): #TODO
     # any conflicted female aligned (ie must only contain conflicted_female_aligned)
     new_df["is_conflicted_female_aligned"] = "Yes"
     new_df['is_conflicted_female_aligned'] = new_df['is_conflicted_female_aligned'].where(
-        ( # must be female aligned
-            new_df["conflicted_female_aligned_user"] == "Yes") & ( # must only be conflicted aligned
+        ( # must be female aligned & conflicted
+            (
+                new_df["conflicted_female_aligned_user"] == "Yes") | (
+                new_df["faggotry_for_women_user"] == "Yes") | (
+                (
+                    new_df["any_female_aligned_unified"] == "Yes") & (
+                    (
+                        new_df["mlm_labels_unified"] == "Yes") | (
+                        new_df["conflicted_queer_user"] == "Yes"
+                    )
+                )
+            )
+        ) & ( # must not be non-female aligned
             new_df["non_female_aligned_user"] != "Yes"
         ) & ( # must not be male aligned
             new_df["any_male_aligned_unified"] != "Yes") & (
-            new_df["mlm_labels_unified"] != "Yes") & (
             new_df["transmasc_unified"] != "Yes") & (
-            new_df["femboy_user"] != "Yes") & (
+            new_df["lesbianism_for_men_user"] != "Yes") & (
             new_df["he_user"] != "Yes"
         ) & ( # must not be both/neither/conflicted
             new_df["both_user"] != "Yes") & (
-            new_df["neither_user"] != "Yes") & (
-            new_df["dykefag_user"] != "Yes") & (
-            # new_df["faggotry_for_women_user"] != "Yes") & ( # this is technically female aligned right
-            new_df["lesbianism_for_men_user"] != "Yes") & (
-            new_df["conflicted_queer_user"] != "Yes"
-        )
+            new_df["neither_user"] != "Yes"
+        ) # we're including faggotry for women as female aligned, incl female-aligned femboys
     )
     # any conflicted male aligned (ie must only contain conflicted_male_aligned)
     new_df["is_conflicted_male_aligned"] = "Yes"
     new_df['is_conflicted_male_aligned'] = new_df['is_conflicted_male_aligned'].where(
-        ( # must be male aligned
-            new_df["conflicted_male_aligned_user"] == "Yes") & ( # must only be conflicted aligned
+        ( # must be male aligned & conflicted
+            (
+                new_df["conflicted_male_aligned_user"] == "Yes") | (
+                new_df["lesbianism_for_men_user"] == "Yes") | (
+                (
+                    new_df["any_male_aligned_unified"] == "Yes") & (
+                    (
+                        new_df["wlw_labels_unified"] == "Yes") | (
+                        new_df["conflicted_queer_user"] == "Yes"
+                    )
+                )
+            )
+        ) & ( # must not be non-male aligned
             new_df["non_male_aligned_user"] != "Yes"
         ) & ( # must not be female aligned
             new_df["any_female_aligned_unified"] != "Yes") & (
-            new_df["wlw_labels_unified"] != "Yes") & (
             new_df["transfemme_unified"] != "Yes") & (
+            new_df["faggotry_for_women_user"] != "Yes") & (
             new_df["she_user"] != "Yes"
         ) & ( # must not be both/neither/conflicted
             new_df["both_user"] != "Yes") & (
-            new_df["neither_user"] != "Yes") & (
-            new_df["dykefag_user"] != "Yes") & (
-            new_df["faggotry_for_women_user"] != "Yes") & (
-            # new_df["lesbianism_for_men_user"] != "Yes") & ( # this is technically male aligned right
-            new_df["conflicted_queer_user"] != "Yes"
-        )
+            new_df["neither_user"] != "Yes"
+        ) # we're including lesbianism for men as male aligned
     )
 
     # any non-male aligned
@@ -507,18 +514,12 @@ def mutually_exclusive(input_df:pd.DataFrame): #TODO
             new_df["non_female_aligned_user"] != "Yes"
         ) & ( # must not be male aligned
             new_df["any_male_aligned_unified"] != "Yes") & (
-            new_df["mlm_labels_unified"] != "Yes") & (
             new_df["transmasc_unified"] != "Yes") & (
-            new_df["femboy_user"] != "Yes") & (
+            new_df["lesbianism_for_men_user"] != "Yes") & (
             new_df["he_user"] != "Yes"
         ) & ( # must not be both/neither/conflicted
-            new_df["both_user"] != "Yes") & (
-            new_df["neither_user"] != "Yes") & (
-            new_df["dykefag_user"] != "Yes") & (
-            # new_df["faggotry_for_women_user"] != "Yes") & (
-            new_df["lesbianism_for_men_user"] != "Yes") & (
-            new_df["conflicted_queer_user"] != "Yes"
-        )
+            new_df["both_user"] != "Yes"
+        ) # we're including faggotry for women as female aligned, incl female-aligned femboys
     )
     # any non-female aligned
     new_df["is_non_female_aligned"] = "Yes"
@@ -531,17 +532,12 @@ def mutually_exclusive(input_df:pd.DataFrame): #TODO
             new_df["non_male_aligned_user"] != "Yes"
         ) & ( # must not be female aligned
             new_df["any_female_aligned_unified"] != "Yes") & (
-            new_df["wlw_labels_unified"] != "Yes") & (
             new_df["transfemme_unified"] != "Yes") & (
+            new_df["faggotry_for_women_user"] != "Yes") & (
             new_df["she_user"] != "Yes"
         ) & ( # must not be both/neither/conflicted
-            new_df["both_user"] != "Yes") & (
-            new_df["neither_user"] != "Yes") & (
-            new_df["dykefag_user"] != "Yes") & (
-            new_df["faggotry_for_women_user"] != "Yes") & (
-            # new_df["lesbianism_for_men_user"] != "Yes") & (
-            new_df["conflicted_queer_user"] != "Yes"
-        )
+            new_df["both_user"] != "Yes"
+        ) # we're including lesbianism for men as male aligned
     )
 
     # also not seeing the point of conflicted male/female/non_male/female for now
@@ -770,7 +766,7 @@ def mutually_exclusive(input_df:pd.DataFrame): #TODO
     # - anything else?
         # - passing/presenting should be mutually exclusive ✅
         # - we can get more gnc-ity via masc female aligned & femme male aligned ✅
-        # - 
+        # - male-aligned + wlw labels -> lesbianism for men & vice versa for faggotry for women
 
     new_df = new_df.fillna("No")
 
