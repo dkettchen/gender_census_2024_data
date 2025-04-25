@@ -500,7 +500,9 @@ def mutually_exclusive(input_df:pd.DataFrame): #TODO
     new_df["is_non_male_aligned"] = "Yes"
     new_df['is_non_male_aligned'] = new_df['is_non_male_aligned'].where(
         ( # must only be non-male (which includes explicitly female aligned folks)
-            (new_df["non_male_aligned_user"] == "Yes") | (new_df["is_female_aligned"] == "Yes")
+            (new_df["non_male_aligned_user"] == "Yes") | (
+                new_df["is_female_aligned"] == "Yes") | (
+                new_df["is_conflicted_female_aligned"] == "Yes")
         ) & (
             new_df["non_female_aligned_user"] != "Yes"
         ) & ( # must not be male aligned
@@ -513,7 +515,7 @@ def mutually_exclusive(input_df:pd.DataFrame): #TODO
             new_df["both_user"] != "Yes") & (
             new_df["neither_user"] != "Yes") & (
             new_df["dykefag_user"] != "Yes") & (
-            new_df["faggotry_for_women_user"] != "Yes") & (
+            # new_df["faggotry_for_women_user"] != "Yes") & (
             new_df["lesbianism_for_men_user"] != "Yes") & (
             new_df["conflicted_queer_user"] != "Yes"
         )
@@ -522,7 +524,9 @@ def mutually_exclusive(input_df:pd.DataFrame): #TODO
     new_df["is_non_female_aligned"] = "Yes"
     new_df['is_non_female_aligned'] = new_df['is_non_female_aligned'].where(
         ( # must only be non-female (which includes explicitly male aligned folks)
-            (new_df["non_female_aligned_user"] == "Yes") | (new_df["is_male_aligned"] == "Yes")
+            (new_df["non_female_aligned_user"] == "Yes") | (
+                new_df["is_male_aligned"] == "Yes") | (
+                new_df["is_conflicted_male_aligned"] == "Yes")
         ) & (
             new_df["non_male_aligned_user"] != "Yes"
         ) & ( # must not be female aligned
@@ -535,7 +539,7 @@ def mutually_exclusive(input_df:pd.DataFrame): #TODO
             new_df["neither_user"] != "Yes") & (
             new_df["dykefag_user"] != "Yes") & (
             new_df["faggotry_for_women_user"] != "Yes") & (
-            new_df["lesbianism_for_men_user"] != "Yes") & (
+            # new_df["lesbianism_for_men_user"] != "Yes") & (
             new_df["conflicted_queer_user"] != "Yes"
         )
     )
@@ -719,9 +723,54 @@ def mutually_exclusive(input_df:pd.DataFrame): #TODO
     )
     # TODO conflicted & unspecified?
 
+    ## passing/presenting as male/female
+    new_df["is_female_pass_pres"] = "Yes"
+    new_df['is_female_pass_pres'] = new_df['is_female_pass_pres'].where(
+        ( # must be female pass/pres
+            new_df["female_present_passing_user"] == "Yes"
+        ) & ( # must not be male pass/pres
+            new_df["male_present_passing_user"] != "Yes"
+        )
+    )
+    new_df["is_male_pass_pres"] = "Yes"
+    new_df['is_male_pass_pres'] = new_df['is_male_pass_pres'].where(
+        ( # must be male pass/pres
+            new_df["male_present_passing_user"] == "Yes"
+        ) & ( # must not be female pass/pres
+            new_df["female_present_passing_user"] != "Yes"
+        )
+    )
+
+    ## gnc-ity
+    new_df["is_gnc"] = "Yes"
+    new_df['is_gnc'] = new_df['is_gnc'].where(
+        ( # labelled as gnc
+            new_df["gnc_unified"] == "Yes"
+        ) | ( # labelled as female aligned & masc
+            (
+                new_df["any_female_aligned_unified"] == "Yes") & (
+                new_df["masc_user"] == "Yes") & (
+                new_df["any_male_aligned_unified"] != "Yes") & (
+                new_df["femme_user"] != "Yes"
+            )
+        ) | ( # labelled as male aligned & femme
+            (
+                new_df["any_female_aligned_unified"] != "Yes") & (
+                new_df["masc_user"] != "Yes") & (
+                new_df["any_male_aligned_unified"] == "Yes") & (
+                new_df["femme_user"] == "Yes" # this already includes femboys
+            )
+        )
+    )
+
+
     # TODO 
+    # - make sure transmasc & lesbianism for men are not mutually exclusive 
+    # bc I wanna prove it's a primarily transmasc phenomenon ✅
     # - anything else?
-    # - test run?
+        # - passing/presenting should be mutually exclusive ✅
+        # - we can get more gnc-ity via masc female aligned & femme male aligned ✅
+        # - 
 
     new_df = new_df.fillna("No")
 
@@ -761,7 +810,11 @@ if __name__ == "__main__":
     read_tickbox_data = df_from_csv("data/cleaned_q1_with_new_columns/q1_clean_01.csv").set_index("UserID")
     read_write_ins_data = df_from_csv("data/cleaned_q2_with_new_columns/q2_clean_01.csv").set_index("UserID")
 
-    # join em
+    # join em 
+    # (TODO try joining the other way around for full set regardless of write-ins 
+    # to unify column names for querying later? 
+    # ie someone who just ticked transmasc but didn't write in and someone who was only 
+    # identifyable as transmasc via write ins would both be "is_transmasc" f.e.)
     write_ins_with_tickboxes = read_write_ins_data.join(read_tickbox_data)
 
     # # run all
