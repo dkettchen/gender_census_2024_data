@@ -359,7 +359,7 @@ def unify_redundancies(input_df:pd.DataFrame):
         new_column_name = key + "_unified"
 
         # add new column for key
-        new_df[new_column_name] = "No"
+        new_df[new_column_name] = None
 
         # for each column in key's list
         for column in redundancies[key]:
@@ -612,12 +612,15 @@ def mutually_exclusive(input_df:pd.DataFrame): #TODO
             new_df["is_trans"] == "Yes" # must be trans
         ) & ( # must be transmasc
             ( # ie transmasc labelled, afab, or non-female aligned
-                new_df["transmasc_unified"] == "Yes") | (
-                new_df["afab_user"] == "Yes") | (
-                new_df["is_non_female_aligned"] == "Yes"
+                ( # if transmasc or non-female
+                    (new_df["transmasc_unified"] == "Yes") | (new_df["is_non_female_aligned"] == "Yes")
+                ) & ( # must not be transfemme
+                    new_df["transfemme_unified"] != "Yes"
+                )
+            ) | ( # afabs who misunderstood what transfemme means are included bc explicitly afab
+                new_df["afab_user"] == "Yes"
             )
-        ) & ( # must not be transfemme, amab, or female aligned
-            new_df["transfemme_unified"] != "Yes") & (
+        ) & ( # must not be amab, or female aligned
             new_df["amab_user"] != "Yes") & (
             new_df["any_female_aligned_unified"] != "Yes"
         )
@@ -628,12 +631,15 @@ def mutually_exclusive(input_df:pd.DataFrame): #TODO
             new_df["is_trans"] == "Yes" # must be trans
         ) & ( # must be transfemme
             ( # ie transfemme labelled, amab, or non-male aligned
-                new_df["transfemme_unified"] == "Yes") | (
-                new_df["amab_user"] == "Yes") | (
-                new_df["is_non_male_aligned"] == "Yes"
+                ( # if transfemme or non-male
+                    (new_df["transfemme_unified"] == "Yes") | (new_df["is_non_male_aligned"] == "Yes")
+                ) & ( # must not be transmasc
+                    new_df["transmasc_unified"] != "Yes"
+                )
+            ) | ( # amabs who misunderstood what transmasc means are included bc explicitly amab
+                new_df["amab_user"] == "Yes"
             )
-        ) & ( # must not be transmasc, afab, or male aligned
-            new_df["transmasc_unified"] != "Yes") & (
+        ) & ( # must not be afab, or male aligned
             new_df["afab_user"] != "Yes") & (
             new_df["any_male_aligned_unified"] != "Yes"
         )
@@ -651,17 +657,20 @@ def mutually_exclusive(input_df:pd.DataFrame): #TODO
     )
 
     ## birthsex
+    # we're including people who specified birthsex but misunderstood transmasc/transfemme
+    # ex afab transfemme -> mf just misunderstood what that word means but *is afab*
+    # (we're assuming that amab/afab switcheroo typos are rare enough to be disregarded in comparison)
 
     new_df["is_afab"] = "Yes"
     new_df['is_afab'] = new_df['is_afab'].where(
         ( # must be afab
             ( # excluding transmasc intersex folks unless they explicitly use afab
-                (new_df["is_transmasc"] == "Yes") & (new_df["intersex_user"] != "Yes") 
-            ) | (
+                # only including ppl who are non-conflicting transmasc already
+                (new_df["is_transmasc"] == "Yes") & (new_df["intersex_user"] != "Yes")
+            ) | ( # or must explicitly use afab
                 new_df["afab_user"] == "Yes"
             )
         ) & ( # must not be amab
-            new_df["transfemme_unified"] != "Yes") & (
             new_df["amab_user"] != "Yes"
         )
     )
@@ -674,7 +683,6 @@ def mutually_exclusive(input_df:pd.DataFrame): #TODO
                 new_df["amab_user"] == "Yes"
             )
         ) & ( # must not be afab
-            new_df["transmasc_unified"] != "Yes") & (
             new_df["afab_user"] != "Yes"
         )
     )
@@ -768,7 +776,7 @@ def mutually_exclusive(input_df:pd.DataFrame): #TODO
         # - we can get more gnc-ity via masc female aligned & femme male aligned ✅
         # - male-aligned + wlw labels -> lesbianism for men & vice versa for faggotry for women
 
-    new_df = new_df.fillna("No")
+    # new_df = new_df.fillna("None")
 
     return new_df
 
@@ -811,7 +819,7 @@ if __name__ == "__main__":
     # to unify column names for querying later? 
     # ie someone who just ticked transmasc but didn't write in and someone who was only 
     # identifyable as transmasc via write ins would both be "is_transmasc" f.e.)
-    write_ins_with_tickboxes = read_write_ins_data.join(read_tickbox_data)
+    write_ins_with_tickboxes = read_write_ins_data.join(read_tickbox_data, how="right")
 
     # # run all
     # unified_df = unify_redundancies(write_ins_with_tickboxes)
@@ -819,13 +827,13 @@ if __name__ == "__main__":
     # run part
     unified_df = unify_redundancies(write_ins_with_tickboxes.head(100))
 
-    unified_df.to_csv(path_or_buf="data/cleaned_q2_with_new_columns/q2_unified_columns_01.csv")
+    unified_df.fillna("None").to_csv(path_or_buf="data/cleaned_q2_with_new_columns/q2_unified_columns_01.csv")
 
     mutually_exclusive_1 = mutually_exclusive(unified_df)
     
     # cross refence
 
-    mutually_exclusive_1.to_csv(path_or_buf="data/cleaned_q2_with_new_columns/q2_cross_referenced_01.csv")
+    mutually_exclusive_1.fillna("None").to_csv(path_or_buf="data/cleaned_q2_with_new_columns/q2_cross_referenced_01.csv")
 
 
 
