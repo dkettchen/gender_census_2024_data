@@ -48,7 +48,7 @@ def collect_write_in_columns(input_df:pd.DataFrame):
     indexes = list(new_df.index)
     new_df["all_write_ins"] = "wrong"
     new_df["no_of_write_ins"] = 0
-    new_df["wrote_in"] = "No"
+    new_df["wrote_in"] = "None"
 
     for i in indexes:
         # add all columns to a list for each respondant
@@ -94,20 +94,20 @@ def assign_categories(input_df:pd.DataFrame):
     label_list_column = new_df["all_write_ins"]
 
     # did they write in smth useable?
-    new_df["useable_write_ins"] = "No" # default value
+    new_df["useable_write_ins"] = "None" # default value
 
     # check all categories represented & add columns for em 
     # (face value, not accounting for overlap & conflict yet)
     for key in sorted(list(all_categories_dict.keys())): # going through all categories
         column_name = key + "_user" # making new column name
-        new_df[column_name] = "No" # making blank default column
+        new_df[column_name] = "None" # making blank default column
 
         for i in label_list_column.index: # going through all rows
             current_label_list = label_list_column.loc[i]
             for label in current_label_list: # checking all labels this participant uses
                 if label in all_categories_dict[key]: # if they use a label from this category
                     new_df.loc[i, column_name] = "Yes"
-                    if new_df.loc[i, "useable_write_ins"] == "No": 
+                    if new_df.loc[i, "useable_write_ins"] == "None": 
                         new_df.loc[i, "useable_write_ins"] = "Yes" # they wrote in smth useable!
 
     return new_df
