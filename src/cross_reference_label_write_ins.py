@@ -373,6 +373,7 @@ def unify_redundancies(input_df:pd.DataFrame):
 
     return new_df
 
+# this currently isn't being used vv
 def remove_column_endings(input_df:pd.DataFrame):
     """
     removes the "_user", "_unified", and "_tickbox" labels from column names
@@ -397,7 +398,88 @@ def remove_column_endings(input_df:pd.DataFrame):
 
     return new_df
 
-def mutually_exclusive(input_df:pd.DataFrame): #TODO
+def cross_reference(input_df:pd.DataFrame):
+    """
+    takes a unified df
+
+    makes relevant columns mutually exclusive & cross references to make sure to find as many 
+    relevant respondants as possible even if they didn't explicitly tick/write in the category label
+
+    (if true the value will say "Yes", otherwise it will be a none value)
+
+    it returns a new df with the added columns
+
+    new columns include: [
+
+        - anyone who is explicitly female/male aligned & doesn't use ANY conflicting labels \
+            (ex ["Man", "tranny"], ["demi-girl", "agender"]):
+            - "is_female_aligned", 
+            - "is_male_aligned", 
+
+        - anyone who is using a conflicted female/male label \
+            (ex ["a boy but not a man"] -> only one alignment, but conflicted abt synonymous words) \
+            and/OR \
+            any female/male label & a conflicting label that doesn't explicitly negate the alignment \
+            (ex ["dyke", "pretty boy"] -> lesbianism for men but no explicit female alignment):
+            - "is_conflicted_female_aligned", 
+            - "is_conflicted_male_aligned",
+
+        - anyone who either has one of the previous alignments and/or has stated an explicit non-alignment \
+            (ex ["definitely not a woman"]):
+            - "is_non_male_aligned",
+            - "is_non_female_aligned",
+
+        - anyone who doesn't use the cis label, and either uses a trans label and/or is either \
+            non-male-aligned amab or non-female-aligned afab:
+            - "is_trans",
+        - anyone who doesn't use the trans label, and either uses a cis label and/or is either \
+            male-aligned amab or female-aligned afab:
+            - "is_cis",
+        - anyone who doesn't fit the previous two categories, either due to no indication of cis/trans status \
+            or due to a conflict (ex ["trans", "cis"]):
+            - "unspecified_trans_status",
+
+        - any is_trans respondant who either \
+            explicitly uses transmasc or is non-female aligned, but not transfemme, \
+            or uses an afab label (this includes respondants who ticked transfemme too \
+            because some femme transmascs misunderstood what the heck that word means):
+            - "is_transmasc",
+        - any is_trans respondant who either \
+            explicitly uses transfemme or is non-male aligned, but not transmasc, \
+            or uses an amab label (this includes respondants who ticked transmasc too for the same reason):
+            - "is_transfemme",
+        - any is_trans respondant who didn't specify any info one could use to determine their direction \
+            or gave conflicting info:
+            - "unspecified_trans_direction",
+
+        - anyone who explicitly uses an afab label, and any transmascs who didn't state intersex status:
+            - "is_afab",
+        - anyone who explicitly uses an amab label, and any transfemmes who didn't state intersex status:
+            - "is_amab",
+
+        - anyone who uses wlw labels (including butch) (ex ["lesbian"]) or \
+            gay/homo/bi/pan labels with female alignment (ex ["gay", "girl"]), \
+            but no male-aligned, non-female aligned, mlm or conflicted labels \
+            (nb wlw must've specified explicit female alignment to be counted):
+            - "is_wlw_aligned",
+        - anyone who uses mlm labels (including twink & bear) (ex ["faggot"]) or \
+            gay/homo/bi/pan labels with male alignment (ex ["gay", "guy"]), \
+            but no female-aligned, non-male aligned, wlw or conflicted labels \
+            (nb mlm must've specified explicit male alignment to be counted):
+            - "is_mlm_aligned",
+
+        - anyone who specified that they pass or present as female, \
+            unless they also stated they pass/present as male:
+            - "is_female_pass_pres",
+        - anyone who specified that they pass or present as male, \
+            unless they also stated they pass/present as female:
+            - "is_male_pass_pres",
+
+        - anyone who explicitly uses a gnc label, \
+            and/or is femme & male-aligned or masc & female-aligned:
+            - "is_gnc",
+    ]
+    """
 
     new_df = input_df.copy()
 
@@ -767,73 +849,41 @@ def mutually_exclusive(input_df:pd.DataFrame): #TODO
         )
     )
 
-
-    # TODO 
-    # - make sure transmasc & lesbianism for men are not mutually exclusive 
-    # bc I wanna prove it's a primarily transmasc phenomenon ✅
-    # - anything else?
-        # - passing/presenting should be mutually exclusive ✅
-        # - we can get more gnc-ity via masc female aligned & femme male aligned ✅
-        # - male-aligned + wlw labels -> lesbianism for men & vice versa for faggotry for women
-
-    # new_df = new_df.fillna("None")
-
     return new_df
 
-def cross_reference(input_df:pd.DataFrame): #TODO
-
-    # cross reference (after mutually exclusive categories) -> if it's not categorised this way yet
-        # trans, female aligned; trans, amab; female aligned, amab -> transfemme
-        # trans, male aligned; trans, afab; male aligned, afab -> transmasc
-        # female aligned, afab; cis, afab; cis, female aligned -> cis female aligned
-        # male aligned, amab; cis, amab; cis, male aligned -> cis male aligned
-        # female aligned, gay/bi -> wlw
-        # male aligned, gay/bi -> mlm
-
-        # nb, not female aligned, wlw -> nb lesbian
-        # nb, not male aligned, mlm -> nb gay
-        # male aligned, wlw -> lesbianism for men
-        # female aligned, mlm -> faggotry for women
-
-        # non-male; female-aligned -> non-man
-        # non-female; male_aligned -> non-woman
-        # no alignment, any nb label -> unaligned nb
-        # intersex, male-aligned -> intersex male-aligned
-        # intersex, female-aligned -> intersex female-aligned
-        # intersex, unaligned nb -> intersex unaligned
-        # femboy, any form of transfemme -> transfemme femboy
-        # femboy, any form of transmasc -> transmasc femboy
-        # femboy, unspecified trans -> unspecified trans femboy
-        # femboy, any form of not trans -> non-trans femboy
-
-    pass
-
-
 if __name__ == "__main__":
+    """
+    reads in cleaned data from q1 & q2
+
+    joins the write in info to tickbox labels
+
+    unifies any redundancies and cross references & makes mutually exclusive label columns
+
+    it writes two new files, one with only the non-redundant columns version 
+    and one with the final cross referenced version
+    """
     # read in tickbox & write in data
     read_tickbox_data = df_from_csv("data/cleaned_q1_with_new_columns/q1_clean_01.csv").set_index("UserID")
     read_write_ins_data = df_from_csv("data/cleaned_q2_with_new_columns/q2_clean_01.csv").set_index("UserID")
 
     # join em 
-    # (TODO try joining the other way around for full set regardless of write-ins 
-    # to unify column names for querying later? 
-    # ie someone who just ticked transmasc but didn't write in and someone who was only 
-    # identifyable as transmasc via write ins would both be "is_transmasc" f.e.)
+        # joined right to include entire data set, not just write ins 
+        # -> categorise all of em w same column names
     write_ins_with_tickboxes = read_write_ins_data.join(read_tickbox_data, how="right")
 
-    # # run all
-    # unified_df = unify_redundancies(write_ins_with_tickboxes)
+    # run all
+    unified_df = unify_redundancies(write_ins_with_tickboxes)
 
-    # run part
-    unified_df = unify_redundancies(write_ins_with_tickboxes.head(100))
+    # # run part
+    # unified_df = unify_redundancies(write_ins_with_tickboxes.head(100))
 
     unified_df.fillna("None").to_csv(path_or_buf="data/cleaned_q2_with_new_columns/q2_unified_columns_01.csv")
 
-    mutually_exclusive_1 = mutually_exclusive(unified_df)
+    cross_referenced_df = cross_reference(unified_df)
     
     # cross refence
 
-    mutually_exclusive_1.fillna("None").to_csv(path_or_buf="data/cleaned_q2_with_new_columns/q2_cross_referenced_01.csv")
+    cross_referenced_df.fillna("None").to_csv(path_or_buf="data/cleaned_q2_with_new_columns/q2_cross_referenced_01.csv")
 
 
 
