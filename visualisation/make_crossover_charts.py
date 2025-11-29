@@ -2,7 +2,7 @@ import pandas as pd
 from visualisation.chart_import_data import case_get_lists
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
-from visualisation.vis_utils import make_colour_list, make_alignment_srs
+from visualisation.vis_utils_file import make_colour_list, make_alignment_srs
 from visualisation.make_geo_charts import english_speaking_or_no
 from visualisation.chart_pie import make_pie
 from re import sub
