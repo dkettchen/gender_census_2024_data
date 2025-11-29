@@ -209,21 +209,23 @@ I am tracking whether (and if so which way) or not pronoun sets are aligned with
 
 I believe that there are major oversights and biases in any statistical data we have on the nonbinary/genderqueer community, including in this survey. 
 
-- In [the USTS](https://ustranssurvey.org/) we have seen that the horrendous 80% afab / 20% amab ratio has barely budged in 7 years of awareness raising and in spite of seeing a much higher participation number overall.
+- In [the USTS](https://ustranssurvey.org/) we have seen that the startling 80% afab / 20% amab ratio has barely budged in 7 years of awareness raising and in spite of seeing a much higher participation number overall.
 
 - Even in the gender census, despite OP's continued refusal to collect birthsex, we have seen that transmasculine made it to the top 10 labels for years while transfemme has not made the cut.
 
 
-I believe them to be caused by our existing theory as largely developed and popularised by the afab part of the community in favour of amab-originated ideas and practices, not by any inherent difference in the distribution of genderqueerness among birthsexes.
+I believe them to be caused by our existing theory as largely developed and popularised by the afab part of the community favouring afab- over amab-originated ideas and practices, not by any inherent difference in the distribution of genderqueerness among birthsexes.
 
-- OP largely operates from tumblr, which we know to be highly afab dominated, and from what I can already see in the "how did you find this survey" unique responses, did not bother reposting on known amab dominated sites with a huge transfemme et al population like reddit, where the survey seems to only have made an appearance via a screenshot on r/tumblr, with no other subreddits mentionned, including NONE of the known and popular genderqueer ones like various trans and nonbinary subreddits and crossdressing communities like r/femboys.
-    
-    I plan on reposting it there next time (and invite anyone else reading this to join me in cross promoting it), just to see how much it'll screw with the numbers to balance those ratios a little more for once.
+- The "how did you find this survey" responses indicate that the survey spread largely on tumblr, which we know to be highly afab dominated, with amab-dominated sites like reddit ranking lower than its own mailing list. 
+
+    - Not enough outreach work was done to reach the various trans, nonbinary, and crossdressing communities over there. The only explicitly mentioned subreddit people found the survey through was a screenshot on r/tumblr.
+
+    - Partially this is due to a lot of relevant subreddits' moderation rules preventing surveys from being reposted/shared there, but I still believe a lack of outreach work contributed to low participation numbers from over there.
 
 - I believe it is not only a promotional issue (ie basic outreach work to make sure the amabs know about it), but also a cultural one, in that a lot of amab genderqueer culture revolves around crossdressing practice (drag, femboys, crossplaying as cute anime girls on vrchat, private sexual crossdressing, etc) until a label change is inevitable (ex. once they start medical transition), while afab genderqueer culture relies more on various labels like nonbinary even while/if they do not pursue medical transition.
 
 
-I am complicit in this state of things, as one of the afab people who has spent a significant number of years educating on the existing system and not doing outreach work as someone who largely worked out of tumblr and has yet to make a reddit account as I am typing this.
+I am complicit in this state of things, as one of the afab people who has spent a significant number of years educating on the existing system and not doing outreach work as someone who largely worked out of tumblr and didn't even have a reddit account for years.
 
 I care more about gender liberation than about upholding whatever shitty status quo we've created to please mother (= the female gender role we as genderqueer afab people have not appropriately liberated ourselves from the clutches of), and as a gender non-conforming man and friend of many transfemmes, and, most notably, as a data person who cares about achieving the highest possible accuracy even in my social science data sets, I cannot stand by this insane bias when it could be resolved with a bare minimum of 
 
@@ -231,4 +233,4 @@ I care more about gender liberation than about upholding whatever shitty status 
 
 2) that we were wrong about what we thought caused it (amab ignorance about our fun new nb labels) and our approach to "solving" it (awareness raising for said nb labels) didn't work ((this point is hard bc fragile femininity says we are not allowed to be wrong ever -> we need to question and overcome that to be and do better for our siblings!))
 
-3) do literally any amount of outreach work and do not constrain ourselves to certain labels/language usage, notably when we have a project we want the whole community to be involved in (ex. include and encourage language other than just "nonbinary" as a default, ex. crosspost our survey on relevant subreddits)
+3) do literally any amount of outreach work and do not constrain ourselves to certain labels/language usage, notably when we have a project we want the whole community to be involved in (ex. include and encourage language other than just "nonbinary" as a default, ex. crosspost our survey on relevant other sites)
