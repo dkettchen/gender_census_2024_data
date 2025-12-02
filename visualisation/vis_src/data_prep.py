@@ -2,6 +2,8 @@ import pandas as pd
 from visualisation.vis_utils.get_pronoun_alignment import get_pronoun_alignment
 from visualisation.vis_utils.count import count
 from visualisation.vis_utils.import_data import case_get_lists
+from visualisation.vis_utils.geo_utils import english_speaking, other_countries
+from visualisation.vis_utils.make_percent import percent
 
 def prep_pronoun_data(input_df:pd.DataFrame):
     """
@@ -239,7 +241,7 @@ def prep_pronouns_by_labels(label_df:pd.DataFrame, pronoun_df:pd.DataFrame):
         total_respondants = pronoun_sets[column].sum()
         # get their pronoun sets
         label_sets = pronoun_sets[column].sort_values(ascending=False).apply(
-            lambda x: round((x / total_respondants) * 100, 2)
+            percent, args=[total_respondants]
         )
         # pronoun sets
         data[f"Pronoun sets used by{label} respondants{suffix}"] = label_sets
@@ -248,13 +250,52 @@ def prep_pronouns_by_labels(label_df:pd.DataFrame, pronoun_df:pd.DataFrame):
 
     return data
 
+def prep_geo_data(input_df:pd.DataFrame):
+
+    geo_df = input_df.copy().set_index("UserID")
+
+    total_geo_srs = geo_df["q35_Location"] # countries column
+    english_geo_srs = english_speaking(geo_df)["english_or_no"]
+
+    total_respondants = len(geo_df)
+    data = {}
+
+    for data_case in ["total", "english-speaking"]:
+        if data_case == "total":
+            srs = total_geo_srs
+        else:
+            srs = english_geo_srs
+        
+        srs = srs.dropna(how="all")
+        
+        # fixing list values back to strings smh
+        for i in range(len(srs)):
+            item = srs.iloc[i]
+            if type(item) != str:
+                srs.iloc[i] = str(item)
+
+        country_srs = srs.groupby(by=srs.values).count().sort_values(ascending=False)
+        country_srs = country_srs.apply(percent, args=[total_respondants])
+
+        if data_case == "total": # adding "other countries" for any countries under 0.5%
+            country_srs = other_countries(country_srs, total_respondants)
+
+        data[f"Location of respondants ({data_case})"] = country_srs
+
+    return data
+
+# TODO survey origin
+
 if __name__ == "__main__":
     from utils.csv_reader import df_from_csv
 
-    pronoun_df = df_from_csv("data/cleaned_q9_with_new_columns/q9_clean_01.csv")
+    # pronoun_df = df_from_csv("data/cleaned_q9_with_new_columns/q9_clean_01.csv")
     # print(prep_pronoun_data(pronoun_df))
 
-    tickbox_label_df = df_from_csv("data/cleaned_q1_with_new_columns/q1_clean_01.csv")
-    print(prep_label_tickbox_data(tickbox_label_df))
+    # tickbox_label_df = df_from_csv("data/cleaned_q1_with_new_columns/q1_clean_01.csv")
+    # print(prep_label_tickbox_data(tickbox_label_df))
 
     # print(prep_pronouns_by_labels(tickbox_label_df, pronoun_df))
+
+    geo_df = df_from_csv("data/separated_questions/q35_location.csv")
+    print(prep_geo_data(geo_df))
