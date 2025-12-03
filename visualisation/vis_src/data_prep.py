@@ -251,6 +251,15 @@ def prep_pronouns_by_labels(label_df:pd.DataFrame, pronoun_df:pd.DataFrame):
     return data
 
 def prep_geo_data(input_df:pd.DataFrame):
+    """
+    takes a df with data from question 35 (location)
+
+    returns a dict with descriptive keys and Series values containing the relevant data
+
+    location data includes (in %):
+    - "Location of respondants (total)"
+    - "Location of respondants (english-speaking)"
+    """
 
     geo_df = input_df.copy().set_index("UserID")
 
@@ -284,7 +293,29 @@ def prep_geo_data(input_df:pd.DataFrame):
 
     return data
 
-# TODO survey origin
+def prep_survey_origin(input_df:pd.DataFrame):
+    """
+    takes a df with data from question 37 (survey origin) rejoined to timestamps for sorting
+
+    returns a dict with descriptive keys and Series values containing the relevant data
+
+    survey origin data includes:
+    - "Where respondants found the survey (%)"
+    """
+
+    origin_df = input_df.copy()
+
+    srs = origin_df.groupby("origin").count()["timestamp_for_sorting"]
+    srs = srs.sort_values(ascending=False)
+    srs = srs.apply(percent, args=[len(origin_df)])
+    srs = srs.where(srs > 1).dropna(how="all")
+
+    data = {}
+    data["Where respondants found the survey (%)"] = srs
+
+    return data
+
+# TODO write ins
 
 if __name__ == "__main__":
     from utils.csv_reader import df_from_csv
@@ -297,5 +328,10 @@ if __name__ == "__main__":
 
     # print(prep_pronouns_by_labels(tickbox_label_df, pronoun_df))
 
-    geo_df = df_from_csv("data/separated_questions/q35_location.csv")
-    print(prep_geo_data(geo_df))
+    # geo_df = df_from_csv("data/separated_questions/q35_location.csv")
+    # print(prep_geo_data(geo_df))
+
+    # source_df = df_from_csv("data/cleaned_q37_with_new_columns/q37_clean_01.csv").set_index("UserID")
+    # timestamp_df = df_from_csv("data/separated_questions/timestamp_for_sorting.csv").set_index("UserID")
+    # source_with_timestamp_df = source_df.join(timestamp_df, lsuffix="left", rsuffix="right")
+    # print(prep_survey_origin(source_with_timestamp_df))
