@@ -699,6 +699,14 @@ def cross_reference(input_df:pd.DataFrame):
         )
     )
 
+    # this one respondant is clearly trans male 
+    # like wrote in multiple versions of the term with no conflicts
+    # and all other tickboxes align with that
+    # yet ticked cis for some godforsaken reason
+    # so I'm assuming that was a misclick or smth
+    new_df.loc[244688082, "is_trans"] = "Yes"
+    new_df.loc[244688082, "is_cis"] = None
+
     # we ignored conflicted in gathering, so not bothering with it
 
     new_df["unspecified_trans_status"] = "Yes"
@@ -800,7 +808,7 @@ def cross_reference(input_df:pd.DataFrame):
     ## wlw/mlm
     # (we're including words like twink & butch that aren't actually sexuality related respectively 
     # but originate from those communities)
-    
+
     new_df["is_wlw_aligned"] = "Yes"
     new_df['is_wlw_aligned'] = new_df['is_wlw_aligned'].where(
         ( # must have wlw label

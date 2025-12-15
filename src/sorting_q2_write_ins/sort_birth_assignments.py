@@ -517,6 +517,8 @@ def is_agab(input_str:str, data_case:str):
             "cis t4t",
             "angel twink with a pussy", # this appears to be by a transfemme
             "as child identified as male", # this was an intersex transmasc
+            "arguably trans", # this was used by a transfemme 
+                # & doesn't tell us literally anything abt birthsex by itself why was it in here??
         ]:
             if item == lower_str: # if it needs to be exactly that 
                                     # bc there may be longer versions we wanna include

@@ -317,7 +317,6 @@ def prep_survey_origin(input_df:pd.DataFrame):
 
     return data
 
-# TODO write ins
 def prep_write_in_data(input_df:pd.DataFrame):
     write_ins_df = input_df.copy()
 
@@ -327,15 +326,18 @@ def prep_write_in_data(input_df:pd.DataFrame):
     wrote_in_df = subset(write_ins_df,"wrote_in").dropna(how="all")
     useable_write_ins_df = subset(wrote_in_df,"useable_write_ins").dropna(how="all")
     # prepping subsets
-    cis_df = subset(write_ins_df,"is_cis").dropna(how="all")
-    unspecified_trans_status_df = subset(write_ins_df,"unspecified_trans_status").dropna(how="all")
-    trans_df = subset(write_ins_df,"is_trans").dropna(how="all")
-    unspecified_direction_trans_df = subset(write_ins_df,"unspecified_trans_direction").dropna(how="all")
-    transmasc_df = subset(write_ins_df, "is_transmasc").dropna(how="all")
-    transfemme_df = subset(write_ins_df, "is_transfemme").dropna(how="all")
+        # all cis/trans ones are excluding detransitioners 
+        # so we can make them their mutually exclusive own category
+    cis_df = subset(write_ins_df,"is_cis").where(write_ins_df["detrans_user"] != "Yes").dropna(how="all")
+    unspecified_trans_status_df = subset(write_ins_df,"unspecified_trans_status").where(write_ins_df["detrans_user"] != "Yes").dropna(how="all")
+    trans_df = subset(write_ins_df,"is_trans").where(write_ins_df["detrans_user"] != "Yes").dropna(how="all")
+    unspecified_direction_trans_df = subset(write_ins_df,"unspecified_trans_direction").where(write_ins_df["detrans_user"] != "Yes").dropna(how="all")
+    transmasc_df = subset(write_ins_df, "is_transmasc").where(write_ins_df["detrans_user"] != "Yes").dropna(how="all")
+    transfemme_df = subset(write_ins_df, "is_transfemme").where(write_ins_df["detrans_user"] != "Yes").dropna(how="all")
+    detrans_df = subset(write_ins_df, "detrans_user").dropna(how="all")
     # specified assignments, excluding transmascs & transfemmes
-    afab_df = subset(subset(write_ins_df,"is_afab"), "is_transmasc", False)
-    amab_df = subset(subset(write_ins_df,"is_amab"), "is_transfemme", False)
+    afab_df = subset(subset(write_ins_df,"is_afab"), "is_transmasc", False).dropna(how="all")
+    amab_df = subset(subset(write_ins_df,"is_amab"), "is_transfemme", False).dropna(how="all")
 
     data = {}
     total_respondants = len(write_ins_df)
@@ -435,6 +437,7 @@ def prep_write_in_data(input_df:pd.DataFrame):
         "unspecified trans direction",
         "transmascs",
         "transfemmes",
+        "detransitioners",
         "afabs (minus transmascs)",
         "amabs (minus transfemmes)",
     ]:
@@ -452,19 +455,28 @@ def prep_write_in_data(input_df:pd.DataFrame):
             df = transmasc_df
         elif data_case == "transfemmes":
             df = transfemme_df
+        elif data_case == "detransitioners":
+            df = detrans_df
         elif data_case == "afabs (minus transmascs)":
             df = afab_df
         elif data_case == "amabs (minus transfemmes)":
             df = amab_df
         else: df = write_ins_df # total
 
-        totals = df.dropna(how="all").count() # this will count all the columns in one go
+        totals = df.count() # this will count all the columns in one go
 
         data["Total respondants"][data_case] = totals["UserID"]
 
         # how many ppl used aligned labels
         aligned_df = subset(df,"unspecified_alignment",False).dropna(how="all") # who did specify alignment
         aligned_totals = aligned_df.count() # ""
+
+        # if data_case == "afabs (minus transmascs)":
+        #     print(aligned_df.dropna(how="all", axis=1).get(
+        #         [
+        #             'UserID', 
+        #         ]
+        #     ))
 
         for categ in key_dict:
             if categ == "Alignments":
@@ -521,6 +533,18 @@ def prep_write_in_data(input_df:pd.DataFrame):
                                 # bc amab lesbians can't not be transfemme
                                     # I'd bet money that those two(2) def not transfemme amab specifiers 
                                     # that wrote in lesbian are also femboys
+                        # generally tho
+                        # - ppl who specified afab & amab status (outside of transmasc/-femme) are
+                        # more likely to be gnc/have specified expression than our other categories
+                        # - detransitioners have the highest rate of gnc-ity after 
+                        # our non-transfemme amabs (due to the 20 femboys) (makes sense that gnc ppl 
+                        # would be most likely to try transition & then figure out that it wasn't right 
+                        # for them bc they're just gnc)
+                        # -> part of this is probably bc specific gnc-ity (ex femme) is only specified by write-ins, 
+                        # as are afab/amab/detrans status 
+                            # -> ppl who were writing in anyway vs bigger number of ppl who didn't write in anything
+                            # BUT even gnc total (which had a tickbox!) is highest for amabs & detransitioners!
+                            # and afabs are on par w the transmascs (and a bit more than unspecified trans direction)
 
                     # passing
                         # passing/presentation specified by only handful of ppl 
@@ -592,18 +616,9 @@ if __name__ == "__main__":
     # print(prep_survey_origin(source_with_timestamp_df))
 
     write_ins_df = df_from_csv("data/cleaned_q2_with_new_columns/q2_cross_referenced_01.csv")
-    # print(
+    print(
     prep_write_in_data(write_ins_df)
-    # )
+    )
 
-    # our weird cases where unalignment & alignment happened together:
-    # ✅ 244441789,"['AFAB', 'Intersex', 'As child identified as male', 'Medically induced female puberty at 17yrs', ""Early 20's Refused female hormones"", 'Identified as male, no HRT', 'Middle age started male hormones', 'Surgeries top and bottom', 'Full medical transition completed', 'Intersex Transexual Male']" -> this is an intersex transmasc man, the identified as male as a child should not be counted as amab
-    # ✅ 244516693 ['boy in the way a wild animal is', ""I'm a boy because I was  born afab,""] - I think this is a weird transmasc boy idk why it was tagged as amab??? did I mis-categorise the latter statement??
-    # 244561776 "['ladyboy', 'thing/creature/being', 'it']" - none of these write ins should be counted as male aligned??
-    # 244663071 ['fagboy', 'ladyboy', 'tranny', 'transsexual'] - hm
-    # 244687356 ['arguably trans'] - no write in indication whatsoever??
-    # ✅ 244769164 "[""just a guy'"", 'double trans', 'AMAB transmasc', 'boi']" not how that works babe wtf are you on abt
-    # ✅ 244801805 "['woman', 'ftmtf', 'detrans']" - detrans woman
-    # ✅ 245232647 "['half woman, half fluid', 'genderspicy', 'dyke', 'tortilla', 'transandrogynous', ""non binary woman who will have a man's body"", 'tomboy dickgirl']" - *ben affleck smoking meme* 
-    # ✅ 245661342 "['angel twink with a pussy', 'body of water or river', 'indie chick']" - I think this one was just wrongly categorised as afab due to pussy twink mention (as above w tomboy dickgirl) y'all are fucking weird fucking hell 
-    
+    # TODO
+    # we have an afab who's non-female aligned, is this smth we would be including in transmasc or nah?
