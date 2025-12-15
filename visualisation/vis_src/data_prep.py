@@ -592,4 +592,18 @@ if __name__ == "__main__":
     # print(prep_survey_origin(source_with_timestamp_df))
 
     write_ins_df = df_from_csv("data/cleaned_q2_with_new_columns/q2_cross_referenced_01.csv")
-    print(prep_write_in_data(write_ins_df))
+    # print(
+    prep_write_in_data(write_ins_df)
+    # )
+
+    # our weird cases where unalignment & alignment happened together:
+    # ✅ 244441789,"['AFAB', 'Intersex', 'As child identified as male', 'Medically induced female puberty at 17yrs', ""Early 20's Refused female hormones"", 'Identified as male, no HRT', 'Middle age started male hormones', 'Surgeries top and bottom', 'Full medical transition completed', 'Intersex Transexual Male']" -> this is an intersex transmasc man, the identified as male as a child should not be counted as amab
+    # ✅ 244516693 ['boy in the way a wild animal is', ""I'm a boy because I was  born afab,""] - I think this is a weird transmasc boy idk why it was tagged as amab??? did I mis-categorise the latter statement??
+    # 244561776 "['ladyboy', 'thing/creature/being', 'it']" - none of these write ins should be counted as male aligned??
+    # 244663071 ['fagboy', 'ladyboy', 'tranny', 'transsexual'] - hm
+    # 244687356 ['arguably trans'] - no write in indication whatsoever??
+    # ✅ 244769164 "[""just a guy'"", 'double trans', 'AMAB transmasc', 'boi']" not how that works babe wtf are you on abt
+    # ✅ 244801805 "['woman', 'ftmtf', 'detrans']" - detrans woman
+    # ✅ 245232647 "['half woman, half fluid', 'genderspicy', 'dyke', 'tortilla', 'transandrogynous', ""non binary woman who will have a man's body"", 'tomboy dickgirl']" - *ben affleck smoking meme* 
+    # ✅ 245661342 "['angel twink with a pussy', 'body of water or river', 'indie chick']" - I think this one was just wrongly categorised as afab due to pussy twink mention (as above w tomboy dickgirl) y'all are fucking weird fucking hell 
+    

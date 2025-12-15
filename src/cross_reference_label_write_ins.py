@@ -503,7 +503,9 @@ def cross_reference(input_df:pd.DataFrame):
         ) & ( # must not be male aligned
             new_df["any_male_aligned_unified"] != "Yes") & (
             new_df["mlm_labels_unified"] != "Yes") & (
-            new_df["transmasc_unified"] != "Yes") & (
+                (new_df["transmasc_unified"] != "Yes") | (
+                new_df["detrans_user"] == "Yes")
+            ) & (
             new_df["femboy_user"] != "Yes") & (
             new_df["he_user"] != "Yes"
         ) & ( # must not be both/neither/conflicted
@@ -521,7 +523,9 @@ def cross_reference(input_df:pd.DataFrame):
         ) & ( # must not be female aligned
             new_df["any_female_aligned_unified"] != "Yes") & (
             new_df["wlw_labels_unified"] != "Yes") & (
-            new_df["transfemme_unified"] != "Yes") & (
+                (new_df["transfemme_unified"] != "Yes") | (
+                new_df["detrans_user"] == "Yes")
+            ) & (
             new_df["she_user"] != "Yes"
         ) & ( # must not be both/neither/conflicted
             new_df["both_user"] != "Yes") & (
@@ -658,6 +662,20 @@ def cross_reference(input_df:pd.DataFrame):
             )
         ) & ( # and not be cis
             new_df["cis_unified"] != "Yes"
+        # ) & ( # and not be detrans
+        #     new_df["detrans_user"] != "Yes"
+        ) & ~( # and not be confused abt how this works without tagging as detrans or intersex
+            (
+                (new_df["afab_user"] == "Yes") & (
+                new_df["is_female_aligned"] == "Yes") & (
+                new_df["detrans_user"] != "Yes") & (
+                new_df["intersex_user"] != "Yes")
+            ) | (
+                (new_df["amab_user"] == "Yes") & (
+                new_df["is_male_aligned"] == "Yes") & (
+                new_df["detrans_user"] != "Yes") & (
+                new_df["intersex_user"] != "Yes")
+            )
         )
     )
     new_df["is_cis"] = "Yes"
@@ -676,6 +694,8 @@ def cross_reference(input_df:pd.DataFrame):
             )
         ) & ( # and not be trans
             new_df["trans_unified"] != "Yes"
+        ) & ( # or detrans
+            new_df["detrans_user"] != "Yes"
         )
     )
 
@@ -683,7 +703,9 @@ def cross_reference(input_df:pd.DataFrame):
 
     new_df["unspecified_trans_status"] = "Yes"
     new_df['unspecified_trans_status'] = new_df['unspecified_trans_status'].where(
-        (new_df["is_cis"] != "Yes") & (new_df["is_trans"] != "Yes")
+        (
+            (new_df["is_cis"] != "Yes") & (new_df["is_trans"] != "Yes")
+        )
     )
 
     ## trans direction 
@@ -702,9 +724,12 @@ def cross_reference(input_df:pd.DataFrame):
             ) | ( # afabs who misunderstood what transfemme means are included bc explicitly afab
                 new_df["afab_user"] == "Yes"
             )
-        ) & ( # must not be amab, or female aligned
+        ) & ( # must not be amab, or female aligned (unless detrans)
             new_df["amab_user"] != "Yes") & (
-            new_df["any_female_aligned_unified"] != "Yes"
+            (new_df["any_female_aligned_unified"] != "Yes") | (
+                (new_df["any_female_aligned_unified"] == "Yes") & 
+                (new_df["detrans_user"] == "Yes")
+            )
         )
     )
     new_df["is_transfemme"] = "Yes"
@@ -721,9 +746,12 @@ def cross_reference(input_df:pd.DataFrame):
             ) | ( # amabs who misunderstood what transmasc means are included bc explicitly amab
                 new_df["amab_user"] == "Yes"
             )
-        ) & ( # must not be afab, or male aligned
+        ) & ( # must not be afab, or male aligned (unless detrans)
             new_df["afab_user"] != "Yes") & (
-            new_df["any_male_aligned_unified"] != "Yes"
+            (new_df["any_male_aligned_unified"] != "Yes") | (
+                (new_df["any_male_aligned_unified"] == "Yes") & 
+                (new_df["detrans_user"] == "Yes")
+            )
         )
     )
 
@@ -733,8 +761,8 @@ def cross_reference(input_df:pd.DataFrame):
     new_df['unspecified_trans_direction'] = new_df['unspecified_trans_direction'].where(
         (
             new_df["is_trans"] == "Yes") & ( # must be trans
-            new_df["is_transfemme"] != "Yes") & (
-            new_df["is_transmasc"] != "Yes"
+            ((new_df["is_transfemme"] != "Yes") & (
+            new_df["is_transmasc"] != "Yes"))
         )
     )
 
@@ -845,6 +873,34 @@ def cross_reference(input_df:pd.DataFrame):
                 new_df["masc_user"] != "Yes") & (
                 new_df["any_male_aligned_unified"] == "Yes") & (
                 new_df["femme_user"] == "Yes" # this already includes femboys
+            )
+        )
+    )
+
+    ## crossreference lesbianism for men & faggotry for women
+    new_df["lesbianism_for_men_unified"] = "Yes"
+    new_df['lesbianism_for_men_unified'] = new_df['lesbianism_for_men_unified'].where(
+        ( # either already tagged as lesbianism for men
+            new_df["lesbianism_for_men_user"] == "Yes"
+        ) | ( # or separate labels
+            ( # must have wlw label
+                new_df["wlw_labels_unified"] == "Yes"
+            ) & ( # must be male aligned
+                (new_df["is_male_aligned"] == "Yes") | (
+                new_df["is_conflicted_male_aligned"] == "Yes")
+            )
+        )
+    )
+    new_df["faggotry_for_women_unified"] = "Yes"
+    new_df['faggotry_for_women_unified'] = new_df['faggotry_for_women_unified'].where(
+        ( # either already tagged as faggotry for women
+            new_df["faggotry_for_women_user"] == "Yes"
+        ) | ( # or separate labels
+            ( # must have mlm label
+                new_df["mlm_labels_unified"] == "Yes"
+            ) & ( # must be female aligned
+                (new_df["is_female_aligned"] == "Yes") | (
+                new_df["is_conflicted_female_aligned"] == "Yes")
             )
         )
     )

@@ -515,6 +515,8 @@ def is_agab(input_str:str, data_case:str):
             "pussy van faggot",
             "pussy gender",
             "cis t4t",
+            "angel twink with a pussy", # this appears to be by a transfemme
+            "as child identified as male", # this was an intersex transmasc
         ]:
             if item == lower_str: # if it needs to be exactly that 
                                     # bc there may be longer versions we wanna include
@@ -528,10 +530,14 @@ def is_agab(input_str:str, data_case:str):
             # otherwise it's true because we've sorted out all non-useable ones above already!
         for item in [
             "cunt",
-            
-
         ]:
             if item in lower_str:
+                result_bool = False
+
+        for item in [
+            "tomboy dickgirl", # this appears to be from someone who is a very strange transmasc lesbian
+        ]:
+            if item == lower_str:
                 result_bool = False
 
     elif data_case == "afab":
@@ -640,8 +646,12 @@ def is_agab(input_str:str, data_case:str):
             ]:
                 if item in lower_str:
                     result_bool = True
+            
+            for item in [
+                "angel twink with a pussy", # this appears to be by a transfemme
+            ]:
+                if item == lower_str:
+                    result_bool = False
 
     return result_bool
-
-    pass
 
