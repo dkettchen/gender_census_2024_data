@@ -65,5 +65,6 @@ for key in write_in_data:
             for column in curr_key[k].columns:
                 converted_write_ins[key][k][column] = curr_key[k][column].to_dict()
 
-with open(f"{folders["json_files"]}/write_ins.json", "w") as file:
+json_folder = folders["json_files"]
+with open(f"{json_folder}/write_ins.json", "w") as file:
     dump(converted_write_ins, file, indent=4)

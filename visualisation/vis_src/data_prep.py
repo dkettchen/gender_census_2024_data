@@ -431,19 +431,19 @@ def prep_write_in_data(input_df:pd.DataFrame):
 
     for data_case in [
         "total", 
-        "cis respondants",
+        "cis",
         "unspecified trans/cis status",
         "trans respondants",
         "unspecified trans direction",
-        "transmascs",
-        "transfemmes",
-        "detransitioners",
+        "transmasc",
+        "transfemme",
+        "detrans",
         "afabs (minus transmascs)",
         "amabs (minus transfemmes)",
     ]:
         print(f"Now running remaining items for case: {data_case}...")
         
-        if data_case == "cis respondants":
+        if data_case == "cis":
             df = cis_df
         elif data_case == "unspecified trans/cis status":
             df = unspecified_trans_status_df
@@ -451,11 +451,11 @@ def prep_write_in_data(input_df:pd.DataFrame):
             df = trans_df
         elif data_case == "unspecified trans direction":
             df = unspecified_direction_trans_df
-        elif data_case == "transmascs":
+        elif data_case == "transmasc":
             df = transmasc_df
-        elif data_case == "transfemmes":
+        elif data_case == "transfemme":
             df = transfemme_df
-        elif data_case == "detransitioners":
+        elif data_case == "detrans":
             df = detrans_df
         elif data_case == "afabs (minus transmascs)":
             df = afab_df
