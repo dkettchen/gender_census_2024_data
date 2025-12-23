@@ -49,4 +49,11 @@ colours = {
         "male-aligned":"slateblue",
         "unaligned":"purple",
     },
+    "intersections": {
+        "Intersex":"gold",
+        "Autistic":"cornflowerblue",
+        "Other neurodivergent":"royalblue",
+        "Plural":"indigo",
+        "Detrans":"mediumorchid",
+    }
 }

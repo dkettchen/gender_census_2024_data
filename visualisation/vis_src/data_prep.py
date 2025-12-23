@@ -615,10 +615,10 @@ if __name__ == "__main__":
     # source_with_timestamp_df = source_df.join(timestamp_df, lsuffix="left", rsuffix="right")
     # print(prep_survey_origin(source_with_timestamp_df))
 
-    write_ins_df = df_from_csv("data/cleaned_q2_with_new_columns/q2_cross_referenced_01.csv")
-    print(
-    prep_write_in_data(write_ins_df)
-    )
+    # write_ins_df = df_from_csv("data/cleaned_q2_with_new_columns/q2_cross_referenced_01.csv")
+    # print(
+    # prep_write_in_data(write_ins_df)
+    # )
 
     # TODO
     # we have an afab who's non-female aligned, is this smth we would be including in transmasc or nah?

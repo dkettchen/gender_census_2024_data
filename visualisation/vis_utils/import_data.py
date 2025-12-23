@@ -88,3 +88,12 @@ case_get_lists = {
 """
 label lists by case
 """
+
+folders = {
+    "charts" : "visualisation/charts",
+    "json_files" : "visualisation/prepped_data",
+}
+
+titles = {
+    "write_ins_intersections": "Intersectional labels written in (out of 48k total respondants) "
+}
