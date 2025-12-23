@@ -1,0 +1,67 @@
+{
+    "% of respondants who use this pronoun": {
+        "they_user": 75.49,
+        "he_user": 42.01,
+        "she_user": 36.0,
+        "neopronoun_user": 23.72,
+        "it_user": 20.34,
+        "any_user": 14.93,
+        "avoid_pronouns/name_as_pronoun": 13.93,
+        "questioning": 5.39
+    },
+    "Pronoun sets used by respondants (%)": {
+        "they_only": 19.73,
+        "he/they": 19.4,
+        "she/he/they_any": 16.46,
+        "she/they": 16.1,
+        "they/[neo]": 4.72,
+        "he_only": 3.62,
+        "she/he": 3.27,
+        "she_only": 3.2,
+        "they/it": 2.41,
+        "he/it": 1.49,
+        "they/it/[neo]": 1.46,
+        "neopronoun_only": 1.39,
+        "he/it/[neo]": 1.34,
+        "he/[neo]": 1.22,
+        "it_only": 0.86,
+        "she/it": 0.8,
+        "she/[neo]": 0.66,
+        "it/[neo]": 0.64,
+        "avoid_pronouns/use_name_only": 0.55,
+        "she/it/[neo]": 0.3,
+        "questioning_only": 0.29
+    },
+    "% of respondants who only use one pronoun": {
+        "they_only": 19.73,
+        "he_only": 3.62,
+        "she_only": 3.2,
+        "neopronoun_only": 1.39,
+        "it_only": 0.86,
+        "avoid_pronouns/use_name_only": 0.55,
+        "questioning_only": 0.29
+    },
+    "% of respondants who use a combination of the big three": {
+        "he/they": 19.4,
+        "she/he/they_any": 16.46,
+        "she/they": 16.1,
+        "she/he": 3.27
+    },
+    "% of respondants whose multi-pronoun set includes it and/or neo pronouns": {
+        "they/[neo]": 4.72,
+        "they/it": 2.41,
+        "he/it": 1.49,
+        "they/it/[neo]": 1.46,
+        "he/it/[neo]": 1.34,
+        "he/[neo]": 1.22,
+        "she/it": 0.8,
+        "she/[neo]": 0.66,
+        "it/[neo]": 0.64,
+        "she/it/[neo]": 0.3
+    },
+    "Alignment of pronoun sets used by respondants (%)": {
+        "unaligned": 51.78,
+        "male_aligned": 27.069999999999997,
+        "female_aligned": 21.060000000000002
+    }
+}

@@ -1,0 +1,125 @@
+{
+    "% of respondants who ticked this label": {
+        "nonbinary_tickbox": 60.4,
+        "queer_tickbox": 53.57,
+        "trans_tickbox": 44.73,
+        "a person/human/[my name]/just me_tickbox": 39.09,
+        "transgender_tickbox": 38.75,
+        "gender non-conforming_tickbox": 34.85,
+        "genderqueer_tickbox": 32.6,
+        "enby_tickbox": 29.41,
+        "transmasculine_tickbox": 26.38,
+        "genderfluid_tickbox": 24.69,
+        "agender_tickbox": 23.13,
+        "fag_tickbox": 17.09,
+        "questioning/unknown_tickbox": 13.85,
+        "transfeminine_tickbox": 11.87,
+        "butch_tickbox": 9.81,
+        "demigirl_tickbox": 7.09,
+        "demiboy_tickbox": 5.97,
+        "bigender_tickbox": 5.72,
+        "no self-description_tickbox": 4.6,
+        "cisgender_tickbox": 3.55,
+        "binary_tickbox": 1.62
+    },
+    "% of respondants who use nb umbrella labels": {
+        "is_nb_umbrella_tickbox": 76.95,
+        "is_nb_tickbox": 62.76,
+        "nonbinary_tickbox": 60.4,
+        "enby_tickbox": 29.41,
+        "genderfluid_tickbox": 24.69,
+        "agender_tickbox": 23.13,
+        "bigender_tickbox": 5.72
+    },
+    "Trans status (%)": {
+        "is_trans_tickbox": 56.15,
+        "unspecified_cis/trans_tickbox": 40.3,
+        "is_cis_tickbox": 3.48,
+        "conflicted_cis/trans_tickbox": 0.44
+    },
+    "Transition direction of trans respondants (%)": {
+        "is_transmasc_tickbox": 45.11,
+        "unspecified_transmasc/transfem_tickbox": 33.79,
+        "is_transfemme_tickbox": 19.44,
+        "conflicted_transmasc/transfem_tickbox": 1.66
+    },
+    "Nb umbrella label use (%)": {
+        "only_uses_nb": 41.41,
+        "uses_both": 40.15,
+        "only_uses_agender/bigender/genderfluid": 18.45
+    },
+    "Top labels (used by > 1/5) of trans respondants (56.15% of total) (%)": {
+        "trans_tickbox": 79.11,
+        "transgender_tickbox": 68.51,
+        "nonbinary_tickbox": 68.12,
+        "queer_tickbox": 63.05,
+        "transmasculine_tickbox": 46.63,
+        "gender non-conforming_tickbox": 40.39,
+        "genderqueer_tickbox": 38.52,
+        "enby_tickbox": 35.68,
+        "a person/human/[my name]/just me_tickbox": 34.53,
+        "genderfluid_tickbox": 26.28,
+        "fag_tickbox": 25.45,
+        "agender_tickbox": 21.91,
+        "transfeminine_tickbox": 20.87
+    },
+    "Top labels (used by > 1/5) of non-trans respondants (43.85% of total) (%)": {
+        "nonbinary_tickbox": 50.51,
+        "a person/human/[my name]/just me_tickbox": 44.93,
+        "queer_tickbox": 41.44,
+        "gender non-conforming_tickbox": 27.77,
+        "genderqueer_tickbox": 25.01,
+        "agender_tickbox": 24.71,
+        "genderfluid_tickbox": 22.65,
+        "enby_tickbox": 21.38,
+        "questioning/unknown_tickbox": 20.32
+    },
+    "Top labels (used by > 1/5) of nb respondants (76.95% of total) (%)": {
+        "nonbinary_tickbox": 78.49,
+        "queer_tickbox": 57.57,
+        "trans_tickbox": 47.72,
+        "transgender_tickbox": 40.92,
+        "a person/human/[my name]/just me_tickbox": 39.54,
+        "enby_tickbox": 38.22,
+        "gender non-conforming_tickbox": 38.18,
+        "genderqueer_tickbox": 36.17,
+        "genderfluid_tickbox": 32.09,
+        "agender_tickbox": 30.06,
+        "transmasculine_tickbox": 26.87
+    },
+    "Top labels (used by > 1/5) of non-nb respondants (23.05% of total) (%)": {
+        "queer_tickbox": 40.22,
+        "a person/human/[my name]/just me_tickbox": 37.59,
+        "trans_tickbox": 34.72,
+        "transgender_tickbox": 31.51,
+        "transmasculine_tickbox": 24.77,
+        "gender non-conforming_tickbox": 23.74,
+        "genderqueer_tickbox": 20.68
+    },
+    "Top labels (used by > 1/5) of trans-nb respondants (45.11% of total) (%)": {
+        "nonbinary_tickbox": 84.8,
+        "trans_tickbox": 80.85,
+        "transgender_tickbox": 69.27,
+        "queer_tickbox": 66.69,
+        "transmasculine_tickbox": 45.47,
+        "enby_tickbox": 44.42,
+        "gender non-conforming_tickbox": 44.08,
+        "genderqueer_tickbox": 42.2,
+        "a person/human/[my name]/just me_tickbox": 36.83,
+        "genderfluid_tickbox": 32.72,
+        "agender_tickbox": 27.27,
+        "fag_tickbox": 24.63
+    },
+    "Top labels (used by > 1/5) of neither trans nor nb respondants (12.01% of total) (%)": {
+        "a person/human/[my name]/just me_tickbox": 49.02,
+        "queer_tickbox": 32.93,
+        "questioning/unknown_tickbox": 26.95,
+        "gender non-conforming_tickbox": 22.31
+    },
+    "Trans and nb intersection (%)": {
+        "trans_and_nb": 45.11,
+        "nb_only": 31.84,
+        "neither_trans_nor_nb": 12.01,
+        "trans_only": 11.04
+    }
+}

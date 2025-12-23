@@ -1,0 +1,28 @@
+{
+    "Location of respondants (total)": {
+        "United States": 55.37,
+        "United Kingdom": 11.32,
+        "Canada": 6.93,
+        "Germany": 4.51,
+        "Australia": 4.07,
+        "France": 1.43,
+        "Netherlands": 1.38,
+        "Poland": 1.23,
+        "Prefer not to say": 1.08,
+        "New Zealand": 0.97,
+        "Finland": 0.79,
+        "Sweden": 0.73,
+        "Russia": 0.68,
+        "Ireland": 0.67,
+        "Brazil": 0.66,
+        "Austria": 0.56,
+        "Spain": 0.55,
+        "Italy": 0.54,
+        "Other countries (<0.5%)": 6.539999999999999
+    },
+    "Location of respondants (english-speaking)": {
+        "english_speaking": 79.32,
+        "non_english_speaking": 19.61,
+        "not_specified": 1.08
+    }
+}
