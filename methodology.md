@@ -56,11 +56,13 @@ I also want to extract as much tangibly useful info as possible (ie what this pe
 
 ### Definition of transmasc & transfemme used
 
-For the sake of this project I am using my usual definition of transmasc and transfemme: They are categories to connote direction, not leaning within that direction (ex they include unaligned nonbinaries of the relevant direction even if they do not identify as trans or the label in question)
+For the sake of this project I am using my usual definition of transmasc and transfemme: They are categories to connote transition direction, not alignment with that directions binary target gender (ex they include unaligned nonbinaries of the relevant direction even if they do not identify as the label in question)
 
 - as such I am also not categorising responses that only mention transmasc/transfemme but do not specify further gender alignment as aligned, merely grouping them with their direction. (ie "transfem" will be grouped under transfemme but not female-aligned)
 
 - ex. "I am a trans woman (but not transfem)" indicates a misunderstanding of what transfemme refers to (I think they thought it meant trans and feminine (-> they do not identify as feminine I guess??), which it does not) and will still be counted as transfemme, due to stating trans womanhood (which is under the transfemme umbrella)
+
+- I am considering all transmascs to be explicitly non-women and all transfemmes to be explicitly non-men for conflicting label purposes (see below)
 
 ### Mutually exclusive opposites
 
@@ -71,13 +73,13 @@ Certain terms that in reasonable application or under the used definition are mu
 - ex. "a transfemme transmasc" is a conflicting statement, you cannot be both of those things at once, they are mutually exclusive. This is once again a highly useless statement as it does not hint at which word is the tangible real life category that applies. (ie is this a transmasc who identifies with certain transfemme aesthetics? is this a transfemme who would have preferred to be born afab & then be transmasc about it? is it a detransitioner??? WE HAVE NO MEANS OF KNOWING)
 
 - ex. what I'm calling "lesbianism for men" (ie "boy dyke", "ftm lesbian", "testo dyke", "male lesbian", etc) is a known ✨*Thing Certain Women-Only-Attracted Transmascs Insist On Doing* instead of just *Being Straight Men* bc that has *Baggage* and *Stigma*✨ 😓
-    -> There are inferences that *can* be made to an extent that say "transfemme transmasc" does not provide (this person identifies as male-aligned, is attracted to women, but does not want to ID as a str8 man, usually due to being trans-male-aligned and therefore coming from a queer afab (lesbian) background they struggle to give up)
+    -> There are inferences that *can* be made to an extent that say "transfemme transmasc" does not provide (this person identifies as explicitly not female, is attracted to women, but does not want to ID as a str8 man, usually due to being transmasc and therefore coming from a queer afab (lesbian) background they struggle to give up)
 
 ### Other conflicting statements
 
 I am not counting genital non-conformity, as common among trans people, (ie "pussyboy", "dick chick") as conflicting statements, but I will count more accessible choices like
 - facial hair one could shave off (ie "bearded lady")
-- hrt (outside of a known/claimed trans context) one had to opt into (ie "woman on T" = conflict, "hrt femboy" = known concept, will be counted as unaligned rather than male-aligned)
+- hrt (outside of a known/claimed trans context) one had to opt into (ie "woman on T" = conflict, "hrt femboy" = known concept, will be counted as unaligned rather than male-aligned, but will still be counted as conflicted towards what I'm calling "faggotry for women" as I consider it to be the transfemme equivalent of stuff like "testo dyke")
 - language one has chosen to use (ie "femboy male to female transsexual sissy", "boy dyke", etc)
 
 as conflicting
@@ -89,8 +91,6 @@ I am taking the liberty to disregard replies that cannot provide useful info, ar
 ### Margin of error, due to other omitted/uncaught answers
 
 Some answers that mean the same thing as my categories may be omitted due to different languages or otherwise not being caught in my relevant word collection. This means that any numbers gained from the write ins are still mere estimates with variation within a small range (ex maybe a handful of answers fell through the cracks and was not counted but most of them (we're talking tens of thousands of total participants after all) will have been counted, so it should still be generally accurate)
-
-
 
 ## Label columns (tickboxes)
 
