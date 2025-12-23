@@ -2,6 +2,7 @@ import pandas as pd
 import plotly.graph_objects as go
 from visualisation.vis_utils.colour_palettes import colours as palette
 from visualisation.vis_utils.import_data import titles
+from re import sub
 
 def make_pie(input_dict:dict, data_case:str):
     """
@@ -9,18 +10,35 @@ def make_pie(input_dict:dict, data_case:str):
     """
 
     # making labels
-    labels = [l for l in list(input_dict.keys()) if l in palette["five_categories"]]
+    if data_case in [
+        "lesbianism_for_men",
+        "faggotry_for_women",
+    ]:
+        labels = [l for l in list(input_dict.keys()) if l in palette["five_categories"]]
+    else:
+        labels = list(input_dict.keys())
     
     # making colours
-    colours = [palette["five_categories"][l] for l in labels]
-    
+    if data_case in [
+        "lesbianism_for_men",
+        "faggotry_for_women",
+    ]:
+        colours = [palette["five_categories"][l] for l in labels]
+    elif "alignment" in data_case:
+        colours = [palette["alignments"][l] for l in labels]
+    elif "pronoun" in data_case.lower():
+        colours = [palette["pronouns"][l] for l in labels]
+        
     # making other variables
     values = [input_dict[l] for l in labels]
     # text = [str(number) + "%" for number in values]
 
     # making titles
     suffix = "(Gender Census 2024)" # to be made variable later when multiple year options
-    title_portion = titles[data_case]
+    if data_case in titles:
+        title_portion = titles[data_case]
+    else:
+        title_portion = data_case + " "
     title = f"{title_portion}{suffix}"
 
     # making fig

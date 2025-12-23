@@ -183,7 +183,7 @@ def prep_pronouns_by_labels(label_df:pd.DataFrame, pronoun_df:pd.DataFrame):
     - cis
     - transmasc
     - transfemme
-    - unspecified cis/trans status
+    - unspecified trans/cis status
     - trans but unspecified direction
 
     the returned data includes
@@ -231,7 +231,7 @@ def prep_pronouns_by_labels(label_df:pd.DataFrame, pronoun_df:pd.DataFrame):
             label = ""
             suffix = " of unspecified"
             if "cis" in column:
-                suffix += " cis/trans status"
+                suffix += " trans/cis status"
             else:
                 label += " trans"
                 suffix += " direction"

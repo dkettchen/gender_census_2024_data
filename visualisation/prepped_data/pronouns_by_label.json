@@ -83,7 +83,7 @@
         "unaligned": 30.43,
         "female_aligned": 0.6500000000000001
     },
-    "Pronoun sets used by respondants of unspecified cis/trans status": {
+    "Pronoun sets used by respondants of unspecified trans/cis status": {
         "they_only": 25.59,
         "she/he/they_any": 23.95,
         "she/they": 19.14,
@@ -106,7 +106,7 @@
         "he/it/[neo]": 0.24,
         "she/it/[neo]": 0.13
     },
-    "Pronoun alignments of respondants of unspecified cis/trans status": {
+    "Pronoun alignments of respondants of unspecified trans/cis status": {
         "unaligned": 65.47,
         "female_aligned": 22.63,
         "male_aligned": 11.93

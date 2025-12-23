@@ -4,6 +4,8 @@ from json import load
 from vis_src.bar_charts import make_simple_bar
 from vis_src.pie_charts import make_pie
 from vis_utils.import_data import folders
+from vis_utils.colour_palettes import colours
+from re import sub
 
 # folder for charts 
 folder = folders["charts"]
@@ -21,6 +23,30 @@ for file in [
 ]:
     with open(f"{json_folder}/{file}.json", "r") as json_file:
         data[file] = load(json_file)
+
+# pronoun use by category
+for categ in colours["five_categories"]:
+    if " " not in categ:
+        respondants = f"{categ} respondants"
+    elif "direction" in categ:
+        respondants = "trans respondants of unspecified direction"
+    else: 
+        respondants = f"respondants of {categ}"
+
+    subbed_categ = sub("[\s\/]", "_",categ)
+
+    pronoun_pie = make_pie(data["pronouns_by_label"][f"Pronoun sets used by {respondants}"], f"Pronoun sets used by {respondants}")
+    pronoun_pie.write_image(
+        f"{folder}/pronouns_by_label_pronouns_{subbed_categ}.png",
+        width = 800,
+        height = 800
+    )
+    alignment_pie = make_pie(data["pronouns_by_label"][f"Pronoun alignments of {respondants}"], f"Pronoun alignments of {respondants}")
+    alignment_pie.write_image(
+        f"{folder}/pronouns_by_label_pronoun_alignments_{subbed_categ}.png",
+        width = 800,
+        height = 800
+    )
 
 # intersex etc respondants
 intersectional_bar = make_simple_bar(data["write_ins"]["Intersections"], "write_ins_intersections")
