@@ -26,26 +26,22 @@ def make_pie(input_dict:dict, data_case:str):
     # making fig
     fig = go.Figure(data=[
         go.Pie(labels=labels, values=values, 
-            #    text=text, 
                marker_colors=colours, 
-               textinfo="label", textposition="inside")
+               textinfo="label+value+percent", textposition="inside", insidetextorientation="horizontal")
     ])
 
     # updating layout
     fig.update_layout(
-        uniformtext_minsize=14, 
+        uniformtext_minsize=12, 
         uniformtext_mode="hide",
         title = title
     )
 
     # hiding legend
-    # if data_case in [
-    #     "tickbox_nb_no_nb",
-    #     "tickbox_nb_no_nb_umbrella",
-    #     "tickbox_insanity"
-    # ]:
-    #     fig.update_layout(
-    #         showlegend=False
-    #     )
+    if data_case in [
+    ]:
+        fig.update_layout(
+            showlegend=False
+        )
 
     return fig
