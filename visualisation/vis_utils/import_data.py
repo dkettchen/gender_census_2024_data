@@ -96,6 +96,6 @@ folders = {
 
 titles = {
     "write_ins_intersections": "Intersectional labels written in (out of 48k total respondants) ",
-    "lesbianism_for_men": "Lesbianism for men (male-aligned respondants using wlw labels (ex. boydyke)) <br>",
-    "faggotry_for_women": "Faggotry for women (female-aligned respondants using mlm labels (ex. girlfag)) <br>",
+    "lesbianism_for_men": "Lesbianism for men (any combination of explicitly non-female-aligned and queer <br>women's labels (ex. boydyke)) ",
+    "faggotry_for_women": "Faggotry for women (any combination of explicitly non-male-aligned and queer <br>men's labels (ex. girlfag)) ",
 }
