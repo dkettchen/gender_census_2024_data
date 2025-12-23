@@ -12,8 +12,8 @@
     },
     "Total respondants": {
         "total": 48645,
-        "cis": 1580,
-        "unspecified trans/cis status": 19557,
+        "cis": 1579,
+        "unspecified trans/cis status": 19558,
         "trans respondants": 27486,
         "unspecified trans direction": 9071,
         "transmasc": 12866,
@@ -25,8 +25,8 @@
     "Alignments": {
         "Aligned respondants (total)": {
             "#": {
-                "total": 9424,
-                "cis": 482,
+                "total": 9423,
+                "cis": 481,
                 "unspecified trans/cis status": 2944,
                 "trans respondants": 5988,
                 "unspecified trans direction": 0,
@@ -34,11 +34,11 @@
                 "transfemme": 1951,
                 "detrans": 10,
                 "afabs (minus transmascs)": 31,
-                "amabs (minus transfemmes)": 19
+                "amabs (minus transfemmes)": 18
             },
             "% of total": {
                 "total": 19.37,
-                "cis": 30.51,
+                "cis": 30.46,
                 "unspecified trans/cis status": 15.05,
                 "trans respondants": 21.79,
                 "unspecified trans direction": 0.0,
@@ -46,25 +46,25 @@
                 "transfemme": 35.16,
                 "detrans": 45.45,
                 "afabs (minus transmascs)": 34.44,
-                "amabs (minus transfemmes)": 35.85
+                "amabs (minus transfemmes)": 33.96
             },
             "% of label": {
                 "total": 100.0,
-                "cis": 5.11,
+                "cis": 5.1,
                 "unspecified trans/cis status": 31.24,
-                "trans respondants": 63.54,
+                "trans respondants": 63.55,
                 "unspecified trans direction": 0.0,
                 "transmasc": 42.84,
                 "transfemme": 20.7,
                 "detrans": 0.11,
                 "afabs (minus transmascs)": 0.33,
-                "amabs (minus transfemmes)": 0.2
+                "amabs (minus transfemmes)": 0.19
             }
         },
         "Aligned respondants (wrote in)": {
             "#": {
-                "total": 6436,
-                "cis": 364,
+                "total": 6435,
+                "cis": 363,
                 "unspecified trans/cis status": 1683,
                 "trans respondants": 4379,
                 "unspecified trans direction": 0,
@@ -72,11 +72,11 @@
                 "transfemme": 1270,
                 "detrans": 10,
                 "afabs (minus transmascs)": 31,
-                "amabs (minus transfemmes)": 19
+                "amabs (minus transfemmes)": 18
             },
             "% of total": {
                 "total": 13.23,
-                "cis": 23.04,
+                "cis": 22.99,
                 "unspecified trans/cis status": 8.61,
                 "trans respondants": 15.93,
                 "unspecified trans direction": 0.0,
@@ -84,19 +84,19 @@
                 "transfemme": 22.89,
                 "detrans": 45.45,
                 "afabs (minus transmascs)": 34.44,
-                "amabs (minus transfemmes)": 35.85
+                "amabs (minus transfemmes)": 33.96
             },
             "% of label": {
                 "total": 100.0,
-                "cis": 5.66,
+                "cis": 5.64,
                 "unspecified trans/cis status": 26.15,
-                "trans respondants": 68.04,
+                "trans respondants": 68.05,
                 "unspecified trans direction": 0.0,
                 "transmasc": 48.31,
-                "transfemme": 19.73,
+                "transfemme": 19.74,
                 "detrans": 0.16,
                 "afabs (minus transmascs)": 0.48,
-                "amabs (minus transfemmes)": 0.3
+                "amabs (minus transfemmes)": 0.28
             }
         },
         "Female-aligned respondants": {
@@ -114,7 +114,7 @@
             },
             "% of total": {
                 "total": 7.46,
-                "cis": 18.8,
+                "cis": 18.81,
                 "unspecified trans/cis status": 9.07,
                 "trans respondants": 5.65,
                 "unspecified trans direction": 0.0,
@@ -139,8 +139,8 @@
         },
         "Male-aligned respondants": {
             "#": {
-                "total": 4455,
-                "cis": 152,
+                "total": 4454,
+                "cis": 151,
                 "unspecified trans/cis status": 957,
                 "trans respondants": 3345,
                 "unspecified trans direction": 0,
@@ -148,11 +148,11 @@
                 "transfemme": 0,
                 "detrans": 1,
                 "afabs (minus transmascs)": 0,
-                "amabs (minus transfemmes)": 18
+                "amabs (minus transfemmes)": 17
             },
             "% of total": {
                 "total": 9.16,
-                "cis": 9.62,
+                "cis": 9.56,
                 "unspecified trans/cis status": 4.89,
                 "trans respondants": 12.17,
                 "unspecified trans direction": 0.0,
@@ -160,19 +160,19 @@
                 "transfemme": 0.0,
                 "detrans": 4.55,
                 "afabs (minus transmascs)": 0.0,
-                "amabs (minus transfemmes)": 33.96
+                "amabs (minus transfemmes)": 32.08
             },
             "% of label": {
                 "total": 100.0,
-                "cis": 3.41,
-                "unspecified trans/cis status": 21.48,
-                "trans respondants": 75.08,
+                "cis": 3.39,
+                "unspecified trans/cis status": 21.49,
+                "trans respondants": 75.1,
                 "unspecified trans direction": 0.0,
-                "transmasc": 75.08,
+                "transmasc": 75.1,
                 "transfemme": 0.0,
                 "detrans": 0.02,
                 "afabs (minus transmascs)": 0.0,
-                "amabs (minus transfemmes)": 0.4
+                "amabs (minus transfemmes)": 0.38
             }
         },
         "Conflicted female-aligned respondants": {
@@ -331,40 +331,40 @@
     "Conflicted queers": {
         "Conflicting queer labels": {
             "#": {
-                "total": 741,
+                "total": 749,
                 "cis": 5,
-                "unspecified trans/cis status": 71,
-                "trans respondants": 662,
-                "unspecified trans direction": 205,
+                "unspecified trans/cis status": 73,
+                "trans respondants": 667,
+                "unspecified trans direction": 208,
                 "transmasc": 392,
-                "transfemme": 65,
-                "detrans": 3,
+                "transfemme": 67,
+                "detrans": 4,
                 "afabs (minus transmascs)": 6,
-                "amabs (minus transfemmes)": 5
+                "amabs (minus transfemmes)": 8
             },
             "% of total": {
-                "total": 1.52,
+                "total": 1.54,
                 "cis": 0.32,
-                "unspecified trans/cis status": 0.36,
-                "trans respondants": 2.41,
-                "unspecified trans direction": 2.26,
+                "unspecified trans/cis status": 0.37,
+                "trans respondants": 2.43,
+                "unspecified trans direction": 2.29,
                 "transmasc": 3.05,
-                "transfemme": 1.17,
-                "detrans": 13.64,
+                "transfemme": 1.21,
+                "detrans": 18.18,
                 "afabs (minus transmascs)": 6.67,
-                "amabs (minus transfemmes)": 9.43
+                "amabs (minus transfemmes)": 15.09
             },
             "% of label": {
                 "total": 100.0,
                 "cis": 0.67,
-                "unspecified trans/cis status": 9.58,
-                "trans respondants": 89.34,
-                "unspecified trans direction": 27.67,
-                "transmasc": 52.9,
-                "transfemme": 8.77,
-                "detrans": 0.4,
-                "afabs (minus transmascs)": 0.81,
-                "amabs (minus transfemmes)": 0.67
+                "unspecified trans/cis status": 9.75,
+                "trans respondants": 89.05,
+                "unspecified trans direction": 27.77,
+                "transmasc": 52.34,
+                "transfemme": 8.95,
+                "detrans": 0.53,
+                "afabs (minus transmascs)": 0.8,
+                "amabs (minus transfemmes)": 1.07
             }
         },
         "Dykefag": {
@@ -445,40 +445,40 @@
         },
         "Faggotry for women": {
             "#": {
-                "total": 130,
+                "total": 138,
                 "cis": 2,
-                "unspecified trans/cis status": 20,
-                "trans respondants": 106,
-                "unspecified trans direction": 50,
+                "unspecified trans/cis status": 22,
+                "trans respondants": 111,
+                "unspecified trans direction": 53,
                 "transmasc": 22,
-                "transfemme": 34,
-                "detrans": 2,
+                "transfemme": 36,
+                "detrans": 3,
                 "afabs (minus transmascs)": 2,
-                "amabs (minus transfemmes)": 4
+                "amabs (minus transfemmes)": 7
             },
             "% of total": {
-                "total": 0.27,
+                "total": 0.28,
                 "cis": 0.13,
-                "unspecified trans/cis status": 0.1,
-                "trans respondants": 0.39,
-                "unspecified trans direction": 0.55,
+                "unspecified trans/cis status": 0.11,
+                "trans respondants": 0.4,
+                "unspecified trans direction": 0.58,
                 "transmasc": 0.17,
-                "transfemme": 0.61,
-                "detrans": 9.09,
+                "transfemme": 0.65,
+                "detrans": 13.64,
                 "afabs (minus transmascs)": 2.22,
-                "amabs (minus transfemmes)": 7.55
+                "amabs (minus transfemmes)": 13.21
             },
             "% of label": {
                 "total": 100.0,
-                "cis": 1.54,
-                "unspecified trans/cis status": 15.38,
-                "trans respondants": 81.54,
-                "unspecified trans direction": 38.46,
-                "transmasc": 16.92,
-                "transfemme": 26.15,
-                "detrans": 1.54,
-                "afabs (minus transmascs)": 1.54,
-                "amabs (minus transfemmes)": 3.08
+                "cis": 1.45,
+                "unspecified trans/cis status": 15.94,
+                "trans respondants": 80.43,
+                "unspecified trans direction": 38.41,
+                "transmasc": 15.94,
+                "transfemme": 26.09,
+                "detrans": 2.17,
+                "afabs (minus transmascs)": 1.45,
+                "amabs (minus transfemmes)": 5.07
             }
         }
     },
@@ -498,7 +498,7 @@
             },
             "% of total": {
                 "total": 53.99,
-                "cis": 31.77,
+                "cis": 31.79,
                 "unspecified trans/cis status": 42.83,
                 "trans respondants": 63.21,
                 "unspecified trans direction": 66.93,
@@ -561,20 +561,20 @@
         },
         "mlm-aligned": {
             "#": {
-                "total": 2304,
+                "total": 2303,
                 "cis": 59,
-                "unspecified trans/cis status": 325,
+                "unspecified trans/cis status": 324,
                 "trans respondants": 1919,
                 "unspecified trans direction": 173,
                 "transmasc": 1746,
                 "transfemme": 0,
                 "detrans": 1,
                 "afabs (minus transmascs)": 0,
-                "amabs (minus transfemmes)": 6
+                "amabs (minus transfemmes)": 5
             },
             "% of total": {
-                "total": 4.74,
-                "cis": 3.73,
+                "total": 4.73,
+                "cis": 3.74,
                 "unspecified trans/cis status": 1.66,
                 "trans respondants": 6.98,
                 "unspecified trans direction": 1.91,
@@ -582,19 +582,19 @@
                 "transfemme": 0.0,
                 "detrans": 4.55,
                 "afabs (minus transmascs)": 0.0,
-                "amabs (minus transfemmes)": 11.32
+                "amabs (minus transfemmes)": 9.43
             },
             "% of label": {
                 "total": 100.0,
                 "cis": 2.56,
-                "unspecified trans/cis status": 14.11,
-                "trans respondants": 83.29,
+                "unspecified trans/cis status": 14.07,
+                "trans respondants": 83.33,
                 "unspecified trans direction": 7.51,
-                "transmasc": 75.78,
+                "transmasc": 75.81,
                 "transfemme": 0.0,
                 "detrans": 0.04,
                 "afabs (minus transmascs)": 0.0,
-                "amabs (minus transfemmes)": 0.26
+                "amabs (minus transfemmes)": 0.22
             }
         },
         "wlw-aligned": {
@@ -726,7 +726,7 @@
             },
             "% of total": {
                 "total": 4.64,
-                "cis": 4.3,
+                "cis": 4.31,
                 "unspecified trans/cis status": 2.91,
                 "trans respondants": 5.87,
                 "unspecified trans direction": 5.99,
@@ -906,8 +906,8 @@
         "gnc": {
             "#": {
                 "total": 17215,
-                "cis": 471,
-                "unspecified trans/cis status": 5481,
+                "cis": 470,
+                "unspecified trans/cis status": 5482,
                 "trans respondants": 11249,
                 "unspecified trans direction": 3751,
                 "transmasc": 5710,
@@ -918,7 +918,7 @@
             },
             "% of total": {
                 "total": 35.39,
-                "cis": 29.81,
+                "cis": 29.77,
                 "unspecified trans/cis status": 28.03,
                 "trans respondants": 40.93,
                 "unspecified trans direction": 41.35,
@@ -930,7 +930,7 @@
             },
             "% of label": {
                 "total": 100.0,
-                "cis": 2.74,
+                "cis": 2.73,
                 "unspecified trans/cis status": 31.84,
                 "trans respondants": 65.34,
                 "unspecified trans direction": 21.79,
@@ -1020,8 +1020,8 @@
         "femme": {
             "#": {
                 "total": 1480,
-                "cis": 71,
-                "unspecified trans/cis status": 458,
+                "cis": 70,
+                "unspecified trans/cis status": 459,
                 "trans respondants": 948,
                 "unspecified trans direction": 296,
                 "transmasc": 414,
@@ -1032,8 +1032,8 @@
             },
             "% of total": {
                 "total": 3.04,
-                "cis": 4.49,
-                "unspecified trans/cis status": 2.34,
+                "cis": 4.43,
+                "unspecified trans/cis status": 2.35,
                 "trans respondants": 3.45,
                 "unspecified trans direction": 3.26,
                 "transmasc": 3.22,
@@ -1044,8 +1044,8 @@
             },
             "% of label": {
                 "total": 100.0,
-                "cis": 4.8,
-                "unspecified trans/cis status": 30.95,
+                "cis": 4.73,
+                "unspecified trans/cis status": 31.01,
                 "trans respondants": 64.05,
                 "unspecified trans direction": 20.0,
                 "transmasc": 27.97,
@@ -1058,8 +1058,8 @@
         "femboy": {
             "#": {
                 "total": 456,
-                "cis": 15,
-                "unspecified trans/cis status": 86,
+                "cis": 14,
+                "unspecified trans/cis status": 87,
                 "trans respondants": 353,
                 "unspecified trans direction": 112,
                 "transmasc": 239,
@@ -1070,7 +1070,7 @@
             },
             "% of total": {
                 "total": 0.94,
-                "cis": 0.95,
+                "cis": 0.89,
                 "unspecified trans/cis status": 0.44,
                 "trans respondants": 1.28,
                 "unspecified trans direction": 1.23,
@@ -1082,8 +1082,8 @@
             },
             "% of label": {
                 "total": 100.0,
-                "cis": 3.29,
-                "unspecified trans/cis status": 18.86,
+                "cis": 3.07,
+                "unspecified trans/cis status": 19.08,
                 "trans respondants": 77.41,
                 "unspecified trans direction": 24.56,
                 "transmasc": 52.41,
@@ -1328,8 +1328,8 @@
         "nb": {
             "#": {
                 "total": 30680,
-                "cis": 376,
-                "unspecified trans/cis status": 10925,
+                "cis": 375,
+                "unspecified trans/cis status": 10926,
                 "trans respondants": 19368,
                 "unspecified trans direction": 7196,
                 "transmasc": 8568,
@@ -1340,7 +1340,7 @@
             },
             "% of total": {
                 "total": 63.07,
-                "cis": 23.8,
+                "cis": 23.75,
                 "unspecified trans/cis status": 55.86,
                 "trans respondants": 70.46,
                 "unspecified trans direction": 79.33,
@@ -1352,7 +1352,7 @@
             },
             "% of label": {
                 "total": 100.0,
-                "cis": 1.23,
+                "cis": 1.22,
                 "unspecified trans/cis status": 35.61,
                 "trans respondants": 63.13,
                 "unspecified trans direction": 23.46,
@@ -1366,8 +1366,8 @@
         "nb umbrella": {
             "#": {
                 "total": 37732,
-                "cis": 643,
-                "unspecified trans/cis status": 14881,
+                "cis": 642,
+                "unspecified trans/cis status": 14882,
                 "trans respondants": 22192,
                 "unspecified trans direction": 8121,
                 "transmasc": 10058,
@@ -1378,7 +1378,7 @@
             },
             "% of total": {
                 "total": 77.57,
-                "cis": 40.7,
+                "cis": 40.66,
                 "unspecified trans/cis status": 76.09,
                 "trans respondants": 80.74,
                 "unspecified trans direction": 89.53,
@@ -1416,7 +1416,7 @@
             },
             "% of total": {
                 "total": 46.43,
-                "cis": 28.16,
+                "cis": 28.18,
                 "unspecified trans/cis status": 47.8,
                 "trans respondants": 46.5,
                 "unspecified trans direction": 56.98,
@@ -1454,7 +1454,7 @@
             },
             "% of total": {
                 "total": 24.9,
-                "cis": 13.29,
+                "cis": 13.3,
                 "unspecified trans/cis status": 23.56,
                 "trans respondants": 26.51,
                 "unspecified trans direction": 30.45,
@@ -1606,7 +1606,7 @@
             },
             "% of total": {
                 "total": 23.5,
-                "cis": 14.87,
+                "cis": 14.88,
                 "unspecified trans/cis status": 26.03,
                 "trans respondants": 22.2,
                 "unspecified trans direction": 29.91,
@@ -1644,7 +1644,7 @@
             },
             "% of total": {
                 "total": 6.13,
-                "cis": 4.3,
+                "cis": 4.31,
                 "unspecified trans/cis status": 4.08,
                 "trans respondants": 7.7,
                 "unspecified trans direction": 8.83,

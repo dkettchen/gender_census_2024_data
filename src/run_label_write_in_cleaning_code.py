@@ -93,7 +93,8 @@ all_queer_labels = key_word_dict["lesbian"] + key_word_dict["dyke"] \
                     + key_word_dict["butch"] + key_word_dict["sapphic"] \
                     + key_word_dict["gay"] + key_word_dict["achillean"] \
                     + key_word_dict["twink"] + key_word_dict["bear"] \
-                    + key_word_dict["homo"] + key_word_dict["fag"]
+                    + key_word_dict["homo"] + key_word_dict["fag"] \
+                    + key_word_dict["femboy"]
 conflicted_queer_list = find_case(all_queer_labels, "conflicted_queer_labels")
 dyke_fag_list = find_case(all_queer_labels, "dykefag")
 lesb_for_men_list = find_case(all_queer_labels, "lesbianism_for_men")

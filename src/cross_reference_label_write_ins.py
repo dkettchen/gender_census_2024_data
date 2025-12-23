@@ -893,9 +893,11 @@ def cross_reference(input_df:pd.DataFrame):
         ) | ( # or separate labels
             ( # must have wlw label
                 new_df["wlw_labels_unified"] == "Yes"
-            ) & ( # must be male aligned
+            ) & ( # must be male-aligned 
+                # or explicitly transmasc (= expl. not a woman, so why queer women's labels)
                 (new_df["is_male_aligned"] == "Yes") | (
-                new_df["is_conflicted_male_aligned"] == "Yes")
+                new_df["is_conflicted_male_aligned"] == "Yes") | (
+                new_df["is_transmasc"] == "Yes")
             )
         )
     )
@@ -904,11 +906,15 @@ def cross_reference(input_df:pd.DataFrame):
         ( # either already tagged as faggotry for women
             new_df["faggotry_for_women_user"] == "Yes"
         ) | ( # or separate labels
-            ( # must have mlm label
-                new_df["mlm_labels_unified"] == "Yes"
+            ( # must have mlm label or femboy 
+            # (as we included testo butches etc in the reverse, so hrt femboys should be in here)
+                (new_df["mlm_labels_unified"] == "Yes") | (
+                new_df["femboy_user"] == "Yes")
             ) & ( # must be female aligned
+                # or explicitly transfemme (= expl. not a man, so why queer men's labels)
                 (new_df["is_female_aligned"] == "Yes") | (
-                new_df["is_conflicted_female_aligned"] == "Yes")
+                new_df["is_conflicted_female_aligned"] == "Yes") | (
+                new_df["is_transfemme"] == "Yes")
             )
         )
     )
