@@ -2,7 +2,7 @@ colours = {
     "five_categories": {
         "cis": "black",
         "unspecified trans/cis status": "silver",
-        "unspecified trans direction": "white",
+        "unspecified trans direction": "lightcyan",
         "transmasc": "skyblue",
         "transfemme": "hotpink",
     },
@@ -56,4 +56,5 @@ colours = {
         "Plural":"indigo",
         "Detrans":"mediumorchid",
     }
+
 }
