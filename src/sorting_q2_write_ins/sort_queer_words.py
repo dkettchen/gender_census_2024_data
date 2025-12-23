@@ -467,9 +467,29 @@ def is_conflicting_queer(input_str:str):
         "lesbian but in a yaoi way", # this just has no overlap, like- there are no lesbians in yaoi?? wym??
         "t dyke", # t dyke might be tgirl dyke, not transmasc 🤔
         "t-dyke",
+        "boy but in a fem way",
+        "femtransboy",
+        "boyfem",
+        "fem and masc but neither boy or girl",
+        "femhemidemisemiboy",
+        "fem boy",
     ]:
         if item in lower_str:
             result_bool = False
+    
+    if "fembo" in lower_str: # exclude femboys except for conflicted ones
+        result_bool = False
+        for item in [
+            "hrt",
+            "she/her",
+            "woman",
+            "girl",
+            "male to female",
+            "not a boy",
+            "butch",
+        ]:
+            if item in lower_str:
+                result_bool = True
 
     return result_bool
 
@@ -504,9 +524,20 @@ def is_lesbianism_for_men(input_str:str):
         "mix between fem twink and butch lesbian",
         "shebear",
         "sissy", # bc largely amab crossdressers leaning toward transfemme
+        "fembo",
+        'she/her',
     ]:
         if item in lower_str:
             result_bool = False
+
+    # reincluding
+    for item in [
+        "butchfemboy",
+        "butch femboy",
+        "if a femboy were butch",
+    ]:
+        if item in lower_str:
+            result_bool = True
 
     return result_bool
 
@@ -542,9 +573,22 @@ def is_faggotry_for_women(input_str:str):
         "for everyone",
         "gayboy, gaygirl",
         "lesb",
+        "boy but in a fem way",
+        "femtransboy",
+        "boyfem",
+        "fem and masc but neither boy or girl",
+        "fem boy",
+        "femhemidemisemiboy",
     ]:
         if item in lower_str:
             result_bool = False
+
+    for item in [
+        "femboygirl",
+    ]:
+        if item in lower_str:
+            result_bool = True
+
 
     return result_bool
 
@@ -572,6 +616,13 @@ def is_dykefag(input_str:str):
     # excluding stuff
     for item in [
         "(though I am not a lesbian)",
+        "fembo",
+        "fem bo",
+        "boy but in a fem way",
+        "femtransboy",
+        "boyfem",
+        "fem and masc but neither boy or girl",
+        "femhemidemisemiboy",
     ]:
         if item in lower_str:
             result_bool = False
