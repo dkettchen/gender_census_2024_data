@@ -48,6 +48,11 @@ colours = {
         "female_aligned":"mediumvioletred",
         "male_aligned":"slateblue",
         "unaligned":"purple",
+
+        "she_user":"mediumvioletred",
+        "he_user":"slateblue",
+        "no_he": "purple",
+        "no_she": "purple",
     },
     "intersections": {
         "Intersex":"gold",

@@ -1,5 +1,6 @@
 import pandas as pd
 from visualisation.vis_utils.get_pronoun_alignment import get_pronoun_alignment
+from visualisation.vis_utils.get_trans_aligned_pronouns import get_trans_aligned_pronouns
 from visualisation.vis_utils.count import count
 from visualisation.vis_utils.import_data import case_get_lists
 from visualisation.vis_utils.geo_utils import english_speaking, other_countries
@@ -249,6 +250,13 @@ def prep_pronouns_by_labels(label_df:pd.DataFrame, pronoun_df:pd.DataFrame):
         data[f"Pronoun sets used by{label} respondants{suffix}"] = label_sets
         # pronoun alignments
         data[f"Pronoun alignments of{label} respondants{suffix}"] = get_pronoun_alignment(label_sets)
+        if "transmasc" in label or "transfemme" in label:
+            if "transfemme" in label:
+                direction = "transfemme"
+            else:
+                direction = "transmasc"
+            # trans aligned pronoun usage
+            data[f"Trans-aligned pronoun usage of{label} respondants{suffix}"] = get_trans_aligned_pronouns(label_sets, direction)
 
     return data
 

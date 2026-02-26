@@ -48,6 +48,15 @@ for categ in colours["five_categories"]:
         height = 800
     )
 
+    # TODO add charts for whether trans ppl of relevant direction use trans aligned pronouns (incl balanced sets)
+    if "transmasc" in categ or "transfemme" in categ:
+        trans_aligned_pie = make_pie(data["pronouns_by_label"][f"Trans-aligned pronoun usage of {respondants}"], f"Trans-aligned pronoun usage of {respondants}")
+        trans_aligned_pie.write_image(
+            f"{folder}/pronouns_by_label_trans_aligned_usage_{subbed_categ}.png",
+            width = 800,
+            height = 800
+        )
+
 # intersex etc respondants
 intersectional_bar = make_simple_bar(data["write_ins"]["Intersections"], "write_ins_intersections")
 intersectional_bar.write_image(
@@ -79,3 +88,6 @@ female_faggotry_pie.write_image(
 # TODO we have one femboy whose cis status changed from cis to unspecified for some reason, 
 # investigate I guess??
 
+# TODO remake old charts so we can rerun them
+# TODO rerun some charts with and without write ins 
+#   -> see if any labels had a lot of additions from write-ins

@@ -24,11 +24,13 @@ def make_pie(input_dict:dict, data_case:str):
         "faggotry_for_women",
     ]:
         colours = [palette["five_categories"][l] for l in labels]
+    elif "Trans-aligned" in data_case:
+        colours = [palette["alignments"][l] for l in labels]
     elif "alignment" in data_case:
         colours = [palette["alignments"][l] for l in labels]
     elif "pronoun" in data_case.lower():
         colours = [palette["pronouns"][l] for l in labels]
-        
+
     # making other variables
     values = [input_dict[l] for l in labels]
     # text = [str(number) + "%" for number in values]
